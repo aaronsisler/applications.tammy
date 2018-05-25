@@ -19,3 +19,4 @@ This is an Talent Applicant Management system that can be used by small to mid-s
 2. Run webpack dev server on http://localhost:8080
 
         `yarn dev`
+
