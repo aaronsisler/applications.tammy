@@ -1,10 +1,10 @@
+/* global require module __dirname */
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
     const isProduction = env === 'production';
     const CSSExtract = new ExtractTextPlugin('styles.css');
-
     return {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
@@ -12,13 +12,14 @@ module.exports = (env) => {
             publicPath: '/dist/'
         },
         devtool: isProduction ? 'source-map' : 'inline-source-map',
-        entry: ['babel-polyfill','./src/app.js'],
+        entry: ['babel-polyfill', './src/app.js'],
         module: {
             rules: [{
                 loader: 'babel-loader',
                 test: /\.js$/,
                 exclude: /node_modules/
-            }, {
+            },
+            {
                 test: /\.s?css$/,
                 use: CSSExtract.extract({
                     use: [
@@ -36,6 +37,10 @@ module.exports = (env) => {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.(ttf|woff|woff2)$/,
+                loader: 'file-loader?name=fonts/[name].[ext]'
             }]
         },
         output: {
@@ -46,4 +51,4 @@ module.exports = (env) => {
             CSSExtract
         ]
     }
-}
+};

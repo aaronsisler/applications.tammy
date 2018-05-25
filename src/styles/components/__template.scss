@@ -1,16 +1,6 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
-@media only screen {
-    * {
-        box-sizing: border-box;
-    }
-    html {
-        font-size: 62.5%;
-    }
-    button {
-        cursor: pointer;
-    }
-}
+@media only screen {}
 
 //Medium screens - TABLET
 //min-width 641px, medium screens

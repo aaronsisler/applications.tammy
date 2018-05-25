@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 const config = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
+    apiKey: "AIzaSyB1Usq_JhrJRmTKaHVjNMe5xzRmqT_U49E",
+    authDomain: "tammy-in-hr.firebaseapp.com",
+    databaseURL: "https://tammy-in-hr.firebaseio.com",
+    projectId: "tammy-in-hr",
     storageBucket: "",
-    messagingSenderId: ""
+    messagingSenderId: "750914882179"
 };
 
 firebase.initializeApp(config);
