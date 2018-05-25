@@ -1,3 +1,4 @@
+/* global require process __dirname */
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -11,5 +12,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Server is up!');
+    console.log('Server is up!'); // eslint-disable-line no-console
 });

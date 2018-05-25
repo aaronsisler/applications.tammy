@@ -1,7 +1,7 @@
-# React Boilerplate
+# Tammy
 
 ## Description
-This is used to start a new project using React, webpack, and babel.
+This is an Talent Applicant Management system that can be used by small to mid-sized companies.  This uses React, webpack, and babel.
 
 
 ## Prerequisites:

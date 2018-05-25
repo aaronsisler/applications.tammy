@@ -7,7 +7,7 @@ import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
-import LoadingPage from './components/LoadingPage';
+import LoadingPage from './components/core/LoadingPage';
 
 const store = configureStore();
 
