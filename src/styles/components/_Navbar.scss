@@ -1,0 +1,43 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    #navbar {
+        background: $mainColor;
+    }
+    .navbar_content {
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar_links {
+        display: flex;
+    }
+    .navbar_link {
+        background: $mainColor;
+        border-bottom: 1px solid transparent;
+        color: white;
+        font-size: $medium;
+        margin: $small;
+        padding: $small 0 $xsmall;
+        text-decoration: none;
+    }
+    .navbar_link:hover {
+        border-bottom: 1px solid white;
+        transition: border-bottom .3s ease-in-out;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

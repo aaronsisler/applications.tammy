@@ -36,6 +36,7 @@
         "react-addons-shallow-compare": "^15.6.0",
         "react-dates": "12.7.0",
         "react-dom": "^16.0.0",
+        "react-ga": "^2.5.0",
         "react-modal": "^2.2.2",
         "react-redux": "^5.0.5",
         "react-router-dom": "^4.2.2",
@@ -46,6 +47,7 @@
         "webpack": "^3.1.0"
     },
     "devDependencies": {
+        "babel-eslint": "^8.2.3",
         "eslint": "^4.19.1",
         "eslint-plugin-react": "^7.8.2",
         "webpack-dev-server": "^2.5.1"

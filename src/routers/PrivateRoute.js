@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Header from '../components/core/Header';
+import Navbar from '../components/core/Navbar';
 
 export const PrivateRoute = ({
     isAuthenticated,
@@ -12,7 +12,7 @@ export const PrivateRoute = ({
         <Route {...props} component={() => (
             isAuthenticated ? (
                 <div>
-                    <Header />
+                    <Navbar />
                     <Component {...props} />
                 </div>
             ) : (
