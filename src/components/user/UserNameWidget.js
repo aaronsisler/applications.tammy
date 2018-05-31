@@ -40,46 +40,53 @@ export default class UserNameWidget extends React.Component {
                         Full Name
                     </div>
                     <div className="user_name_legal_inputs">
-                        <input
-                            type="text"
-                            name="firstName"
-                            placeholder="First Name"
-                            autoFocus
-                            className="text_input"
-                            value={this.state.firstName}
-                            onChange={this.onInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="middleName"
-                            placeholder="Middle Name"
-                            className="text_input"
-                            value={this.state.middleName}
-                            onChange={this.onInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="lastName"
-                            placeholder="Last Name"
-                            className="text_input"
-                            value={this.state.lastName}
-                            onChange={this.onInputChange}
-                        />
+                        <div className="user_name_input">
+                            <input
+                                type="text"
+                                name="firstName"
+                                placeholder="First Name"
+                                className="text_input"
+                                value={this.state.firstName}
+                                onChange={this.onInputChange}
+                            />
+                        </div>
+                        <div className="user_name_input">
+                            <input
+                                type="text"
+                                name="middleName"
+                                placeholder="Middle Name"
+                                className="text_input"
+                                value={this.state.middleName}
+                                onChange={this.onInputChange}
+                            />
+                        </div>
+                        <div className="user_name_input">
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Last Name"
+                                className="text_input"
+                                value={this.state.lastName}
+                                onChange={this.onInputChange}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="user_name_display_content">
                     <div className="user_name_content_title">
                         Display Name
                     </div>
-                    <div className="user_name_display_inputs">
-                        <input
-                            type="text"
-                            name="displayName"
-                            placeholder="Display Name"
-                            className="text_input"
-                            value={this.state.displayName}
-                            onChange={this.onInputChange}
-                        />
+                    <div className="user_name_display_input">
+                        <div className="user_name_input">
+                            <input
+                                type="text"
+                                name="displayName"
+                                placeholder="Display Name"
+                                className="text_input"
+                                value={this.state.displayName}
+                                onChange={this.onInputChange}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div>

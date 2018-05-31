@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
+import UserContactInfoWidget from './UserContactInfoWidget';
 import { startEditUser } from '../../actions/user';
 
 export class UserProfileContainer extends React.Component {
@@ -22,6 +23,10 @@ export class UserProfileContainer extends React.Component {
                     onSubmit={this.onSubmit}
                 />
                 <UserAddressWidget
+                    user={this.props.user}
+                    onSubmit={this.onSubmit}
+                />
+                <UserContactInfoWidget
                     user={this.props.user}
                     onSubmit={this.onSubmit}
                 />

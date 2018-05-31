@@ -29,6 +29,7 @@
         font-size: $medium;
         margin: $xsmall 0;
         padding: $small;
+        width: 100%;
     }
 }
 
@@ -43,8 +44,10 @@
         margin: $xsmall;
     }
     .text_input {
-        flex-grow: 1;
         margin: $xsmall;
+        // flex: 0 1 auto;
+        // flex-grow: 1;
+        // width: 100%;
     }
 }
 

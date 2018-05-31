@@ -7,16 +7,10 @@
         padding: $medium;
     }
     .user_name_legal_inputs {
-        display: flex;
         font-family: $secondaryFont;
-        flex-flow: column;
-        justify-content: space-evenly;
-        text-align: center;
     }
-    .user_name_display_inputs {
+    .user_name_input {
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
     }
     .user_name_content_title {
         font-family: $secondaryFont;
@@ -32,12 +26,10 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     #user_name_widget {
-        max-width: 80rem;
+        max-width: 70rem;
     }
     .user_name_legal_inputs {
-        flex-direction: row;
-    }
-    .user_name_display_inputs {
+        display: flex;
         flex-direction: row;
     }
     .user_name_content_title {
