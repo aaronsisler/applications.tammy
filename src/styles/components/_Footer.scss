@@ -1,0 +1,30 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    footer {
+        background-color: $mainColor;
+        color: white;
+        display: flex;
+        font-family: $secondaryFont;
+        font-size: $medium;
+        justify-content: space-evenly;
+        padding: $medium;
+        text-align: center;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: 40.063em) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: 64.063em) {}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: 90.063em) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: 120.063em) {}
