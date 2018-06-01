@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { requiredInputFieldClassName } from '../../tools/constants';
+import { isEmailValid } from '../../tools/email';
 
 export default class UserNameWidget extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isEmailValid: props.user.email ? true : false,
             email: props.user.email ? props.user.email : '',
             phoneAreaCode: props.user.phoneAreaCode ? props.user.phoneAreaCode : '',
             phonePrefix: props.user.phonePrefix ? props.user.phonePrefix : '',
@@ -13,16 +16,55 @@ export default class UserNameWidget extends React.Component {
         };
     }
 
-    onInputChange = (e) => {
+    handleEmailInput = (e) => {
+        const inputValue = e.target.value;
+
+        this.setState({ email: inputValue });
+    }
+
+    handleEmailValidation = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
 
-        return this.setState(() => ({
-            [inputName]: inputValue,
-        }));
+        if (isEmailValid(inputValue)) {
+            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
+            return this.setState({ isEmailValid: true });
+        }
+        else {
+            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
+            return this.setState({ isEmailValid: false });
+        }
     }
 
-    onSubmit = () => {
+    handlePhoneNumberValidation = (e) => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
+
+        if (!inputValue) {
+            return this.setState({ [inputName]: inputValue });
+        }
+
+        switch (inputName) {
+            case 'phoneAreaCode':
+            case 'phonePrefix':
+                if (inputValue.match(/^\d{1,3}?$/)) {
+                    this.setState({ [inputName]: inputValue });
+                }
+                return;
+            case 'phoneLineNumber':
+                if (inputValue.match(/^\d{1,4}?$/)) {
+                    this.setState({ [inputName]: inputValue });
+                }
+                return;
+            default:
+                if (inputValue.match(/^\d{1,5}?$/)) {
+                    this.setState({ [inputName]: inputValue });
+                }
+                return;
+        }
+    }
+
+    handleSubmit = () => {
         const submitObject = Object.assign({}, this.state);
         this.props.onSubmit(submitObject);
     }
@@ -41,7 +83,8 @@ export default class UserNameWidget extends React.Component {
                             placeholder="Email"
                             className="text_input"
                             value={this.state.email}
-                            onChange={this.onInputChange}
+                            onChange={this.handleEmailInput}
+                            onBlur={this.handleEmailValidation}
                         />
                     </div>
                 </div>
@@ -57,7 +100,7 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="(919)"
                                 className="text_input"
                                 value={this.state.phoneAreaCode}
-                                onChange={this.onInputChange}
+                                onChange={this.handlePhoneNumberValidation}
                             />
                         </div>
                         <div className="user_phone_number_input">
@@ -67,7 +110,7 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="123"
                                 className="text_input"
                                 value={this.state.phonePrefix}
-                                onChange={this.onInputChange}
+                                onChange={this.handlePhoneNumberValidation}
                             />
                         </div>
                         <div className="user_phone_number_input">
@@ -77,7 +120,7 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="4567"
                                 className="text_input"
                                 value={this.state.phoneLineNumber}
-                                onChange={this.onInputChange}
+                                onChange={this.handlePhoneNumberValidation}
                             />
                         </div>
                         <div className="user_phone_number_input">
@@ -87,13 +130,19 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="Ext."
                                 className="text_input"
                                 value={this.state.phoneExt}
-                                onChange={this.onInputChange}
+                                onChange={this.handlePhoneNumberValidation}
                             />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button onClick={this.onSubmit} className="button">Save Contact Info</button>
+                    <button
+                        disabled={!this.state.isEmailValid}
+                        onClick={this.handleSubmit}
+                        className="button"
+                    >
+                        Save Contact Info
+                    </button>
                 </div>
             </div>
         )

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { requiredInputFieldClassName } from '../../tools/constants';
 
 export default class UserNameWidget extends React.Component {
     constructor(props) {
@@ -8,11 +9,11 @@ export default class UserNameWidget extends React.Component {
             firstName: props.user.firstName ? props.user.firstName : '',
             middleName: props.user.middleName ? props.user.middleName : '',
             lastName: props.user.lastName ? props.user.lastName : '',
-            displayName: props.user.displayName ? props.user.displayName : `${props.user.firstName} ${props.user.lastName}`,
+            displayName: props.user.displayName ? props.user.displayName : ``,
         };
     }
 
-    onInputChange = (e) => {
+    handleInputChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
 
@@ -21,13 +22,21 @@ export default class UserNameWidget extends React.Component {
         }));
     }
 
-    onSubmit = () => {
-        const submitObject = {
-            firstName: this.state.firstName,
-            middleName: this.state.middleName,
-            lastName: this.state.lastName,
-            displayName: this.state.displayName ? this.state.displayName : `${this.state.firstName} ${this.state.lastName}`,
+    handleRequiredValidation = (e) => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
+
+        if (!inputValue) {
+            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
         }
+        else {
+            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
+        }
+    }
+
+    handleSubmit = () => {
+        const displayName = this.state.displayName ? this.state.displayName : `${this.state.firstName} ${this.state.lastName}`
+        const submitObject = Object.assign({}, this.state, { displayName });
         this.props.onSubmit(submitObject);
         this.setState({ ...submitObject });
     }
@@ -35,6 +44,7 @@ export default class UserNameWidget extends React.Component {
     render() {
         return (
             <div id="user_name_widget">
+                {this.state.error}
                 <div className="user_name_legal_content" >
                     <div className="user_name_content_title">
                         Full Name
@@ -47,7 +57,8 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="First Name"
                                 className="text_input"
                                 value={this.state.firstName}
-                                onChange={this.onInputChange}
+                                onChange={this.handleInputChange}
+                                onBlur={this.handleRequiredValidation}
                             />
                         </div>
                         <div className="user_name_input">
@@ -57,7 +68,7 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="Middle Name"
                                 className="text_input"
                                 value={this.state.middleName}
-                                onChange={this.onInputChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                         <div className="user_name_input">
@@ -67,7 +78,8 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="Last Name"
                                 className="text_input"
                                 value={this.state.lastName}
-                                onChange={this.onInputChange}
+                                onChange={this.handleInputChange}
+                                onBlur={this.handleRequiredValidation}
                             />
                         </div>
                     </div>
@@ -84,13 +96,19 @@ export default class UserNameWidget extends React.Component {
                                 placeholder="Display Name"
                                 className="text_input"
                                 value={this.state.displayName}
-                                onChange={this.onInputChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button onClick={this.onSubmit} className="button">Save User Info</button>
+                    <button
+                        disabled={!this.state.firstName || !this.state.lastName}
+                        onClick={this.handleSubmit}
+                        className="button"
+                    >
+                        Save User Info
+                    </button>
                 </div>
             </div>
         )

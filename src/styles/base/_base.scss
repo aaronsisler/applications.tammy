@@ -24,12 +24,18 @@
         font-size: $medium;
         padding: $small $medium;
     }
+    .button:disabled {
+        opacity: 0.5;
+    }
     .text_input {
         border: 1px solid $midLightGrey;
         font-size: $medium;
         margin: $xsmall 0;
         padding: $small;
         width: 100%;
+    }
+    .text_input_required {
+        border: 2px solid red;
     }
 }
 
@@ -44,8 +50,7 @@
         margin: $xsmall;
     }
     .text_input {
-        margin: $xsmall;
-        // flex: 0 1 auto;
+        margin: $xsmall; // flex: 0 1 auto;
         // flex-grow: 1;
         // width: 100%;
     }

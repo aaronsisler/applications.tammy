@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { requiredInputFieldClassName } from '../../tools/constants';
 
 export default class UserAddressWidget extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class UserAddressWidget extends React.Component {
         };
     }
 
-    onInputChange = (e) => {
+    handleInputChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
 
@@ -27,6 +28,18 @@ export default class UserAddressWidget extends React.Component {
             default:
                 this.handleAddInput(inputName, inputValue);
                 return;
+        }
+    }
+
+    handleRequiredValidation = (e) => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
+
+        if (!inputValue) {
+            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
+        }
+        else {
+            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
         }
     }
 
@@ -48,7 +61,7 @@ export default class UserAddressWidget extends React.Component {
         }))
     )
 
-    onSubmit = () => {
+    handleSubmit = () => {
         const submitObject = Object.assign({}, this.state);
         this.props.onSubmit(submitObject);
     }
@@ -69,7 +82,8 @@ export default class UserAddressWidget extends React.Component {
                                     placeholder="Address Line 1"
                                     className="text_input"
                                     value={this.state.addressLine1}
-                                    onChange={this.onInputChange}
+                                    onChange={this.handleInputChange}
+                                    onBlur={this.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -79,7 +93,7 @@ export default class UserAddressWidget extends React.Component {
                                     placeholder="Address Line 2"
                                     className="text_input"
                                     value={this.state.addressLine2}
-                                    onChange={this.onInputChange}
+                                    onChange={this.handleInputChange}
                                 />
                             </div>
                         </div>
@@ -91,7 +105,8 @@ export default class UserAddressWidget extends React.Component {
                                     placeholder="City"
                                     className="text_input"
                                     value={this.state.city}
-                                    onChange={this.onInputChange}
+                                    onChange={this.handleInputChange}
+                                    onBlur={this.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -101,7 +116,8 @@ export default class UserAddressWidget extends React.Component {
                                     placeholder="State"
                                     className="text_input"
                                     value={this.state.state}
-                                    onChange={this.onInputChange}
+                                    onChange={this.handleInputChange}
+                                    onBlur={this.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -111,14 +127,21 @@ export default class UserAddressWidget extends React.Component {
                                     placeholder="Postal Code"
                                     className="text_input"
                                     value={this.state.postalCode}
-                                    onChange={this.onInputChange}
+                                    onChange={this.handleInputChange}
+                                    onBlur={this.handleRequiredValidation}
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button onClick={this.onSubmit} className="button">Save Address</button>
+                    <button
+                        disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
+                        onClick={this.handleSubmit}
+                        className="button"
+                    >
+                        Save Address
+                    </button>
                 </div>
             </div>
         )
