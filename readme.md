@@ -12,7 +12,7 @@ This is an Talent Applicant Management system that can be used by small to mid-s
 
 ## Deving steps:
 
-1. Install packages using [Yarn 1.5.1](https://github.com/yarnpkg/yarn/releases/tag/v1.5.1)
+1. Install packages using [Yarn 1.7.0](https://github.com/yarnpkg/yarn/releases/tag/v1.7.0)
 
         yarn
 

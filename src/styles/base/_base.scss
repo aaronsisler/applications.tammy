@@ -2,13 +2,40 @@
 //max-width 640px, small screens
 @media only screen {
     * {
-        box-sizing: border-box;
+        font-family: $mainFont;
     }
     html {
         font-size: 62.5%;
     }
+    button,
+    input,
+    select,
+    textarea {
+        font-family: $mainFont;
+    }
     button {
         cursor: pointer;
+        margin-top: $xsmall;
+    }
+    .button {
+        background-color: $mainColor;
+        border: none;
+        color: white;
+        font-size: $medium;
+        padding: $small $medium;
+    }
+    .button:disabled {
+        opacity: 0.5;
+    }
+    .text_input {
+        border: 1px solid $midLightGrey;
+        font-size: $medium;
+        margin: $xsmall 0;
+        padding: $small;
+        width: 100%;
+    }
+    .text_input_required {
+        border: 2px solid red;
     }
 }
 
@@ -18,7 +45,14 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    button {
+        margin: $xsmall;
+    }
+    .text_input {
+        margin: $xsmall;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

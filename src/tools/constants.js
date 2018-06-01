@@ -14,3 +14,5 @@ export const analyticsLabels = {
     auditForm: 'Audit Form',
     contactForm: 'Contact Form',
 }
+
+export const requiredInputFieldClassName = 'text_input_required';

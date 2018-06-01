@@ -1,0 +1,54 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    #user_address_widget {
+        background: white;
+        border: 1px solid $midLightGrey;
+        padding: $medium;
+    }
+    .user_address_content_title {
+        font-family: $secondaryFont;
+        font-size: $medium;
+    }
+    .user_address_inputs {
+        font-family: $secondaryFont;
+    }
+    .user_address_street_addresses {
+        display: flex;
+        flex-flow: column;
+    }
+    .user_address_city_state_zip {
+        display: flex;
+        flex-flow: column;
+    }
+    .user_address_input {
+        display: flex;
+    }
+}
+
+// <div className="user_address_street_addresses">
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    #user_address_widget {
+        max-width: 60rem;
+    }
+    .user_address_content_title {
+        margin: $xsmall;
+    }
+    .user_address_city_state_zip {
+        flex-flow: row;
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}
