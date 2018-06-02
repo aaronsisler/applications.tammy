@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { startLogin } from '../../actions/auth';
 
 const LoginPage = (props) => (
-    <div className="login_content">
-        <h1>Tammy</h1>
-        <button className="button" onClick={props.startLogin}>Login with Google</button>
+    <div id="login_page">
+        <div className="login_content">
+            <button className="button" onClick={props.startLogin}>Login with Google</button>
+        </div>
     </div>
 );
 

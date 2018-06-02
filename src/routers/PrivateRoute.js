@@ -13,12 +13,12 @@ export const PrivateRoute = ({
         <Route {...props} component={() => (
             isAuthenticated ? (
                 <div>
-                    <Navbar />
+                    <Navbar isAuthenticated={isAuthenticated} />
                     <Component {...props} />
                     <Footer />
                 </div>
             ) : (
-                    <Redirect to="/" />
+                    <Redirect to="/logged_out" />
                 )
         )} />
     );

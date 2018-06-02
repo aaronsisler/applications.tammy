@@ -1,8 +1,10 @@
 @import './base/settings';
 @import './base/base';
-@import './components/Navbar';
-@import './components/Footer';
-@import './components/UserProfileContainer';
-@import './components/UserNameWidget';
-@import './components/UserAddressWidget';
-@import './components/UserContactInfoWidget';
+@import './components/core/Navbar';
+@import './components/core/Footer';
+@import './components/core/LoginPage';
+@import './components/core/LoggedOutPage';
+@import './components/user/UserProfileContainer';
+@import './components/user/UserNameWidget';
+@import './components/user/UserAddressWidget';
+@import './components/user/UserContactInfoWidget';
