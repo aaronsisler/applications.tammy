@@ -16,7 +16,7 @@ LoginPage.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-    startLogin: () => dispatch(startLogin())
+    startLogin: () => dispatch(startLogin('/user_account'))
 });
 
 export default connect(undefined, mapDispatchToProps)(LoginPage);

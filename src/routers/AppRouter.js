@@ -1,29 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import PropTypes from 'prop-types';
+
 import PositionsPage from '../components/position/PositionsPage';
 import LoginPage from '../components/core/LoginPage';
 import LoggedOutPage from '../components/core/LoggedOutPage';
 import DashboardPage from '../components/core/DashboardPage';
 import UserAccountPage from '../components/user/UserAccountPage';
 import NotFoundPage from '../components/core/NotFoundPage';
+import Navbar from '../components/core/Navbar';
+import Footer from '../components/core/Footer';
 
-import PublicRoute from './PublicRoute';
-import PrivateRoute from './PrivateRoute';
 
-export const history = createHistory();
+import { history } from '../tools/history';
 
-const AppRouter = () => (
+const AppRouter = (props) => (
     <Router history={history}>
-        <Switch>
-            <PublicRoute path="/" component={PositionsPage} exact={true} />
-            <PublicRoute path="/login" component={LoginPage} exact={true} />
-            <PublicRoute path="/logged_out" component={LoggedOutPage} exact={true} />
-            <PrivateRoute path="/dashboard" component={DashboardPage} exact={true} />
-            <PrivateRoute path="/user_account" component={UserAccountPage} exact={true} />
-            <Route component={NotFoundPage} />
-        </Switch>
+        <div>
+            <Navbar isAuthenticated={props.isAuthenticated} />
+            <Switch>
+                <Route path="/" component={PositionsPage} exact={true} />
+                <Route path="/login" component={LoginPage} exact={true} />
+                <Route path="/logged_out" component={LoggedOutPage} exact={true} />
+                <Route path="/dashboard" component={DashboardPage} exact={true} />
+                <Route path="/user_account" component={UserAccountPage} exact={true} />
+                <Route component={NotFoundPage} />
+            </Switch>
+            <Footer />
+        </div>
     </Router>
 );
 
-export default AppRouter;
+const mapStateToProps = (state) => ({
+    isAuthenticated: !!state.auth.uid
+});
+
+export default connect(mapStateToProps)(AppRouter);
+
+AppRouter.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
+};

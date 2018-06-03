@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AppRouter, { history } from './routers/AppRouter';
+import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetUser } from './actions/user';
@@ -33,9 +33,6 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(login(user.uid));
         store.dispatch(startSetUser()).then(() => {
             renderApp();
-            if (history.location.pathname === '/') {
-                history.push('/dashboard');
-            }
         });
     } else {
         store.dispatch(logout());
