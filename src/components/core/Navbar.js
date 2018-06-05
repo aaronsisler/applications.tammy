@@ -11,6 +11,7 @@ const Navbar = (props) => (
                 <div className="navbar_links">
                     <Link className="navbar_link" to="/dashboard">Dashboard</Link>
                     <Link className="navbar_link" to="/user_account">User Account</Link>
+                    <Link className="navbar_link" to="/">Positions</Link>
                 </div>
                 <div className="navbar_logout">
                     <button className="button navbar_link" onClick={props.startLogout}>Logout</button>

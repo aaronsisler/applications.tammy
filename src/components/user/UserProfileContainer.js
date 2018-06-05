@@ -10,10 +10,9 @@ import LoadingPage from '../core/LoadingPage';
 export class UserProfileContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onSubmit(user) {
+    onSubmit = (user) => {
         this.props.startEditUser(user);
     }
     render() {
