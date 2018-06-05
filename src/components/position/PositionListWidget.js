@@ -15,8 +15,8 @@ export default class PositionListWidget extends React.Component {
             <div className="position_list_widget">
                 <div className="position_list_widget_header">
                     <div className="show_for_mobile">Positions</div>
-                    <div className="show_for_desktop">Position</div>
-                    <div className="show_for_desktop">Job Id</div>
+                    <div className="show_for_desktop">Position Title</div>
+                    <div className="show_for_desktop">Location</div>
                 </div>
                 <div className="position_list_widget_body">
                     {

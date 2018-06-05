@@ -1,5 +1,6 @@
 @import './base/settings';
 @import './base/base';
+@import './base/visibility';
 @import './components/core/Navbar';
 @import './components/core/Footer';
 @import './components/core/LoginPage';
@@ -8,3 +9,6 @@
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
+@import './components/position/PositionContainer';
+@import './components/position/PositionListWidget';
+@import './components/position/PositionListItem';

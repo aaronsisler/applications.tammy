@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const PositionListItem = ({ id, title, jobId }) => (
+const PositionListItem = ({ id, title, jobId, location }) => (
     <Link className="position_list_item" to={`/position/${id}`}>
-        <div>
-            <h3 className="position_list_item_title">{title}</h3>
+        <div className="position_list_item__content">
+            <div className="position_list_item__title">
+                {title}
+            </div>
+            <div className="position_list_item__job_id">
+                Job Id: {jobId}
+            </div>
         </div>
-        <h3 className="position_list_item_job_id">
-            {jobId}
-        </h3>
+        <div className="position_list_item__location">
+            {location}
+        </div>
     </Link>
 );
 
@@ -19,4 +24,5 @@ PositionListItem.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     jobId: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
 };
