@@ -4,6 +4,8 @@ const userReducer = (state = userReducerDefaultState, action) => {
     switch (action.type) {
         case 'SET_USER':
             return action.user;
+        case 'CLEAR_USER':
+            return {};
         case 'EDIT_USER':
             return {
                 ...state,

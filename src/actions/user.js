@@ -7,9 +7,13 @@ export const setUser = (user) => ({
 
 export const startSetUser = () => (dispatch, getState) => {
     const { uid } = getState().auth;
+
     return database.ref(`users/${uid}`).once('value').then((snapshot) => {
         dispatch(setUser(
-            { uid: snapshot.key, ...snapshot.val() }));
+            {
+                uid: snapshot.key,
+                ...snapshot.val()
+            }));
     })
 };
 
@@ -25,3 +29,9 @@ export const startEditUser = (updates) => (dispatch, getState) => {
         dispatch(editUser(uid, updates));
     });
 };
+
+export const clearUser = () => ({
+    type: 'CLEAR_USER'
+});
+
+export const startClearUser = () => (dispatch) => dispatch(clearUser());
