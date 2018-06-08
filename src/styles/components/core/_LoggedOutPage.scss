@@ -1,28 +1,24 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #navbar {
-        background: $mainColor;
-    }
-    .navbar_content {
+    .logged_out_content {
         display: flex;
-        justify-content: space-between;
+        font-size: $midlarge;
+        justify-content: center;
+        padding: $large;
     }
-    .navbar_links {
+    .logged_out_link {
         display: flex;
+        justify-content: center;
+        padding: 0 $medium $large;
     }
     .navbar_link {
         background: $mainColor;
-        border-bottom: 1px solid transparent;
         color: white;
         font-size: $medium;
         margin: $small;
-        padding: $small 0 $xsmall;
+        padding: $small;
         text-decoration: none;
-    }
-    .navbar_link:hover {
-        border-bottom: 1px solid white;
-        transition: border-bottom .3s ease-in-out;
     }
 }
 
@@ -32,7 +28,14 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .logged_out_content {
+        justify-content: flex-start;
+    }
+    .logged_out_link {
+        justify-content: flex-start;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

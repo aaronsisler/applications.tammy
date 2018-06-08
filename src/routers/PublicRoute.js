@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Navbar from '../components/core/Navbar';
+import Footer from '../components/core/Footer';
 
 export const PublicRoute = ({
     isAuthenticated,
@@ -12,7 +14,11 @@ export const PublicRoute = ({
             isAuthenticated ? (
                 <Redirect to="/dashboard" />
             ) : (
-                    <Component {...props} />
+                    <div>
+                        <Navbar isAuthenticated={isAuthenticated} />
+                        <Component {...props} />
+                        <Footer />
+                    </div>
                 )
         )} />
     );

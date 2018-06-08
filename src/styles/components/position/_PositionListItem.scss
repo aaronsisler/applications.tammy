@@ -1,0 +1,48 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .position_list_item {
+        border: 1px solid darken(white, 7%);
+        border-top: none;
+        color: $darkGrey;
+        display: flex;
+        flex-direction: column;
+        padding: $small;
+        text-decoration: none;
+        transition: background .3s ease;
+        &:hover {
+            background: $lightGrey;
+        }
+    }
+    .position_list_item__title {
+        font-weight: bold;
+        margin: 0 auto $xsmall;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .position_list_item {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $medium;
+    }
+    .position_list_item__title {
+        font-weight: normal;
+        margin: 0;
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

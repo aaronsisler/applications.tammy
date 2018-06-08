@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AppRouter, { history } from './routers/AppRouter';
+import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetUser } from './actions/user';
+import { startSetPositions } from './actions/position';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
@@ -29,17 +30,15 @@ const renderApp = () => {
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        store.dispatch(login(user.uid));
-        store.dispatch(startSetUser()).then(() => {
+    store.dispatch(startSetPositions()).then(() => {
+        if (user) {
+            store.dispatch(login(user.uid));
+            store.dispatch(startSetUser()).then(() =>
+                renderApp()
+            );
+        } else {
+            store.dispatch(logout());
             renderApp();
-            if (history.location.pathname === '/') {
-                history.push('/dashboard');
-            }
-        });
-    } else {
-        store.dispatch(logout());
-        renderApp();
-        history.push('/');
-    }
+        }
+    })
 });

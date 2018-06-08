@@ -1,0 +1,30 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .login_content {
+        display: flex;
+        justify-content: center;
+        font-size: $medium;
+        padding: $large;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .login_content {
+        justify-content: flex-start;
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

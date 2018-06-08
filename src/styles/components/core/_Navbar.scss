@@ -1,0 +1,70 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .nav_toggles {
+        background-color: $mainColor;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $small;
+    }
+    .navbar_favicon {
+        color: white;
+        font-size: $large;
+        line-height: $small;
+    }
+    #nav_side_menu {
+        background: $mainColor;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: $large 0;
+        position: fixed;
+        left: -$navMenuWidth;
+        top: 0;
+        transition: all 0.3s ease;
+        width: $navMenuWidth;
+        z-index: 100;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+    }
+    .nav_side_menu_link {
+        align-items: center;
+        border-bottom: 1px solid transparent;
+        color: white;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: $small 0 $xsmall;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover {
+            border-bottom: 1px solid white;
+            transition: border-bottom .3s ease-in-out;
+        }
+    }
+    #nav_side_menu.nav_side_menu_open {
+        left: 0;
+    }
+    .body_open {
+        left: $navMenuWidth;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}
