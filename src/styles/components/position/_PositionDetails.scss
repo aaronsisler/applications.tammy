@@ -1,28 +1,13 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .inbox_list_item {
+    .position_details {
         align-items: center;
-        border-bottom: 1px solid #eee;
-        color: $darkGrey;
+        background-color: white;
+        border: 1px solid #eee;
         display: flex;
-        font-size: $medium;
-        justify-content: space-between;
-        padding: $medium $small;
-        text-decoration: none;
-        &:hover {
-            background: #fafafa;
-            color: $emailBlue;
-        }
-        &__title {
-            margin-bottom: $small;
-        }
-        &__job_id {
-            color: $fontGrey;
-        }
-        &__location {
-            color: $fontGrey;
-        }
+        flex-grow: 1;
+        justify-content: space-around;
     }
 }
 

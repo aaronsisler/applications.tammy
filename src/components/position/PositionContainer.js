@@ -2,22 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoadingPage from '../core/LoadingPage';
-import InboxList from './InboxList';
-import InboxDetails from './InboxDetails';
+import PositionList from './PositionList';
+import PositionDetails from './PositionDetails';
 
-export class InboxContainer extends React.Component {
+export class PositionContainer extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="inbox_container">
+            <div className="position_container">
                 {!this.props.positions && <LoadingPage />}
                 {this.props.positions &&
-                    <div className="inbox_widget">
-                        <InboxList positions={this.props.positions} />
-                        <InboxDetails />
+                    <div className="position_widget">
+                        <PositionList positions={this.props.positions} />
+                        <PositionDetails />
                     </div>
                 }
             </div>
@@ -29,10 +29,10 @@ const mapStateToProps = (state) => ({
     positions: state.positions
 });
 
-export default connect(mapStateToProps)(InboxContainer);
+export default connect(mapStateToProps)(PositionContainer);
 
 
-InboxContainer.propTypes = {
+PositionContainer.propTypes = {
     positions: PropTypes.array,
 };
 

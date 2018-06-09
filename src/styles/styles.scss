@@ -1,16 +1,19 @@
+//Base
 @import './base/settings';
 @import './base/base';
 @import './base/visibility';
+//Core
 @import './components/core/Navbar';
 @import './components/core/Footer';
 @import './components/core/LoginPage';
 @import './components/core/LoggedOutPage';
+//User
 @import './components/user/UserProfileContainer';
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
-
-@import './components/shared/InboxContainer';
-@import './components/shared/InboxList';
-@import './components/shared/InboxListItem';
-@import './components/shared/InboxDetails';
+//Position
+@import './components/position/PositionContainer';
+@import './components/position/PositionList';
+@import './components/position/PositionListItem';
+@import './components/position/PositionDetails';

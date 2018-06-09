@@ -1,5 +1,5 @@
 import React from 'react';
-import InboxContainer from '../shared/InboxContainer';
+import PositionContainer from '../position/PositionContainer';
 
 export default class PositionsPage extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ export default class PositionsPage extends React.Component {
     render() {
         return (
             <div id="positions_page">
-                <InboxContainer />
+                <PositionContainer />
             </div>
         );
     }
