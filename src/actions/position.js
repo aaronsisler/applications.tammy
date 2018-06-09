@@ -1,20 +1,10 @@
-import database from '../firebase/firebase';
-
-export const setPositions = (positions) => ({
-    type: 'SET_POSITIONS',
-    positions
+export const setPosition = (position) => ({
+    type: 'SET_POSITION',
+    position
 });
 
-export const startSetPositions = () => (dispatch) =>
-    database.ref(`positions`).once('value').then((snapshot) => {
-        const positions = [];
-
-        snapshot.forEach(childSnapshot => {
-            positions.push({
-                id: childSnapshot.key,
-                ...childSnapshot.val()
-            });
-        });
-
-        dispatch(setPositions(positions));
-    });
+export const startSetPosition = id => (dispatch, getState) => {
+    const { positions } = getState();
+    const position = positions[id];
+    return dispatch(setPosition(position));
+}

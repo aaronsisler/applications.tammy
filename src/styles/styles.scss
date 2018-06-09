@@ -9,6 +9,8 @@
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
-@import './components/position/PositionContainer';
-@import './components/position/PositionListWidget';
-@import './components/position/PositionListItem';
+
+@import './components/shared/InboxContainer';
+@import './components/shared/InboxList';
+@import './components/shared/InboxListItem';
+@import './components/shared/InboxDetails';

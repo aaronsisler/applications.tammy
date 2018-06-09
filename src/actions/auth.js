@@ -6,7 +6,7 @@ export const login = uid => ({
     uid
 });
 
-export const startLogin = (redirectUrl = '/dashboard') => () => {
+export const startLogin = (redirectUrl = '/user_account') => () => {
     firebase.auth().signInWithPopup(googleAuthProvider)
         .then(() => {
             history.push(redirectUrl);

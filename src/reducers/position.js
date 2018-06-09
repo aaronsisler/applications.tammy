@@ -1,13 +1,13 @@
-const positionsReducerDefaultState = [];
+const positionReducerDefaultState = null;
 
-const positionsReducer = (state = positionsReducerDefaultState, action) => {
+const positionReducer = (state = positionReducerDefaultState, action) => {
     switch (action.type) {
-        case 'SET_POSITIONS':
-            return action.positions;
+        case 'SET_POSITION':
+            return action.position;
         default:
             return state;
     }
 };
 
-export default positionsReducer;
+export default positionReducer;
 

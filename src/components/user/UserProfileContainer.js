@@ -18,8 +18,8 @@ export class UserProfileContainer extends React.Component {
     render() {
         return (
             <div>
-                {this.props.user && !this.props.user.uid && <LoadingPage />}
-                {this.props.user && this.props.user.uid &&
+                {!this.props.user && <LoadingPage />}
+                {this.props.user &&
                     <div id="user_profile_container">
                         <div className="user_widgets_column">
                             <div className="user_widget">
@@ -51,7 +51,7 @@ export class UserProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    user: state.user,
 })
 
 const mapDispatchToProps = (dispatch) => ({
