@@ -39,24 +39,41 @@
     }
     .position_details_content {
         font-size: $medium;
-        padding: $medium;
+        padding: $small $midlarge;
     }
     .position_details__description {
+        color: $fontGrey;
         display: flex;
         flex-flow: column;
-        margin: $small;
+        margin: $small 0 $large;
         span {
-            color: $fontGrey;
-            font-size: $midlarge;
+            color: $darkGrey;
+            font-size: $medium;
+            margin-bottom: $small;
+        }
+    }
+    .position_details__responsibilities {
+        color: $fontGrey;
+        margin: $small 0 $medium;
+        span {
+            color: $darkGrey;
+            font-size: $medium;
             margin-bottom: $small;
         }
     }
     .position_details__requirements {
-        margin: $small;
+        color: $fontGrey;
+        margin: $small 0;
         span {
-            color: $fontGrey;
-            font-size: $midlarge;
+            color: $darkGrey;
+            font-size: $medium;
             margin-bottom: $small;
+        }
+    }
+    .position_details__list {
+        padding: 0 $midlarge;
+        li {
+            margin-bottom: $xsmall;
         }
     }
 }

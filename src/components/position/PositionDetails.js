@@ -36,10 +36,20 @@ export class PositionDetails extends React.Component {
                                 <span>Description:</span>
                                 <div>{position.content.description}</div>
                             </div>
+                            {position.content.responsibilities &&
+                                <div className="position_details__responsibilities">
+                                    <span>Responsibilities:</span>
+                                    <ul className="position_details__list">
+                                        {position.content.responsibilities.map((responsibility, index) =>
+                                            <li key={index}>{responsibility}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            }
                             {position.content.requirements &&
                                 <div className="position_details__requirements">
                                     <span>Requirements:</span>
-                                    <ul>
+                                    <ul className="position_details__list">
                                         {position.content.requirements.map((requirement, index) =>
                                             <li key={index}>{requirement}</li>
                                         )}
