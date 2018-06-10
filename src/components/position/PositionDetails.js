@@ -8,16 +8,45 @@ export class PositionDetails extends React.Component {
     }
 
     render() {
+        const { position } = this.props;
         return (
             <div className="position_details">
-                {!this.props.position &&
+                {!position &&
                     <div>
                         Please select an item to view
                     </div>
                 }
-                {this.props.position &&
-                    <div className="position_details__content">
-                        {this.props.position.content}
+                {position &&
+                    <div className="position_details_widget">
+                        <div className="position_details_header">
+                            <div>
+                                <div className="position_details__title">
+                                    {position.title}
+                                </div>
+                                <div className="position_details__job_id">
+                                    Job Id: {position.jobId}
+                                </div>
+                            </div>
+                            <div className="position_details__location">
+                                {position.location}
+                            </div>
+                        </div>
+                        <div className="position_details_content">
+                            <div className="position_details__description">
+                                <span>Description:</span>
+                                <div>{position.content.description}</div>
+                            </div>
+                            {position.content.requirements &&
+                                <div className="position_details__requirements">
+                                    <span>Requirements:</span>
+                                    <ul>
+                                        {position.content.requirements.map((requirement, index) =>
+                                            <li key={index}>{requirement}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
             </div>

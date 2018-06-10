@@ -2,12 +2,62 @@
 //max-width 640px, small screens
 @media only screen {
     .position_details {
-        align-items: center;
         background-color: white;
-        border: 1px solid #eee;
+        border: 1px solid $midLightGrey;
         display: flex;
+        flex-basis: 70%;
         flex-grow: 1;
-        justify-content: space-around;
+    }
+    .position_details_widget {
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+    }
+    .position_details_header {
+        align-items: center;
+        background-color: $midLightGrey;
+        border-bottom: 1px solid $midGrey;
+        display: flex;
+        justify-content: space-between;
+        padding: $small $medium;
+    }
+    .position_details__title {
+        color: $darkGrey;
+        font-family: $secondaryFont;
+        font-size: $midlarge;
+        margin-bottom: $small;
+    }
+    .position_details__job_id {
+        color: $Grey;
+        font-family: $secondaryFont;
+        font-size: $medium;
+    }
+    .position_details__location {
+        color: $Grey;
+        font-family: $secondaryFont;
+        font-size: $medium;
+    }
+    .position_details_content {
+        font-size: $medium;
+        padding: $medium;
+    }
+    .position_details__description {
+        display: flex;
+        flex-flow: column;
+        margin: $small;
+        span {
+            color: $fontGrey;
+            font-size: $midlarge;
+            margin-bottom: $small;
+        }
+    }
+    .position_details__requirements {
+        margin: $small;
+        span {
+            color: $fontGrey;
+            font-size: $midlarge;
+            margin-bottom: $small;
+        }
     }
 }
 
