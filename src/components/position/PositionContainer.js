@@ -21,7 +21,7 @@ export class PositionContainer extends React.Component {
                 {!this.props.positions && <LoadingPage />}
                 {this.props.positions &&
                     <div className="position_widget">
-                        <div className="taco">
+                        <div className="position_list_wrapper">
                             <PositionListFilter />
                             <PositionList positions={this.props.positions} />
                         </div>
