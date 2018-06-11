@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
 import UserContactInfoWidget from './UserContactInfoWidget';
+import UserDocumentUploadWidget from './UserDocumentUploadWidget';
 import { startEditUser } from '../../actions/user';
 import LoadingPage from '../core/LoadingPage';
 
@@ -41,6 +42,9 @@ export class UserProfileContainer extends React.Component {
                                     user={this.props.user}
                                     onSubmit={this.onSubmit}
                                 />
+                            </div>
+                            <div className="user_widget">
+                                <UserDocumentUploadWidget />
                             </div>
                         </div>
                     </div>
