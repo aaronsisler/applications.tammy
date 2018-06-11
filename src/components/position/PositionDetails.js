@@ -12,7 +12,7 @@ export class PositionDetails extends React.Component {
         return (
             <div className="position_details">
                 {!position &&
-                    <div>
+                    <div className="empty">
                         Please select an item to view
                     </div>
                 }

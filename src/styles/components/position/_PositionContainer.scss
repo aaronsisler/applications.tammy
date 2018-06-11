@@ -13,6 +13,19 @@
         height: 60rem;
         max-width: 100rem;
     }
+    .position_list_wrapper {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        border-right: None;
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+        input {
+            border: none;
+            border-bottom: 1px solid $midLightGrey;
+            margin: 0;
+        }
+    }
 }
 
 //Medium screens - TABLET

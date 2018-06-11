@@ -7,6 +7,12 @@
         display: flex;
         flex-basis: 70%;
         flex-grow: 1;
+        justify-content: space-around;
+        .empty {
+            align-items: center;
+            display: flex;
+            font-size: $midlarge;
+        }
     }
     .position_details_widget {
         display: flex;
