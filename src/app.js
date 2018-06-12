@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetUser } from './actions/user';
 import { startSetPositions } from './actions/positions';
+import { startSetDocuments } from './actions/document';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
@@ -34,7 +35,9 @@ firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             store.dispatch(login(user.uid));
             store.dispatch(startSetUser()).then(() =>
-                renderApp()
+                store.dispatch(startSetDocuments(user.uid)).then(() =>
+                    renderApp()
+                )
             );
         } else {
             store.dispatch(logout());

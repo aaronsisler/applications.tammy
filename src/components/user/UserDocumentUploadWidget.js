@@ -13,7 +13,7 @@ export default class UserDocumentUploadWidget extends React.Component {
                     Upload Documents
                 </div>
                 <div className="user_document_upload_link">
-                    <Link className="nav_link" to="/document_upload" >
+                    <Link className="nav_link" to="/user_documents" >
                         Upload Documents
                     </Link>
                 </div>

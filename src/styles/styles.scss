@@ -7,14 +7,21 @@
 @import './components/core/Footer';
 @import './components/core/LoginPage';
 @import './components/core/LoggedOutPage';
+//Position
+@import './components/position/PositionContainer';
+@import './components/position/PositionList';
+@import './components/position/PositionListItem';
+@import './components/position/PositionDetails';
+//Shared
+@import './components/shared/document/DocumentList';
+@import './components/shared/document/DocumentListFilter';
+@import './components/shared/document/DocumentListItem';
+@import './components/shared/document/DocumentUploadWidget';
 //User
 @import './components/user/UserProfileContainer';
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
 @import './components/user/UserDocumentUploadWidget';
-//Position
-@import './components/position/PositionContainer';
-@import './components/position/PositionList';
-@import './components/position/PositionListItem';
-@import './components/position/PositionDetails';
+@import './components/user/UserDocumentsPage';
+@import './components/user/UserDocumentsContainer';
