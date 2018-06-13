@@ -8,6 +8,7 @@ import LoginPage from '../components/core/LoginPage';
 import LoggedOutPage from '../components/core/LoggedOutPage';
 import DashboardPage from '../components/core/DashboardPage';
 import UserAccountPage from '../components/user/UserAccountPage';
+import UserDocumentsPage from '../components/user/UserDocumentsPage';
 import NotFoundPage from '../components/core/NotFoundPage';
 import Navbar from '../components/core/Navbar';
 import Footer from '../components/core/Footer';
@@ -25,6 +26,7 @@ const AppRouter = (props) => (
                 <Route path="/logged_out" component={LoggedOutPage} exact={true} />
                 <Route path="/dashboard" component={DashboardPage} exact={true} />
                 <Route path="/user_account" component={UserAccountPage} exact={true} />
+                <Route path="/user_documents" component={UserDocumentsPage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
             <Footer />

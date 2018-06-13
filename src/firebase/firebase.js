@@ -5,7 +5,7 @@ const config = {
     authDomain: "tammy-in-hr.firebaseapp.com",
     databaseURL: "https://tammy-in-hr.firebaseio.com",
     projectId: "tammy-in-hr",
-    storageBucket: "",
+    storageBucket: "tammy-in-hr.appspot.com",
     messagingSenderId: "750914882179"
 };
 
@@ -13,5 +13,6 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const storage = firebase.storage();
 
-export { firebase, googleAuthProvider, database as default };
+export { firebase, googleAuthProvider, storage, database as default };

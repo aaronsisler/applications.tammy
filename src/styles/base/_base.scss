@@ -46,6 +46,14 @@
     .text_input_required {
         border: 2px solid red;
     }
+    .nav_link {
+        background: $mainColor;
+        color: white;
+        font-size: $medium;
+        margin: $small;
+        padding: $small;
+        text-decoration: none;
+    }
 }
 
 //Medium screens - TABLET

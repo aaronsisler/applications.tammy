@@ -8,12 +8,11 @@ export const setPositions = (positions) => ({
 export const startSetPositions = () => (dispatch) =>
     database.ref(`positions`).once('value').then((snapshot) => {
         const positions = [];
-
-        snapshot.forEach(childSnapshot => {
-            positions[childSnapshot.key] = {
+        snapshot.forEach((childSnapshot) => {
+            positions.push({
                 id: childSnapshot.key,
                 ...childSnapshot.val()
-            };
+            });
         });
 
         dispatch(setPositions(positions));

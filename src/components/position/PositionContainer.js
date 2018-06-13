@@ -7,9 +7,6 @@ import PositionList from './PositionList';
 import PositionDetails from './PositionDetails';
 import PositionListFilter from './PositionListFilter';
 
-// <div className="taco">
-// <PositionListFilter />
-
 export class PositionContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -34,8 +31,8 @@ export class PositionContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    positions: selectPositions(state.positions, state.filters.positions)
-});
+        positions: selectPositions(state.positions, state.filters.positions)
+    });
 
 export default connect(mapStateToProps)(PositionContainer);
 

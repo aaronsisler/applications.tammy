@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
+import documentsReducer from '../reducers/documents';
 import filtersReducer from '../reducers/filters';
 import positionReducer from '../reducers/position';
 import positionsReducer from '../reducers/positions';
@@ -16,6 +17,7 @@ export default () => {
             position: positionReducer,
             positions: positionsReducer,
             user: userReducer,
+            user_documents: documentsReducer,
         }),
         composeEnhancers(applyMiddleware(thunk))
     );

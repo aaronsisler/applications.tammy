@@ -5,6 +5,6 @@ export const setPosition = (position) => ({
 
 export const startSetPosition = id => (dispatch, getState) => {
     const { positions } = getState();
-    const position = positions[id];
-    return dispatch(setPosition(position));
+    const positionMatch = positions.find((position) => position.id == id);
+    return dispatch(setPosition(positionMatch));
 }

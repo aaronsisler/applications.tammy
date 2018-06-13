@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
 import UserContactInfoWidget from './UserContactInfoWidget';
+import UserDocumentUploadWidget from './UserDocumentUploadWidget';
 import { startEditUser } from '../../actions/user';
 import LoadingPage from '../core/LoadingPage';
 
@@ -42,6 +43,9 @@ export class UserProfileContainer extends React.Component {
                                     onSubmit={this.onSubmit}
                                 />
                             </div>
+                            <div className="user_widget">
+                                <UserDocumentUploadWidget />
+                            </div>
                         </div>
                     </div>
                 }
@@ -61,6 +65,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);
 
 UserProfileContainer.propTypes = {
-    user: PropTypes.object.isRequired,
+    user: PropTypes.object,
     startEditUser: PropTypes.func.isRequired,
 };
