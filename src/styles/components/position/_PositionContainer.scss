@@ -26,6 +26,15 @@
             margin: 0;
         }
     }
+    .position_details_wrapper {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        display: flex;
+        flex-basis: 70%;
+        flex-flow: column;
+        flex-grow: 1;
+        justify-content: space-around;
+    }
 }
 
 //Medium screens - TABLET

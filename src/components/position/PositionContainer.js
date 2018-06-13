@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import selectPositions from '../../selectors/positions';
 import LoadingPage from '../core/LoadingPage';
 import PositionList from './PositionList';
-import PositionDetails from './PositionDetails';
 import PositionListFilter from './PositionListFilter';
+import PositionDetails from './PositionDetails';
+import PositionApply from './PositionApply';
 
 export class PositionContainer extends React.Component {
     constructor(props) {
@@ -22,7 +23,12 @@ export class PositionContainer extends React.Component {
                             <PositionListFilter />
                             <PositionList positions={this.props.positions} />
                         </div>
-                        <PositionDetails />
+                        <div className="position_details_wrapper">
+                            <PositionDetails />
+                            {this.props.position &&
+                                <PositionApply />
+                            }
+                        </div>
                     </div>
                 }
             </div>
@@ -31,13 +37,15 @@ export class PositionContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-        positions: selectPositions(state.positions, state.filters.positions)
-    });
+    positions: selectPositions(state.positions, state.filters.positions),
+    position: state.position,
+});
 
 export default connect(mapStateToProps)(PositionContainer);
 
 
 PositionContainer.propTypes = {
     positions: PropTypes.array,
+    position: PropTypes.object,
 };
 

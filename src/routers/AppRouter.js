@@ -9,10 +9,10 @@ import LoggedOutPage from '../components/core/LoggedOutPage';
 import DashboardPage from '../components/core/DashboardPage';
 import UserAccountPage from '../components/user/UserAccountPage';
 import UserDocumentsPage from '../components/user/UserDocumentsPage';
+import PositionApplyPage from '../components/position/PositionApplyPage';
 import NotFoundPage from '../components/core/NotFoundPage';
 import Navbar from '../components/core/Navbar';
 import Footer from '../components/core/Footer';
-
 
 import { history } from '../tools/history';
 
@@ -27,6 +27,7 @@ const AppRouter = (props) => (
                 <Route path="/dashboard" component={DashboardPage} exact={true} />
                 <Route path="/user_account" component={UserAccountPage} exact={true} />
                 <Route path="/user_documents" component={UserDocumentsPage} exact={true} />
+                <Route path="/position_apply" component={PositionApplyPage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
             <Footer />
