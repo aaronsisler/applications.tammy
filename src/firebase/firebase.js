@@ -5,7 +5,7 @@ const config = {
     authDomain: "tammy-in-hr.firebaseapp.com",
     databaseURL: "https://tammy-in-hr.firebaseio.com",
     projectId: "tammy-in-hr",
-    storageBucket: "",
+    storageBucket: "tammy-in-hr.appspot.com",
     messagingSenderId: "750914882179"
 };
 

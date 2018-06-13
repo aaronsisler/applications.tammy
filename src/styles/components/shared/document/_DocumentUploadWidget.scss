@@ -8,6 +8,31 @@
         max-width: 93.5rem;
         padding: $large;
     }
+    .document_upload_content {
+        display: flex;
+        flex-flow: column;
+    }
+    .document_upload_content__loader {
+        display: flex;
+        justify-content: space-around;
+        padding: $small;
+    }
+    .document_upload_content__success {
+        align-items: center;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-around;
+        padding: $small;
+        text-align: center;
+        word-break: break-all;
+    }
+    .document_upload_content__progress {
+        align-items: center;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-around;
+        padding: $xsmall;
+    }
 }
 
 //Medium screens - TABLET
@@ -16,7 +41,28 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .document_upload_content {
+        flex-flow: row;
+    }
+    .document_upload_content__loader {
+        display: flex;
+        justify-content: flex-start;
+        padding: $medium;
+    }
+    .document_upload_content__success {
+        align-items: center;
+        font-size: $medium;
+        justify-content: flex-start;
+        padding: $small 0;
+        text-align: none;
+    }
+    .document_upload_content__progress {
+        align-items: center;
+        justify-content: flex-start;
+        padding: $xsmall 0;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

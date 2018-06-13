@@ -12,7 +12,7 @@ export default class DocumentListItem extends React.Component {
                 <div className="document_list_item__title">
                     {this.props.documentName}
                 </div>
-                <div className="position_list_item__date_uploaded">
+                <div className="document_list_item__date_uploaded">
                     {this.props.dateUploaded}
                 </div>
             </a>

@@ -31,7 +31,7 @@ export class UserDocumentsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    documents: state.user.documents,
+    documents: state.user_documents,
 })
 
 export default connect(mapStateToProps)(UserDocumentsContainer);

@@ -8,7 +8,7 @@
         &.empty {
             font-family: $secondaryFont;
             font-size: $midlarge;
-            padding: $large $small;
+            padding: $large 0;
             text-align: center;
         }
     }
@@ -22,14 +22,7 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     .document_list {
-        margin: $medium;
         max-width: 100rem;
-        &.empty {
-            font-family: $secondaryFont;
-            font-size: $midlarge;
-            padding: $large $small;
-            text-align: center;
-        }
     }
 }
 

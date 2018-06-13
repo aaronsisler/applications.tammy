@@ -65,6 +65,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);
 
 UserProfileContainer.propTypes = {
-    user: PropTypes.object.isRequired,
+    user: PropTypes.object,
     startEditUser: PropTypes.func.isRequired,
 };

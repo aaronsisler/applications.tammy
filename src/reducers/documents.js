@@ -6,8 +6,8 @@ const documentsReducer = (state = documentsReducerDefaultState, action) => {
             return action.documents;
         case 'ADD_DOCUMENT':
             return [...state, action.document];
-        case 'REMOVE_DOCUMENT':
-            return state.filter(document => document.id != action.id);
+        // case 'REMOVE_DOCUMENT':
+            // return state.filter((document) => document.id != action.id);
         default:
             return state;
     }

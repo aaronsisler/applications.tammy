@@ -8,14 +8,19 @@
         display: flex;
         font-size: $medium;
         justify-content: space-between;
-        padding: $medium $large;
+        padding: $medium;
         text-decoration: none;
+        word-break: break-all;
         &:hover {
             background: #fafafa;
             color: $emailBlue;
         }
+        &__title {
+            padding-right: $small;
+        }
         &__date_uploaded {
             color: $fontGrey;
+            padding-left: $small;
         }
     }
 }
@@ -26,7 +31,17 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .document_list_item {
+        padding: $medium $large;
+        &__title {
+            padding: $medium;
+        }
+        &__date_uploaded {
+            padding: $medium;
+        }
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens
