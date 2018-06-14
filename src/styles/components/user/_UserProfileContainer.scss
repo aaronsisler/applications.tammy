@@ -20,7 +20,7 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     #user_profile_container {
-        flex-flow: row;
+        flex-flow: row wrap;
         padding: $large;
     }
     .user_widget {

@@ -1,4 +1,5 @@
 import React from 'react';
+import UserProfileContainer from '../user/UserProfileContainer';
 
 export default class PositionApplyPage extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export default class PositionApplyPage extends React.Component {
     render() {
         return (
             <div id="position_apply_page">
-                PositionApplyPage
+                <UserProfileContainer />
             </div>
         );
     }

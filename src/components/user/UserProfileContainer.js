@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
 import UserContactInfoWidget from './UserContactInfoWidget';
-import UserDocumentUploadWidget from './UserDocumentUploadWidget';
 import { startEditUser } from '../../actions/user';
 import LoadingPage from '../core/LoadingPage';
 
@@ -22,30 +21,23 @@ export class UserProfileContainer extends React.Component {
                 {!this.props.user && <LoadingPage />}
                 {this.props.user &&
                     <div id="user_profile_container">
-                        <div className="user_widgets_column">
-                            <div className="user_widget">
-                                <UserNameWidget
-                                    user={this.props.user}
-                                    onSubmit={this.onSubmit}
-                                />
-                            </div>
-                            <div className="user_widget">
-                                <UserAddressWidget
-                                    user={this.props.user}
-                                    onSubmit={this.onSubmit}
-                                />
-                            </div>
+                        <div className="user_widget">
+                            <UserNameWidget
+                                user={this.props.user}
+                                onSubmit={this.onSubmit}
+                            />
                         </div>
-                        <div className="user_widgets_column">
-                            <div className="user_widget">
-                                <UserContactInfoWidget
-                                    user={this.props.user}
-                                    onSubmit={this.onSubmit}
-                                />
-                            </div>
-                            <div className="user_widget">
-                                <UserDocumentUploadWidget />
-                            </div>
+                        <div className="user_widget">
+                            <UserContactInfoWidget
+                                user={this.props.user}
+                                onSubmit={this.onSubmit}
+                            />
+                        </div>
+                        <div className="user_widget">
+                            <UserAddressWidget
+                                user={this.props.user}
+                                onSubmit={this.onSubmit}
+                            />
                         </div>
                     </div>
                 }
