@@ -1,14 +1,16 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_profile_container {
-        background-color: $lightGrey;
-        display: flex;
-        flex-flow: column;
-        padding: $small 0;
-    }
-    .user_widget {
-        margin: $small $small 0;
+    .document_selection_list {
+        background: white;
+        border: 1px solid $midLightGrey;
+        margin: $medium;
+        &.empty {
+            font-family: $secondaryFont;
+            font-size: $midlarge;
+            padding: $large 0;
+            text-align: center;
+        }
     }
 }
 
@@ -19,12 +21,8 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_profile_container {
-        flex-flow: row wrap;
-        padding: $medium;
-    }
-    .user_widget {
-        margin: $medium $medium 0;
+    .document_selection_list {
+        max-width: 100rem;
     }
 }
 

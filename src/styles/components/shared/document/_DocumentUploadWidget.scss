@@ -59,7 +59,9 @@
     }
     .document_upload_content__progress {
         align-items: center;
+        flex-grow: 1;
         justify-content: flex-start;
+        max-width: 30rem;
         padding: $xsmall 0;
     }
 }

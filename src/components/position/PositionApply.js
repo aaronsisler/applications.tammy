@@ -14,7 +14,7 @@ export class PositionApply extends React.Component {
             <div className="position_apply">
                 {this.props.isAuthenticated &&
                     <div className="position_apply_content__apply">
-                        <Link className="nav_link" to="position_apply">Apply Now</Link>
+                        <Link className="nav_link" to="apply">Apply Now</Link>
                     </div>
                 }
                 {!this.props.isAuthenticated &&
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    startLogin: () => dispatch(startLogin('position_apply'))
+    startLogin: () => dispatch(startLogin('apply'))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);

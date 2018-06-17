@@ -1,14 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_profile_container {
-        background-color: $lightGrey;
-        display: flex;
-        flex-flow: column;
-        padding: $small 0;
-    }
-    .user_widget {
-        margin: $small $small 0;
+    .application_progress_buttons_widget {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        padding: $medium;
     }
 }
 
@@ -19,12 +15,11 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_profile_container {
-        flex-flow: row wrap;
-        padding: $medium;
-    }
-    .user_widget {
-        margin: $medium $medium 0;
+    .application_progress_buttons_widget {
+        display: flex;
+        justify-content: center;
+        margin: $medium $large 0;
+        max-width: 35rem;
     }
 }
 
