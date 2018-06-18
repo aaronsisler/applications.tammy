@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DocumentSelectListItem from './DocumentSelectListItem';
+import DocumentSelectionListItem from './DocumentSelectionListItem';
 
 export default class DocumentSelectionList extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ export default class DocumentSelectionList extends React.Component {
             <div className="document_selection_list">
                 {
                     this.props.documents.map((document, index) =>
-                        <DocumentSelectListItem key={index} {...document} />)
+                        <DocumentSelectionListItem key={index} {...document} />)
                 }
             </div>
         );

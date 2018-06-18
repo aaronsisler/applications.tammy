@@ -19,14 +19,15 @@ export const startClearApplicationUser = () => (dispatch) => {
     dispatch(clearApplicationUser({}));
 }
 
-export const setApplicationUserDocuments = (userDocuments) => ({
-    type: 'SET_APPLICATION_USER_DOCUMENTS',
-    userDocuments
+export const addApplicationUserDocument = (userDocument) => ({
+    type: 'ADD_APPLICATION_USER_DOCUMENT',
+    userDocument
 });
 
-export const startSetApplicationUserDocuments = () => (dispatch, getState) => {
+export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, getState) => {
     const { userDocuments } = getState();
-    dispatch(setApplicationUserDocuments(userDocuments))
+    const userDocumentMatch = userDocuments.find((userDocument) => userDocument.id == userDocumentId)
+    dispatch(addApplicationUserDocument(userDocumentMatch))
 }
 
 
@@ -36,7 +37,7 @@ export const clearApplicationUserDocuments = () => ({
 });
 
 export const startClearApplicationUserDocuments = () => (dispatch) => {
-    dispatch(setApplicationUserDocuments({}))
+    dispatch(clearApplicationUserDocuments())
 }
 
 export const submitApplication = () => ({
