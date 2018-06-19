@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DocumentSelectionList from './DocumentSelectionList';
 
-export class DocumentSelectionContainer extends React.Component {
+export default class DocumentSelectionContainer extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -11,21 +10,17 @@ export class DocumentSelectionContainer extends React.Component {
     render() {
         return (
             <div className="document_selection_container">
-                <DocumentSelectionList documents={this.props.userDocuments} />
+                <DocumentSelectionList
+                    documents={this.props.documents}
+                    {...this.props}
+                />
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => ({
-    userDocuments: state.userDocuments,
-})
-
-const mapDispatchToProps = () => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DocumentSelectionContainer);
-
 DocumentSelectionContainer.propTypes = {
-    userDocuments: PropTypes.array.isRequired,
+    documents: PropTypes.array.isRequired,
+    handleDeselectDocument: PropTypes.func.isRequired,
+    handleSelectDocument: PropTypes.func.isRequired,
 };

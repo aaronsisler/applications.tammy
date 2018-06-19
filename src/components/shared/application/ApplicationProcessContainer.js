@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { startClearApplication } from '../../../actions/application';
 import ApplicationProgressContainer from './ApplicationProgressContainer';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationDocumentContainer from './ApplicationDocumentContainer';
@@ -16,6 +17,10 @@ export class ApplicationProcessContainer extends React.Component {
             maxSteps: this.steps.length,
             steps: this.steps,
         }
+    }
+
+    componentWillUnmount() {
+        this.props.startClearApplication();
     }
 
     handleIncrementCurrentStep = () => {
@@ -36,13 +41,6 @@ export class ApplicationProcessContainer extends React.Component {
         currentStep--;
         this.setState({ currentStep });
     }
-
-    /*
-        User profile info
-        Document Selection
-        Application Review and Submitted
-        Application Submitted
-    */
 
     render() {
         return (
@@ -92,10 +90,12 @@ const mapStateToProps = (state) => ({
     application: state.application
 })
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch) => ({
+    startClearApplication: () => dispatch(startClearApplication()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
+    startClearApplication: PropTypes.func.isRequired,
 };

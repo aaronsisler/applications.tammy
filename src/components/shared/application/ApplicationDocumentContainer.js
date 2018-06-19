@@ -3,53 +3,58 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
 import DocumentSelectionContainer from '../document/DocumentSelectionContainer';
-import { startClearApplicationUserDocuments, startSetApplicationUserDocuments } from '../../../actions/application';
+import {
+    startAddApplicationUserDocument,
+    startRemoveApplicationUserDocument,
+} from '../../../actions/application';
 
 export class ApplicationDocumentContainer extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    handleDecrementCurrentStep = () => {
-        this.props.startClearApplicationUserDocuments();
-        this.props.handleDecrementCurrentStep();
-    }
-
-    handleIncrementCurrentStep = () => {
-        this.props.startSetApplicationUserDocuments();
-        this.props.handleIncrementCurrentStep();
-    }
-
     render() {
+        const userDocuments = this.props.userDocuments.map((userDocument) => ({
+            ...userDocument,
+            isDocumentAdded: this.props.applicationDocuments.some((applicationDocument) => applicationDocument.id == userDocument.id),
+        }))
         return (
             <div className="application_document_container">
                 <ApplicationProgressButtonsWidget
                     currentStep={this.props.currentStep}
                     maxSteps={this.props.maxSteps}
-                    handleDecrementCurrentStep={this.handleDecrementCurrentStep}
-                    handleIncrementCurrentStep={this.handleIncrementCurrentStep}
+                    handleDecrementCurrentStep={this.props.handleDecrementCurrentStep}
+                    handleIncrementCurrentStep={this.props.handleIncrementCurrentStep}
                 />
-                <DocumentSelectionContainer />
+                <DocumentSelectionContainer
+                    documents={userDocuments}
+                    handleDeselectDocument={this.props.startRemoveApplicationUserDocument}
+                    handleSelectDocument={this.props.startAddApplicationUserDocument}
+                />
             </div>
         );
     }
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+    applicationDocuments: state.application.userDocuments,
+    userDocuments: state.userDocuments,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    startClearApplicationUserDocuments: () => dispatch(startClearApplicationUserDocuments()),
-    startSetApplicationUserDocuments: () => dispatch(startSetApplicationUserDocuments()),
+    startAddApplicationUserDocument: (userDocumentId) => dispatch(startAddApplicationUserDocument(userDocumentId)),
+    startRemoveApplicationUserDocument: (userDocumentId) => dispatch(startRemoveApplicationUserDocument(userDocumentId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationDocumentContainer);
 
 ApplicationDocumentContainer.propTypes = {
+    applicationDocuments: PropTypes.array.isRequired,
     currentStep: PropTypes.number.isRequired,
     maxSteps: PropTypes.number.isRequired,
     handleIncrementCurrentStep: PropTypes.func.isRequired,
     handleDecrementCurrentStep: PropTypes.func.isRequired,
-    startClearApplicationUserDocuments: PropTypes.func.isRequired,
-    startSetApplicationUserDocuments: PropTypes.func.isRequired,
+    startAddApplicationUserDocument: PropTypes.func.isRequired,
+    startRemoveApplicationUserDocument: PropTypes.func.isRequired,
+    userDocuments: PropTypes.array.isRequired,
 };

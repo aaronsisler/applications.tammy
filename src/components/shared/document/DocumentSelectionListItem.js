@@ -1,37 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startAddApplicationUserDocument } from '../../../actions/application';
 
 export class DocumentSelectionListItem extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    render() {
-        return (
-            <div>
-                <input type="checkbox" />
-                <a className="document_selection_list_item" href={`${this.props.downloadURL}`}>
+    handleDocumentSelection = () => {
+        if (this.props.isDocumentAdded) {
+            return this.props.handleDeselectDocument(this.props.id)
+        }
+        return this.props.handleSelectDocument(this.props.id)
+    }
 
-                    <div className="document_selection_list_item__title">
-                        {this.props.documentName}
-                    </div>
-                    <div className="document_selection_list_item__date_uploaded">
-                        {this.props.dateUploaded}
-                    </div>
-                </a>
+    render() {
+        const selectedClassName = this.props.isDocumentAdded ? "document_selection_list_item_selected" : "";
+        return (
+            <div className={`document_selection_list_item ${selectedClassName}`} onClick={this.handleDocumentSelection}>
+                <div className="document_selection_list_item__title">
+                    {this.props.documentName}
+                </div>
+                <div className="document_selection_list_item__date_uploaded">
+                    {this.props.dateUploaded}
+                </div>
             </div>
         );
     }
 }
 
 const mapStateToProps = () => ({
-})
+});
 
-const mapDispatchToProps = (dispatch) => ({
-    startAddApplicationUserDocument: (userDocumentId) => dispatch(startAddApplicationUserDocument(userDocumentId))
-})
+const mapDispatchToProps = () => ({
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(DocumentSelectionListItem);
 
@@ -40,5 +42,8 @@ DocumentSelectionListItem.propTypes = {
     downloadURL: PropTypes.string.isRequired,
     documentName: PropTypes.string.isRequired,
     dateUploaded: PropTypes.string.isRequired,
-    startAddApplicationUserDocument: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    isDocumentAdded: PropTypes.bool.isRequired,
+    handleDeselectDocument: PropTypes.func.isRequired,
+    handleSelectDocument: PropTypes.func.isRequired,
 };

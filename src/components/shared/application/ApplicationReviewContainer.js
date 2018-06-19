@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
+import DocumentList from '../document/DocumentList';
 import { startSubmitApplication } from '../../../actions/application';
 
 export class ApplicationReviewContainer extends React.Component {
@@ -27,13 +28,14 @@ export class ApplicationReviewContainer extends React.Component {
                     handleDecrementCurrentStep={this.handleDecrementCurrentStep}
                     handleIncrementCurrentStep={this.handleIncrementCurrentStep}
                 />
-                application_review_container
+                <DocumentList documents={this.props.applicationDocuments} />
             </div>
         );
     }
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+    applicationDocuments: state.application.userDocuments,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -43,6 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationReviewContainer);
 
 ApplicationReviewContainer.propTypes = {
+    applicationDocuments: PropTypes.array.isRequired,
     currentStep: PropTypes.number.isRequired,
     maxSteps: PropTypes.number.isRequired,
     handleIncrementCurrentStep: PropTypes.func.isRequired,

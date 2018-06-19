@@ -15,18 +15,24 @@ const applicationReducer = (state = applicationReducerDefaultState, action) => {
                 ...state,
                 user: action.user,
             };
-        case 'SET_APPLICATION_USER_DOCUMENTS':
+        case 'ADD_APPLICATION_USER_DOCUMENT':
             return {
                 ...state,
-                userDocuments: action.userDocuments,
+                userDocuments: state.userDocuments.concat(action.userDocument),
             };
-
+        case 'REMOVE_APPLICATION_USER_DOCUMENT':
+            return {
+                ...state,
+                userDocuments: state.userDocuments
+                    .filter((userDocument) => userDocument.id != action.userDocumentId)
+            }
         case 'CLEAR_APPLICATION_USER_DOCUMENTS':
             return {
                 ...state,
                 userDocuments: action.userDocuments,
             };
         case 'SUBMIT_APPLICATION':
+        case 'CLEAR_APPLICATION':
             return { user: {}, userDocuments: [] }
         default:
             return state;

@@ -12,8 +12,9 @@
         text-decoration: none;
         word-break: break-all;
         &:hover {
-            background: #fafafa;
-            color: $emailBlue;
+            background-color: $lightGrey;
+            color: $secColor;
+            cursor: pointer;
         }
         &__title {
             padding-right: $small;
@@ -21,6 +22,10 @@
         &__date_uploaded {
             color: $fontGrey;
             padding-left: $small;
+        }
+        &.document_selection_list_item_selected {
+            background-color: $midLightGrey;
+            color: $mainColor;
         }
     }
 }

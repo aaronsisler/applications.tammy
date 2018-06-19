@@ -23,7 +23,7 @@ export default class DocumentSelectionList extends React.Component {
             <div className="document_selection_list">
                 {
                     this.props.documents.map((document, index) =>
-                        <DocumentSelectionListItem key={index} {...document} />)
+                        <DocumentSelectionListItem key={index} {...document} {...this.props} />)
                 }
             </div>
         );
@@ -32,4 +32,6 @@ export default class DocumentSelectionList extends React.Component {
 
 DocumentSelectionList.propTypes = {
     documents: PropTypes.array,
+    handleDeselectDocument: PropTypes.func.isRequired,
+    handleSelectDocument: PropTypes.func.isRequired,
 };

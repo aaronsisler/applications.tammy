@@ -30,6 +30,14 @@ export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, ge
     dispatch(addApplicationUserDocument(userDocumentMatch))
 }
 
+export const removeApplicationUserDocument = (userDocumentId) => ({
+    type: 'REMOVE_APPLICATION_USER_DOCUMENT',
+    userDocumentId
+});
+
+export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) => {
+    dispatch(removeApplicationUserDocument(userDocumentId))
+}
 
 export const clearApplicationUserDocuments = () => ({
     type: 'CLEAR_APPLICATION_USER_DOCUMENTS',
@@ -54,13 +62,9 @@ export const startSubmitApplication = () => (dispatch, getState) => {
 }
 
 export const clearApplication = () => ({
-    type: 'CLEAR_APPLICATION',
-    user: {},
-    userDocuments: []
+    type: 'CLEAR_APPLICATION'
 });
 
 export const startClearApplication = () => (dispatch) => {
     dispatch(clearApplication())
 }
-
-
