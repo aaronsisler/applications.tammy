@@ -1,6 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
-@media only screen {}
+@media only screen {
+    .application_user_container {
+        margin-top: $medium;
+    }
+}
 
 //Medium screens - TABLET
 //min-width 641px, medium screens

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
+import UserProfileContainer from '../../user/UserProfileContainer';
 import DocumentList from '../document/DocumentList';
 import { startSubmitApplication } from '../../../actions/application';
 
@@ -28,6 +29,7 @@ export class ApplicationReviewContainer extends React.Component {
                     handleDecrementCurrentStep={this.handleDecrementCurrentStep}
                     handleIncrementCurrentStep={this.handleIncrementCurrentStep}
                 />
+                <UserProfileContainer isReadOnly={true} />
                 <DocumentList documents={this.props.applicationDocuments} />
             </div>
         );

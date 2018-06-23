@@ -23,18 +23,21 @@ export class UserProfileContainer extends React.Component {
                     <div id="user_profile_container">
                         <div className="user_widget">
                             <UserNameWidget
+                                isReadOnly={this.props.isReadOnly}
                                 user={this.props.user}
                                 onSubmit={this.onSubmit}
                             />
                         </div>
                         <div className="user_widget">
                             <UserContactInfoWidget
+                                isReadOnly={this.props.isReadOnly}
                                 user={this.props.user}
                                 onSubmit={this.onSubmit}
                             />
                         </div>
                         <div className="user_widget">
                             <UserAddressWidget
+                                isReadOnly={this.props.isReadOnly}
                                 user={this.props.user}
                                 onSubmit={this.onSubmit}
                             />
@@ -57,6 +60,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);
 
 UserProfileContainer.propTypes = {
+    isReadOnly: PropTypes.bool,
     user: PropTypes.object,
     startEditUser: PropTypes.func.isRequired,
 };

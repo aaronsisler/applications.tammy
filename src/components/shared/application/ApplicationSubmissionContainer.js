@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export class ApplicationSubmissionContainer extends React.Component {
+export default class ApplicationSubmissionContainer extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -10,19 +9,13 @@ export class ApplicationSubmissionContainer extends React.Component {
     render() {
         return (
             <div className="application_submission_container">
-                application_submission_container
+                <div className="application_submission_container__content">
+                    Thank you for your application! We will be in contact shortly.
+                </div>
+                <div className="application_submission_container__link">
+                    <Link className="nav_link" to="/">Back to Positions</Link>
+                </div>
             </div>
         );
     }
 }
-
-const mapStateToProps = () => ({
-})
-
-const mapDispatchToProps = () => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicationSubmissionContainer);
-
-ApplicationSubmissionContainer.propTypes = {
-};

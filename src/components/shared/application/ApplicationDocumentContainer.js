@@ -20,12 +20,19 @@ export class ApplicationDocumentContainer extends React.Component {
         }))
         return (
             <div className="application_document_container">
-                <ApplicationProgressButtonsWidget
-                    currentStep={this.props.currentStep}
-                    maxSteps={this.props.maxSteps}
-                    handleDecrementCurrentStep={this.props.handleDecrementCurrentStep}
-                    handleIncrementCurrentStep={this.props.handleIncrementCurrentStep}
-                />
+                {this.props.applicationDocuments.length == 0 &&
+                    <div className="application_document_container__no_docs">
+                        Please select at least one document to continue.
+                    </div>
+                }
+                {this.props.applicationDocuments.length > 0 &&
+                    <ApplicationProgressButtonsWidget
+                        currentStep={this.props.currentStep}
+                        maxSteps={this.props.maxSteps}
+                        handleDecrementCurrentStep={this.props.handleDecrementCurrentStep}
+                        handleIncrementCurrentStep={this.props.handleIncrementCurrentStep}
+                    />
+                }
                 <DocumentSelectionContainer
                     documents={userDocuments}
                     handleDeselectDocument={this.props.startRemoveApplicationUserDocument}

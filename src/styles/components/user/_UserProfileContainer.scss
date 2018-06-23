@@ -5,10 +5,9 @@
         background-color: $lightGrey;
         display: flex;
         flex-flow: column;
-        padding: $small 0;
     }
     .user_widget {
-        margin: $small $small 0;
+        margin-bottom: $medium;
     }
 }
 
@@ -21,10 +20,9 @@
 @media only screen and (min-width: $largeScreen) {
     #user_profile_container {
         flex-flow: row wrap;
-        padding: $medium;
     }
     .user_widget {
-        margin: $medium $medium 0;
+        margin: 0 $medium $medium 0;
     }
 }
 

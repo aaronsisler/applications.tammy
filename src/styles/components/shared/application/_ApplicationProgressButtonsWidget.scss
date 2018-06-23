@@ -4,6 +4,7 @@
     .application_progress_buttons_widget {
         background-color: white;
         border: 1px solid $midLightGrey;
+        margin-bottom: $medium;
         padding: $medium;
     }
 }
@@ -18,8 +19,7 @@
     .application_progress_buttons_widget {
         display: flex;
         justify-content: center;
-        margin: $medium $large 0;
-        max-width: 35rem;
+        max-width: 40rem;
     }
 }
 

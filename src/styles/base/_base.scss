@@ -2,10 +2,10 @@
 //max-width 640px, small screens
 @media only screen {
     * {
+        box-sizing: border-box;
         font-family: $mainFont;
     }
     html {
-        // font-family: $mainFont;
         font-size: 62.5%;
     }
     body {

@@ -1,6 +1,16 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
-@media only screen {}
+@media only screen {
+    .application_document_container {
+        margin-top: $medium;
+    }
+    .application_document_container__no_docs {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        font-size: $medium;
+        padding: $medium;
+    }
+}
 
 //Medium screens - TABLET
 //min-width 641px, medium screens
@@ -8,7 +18,11 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .application_document_container {
+        max-width: 100rem;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens
