@@ -140,7 +140,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="user_contact_info_widget_button">
                     {!this.props.isReadOnly &&
                         <button
                             disabled={!this.state.isEmailValid}

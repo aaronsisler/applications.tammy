@@ -34,7 +34,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(startSetPositions()).then(() => {
-        store.dispatch(startSetPosition(1));
+        // store.dispatch(startSetPosition(1));
         if (user) {
             store.dispatch(login(user.uid));
             store.dispatch(startSetUser()).then(() =>

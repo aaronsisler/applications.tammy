@@ -63,7 +63,7 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    button {
+    .button {
         margin: $xsmall;
     }
     .text_input {

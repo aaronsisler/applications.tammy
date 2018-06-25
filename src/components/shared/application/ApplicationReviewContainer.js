@@ -5,6 +5,7 @@ import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget
 import UserProfileContainer from '../../user/UserProfileContainer';
 import DocumentList from '../document/DocumentList';
 import { startSubmitApplication } from '../../../actions/application';
+import { startClearPosition } from '../../../actions/position';
 
 export class ApplicationReviewContainer extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ export class ApplicationReviewContainer extends React.Component {
 
     handleIncrementCurrentStep = () => {
         this.props.startSubmitApplication();
+        this.props.startClearPosition();
         this.props.handleIncrementCurrentStep();
     }
 
@@ -41,6 +43,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+    startClearPosition: () => dispatch(startClearPosition()),
     startSubmitApplication: () => dispatch(startSubmitApplication()),
 })
 
@@ -52,5 +55,6 @@ ApplicationReviewContainer.propTypes = {
     maxSteps: PropTypes.number.isRequired,
     handleIncrementCurrentStep: PropTypes.func.isRequired,
     handleDecrementCurrentStep: PropTypes.func.isRequired,
+    startClearPosition: PropTypes.func.isRequired,
     startSubmitApplication: PropTypes.func.isRequired,
 };

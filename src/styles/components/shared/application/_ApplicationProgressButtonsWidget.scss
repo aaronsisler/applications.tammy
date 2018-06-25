@@ -4,8 +4,16 @@
     .application_progress_buttons_widget {
         background-color: white;
         border: 1px solid $midLightGrey;
+        display: flex;
+        justify-content: center;
         margin-bottom: $medium;
-        padding: $medium;
+        padding: $xsmall;
+    }
+    .application_progress_buttons_wrapper {
+        .button {
+            margin: $xsmall;
+            padding: $small;
+        }
     }
 }
 
@@ -17,9 +25,14 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     .application_progress_buttons_widget {
-        display: flex;
-        justify-content: center;
         max-width: 40rem;
+        padding: $medium;
+    }
+    .application_progress_buttons_wrapper {
+        .button {
+            margin: $xsmall;
+            padding: $small $medium;
+        }
     }
 }
 

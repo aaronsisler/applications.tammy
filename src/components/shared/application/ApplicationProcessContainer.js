@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { history } from '../../../tools/history';
 import { startClearApplication } from '../../../actions/application';
 import ApplicationProgressContainer from './ApplicationProgressContainer';
 import ApplicationUserContainer from './ApplicationUserContainer';
@@ -11,11 +12,17 @@ import ApplicationSubmissionContainer from './ApplicationSubmissionContainer';
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
         super(props);
+
         this.steps = [{ title: "Personal Info" }, { title: "Documents" }, { title: "Final Review" }, { title: "Done" }];
         this.state = {
             currentStep: 0,
             maxSteps: this.steps.length,
+            position: props.position,
             steps: this.steps,
+        }
+
+        if (!props.position) {
+            return history.push('/');
         }
     }
 
@@ -87,7 +94,7 @@ export class ApplicationProcessContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    application: state.application
+    position: state.position,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -97,5 +104,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
+    position: PropTypes.object,
     startClearApplication: PropTypes.func.isRequired,
 };

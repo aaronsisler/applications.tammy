@@ -9,6 +9,7 @@
         border: 1px solid $midLightGrey;
         font-size: $medium;
         padding: $medium;
+        text-align: center;
     }
 }
 
@@ -21,6 +22,10 @@
 @media only screen and (min-width: $largeScreen) {
     .application_document_container {
         max-width: 100rem;
+    }
+    .application_document_container__no_docs {
+        padding: $large;
+        text-align: left;
     }
 }
 

@@ -105,7 +105,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="user_name_widget_button">
                     {!this.props.isReadOnly &&
                         <button
                             disabled={!this.state.firstName || !this.state.lastName}

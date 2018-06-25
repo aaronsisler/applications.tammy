@@ -26,6 +26,10 @@
         font-family: $secondaryFont;
         font-size: $medium;
     }
+    .user_contact_info_widget_button {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 //Medium screens - TABLET
@@ -40,6 +44,9 @@
     }
     .user_contact_info_content_title {
         margin: $xsmall;
+    }
+    .user_contact_info_widget_button {
+        justify-content: flex-start;
     }
 }
 

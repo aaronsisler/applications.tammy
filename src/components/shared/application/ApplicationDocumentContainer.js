@@ -22,7 +22,7 @@ export class ApplicationDocumentContainer extends React.Component {
             <div className="application_document_container">
                 {this.props.applicationDocuments.length == 0 &&
                     <div className="application_document_container__no_docs">
-                        Please select at least one document to continue.
+                        Please select at least one document to continue
                     </div>
                 }
                 {this.props.applicationDocuments.length > 0 &&

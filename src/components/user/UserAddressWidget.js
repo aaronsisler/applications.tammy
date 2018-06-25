@@ -139,7 +139,7 @@ export default class UserAddressWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="user_address_widget_button">
                     {!this.props.isReadOnly &&
                         <button
                             disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
