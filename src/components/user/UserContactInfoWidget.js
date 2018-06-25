@@ -78,6 +78,7 @@ export default class UserNameWidget extends React.Component {
                     </div>
                     <div className="user_email_input">
                         <input
+                            readOnly={this.props.isReadOnly}
                             type="text"
                             name="email"
                             placeholder="Email"
@@ -95,6 +96,7 @@ export default class UserNameWidget extends React.Component {
                     <div className="user_phone_number_inputs">
                         <div className="user_phone_number_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="phoneAreaCode"
                                 placeholder="(919)"
@@ -105,6 +107,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                         <div className="user_phone_number_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="phonePrefix"
                                 placeholder="123"
@@ -115,6 +118,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                         <div className="user_phone_number_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="phoneLineNumber"
                                 placeholder="4567"
@@ -125,6 +129,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                         <div className="user_phone_number_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="phoneExt"
                                 placeholder="Ext."
@@ -135,14 +140,16 @@ export default class UserNameWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button
-                        disabled={!this.state.isEmailValid}
-                        onClick={this.handleSubmit}
-                        className="button"
-                    >
-                        Save Contact Info
+                <div className="user_contact_info_widget_button">
+                    {!this.props.isReadOnly &&
+                        <button
+                            disabled={!this.state.isEmailValid}
+                            onClick={this.handleSubmit}
+                            className="button"
+                        >
+                            Update Contact Info
                     </button>
+                    }
                 </div>
             </div>
         )
@@ -150,6 +157,7 @@ export default class UserNameWidget extends React.Component {
 }
 
 UserNameWidget.propTypes = {
+    isReadOnly: PropTypes.bool,
     user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };

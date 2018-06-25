@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProfileContainer from './UserProfileContainer';
 
-export default class UserAccountPage extends React.Component {
+export default class UserProfilePage extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -11,7 +11,7 @@ export default class UserAccountPage extends React.Component {
 
     render() {
         return (
-            <div id="user_account_page">
+            <div id="user_profile_page">
                 <UserProfileContainer />
             </div>
         );

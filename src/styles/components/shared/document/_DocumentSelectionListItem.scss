@@ -1,7 +1,7 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .document_list_item {
+    .document_selection_list_item {
         align-items: center;
         border-bottom: 1px solid #eee;
         color: $darkGrey;
@@ -12,8 +12,9 @@
         text-decoration: none;
         word-break: break-all;
         &:hover {
-            background: #fafafa;
+            background-color: $lightGrey;
             color: $secColor;
+            cursor: pointer;
         }
         &__title {
             padding-right: $small;
@@ -21,6 +22,10 @@
         &__date_uploaded {
             color: $fontGrey;
             padding-left: $small;
+        }
+        &.document_selection_list_item_selected {
+            background-color: $midLightGrey;
+            color: $mainColor;
         }
     }
 }
@@ -32,7 +37,7 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    .document_list_item {
+    .document_selection_list_item {
         padding: $medium $large;
         &__title {
             padding: $medium;

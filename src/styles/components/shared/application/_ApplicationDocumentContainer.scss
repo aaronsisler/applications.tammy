@@ -1,16 +1,15 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .document_list {
-        background: white;
+    .application_document_container {
+        margin-top: $medium;
+    }
+    .application_document_container__no_docs {
+        background-color: white;
         border: 1px solid $midLightGrey;
-        // margin: $medium;
-        &.empty {
-            font-family: $secondaryFont;
-            font-size: $midlarge;
-            padding: $large 0;
-            text-align: center;
-        }
+        font-size: $medium;
+        padding: $medium;
+        text-align: center;
     }
 }
 
@@ -21,8 +20,12 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    .document_list {
+    .application_document_container {
         max-width: 100rem;
+    }
+    .application_document_container__no_docs {
+        padding: $large;
+        text-align: left;
     }
 }
 

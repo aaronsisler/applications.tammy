@@ -77,6 +77,7 @@ export default class UserAddressWidget extends React.Component {
                         <div className="user_address_street_addresses">
                             <div className="user_address_input">
                                 <input
+                                    readOnly={this.props.isReadOnly}
                                     type="text"
                                     name="addressLine1"
                                     placeholder="Address Line 1"
@@ -88,6 +89,7 @@ export default class UserAddressWidget extends React.Component {
                             </div>
                             <div className="user_address_input">
                                 <input
+                                    readOnly={this.props.isReadOnly}
                                     type="text"
                                     name="addressLine2"
                                     placeholder="Address Line 2"
@@ -100,6 +102,7 @@ export default class UserAddressWidget extends React.Component {
                         <div className="user_address_city_state_zip">
                             <div className="user_address_input">
                                 <input
+                                    readOnly={this.props.isReadOnly}
                                     type="text"
                                     name="city"
                                     placeholder="City"
@@ -111,6 +114,7 @@ export default class UserAddressWidget extends React.Component {
                             </div>
                             <div className="user_address_input">
                                 <input
+                                    readOnly={this.props.isReadOnly}
                                     type="text"
                                     name="state"
                                     placeholder="State"
@@ -122,6 +126,7 @@ export default class UserAddressWidget extends React.Component {
                             </div>
                             <div className="user_address_input">
                                 <input
+                                    readOnly={this.props.isReadOnly}
                                     type="text"
                                     name="postalCode"
                                     placeholder="Postal Code"
@@ -134,14 +139,16 @@ export default class UserAddressWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button
-                        disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
-                        onClick={this.handleSubmit}
-                        className="button"
-                    >
-                        Save Address
+                <div className="user_address_widget_button">
+                    {!this.props.isReadOnly &&
+                        <button
+                            disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
+                            onClick={this.handleSubmit}
+                            className="button"
+                        >
+                            Update Address
                     </button>
+                    }
                 </div>
             </div>
         )
@@ -149,6 +156,7 @@ export default class UserAddressWidget extends React.Component {
 }
 
 UserAddressWidget.propTypes = {
+    isReadOnly: PropTypes.bool,
     user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };

@@ -2,10 +2,8 @@
 //max-width 640px, small screens
 @media only screen {
     .position_details {
-        background-color: white;
-        border: 1px solid $midLightGrey;
+        // border: 1px solid $midLightGrey;
         display: flex;
-        flex-basis: 70%;
         flex-grow: 1;
         justify-content: space-around;
         .empty {

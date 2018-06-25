@@ -2,9 +2,10 @@ import React from 'react';
 import FileUploader from 'react-firebase-file-uploader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Line } from 'rc-progress';
+import { Progress } from 'react-sweet-progress';
 import { storage } from '../../../firebase/firebase';
-import { startAddDocument } from '../../../actions/document';
+import { startAddUserDocument } from '../../../actions/user_document';
+
 
 export class DocumentUploadWidget extends React.Component {
     constructor(props) {
@@ -16,10 +17,6 @@ export class DocumentUploadWidget extends React.Component {
             error: ''
         };
         this.storageRef = `${this.props.userId}`;
-        this.lineContainerStyle = {
-            width: '200px',
-            height: '30px'
-        };
     }
 
     handleUploadStart = () => this.setState({ isUploading: true, success: '', progress: 0 });
@@ -37,7 +34,7 @@ export class DocumentUploadWidget extends React.Component {
         this.setState({ success: `${documentName} uploaded sucessfully`, progress: 100, isUploading: false });
         storage.ref(this.storageRef).child(documentName).getDownloadURL()
             .then(downloadURL => {
-                this.props.startAddDocument(this.props.userId, { documentName, downloadURL })
+                this.props.startAddUserDocument(this.props.userId, { documentName, downloadURL })
             });
     };
 
@@ -71,14 +68,9 @@ export class DocumentUploadWidget extends React.Component {
                     }
                     {this.state.isUploading &&
                         <div className="document_upload_content__progress">
-                            0%&nbsp;
-                            <Line
+                            <Progress
                                 percent={this.state.progress}
-                                strokeWidth="1"
-                                strokeColor="#009fc4"
-                                style={this.lineContainerStyle}
                             />
-                            &nbsp;100%
                         </div>
                     }
                 </div>
@@ -88,16 +80,16 @@ export class DocumentUploadWidget extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    userId: state.user && state.user.uid,
+    userId: state.user && state.user.userId,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddDocument: (userId, userDocument) => dispatch(startAddDocument(userId, userDocument)),
+    startAddUserDocument: (userId, userDocument) => dispatch(startAddUserDocument(userId, userDocument)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DocumentUploadWidget);
 
 DocumentUploadWidget.propTypes = {
     userId: PropTypes.string,
-    startAddDocument: PropTypes.func.isRequired,
+    startAddUserDocument: PropTypes.func.isRequired,
 };

@@ -1,14 +1,18 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
+    //Using page level styling since this is the only non-wrapper user container page
+    #user_profile_page {
+        background-color: $lightGrey;
+        padding: $small;
+    }
     #user_profile_container {
         background-color: $lightGrey;
         display: flex;
         flex-flow: column;
-        padding: $small 0;
     }
     .user_widget {
-        margin: $small $small 0;
+        margin-bottom: $medium;
     }
 }
 
@@ -19,12 +23,15 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_profile_container {
-        flex-flow: row;
+    //Using page level styling since this is the only non-wrapper user container page
+    #user_profile_page {
         padding: $large;
     }
+    #user_profile_container {
+        flex-flow: row wrap;
+    }
     .user_widget {
-        margin: $medium $medium 0;
+        margin: 0 $medium 0 0;
     }
 }
 

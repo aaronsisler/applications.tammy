@@ -66,7 +66,8 @@ export class Navbar extends React.Component {
                 {this.props.isAuthenticated &&
                     <div id="nav_side_menu">
                         <Link to="/dashboard" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Dashboard</Link>
-                        <Link to="/user_account" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Account</Link>
+                        <Link to="/user_profile" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Profile</Link>
+                        <Link to="/user_documents" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Documents</Link>
                         <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
                         <button className="button nav_side_menu_link" onClick={this.handleLogout}>Logout</button>
                     </div>

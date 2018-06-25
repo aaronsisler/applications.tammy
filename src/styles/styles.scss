@@ -2,6 +2,7 @@
 @import './base/settings';
 @import './base/base';
 @import './base/visibility';
+@import './base/progress_bar';
 //Core
 @import './components/core/Navbar';
 @import './components/core/Footer';
@@ -12,10 +13,23 @@
 @import './components/position/PositionList';
 @import './components/position/PositionListItem';
 @import './components/position/PositionDetails';
+@import './components/position/PositionApply';
 //Shared
+//Application
+@import './components/shared/application/ApplicationDocumentContainer';
+@import './components/shared/application/ApplicationProcessContainer';
+@import './components/shared/application/ApplicationProgressContainer';
+@import './components/shared/application/ApplicationProgressWidget';
+@import './components/shared/application/ApplicationProgressButtonsWidget';
+@import './components/shared/application/ApplicationReviewContainer';
+@import './components/shared/application/ApplicationSubmissionContainer';
+@import './components/shared/application/ApplicationUserContainer';
+//Document
 @import './components/shared/document/DocumentList';
 @import './components/shared/document/DocumentListFilter';
 @import './components/shared/document/DocumentListItem';
+@import './components/shared/document/DocumentSelectionList';
+@import './components/shared/document/DocumentSelectionListItem';
 @import './components/shared/document/DocumentUploadWidget';
 //User
 @import './components/user/UserProfileContainer';

@@ -1,10 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .document_list {
+    .document_selection_list {
         background: white;
         border: 1px solid $midLightGrey;
-        // margin: $medium;
+        margin-top: $medium;
         &.empty {
             font-family: $secondaryFont;
             font-size: $midlarge;
@@ -20,11 +20,7 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {
-    .document_list {
-        max-width: 100rem;
-    }
-}
+@media only screen and (min-width: $largeScreen) {}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

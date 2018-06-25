@@ -52,6 +52,7 @@ export default class UserNameWidget extends React.Component {
                     <div className="user_name_legal_inputs">
                         <div className="user_name_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="firstName"
                                 placeholder="First Name"
@@ -63,6 +64,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                         <div className="user_name_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="middleName"
                                 placeholder="Middle Name"
@@ -73,6 +75,7 @@ export default class UserNameWidget extends React.Component {
                         </div>
                         <div className="user_name_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="lastName"
                                 placeholder="Last Name"
@@ -91,6 +94,7 @@ export default class UserNameWidget extends React.Component {
                     <div className="user_name_display_input">
                         <div className="user_name_input">
                             <input
+                                readOnly={this.props.isReadOnly}
                                 type="text"
                                 name="displayName"
                                 placeholder="Display Name"
@@ -101,14 +105,16 @@ export default class UserNameWidget extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button
-                        disabled={!this.state.firstName || !this.state.lastName}
-                        onClick={this.handleSubmit}
-                        className="button"
-                    >
-                        Save User Info
+                <div className="user_name_widget_button">
+                    {!this.props.isReadOnly &&
+                        <button
+                            disabled={!this.state.firstName || !this.state.lastName}
+                            onClick={this.handleSubmit}
+                            className="button"
+                        >
+                            Update User Info
                     </button>
+                    }
                 </div>
             </div>
         )
@@ -116,6 +122,7 @@ export default class UserNameWidget extends React.Component {
 }
 
 UserNameWidget.propTypes = {
+    isReadOnly: PropTypes.bool,
     user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };

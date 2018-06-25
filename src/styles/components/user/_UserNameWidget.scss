@@ -16,6 +16,10 @@
         font-family: $secondaryFont;
         font-size: $medium;
     }
+    .user_name_widget_button {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 //Medium screens - TABLET
@@ -34,6 +38,9 @@
     }
     .user_name_content_title {
         margin: $xsmall;
+    }
+    .user_name_widget_button {
+        justify-content: flex-start;
     }
 }
 

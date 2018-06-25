@@ -1,12 +1,12 @@
 import database from '../firebase/firebase';
 
-export const setDocuments = (documents) => ({
-    type: 'SET_DOCUMENTS',
+export const setUserDocuments = (documents) => ({
+    type: 'SET_USER_DOCUMENTS',
     documents
 });
 
-export const startSetDocuments = (id) => (dispatch) =>
-    database.ref(`users/${id}/documents`).once('value').then((snapshot) => {
+export const startSetUserDocuments = (id) => (dispatch) =>
+    database.ref(`user_documents/${id}`).once('value').then((snapshot) => {
         const documents = [];
         snapshot.forEach((childSnapshot) => {
             const thing = {
@@ -16,22 +16,22 @@ export const startSetDocuments = (id) => (dispatch) =>
             documents.push(thing);
         });
 
-        dispatch(setDocuments(documents));
+        dispatch(setUserDocuments(documents));
     });
 
-export const addDocument = (document) => ({
-    type: 'ADD_DOCUMENT',
+export const addUserDocument = (document) => ({
+    type: 'ADD_USER_DOCUMENT',
     document
 });
 
-export const startAddDocument = (userId, userDocument) => (dispatch) => {
+export const startAddUserDocument = (userId, userDocument) => (dispatch) => {
     const { documentName, downloadURL } = userDocument;
     const dateUploaded = new Date().toLocaleString();
     const uploadedDocument = { documentName, downloadURL, dateUploaded }
-    database.ref(`users/${userId}/documents`)
+    database.ref(`user_documents/${userId}`)
         .push(uploadedDocument)
         .then((ref) => {
-            dispatch(addDocument({
+            dispatch(addUserDocument({
                 id: ref.key,
                 ...uploadedDocument
             }))

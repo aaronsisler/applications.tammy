@@ -1,16 +1,22 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .document_list {
-        background: white;
+    .application_submission_container {
+        background-color: white;
         border: 1px solid $midLightGrey;
-        // margin: $medium;
-        &.empty {
-            font-family: $secondaryFont;
-            font-size: $midlarge;
-            padding: $large 0;
-            text-align: center;
-        }
+        margin-top: $medium;
+        padding: $medium;
+    }
+    .application_submission_container__content {
+        display: flex;
+        font-size: $midlarge;
+        justify-content: center;
+        padding: $small;
+        text-align: center;
+    }
+    .application_submission_container__link {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -21,7 +27,7 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    .document_list {
+    .application_submission_container {
         max-width: 100rem;
     }
 }

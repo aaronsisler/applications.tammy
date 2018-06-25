@@ -2,10 +2,10 @@
 //max-width 640px, small screens
 @media only screen {
     * {
+        box-sizing: border-box;
         font-family: $mainFont;
     }
     html {
-        // font-family: $mainFont;
         font-size: 62.5%;
     }
     body {
@@ -63,7 +63,7 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    button {
+    .button {
         margin: $xsmall;
     }
     .text_input {

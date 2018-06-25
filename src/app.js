@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { firebase } from './firebase/firebase';
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
+
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
-import { startSetUser } from './actions/user';
+import { startSetPosition } from './actions/position';
 import { startSetPositions } from './actions/positions';
-import { startSetDocuments } from './actions/document';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
-import { firebase } from './firebase/firebase';
+import { startSetUser } from './actions/user';
+import { startSetUserDocuments } from './actions/user_document';
 import LoadingPage from './components/core/LoadingPage';
 
 const store = configureStore();
@@ -32,10 +34,11 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(startSetPositions()).then(() => {
+        // store.dispatch(startSetPosition(1));
         if (user) {
             store.dispatch(login(user.uid));
             store.dispatch(startSetUser()).then(() =>
-                store.dispatch(startSetDocuments(user.uid)).then(() =>
+                store.dispatch(startSetUserDocuments(user.uid)).then(() =>
                     renderApp()
                 )
             );
