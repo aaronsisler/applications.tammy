@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
-import UserProfileContainer from '../../user/UserProfileContainer';
-import { startClearApplicationUser, startSetApplicationUser } from '../../../actions/application';
+import UserProfileContainer from '../user/UserProfileContainer';
+import { startClearApplicationUser, startSetApplicationUser } from '../../actions/application';
 
 export class ApplicationUserContainer extends React.Component {
     constructor(props) {

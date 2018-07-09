@@ -9,11 +9,17 @@
 @import './components/core/LoginPage';
 @import './components/core/LoggedOutPage';
 //Position
+@import './components/position/PositionApply';
 @import './components/position/PositionContainer';
+@import './components/position/PositionDetails';
 @import './components/position/PositionList';
 @import './components/position/PositionListItem';
-@import './components/position/PositionDetails';
-@import './components/position/PositionApply';
+//Position Watch
+@import './components/position_watch/PositionWatchContainer';
+@import './components/position_watch/PositionWatchDetails';
+@import './components/position_watch/PositionWatchList';
+@import './components/position_watch/PositionWatchListItem';
+@import './components/position_watch/PositionWatchSubscriptionLevel';
 //Shared
 //Application
 @import './components/shared/application/ApplicationDocumentContainer';
@@ -31,6 +37,8 @@
 @import './components/shared/document/DocumentSelectionList';
 @import './components/shared/document/DocumentSelectionListItem';
 @import './components/shared/document/DocumentUploadWidget';
+//Position
+@import './components/shared/position/PositionDetailsContent';
 //User
 @import './components/user/UserProfileContainer';
 @import './components/user/UserNameWidget';
