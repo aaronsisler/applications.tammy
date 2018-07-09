@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
-import DocumentSelectionContainer from '../document/DocumentSelectionContainer';
+import DocumentSelectionContainer from '../shared/document/DocumentSelectionContainer';
 import {
     startAddApplicationUserDocument,
     startRemoveApplicationUserDocument,
-} from '../../../actions/application';
+} from '../../actions/application';
 
 export class ApplicationDocumentContainer extends React.Component {
     constructor(props) {

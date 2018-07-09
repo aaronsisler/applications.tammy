@@ -36,6 +36,11 @@
     .button:disabled {
         opacity: 0.5;
     }
+    .select {
+        border: 1px solid $midGrey;
+        font-size: $small;
+        padding: $xsmall;
+    }
     .text_input {
         border: 1px solid $midLightGrey;
         font-size: $medium;

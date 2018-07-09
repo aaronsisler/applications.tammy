@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
-import UserProfileContainer from '../../user/UserProfileContainer';
-import DocumentList from '../document/DocumentList';
-import { startSubmitApplication } from '../../../actions/application';
-import { startClearPosition } from '../../../actions/position';
+import UserProfileContainer from '../user/UserProfileContainer';
+import DocumentList from '../shared/document/DocumentList';
+import { startSubmitApplication } from '../../actions/application';
+import { startClearPosition } from '../../actions/position';
 
 export class ApplicationReviewContainer extends React.Component {
     constructor(props) {

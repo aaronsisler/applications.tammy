@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import PositionDetailsContent from '../shared/position/PositionDetailsContent';
 
 export class PositionDetails extends React.Component {
     constructor(props) {
@@ -31,32 +32,7 @@ export class PositionDetails extends React.Component {
                                 {position.location}
                             </div>
                         </div>
-                        <div className="position_details_content">
-                            <div className="position_details__description">
-                                <span>Description:</span>
-                                <div>{position.content.description}</div>
-                            </div>
-                            {position.content.responsibilities &&
-                                <div className="position_details__responsibilities">
-                                    <span>Responsibilities:</span>
-                                    <ul className="position_details__list">
-                                        {position.content.responsibilities.map((responsibility, index) =>
-                                            <li key={index}>{responsibility}</li>
-                                        )}
-                                    </ul>
-                                </div>
-                            }
-                            {position.content.requirements &&
-                                <div className="position_details__requirements">
-                                    <span>Requirements:</span>
-                                    <ul className="position_details__list">
-                                        {position.content.requirements.map((requirement, index) =>
-                                            <li key={index}>{requirement}</li>
-                                        )}
-                                    </ul>
-                                </div>
-                            }
-                        </div>
+                        <PositionDetailsContent position={position} />
                     </div>
                 }
             </div>

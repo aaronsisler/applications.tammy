@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { history } from '../../../tools/history';
-import { startClearApplication } from '../../../actions/application';
+import { history } from '../../tools/history';
+import { startClearApplication } from '../../actions/application';
 import ApplicationProgressContainer from './ApplicationProgressContainer';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationDocumentContainer from './ApplicationDocumentContainer';

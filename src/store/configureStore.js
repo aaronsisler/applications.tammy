@@ -5,6 +5,7 @@ import authReducer from '../reducers/auth';
 import filtersReducer from '../reducers/filters';
 import positionReducer from '../reducers/position';
 import positionsReducer from '../reducers/positions';
+import positionWatchReducer from '../reducers/position_watch';
 import userReducer from '../reducers/user';
 import userDocumentsReducer from '../reducers/user_document';
 
@@ -18,6 +19,7 @@ export default () => {
             filters: filtersReducer,
             position: positionReducer,
             positions: positionsReducer,
+            positionWatch: positionWatchReducer,
             user: userReducer,
             userDocuments: userDocumentsReducer,
         }),

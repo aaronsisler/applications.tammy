@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Navbar from '../components/core/Navbar';
 import Footer from '../components/core/Footer';
 
-import ApplicationPage from '../components/shared/application/ApplicationPage';
+import ApplicationPage from '../components/application/ApplicationPage';
 import DashboardPage from '../components/core/DashboardPage';
 import LoginPage from '../components/core/LoginPage';
 import LoggedOutPage from '../components/core/LoggedOutPage';
