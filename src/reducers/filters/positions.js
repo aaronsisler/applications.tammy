@@ -1,24 +1,23 @@
-const filtersReducerDefaultState = {
-    positions: {
-        text: '',
-    },
+const positionsFilterReducerDefaultState =
+{
+    text: '',
 };
 
-const filtersReducer = (state = filtersReducerDefaultState, action) => {
+const positionsFilterReducer = (state = positionsFilterReducerDefaultState, action) => {
     switch (action.type) {
         case 'SET_POSITIONS_TEXT_FILTER':
             return {
                 ...state,
-                positions: { text: action.text }
+                text: action.text
             };
         case 'CLEAR_POSITIONS_TEXT_FILTER':
             return {
                 ...state,
-                positions: { text: '' }
+                text: ''
             };
         default:
             return state;
     }
 };
 
-export default filtersReducer;
+export default positionsFilterReducer;

@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
-import filtersReducer from '../reducers/filters';
+import positionsFilterReducer from '../reducers/filters/positions';
 import positionReducer from '../reducers/position';
 import positionsReducer from '../reducers/positions';
 import userReducer from '../reducers/user';
@@ -12,7 +12,9 @@ export default () => {
     const store = createStore(
         combineReducers({
             auth: authReducer,
-            filters: filtersReducer,
+            filters: combineReducers({
+                positions: positionsFilterReducer,
+            }),
             position: positionReducer,
             positions: positionsReducer,
             user: userReducer,
