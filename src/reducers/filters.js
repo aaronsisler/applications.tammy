@@ -2,9 +2,6 @@ const filtersReducerDefaultState = {
     positions: {
         text: '',
     },
-    positionWatch: {
-        text: '',
-    },
 };
 
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
@@ -18,16 +15,6 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
             return {
                 ...state,
                 positions: { text: '' }
-            };
-        case 'SET_POSITION_WATCH_TEXT_FILTER':
-            return {
-                ...state,
-                positionWatch: { text: action.text }
-            };
-        case 'CLEAR_POSITION_WATCH_TEXT_FILTER':
-            return {
-                ...state,
-                positionWatch: { text: '' }
             };
         default:
             return state;

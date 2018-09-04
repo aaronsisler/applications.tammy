@@ -6,7 +6,6 @@ import LoadingPage from '../core/LoadingPage';
 import PositionList from './PositionList';
 import PositionListFilter from './PositionListFilter';
 import PositionDetails from './PositionDetails';
-import PositionApply from './PositionApply';
 
 export class PositionContainer extends React.Component {
     constructor(props) {
@@ -25,9 +24,6 @@ export class PositionContainer extends React.Component {
                         </div>
                         <div className="position_details_wrapper">
                             <PositionDetails />
-                            {this.props.position &&
-                                <PositionApply />
-                            }
                         </div>
                     </div>
                 }
