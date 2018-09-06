@@ -29,13 +29,12 @@ describe('positions filter reducer', () => {
     });
 
     it('should clear the text filter', () => {
-        const text = '';
         const action = {
             type: 'CLEAR_POSITIONS_TEXT_FILTER',
         }
 
         const state = positionsFilterReducer({ text: 'taco' }, action);
 
-        expect(state).toEqual({ text });
+        expect(state).toEqual({ text: '' });
     });
 })
