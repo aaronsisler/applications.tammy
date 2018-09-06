@@ -4,7 +4,7 @@ const content = {
     responsibilities: ['Responsibility 1', 'Responsibility 2']
 }
 
-export default [
+const positions = [
     {
         content,
         jobId: 'first job id',
@@ -23,3 +23,9 @@ export default [
         title: 'second title',
     }
 ]
+
+export const defaultPositionsState = {
+    positions
+}
+
+export default positions;

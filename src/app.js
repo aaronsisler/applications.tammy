@@ -7,7 +7,7 @@ import './styles/styles.scss';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { login, logout } from './actions/auth';
+import { login, logout } from './actions/helpers/auth';
 import { startSetPositions } from './actions/positions';
 import { startSetUser } from './actions/user';
 import LoadingPage from './components/core/LoadingPage';

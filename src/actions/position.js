@@ -1,16 +1,9 @@
-export const setPosition = (position) => ({
-    type: 'SET_POSITION',
-    position
-});
+import { setPosition, clearPosition } from './helpers/position';
 
-export const startSetPosition = id => (dispatch, getState) => {
+export const startSetPosition = (positionId) => (dispatch, getState) => {
     const { positions } = getState();
-    const positionMatch = positions.find((position) => position.id == id);
+    const positionMatch = positions.find((position) => position.positionId == positionId);
     return dispatch(setPosition(positionMatch));
 }
-
-export const clearPosition = () => ({
-    type: 'CLEAR_POSITION'
-});
 
 export const startClearPosition = () => (dispatch) => dispatch(clearPosition())

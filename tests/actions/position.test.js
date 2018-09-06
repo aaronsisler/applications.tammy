@@ -1,27 +1,34 @@
-import {
-    setPosition,
-    clearPosition,
-} from '../../src/actions/position';
-import positions from '../fixtures/positions';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import { startSetPosition, startClearPosition, } from '../../src/actions/position';
+import * as positionActionHelpers from '../../src/actions/helpers/position';
+import positions, { defaultPositionsState } from '../fixtures/positions';
 
-describe('setPosition() method', () => {
-    it(`should setup 'set position' action object`, () => {
-        const [position] = positions;
-        const action = setPosition(position);
+const createMockStore = configureMockStore([thunk]);
 
-        expect(action).toEqual({
-            type: 'SET_POSITION',
-            position
+describe('Position Actions', () => {
+    describe('startSetPosition() method', () => {
+        it(`should call dispatch with setPosition`, async () => {
+            const [position] = positions;
+            const setPositionMock = jest.spyOn(positionActionHelpers, 'setPosition');
+            const store = createMockStore(defaultPositionsState);
+
+            await store.dispatch(startSetPosition(position.positionId));
+
+            expect(store.getActions().length).toBe(1);
+            expect(setPositionMock).toHaveBeenCalledWith(position);
         })
     })
-})
 
-describe('clearPosition() method', () => {
-    it(`should setup 'clear position' action object`, () => {
-        const action = clearPosition();
+    describe('startClearPosition() method', () => {
+        it(`should call dispatch with clearPositon`, async () => {
+            const clearPositionMock = jest.spyOn(positionActionHelpers, 'clearPosition');
+            const store = createMockStore();
 
-        expect(action).toEqual({
-            type: 'CLEAR_POSITION',
+            await store.dispatch(startClearPosition());
+
+            expect(store.getActions().length).toBe(1);
+            expect(clearPositionMock).toHaveBeenCalled();
         })
     })
 })

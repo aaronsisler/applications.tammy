@@ -1,42 +1,65 @@
-import {
-    setUser,
-    editUser,
-    clearUser,
-} from '../../src/actions/user';
-import user from '../fixtures/user';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import database from '../../src/firebase/firebase';
+import { startSetUser, startEditUser, startClearUser, } from '../../src/actions/user';
+import * as userActionHelpers from '../../src/actions/helpers/user';
+import { defaultAuthState } from '../fixtures/auth';
+import userFixture from '../fixtures/user';
+
+const createMockStore = configureMockStore([thunk]);
+
+describe('User Actions', () => {
+    const userId = defaultAuthState.auth.uid;
+    const user = { ...userFixture, userId };
+
+    beforeEach(() => {
+        const once = jest.fn();
+        const update = jest.fn();
+        const val = () => ({ ...user });
+        once.mockResolvedValue({ key: userId, val });
+        update.mockResolvedValue();
+        jest.spyOn(database, 'ref').mockReturnValue({ update, once });
+    })
+
+    afterEach(() => {
+        database.ref.mockRestore();
+    })
 
 
-describe('setUser() method', () => {
-    it(`should setup 'set user' action object`, () => {
-        const action = setUser(user);
+    describe('startSetUser() method', () => {
+        it('should call dispatch with setUser', async () => {
+            const setUserMock = jest.spyOn(userActionHelpers, 'setUser');
+            const store = createMockStore(defaultAuthState);
 
-        expect(action).toEqual({
-            type: 'SET_USER',
-            user
+            await store.dispatch(startSetUser());
+
+            expect(store.getActions().length).toBe(1);
+            expect(setUserMock).toHaveBeenCalledWith(user);
         })
     })
-})
 
-describe('editUser() method', () => {
-    it(`should setup 'edit user' action object`, () => {
-        const userId = user.id;
-        const updates = { name: 'new name' };
-        const action = editUser(userId, updates);
+    describe('startEditUser() method', () => {
+        it('should call dispatch with editUser', async () => {
+            const updates = { name: 'new name' };
+            const editUserMock = jest.spyOn(userActionHelpers, 'editUser');
+            const store = createMockStore(defaultAuthState);
 
-        expect(action).toEqual({
-            type: 'EDIT_USER',
-            userId,
-            updates
+            await store.dispatch(startEditUser(updates));
+
+            expect(store.getActions().length).toBe(1);
+            expect(editUserMock).toHaveBeenCalledWith(userId, updates);
         })
     })
-})
 
-describe('clearUser() method', () => {
-    it(`should setup 'clear user' action object`, () => {
-        const action = clearUser();
+    describe('startClearUser() method', () => {
+        it('should call dispatch with clearUser', () => {
+            const clearUserMock = jest.spyOn(userActionHelpers, 'editUser');
+            const store = createMockStore();
 
-        expect(action).toEqual({
-            type: 'CLEAR_USER',
+            store.dispatch(startClearUser());
+
+            expect(store.getActions().length).toBe(1);
+            expect(clearUserMock).toHaveBeenCalled();
         })
     })
 })

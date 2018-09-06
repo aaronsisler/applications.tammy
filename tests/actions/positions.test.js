@@ -1,15 +1,38 @@
-import {
-    setPositions,
-} from '../../src/actions/positions';
-import positions from '../fixtures/positions';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import database from '../../src/firebase/firebase';
+import { startSetPositions, } from '../../src/actions/positions';
+import * as positionsActionHelpers from '../../src/actions/helpers/positions';
+import positions, { defaultPositionsState } from '../fixtures/positions';
 
-describe('setPositions() method', () => {
-    it(`should setup 'set positions' action object`, () => {
-        const action = setPositions(positions);
+const createMockStore = configureMockStore([thunk]);
 
-        expect(action).toEqual({
-            type: 'SET_POSITIONS',
-            positions
+describe('Positions Actions', () => {
+    const positionsMock = [];
+    positions.forEach((position) => {
+        const val = () => ({ ...position });
+        positionsMock.push({ key: position.positionId, val })
+    })
+
+    beforeEach(() => {
+        const once = jest.fn();
+        once.mockResolvedValue(positionsMock);
+        jest.spyOn(database, 'ref').mockReturnValue({ once });
+    })
+
+    afterEach(() => {
+        database.ref.mockRestore();
+    })
+
+    describe('startSetPositions() method', () => {
+        it(`should call dispatch with setPositions`, async () => {
+            const setPositionsMock = jest.spyOn(positionsActionHelpers, 'setPositions');
+            const store = createMockStore(defaultPositionsState);
+
+            await store.dispatch(startSetPositions());
+
+            expect(store.getActions().length).toBe(1);
+            expect(setPositionsMock).toHaveBeenCalledWith(positions);
         })
     })
 })
