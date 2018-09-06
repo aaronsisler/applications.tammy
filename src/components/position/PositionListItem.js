@@ -9,7 +9,7 @@ export class PositionListItem extends React.Component {
     }
 
     handleSetPosition = () => {
-        this.props.startSetPosition(this.props.id);
+        this.props.startSetPosition(this.props.positionId);
     }
 
     render() {
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(undefined, mapDispatchToProps)(PositionListItem);
 
 PositionListItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    positionId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     jobId: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
