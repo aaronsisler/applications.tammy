@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startLogin } from '../../actions/auth';
 
-const LoginPage = (props) => (
+export const LoginPage = (props) => (
     <div id="login_page">
         <div className="login_content">
-            <button className="button" onClick={props.startLogin}>Login with Google</button>
+            <button
+                className="button"
+                onClick={props.startLogin}
+            >
+                Login with Google
+            </button>
         </div>
     </div>
 );

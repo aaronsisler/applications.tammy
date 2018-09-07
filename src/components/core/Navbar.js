@@ -9,6 +9,7 @@ import { startClearUser } from '../../actions/user';
 
 const bodyOpenClassName = 'body_open';
 const navSideMenuOpenClassName = 'nav_side_menu_open';
+const navSideMenu = 'nav_side_menu';
 
 export class Navbar extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export class Navbar extends React.Component {
 
     handleOpenSideMenu = () => {
         document.body.classList.add(bodyOpenClassName);
-        document.getElementById('nav_side_menu').classList.add(navSideMenuOpenClassName);
+        document.getElementById(navSideMenu).classList.add(navSideMenuOpenClassName);
         this.setState(() => ({
             isNavOpen: true
         }));
@@ -28,7 +29,7 @@ export class Navbar extends React.Component {
 
     handleCloseSideMenu = () => {
         document.body.classList.remove(bodyOpenClassName);
-        document.getElementById('nav_side_menu').classList.remove(navSideMenuOpenClassName);
+        document.getElementById(navSideMenu).classList.remove(navSideMenuOpenClassName);
         this.setState(() => ({
             isNavOpen: false
         }));
@@ -64,7 +65,7 @@ export class Navbar extends React.Component {
                     }
                 </div>
                 {this.props.isAuthenticated &&
-                    <div id="nav_side_menu">
+                    <div id={navSideMenu}>
                         <Link to="/dashboard" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Dashboard</Link>
                         <Link to="/user_profile" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Profile</Link>
                         <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
@@ -72,7 +73,7 @@ export class Navbar extends React.Component {
                     </div>
                 }
                 {!this.props.isAuthenticated &&
-                    <div id="nav_side_menu">
+                    <div id={navSideMenu}>
                         <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
                         <Link className="nav_side_menu_link" to="/login" onClick={this.handleCloseSideMenu}>Login</Link>
                     </div>
@@ -84,13 +85,13 @@ export class Navbar extends React.Component {
 
 Navbar.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
-    startLogout: PropTypes.func.isRequired,
     startClearUser: PropTypes.func.isRequired,
+    startLogout: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
+    startClearUser: () => dispatch(startClearUser()),
     startLogout: () => dispatch(startLogout()),
-    startClearUser: () => dispatch(startClearUser())
 })
 
 export default connect(undefined, mapDispatchToProps)(Navbar);
