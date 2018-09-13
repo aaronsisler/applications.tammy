@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWidget correctly 1`] = `
+<div
+  id="user_address_widget"
+>
+  <div
+    className="user_address_content"
+  >
+    <div
+      className="user_address_content_title"
+    >
+      Address
+    </div>
+    <div
+      className="user_address_inputs"
+    >
+      <div
+        className="user_address_street_addresses"
+      >
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="addressLine1"
+            name="addressLine1"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Address Line 1"
+            readOnly={false}
+            type="text"
+            value="123 Evergreen Terrace"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="addressLine2"
+            name="addressLine2"
+            onChange={[Function]}
+            placeholder="Address Line 2"
+            readOnly={false}
+            type="text"
+            value="Apt. 456"
+          />
+        </div>
+      </div>
+      <div
+        className="user_address_city_state_zip"
+      >
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            readOnly={false}
+            type="text"
+            value="Durham"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="state"
+            name="state"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="State"
+            readOnly={false}
+            type="text"
+            value="NC"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="postalCode"
+            name="postalCode"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Postal Code"
+            readOnly={false}
+            type="text"
+            value="12345"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="user_address_widget_button"
+  >
+    <button
+      className="button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Update Address
+    </button>
+  </div>
+</div>
+`;
+
+exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidget correctly 1`] = `
+<div
+  id="user_address_widget"
+>
+  <div
+    className="user_address_content"
+  >
+    <div
+      className="user_address_content_title"
+    >
+      Address
+    </div>
+    <div
+      className="user_address_inputs"
+    >
+      <div
+        className="user_address_street_addresses"
+      >
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="addressLine1"
+            name="addressLine1"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Address Line 1"
+            readOnly={true}
+            type="text"
+            value="123 Evergreen Terrace"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="addressLine2"
+            name="addressLine2"
+            onChange={[Function]}
+            placeholder="Address Line 2"
+            readOnly={true}
+            type="text"
+            value="Apt. 456"
+          />
+        </div>
+      </div>
+      <div
+        className="user_address_city_state_zip"
+      >
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="city"
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="City"
+            readOnly={true}
+            type="text"
+            value="Durham"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="state"
+            name="state"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="State"
+            readOnly={true}
+            type="text"
+            value="NC"
+          />
+        </div>
+        <div
+          className="user_address_input"
+        >
+          <input
+            className="text_input"
+            id="postalCode"
+            name="postalCode"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Postal Code"
+            readOnly={true}
+            type="text"
+            value="12345"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

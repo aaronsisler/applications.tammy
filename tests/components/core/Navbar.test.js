@@ -1,6 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Navbar } from '../../../src/components/core/Navbar';
+import {
+    bodyAddMock,
+    bodyRemoveMock,
+    getElementByIdClassListMock,
+} from '../../__mocks__/document';
 
 describe('Navbar', () => {
     const startClearUser = jest.fn();
@@ -20,7 +25,7 @@ describe('Navbar', () => {
                 startLogout={startLogout}
             />);
         instance = wrapper.instance();
-    })
+    });
 
     afterEach(() => {
         // console.log('Restore mocks');
@@ -36,7 +41,7 @@ describe('Navbar', () => {
             // console.log('beforeEach spyOn');
             jest.spyOn(instance, 'handleOpenSideMenu').mockImplementation(jest.fn());
             jest.spyOn(instance, 'handleCloseSideMenu').mockImplementation(jest.fn());
-        })
+        });
 
         describe('times icon', () => {
             it('should show if isNavOpen is TRUE', () => {
@@ -62,42 +67,31 @@ describe('Navbar', () => {
             xit('should call handleOpenSideMenu when clicked', () => {
                 console.log('In test');
                 expect(wrapper.state('isNavOpen')).toBe(false);
-                // wrapper.find('.navbar_favicon').simulate('click');
                 expect(wrapper.find('.navbar_favicon')).toHaveLength(1);
-                console.log('After first expect');
-                console.log('Open', instance.handleOpenSideMenu);
-                console.log('Close', instance.handleCloseSideMenu);
-                wrapper.find('#bars_favicon').simulate('click');
-                // expect(instance.handleOpenSideMenu).toHaveBeenCalled();
+                console.log('After first 2 expects');
+                wrapper.find('.navbar_favicon').simulate('click');
+                expect(instance.handleOpenSideMenu).toHaveBeenCalled();
                 console.log('End of test');
             });
         });
     });
 
     describe('handleOpenSideMenu() method', () => {
-        let bodyAddMock;
-        let getElementByIdAddMock;
-        let getElementByIdMock;
-
         beforeEach(() => {
-            instance = wrapper.instance();
-            bodyAddMock = jest.fn();
-            getElementByIdAddMock = jest.fn();
-            const getElementByIdClassListMock = { classList: { add: getElementByIdAddMock } }
-
             jest.spyOn(document.body.classList, 'add').mockImplementation(bodyAddMock);
-            getElementByIdMock = jest.spyOn(document, 'getElementById').mockReturnValue(getElementByIdClassListMock);
+            jest.spyOn(document, 'getElementById').mockReturnValue(getElementByIdClassListMock);
         });
 
         it('should add classname to body classlist', () => {
             instance.handleOpenSideMenu();
             expect(bodyAddMock).toHaveBeenLastCalledWith(bodyOpenClassName);
+            expect(document.body.classList.add).toHaveBeenLastCalledWith(bodyOpenClassName);
         });
 
         it(`should add classname to nav side menu element's classlist`, () => {
             instance.handleOpenSideMenu();
-            expect(getElementByIdMock).toHaveBeenLastCalledWith(navSideMenu);
-            expect(getElementByIdAddMock).toHaveBeenLastCalledWith(navSideMenuOpenClassName);
+            expect(document.getElementById).toHaveBeenLastCalledWith(navSideMenu);
+            expect(document.getElementById(navSideMenu).classList.add).toHaveBeenLastCalledWith(navSideMenuOpenClassName);
         });
 
         it('should set isNavOpen in state to true', () => {
@@ -107,28 +101,22 @@ describe('Navbar', () => {
     })
 
     describe('handleCloseSideMenu() method', () => {
-        let bodyRemoveMock;
-        let getElementByIdRemoveMock;
-        let getElementByIdMock;
-
         beforeEach(() => {
-            bodyRemoveMock = jest.fn();
-            getElementByIdRemoveMock = jest.fn();
-            const getElementByIdClassListMock = { classList: { remove: getElementByIdRemoveMock } }
-
             jest.spyOn(document.body.classList, 'remove').mockImplementation(bodyRemoveMock);
-            getElementByIdMock = jest.spyOn(document, 'getElementById').mockReturnValue(getElementByIdClassListMock);
+            jest.spyOn(document, 'getElementById').mockReturnValue(getElementByIdClassListMock);
         });
 
         it('should remove classname to body classlist', () => {
             instance.handleCloseSideMenu();
             expect(bodyRemoveMock).toHaveBeenLastCalledWith(bodyOpenClassName);
+            expect(document.body.classList.remove).toHaveBeenLastCalledWith(bodyOpenClassName);
         });
 
         it(`should remove classname to nav side menu element's classlist`, () => {
             instance.handleCloseSideMenu();
-            expect(getElementByIdMock).toHaveBeenLastCalledWith(navSideMenu);
-            expect(getElementByIdRemoveMock).toHaveBeenLastCalledWith(navSideMenuOpenClassName);
+            expect(document.getElementById).toHaveBeenLastCalledWith(navSideMenu);
+            expect(document.getElementById(navSideMenu).classList.remove)
+                .toHaveBeenLastCalledWith(navSideMenuOpenClassName);
         });
 
         it('should set isNavOpen in state to false', () => {

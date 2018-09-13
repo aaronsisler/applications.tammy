@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requiredInputFieldClassName } from '../../tools/constants';
+import { handleRequiredValidation } from './tools/inputs';
 
 export default class UserNameWidget extends React.Component {
     constructor(props) {
@@ -20,18 +20,6 @@ export default class UserNameWidget extends React.Component {
         return this.setState(() => ({
             [inputName]: inputValue,
         }));
-    }
-
-    handleRequiredValidation = (e) => {
-        const inputName = e.target.name;
-        const inputValue = e.target.value;
-
-        if (!inputValue) {
-            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
-        }
-        else {
-            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
-        }
     }
 
     handleSubmit = () => {
@@ -59,7 +47,7 @@ export default class UserNameWidget extends React.Component {
                                 className="text_input"
                                 value={this.state.firstName}
                                 onChange={this.handleInputChange}
-                                onBlur={this.handleRequiredValidation}
+                                onBlur={handleRequiredValidation}
                             />
                         </div>
                         <div className="user_name_input">
@@ -82,7 +70,7 @@ export default class UserNameWidget extends React.Component {
                                 className="text_input"
                                 value={this.state.lastName}
                                 onChange={this.handleInputChange}
-                                onBlur={this.handleRequiredValidation}
+                                onBlur={handleRequiredValidation}
                             />
                         </div>
                     </div>
