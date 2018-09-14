@@ -1,4 +1,4 @@
-import { setPositions, } from '../../../src/actions/helpers/positions';
+import { setPositions, } from 'Actions/helpers/positions';
 import positions from '../../fixtures/positions';
 
 describe('Positions Action Helpers', () => {

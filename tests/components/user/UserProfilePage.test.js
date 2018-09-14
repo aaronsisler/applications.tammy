@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserProfilePage from '../../../src/components/user/UserProfilePage';
+import UserProfilePage from 'User/UserProfilePage';
 
 describe('UserProfilePage', () => {
     it('should render UserProfilePage correctly', () => {

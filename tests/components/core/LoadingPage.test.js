@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LoadingPage from '../../../src/components/core/LoadingPage';
+import LoadingPage from 'Core/LoadingPage';
 
 describe('LoadingPage', () => {
     it('should render LoadingPage correctly', () => {

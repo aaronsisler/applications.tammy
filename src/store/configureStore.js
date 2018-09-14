@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import authReducer from '../reducers/auth';
-import positionsFilterReducer from '../reducers/filters/positions';
-import positionReducer from '../reducers/position';
-import positionsReducer from '../reducers/positions';
-import userReducer from '../reducers/user';
+import authReducer from 'Reducers/auth';
+import positionsFilterReducer from 'Reducers/filters/positions';
+import positionReducer from 'Reducers/position';
+import positionsReducer from 'Reducers/positions';
+import userReducer from 'Reducers/user';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

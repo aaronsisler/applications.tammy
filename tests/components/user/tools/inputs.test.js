@@ -1,13 +1,15 @@
-import { requiredInputFieldClassName } from '../../../../src/tools/constants';
-import { handleRequiredValidation } from '../../../../src/components/user/tools/inputs';
+import { requiredInputFieldClassName } from 'Tools/constants';
 import { getElementsByNameClassListMock } from '../../../__mocks__/document';
+import InputTools from 'User/tools/inputs';
 
 describe('User Tool Inputs', () => {
     describe('handleRequiredValidation() method', () => {
         let eventMock;
+        let inputTools;
 
         beforeEach(() => {
             eventMock = { target: {} };
+            inputTools = new InputTools();
             jest.spyOn(document, 'getElementsByName')
                 .mockReturnValue(getElementsByNameClassListMock);
         });
@@ -22,7 +24,7 @@ describe('User Tool Inputs', () => {
                 const value = 'mockInputValue';
                 eventMock.target = { name, value, };
 
-                handleRequiredValidation(eventMock);
+                inputTools.handleRequiredValidation(eventMock);
 
                 expect(document.getElementsByName).toHaveBeenLastCalledWith(name);
                 expect(document.getElementsByName(name)[0].classList.remove)
@@ -35,7 +37,7 @@ describe('User Tool Inputs', () => {
                 const name = 'mockInputName';
                 eventMock.target = { name, };
 
-                handleRequiredValidation(eventMock);
+                inputTools.handleRequiredValidation(eventMock);
 
                 expect(document.getElementsByName).toHaveBeenLastCalledWith(name);
                 expect(document.getElementsByName(name)[0].classList.add)

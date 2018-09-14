@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { handleRequiredValidation } from './tools/inputs';
+import InputTools from 'User/tools/inputs';
 
 export default class UserAddressWidget extends React.Component {
+    inputTools = new InputTools();
+
     constructor(props) {
         super(props);
         this.state = {
@@ -73,7 +75,7 @@ export default class UserAddressWidget extends React.Component {
                                     className="text_input"
                                     value={this.state.addressLine1}
                                     onChange={this.handleInputChange}
-                                    onBlur={handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -100,7 +102,7 @@ export default class UserAddressWidget extends React.Component {
                                     className="text_input"
                                     value={this.state.city}
                                     onChange={this.handleInputChange}
-                                    onBlur={handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -113,7 +115,7 @@ export default class UserAddressWidget extends React.Component {
                                     className="text_input"
                                     value={this.state.state}
                                     onChange={this.handleInputChange}
-                                    onBlur={handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
@@ -126,7 +128,7 @@ export default class UserAddressWidget extends React.Component {
                                     className="text_input"
                                     value={this.state.postalCode}
                                     onChange={this.handleInputChange}
-                                    onBlur={handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                         </div>

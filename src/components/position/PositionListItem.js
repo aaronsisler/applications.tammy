@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startSetPosition } from '../../actions/position';
+import { startSetPosition } from 'Actions/position';
 
 export class PositionListItem extends React.Component {
     constructor(props) {

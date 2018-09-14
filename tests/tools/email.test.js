@@ -1,4 +1,4 @@
-import { isEmailValid } from '../../src/tools/email';
+import { isEmailValid } from 'Tools/email';
 
 describe('isEmailValid() method', () => {
     it('should return true if email is valid', () => {

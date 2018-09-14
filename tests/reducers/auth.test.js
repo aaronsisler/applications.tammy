@@ -1,4 +1,4 @@
-import authReducer from '../../src/reducers/auth';
+import authReducer from 'Reducers/auth';
 
 const defaultState = {};
 

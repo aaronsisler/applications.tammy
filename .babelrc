@@ -5,6 +5,25 @@
     ],
     "plugins": [
         "transform-class-properties",
-        "transform-object-rest-spread"
+        "transform-object-rest-spread",
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src"
+                ],
+                "alias": {
+                    "Actions": "./src/actions",
+                    "Core": "./src/components/core",
+                    "Position": "./src/components/position",
+                    "Reducers": "./src/reducers",
+                    "Selectors": "./src/selectors",
+                    "Shared": "./src/components/shared",
+                    "Styles": "./src/styles",
+                    "Tools": "./src/tools",
+                    "User": "./src/components/user"
+                }
+            }
+        ]
     ]
 }

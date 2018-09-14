@@ -1,7 +1,7 @@
 import {
     setPositionsTextFilter,
     clearPositionsTextFilter,
-} from '../../../src/actions/filters/positionsText';
+} from 'Actions/filters/positionsText';
 
 
 describe('setPositionsTextFilter() method', () => {

@@ -1,4 +1,4 @@
-import userReducer from '../../src/reducers/user';
+import userReducer from 'Reducers/user';
 import user from '../fixtures/user';
 
 const defaultState = null;

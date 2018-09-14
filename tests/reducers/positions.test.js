@@ -1,4 +1,4 @@
-import positionsReducer from '../../src/reducers/positions';
+import positionsReducer from 'Reducers/positions';
 import positions from '../fixtures/positions';
 
 const defaultState = [];

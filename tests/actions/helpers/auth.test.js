@@ -1,4 +1,4 @@
-import { login, logout, } from '../../../src/actions/helpers/auth';
+import { login, logout, } from 'Actions/helpers/auth';
 
 describe('Auth Helper Actions', () => {
     describe('login() method', () => {

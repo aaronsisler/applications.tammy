@@ -25,7 +25,7 @@ exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWid
             className="text_input"
             id="addressLine1"
             name="addressLine1"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="Address Line 1"
             readOnly={false}
@@ -58,7 +58,7 @@ exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWid
             className="text_input"
             id="city"
             name="city"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="City"
             readOnly={false}
@@ -73,7 +73,7 @@ exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWid
             className="text_input"
             id="state"
             name="state"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="State"
             readOnly={false}
@@ -88,7 +88,7 @@ exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWid
             className="text_input"
             id="postalCode"
             name="postalCode"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="Postal Code"
             readOnly={false}
@@ -138,7 +138,7 @@ exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidg
             className="text_input"
             id="addressLine1"
             name="addressLine1"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="Address Line 1"
             readOnly={true}
@@ -171,7 +171,7 @@ exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidg
             className="text_input"
             id="city"
             name="city"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="City"
             readOnly={true}
@@ -186,7 +186,7 @@ exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidg
             className="text_input"
             id="state"
             name="state"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="State"
             readOnly={true}
@@ -201,7 +201,7 @@ exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidg
             className="text_input"
             id="postalCode"
             name="postalCode"
-            onBlur={[Function]}
+            onBlur={[MockFunction]}
             onChange={[Function]}
             placeholder="Postal Code"
             readOnly={true}

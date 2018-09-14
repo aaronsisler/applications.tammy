@@ -1,4 +1,4 @@
-import selectPositions from '../../src/selectors/positions';
+import selectPositions from 'Selectors/positions';
 import positions from '../fixtures/positions';
 
 describe('selectPositions() method', () => {

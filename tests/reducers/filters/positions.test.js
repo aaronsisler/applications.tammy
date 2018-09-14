@@ -1,4 +1,4 @@
-import positionsFilterReducer from '../../../src/reducers/filters/positions';
+import positionsFilterReducer from 'Reducers/filters/positions';
 
 const defaultState =
 {

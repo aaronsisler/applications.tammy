@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Navbar } from '../../../src/components/core/Navbar';
+import { Navbar } from 'Core/Navbar';
 import {
     bodyAddMock,
     bodyRemoveMock,
@@ -65,13 +65,13 @@ describe('Navbar', () => {
             });
 
             xit('should call handleOpenSideMenu when clicked', () => {
-                console.log('In test');
+                // console.log('In test');
                 expect(wrapper.state('isNavOpen')).toBe(false);
                 expect(wrapper.find('.navbar_favicon')).toHaveLength(1);
-                console.log('After first 2 expects');
+                // console.log('After first 2 expects');
                 wrapper.find('.navbar_favicon').simulate('click');
                 expect(instance.handleOpenSideMenu).toHaveBeenCalled();
-                console.log('End of test');
+                // console.log('End of test');
             });
         });
     });

@@ -1,30 +1,29 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserAddressWidget from '../../../src/components/user/UserAddressWidget';
+import UserAddressWidget from 'User/UserAddressWidget';
 import user from '../../fixtures/user';
-import * as inputTools from '../../../src/components/user/tools/inputs';
-jest.mock('../../../src/components/user/tools/inputs', () => ({ handleRequiredValidation: jest.fn() }));
+import InputTools from 'User/tools/inputs';
+jest.mock('User/tools/inputs');
 
 describe('UserAddressWidget', () => {
     const onSubmit = jest.fn();
     let wrapper;
+    let inputToolsMock;
 
     describe('when isReadOnly is FALSE', () => {
         beforeEach(() => {
+            InputTools.mockClear();
             wrapper = shallow(
                 <UserAddressWidget
                     isReadOnly={false}
                     onSubmit={onSubmit}
                     user={user}
                 />);
+            [inputToolsMock] = InputTools.mock.instances;
         });
 
-        afterEach(() => {
-            jest.restoreAllMocks();
-        });
-
-        xit('should render UserAddressWidget correctly', () => {
+        it('should render UserAddressWidget correctly', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
@@ -43,7 +42,7 @@ describe('UserAddressWidget', () => {
             it('should call handleRequiredValidation on blur', () => {
                 wrapper.find(`#${name}`).simulate('blur');
 
-                expect(inputTools.handleRequiredValidation).toHaveBeenCalled();
+                expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
         })
 
@@ -71,11 +70,9 @@ describe('UserAddressWidget', () => {
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                jest.spyOn(inputTools, 'handleRequiredValidation');
-
                 wrapper.find(`#${name}`).simulate('blur');
 
-                expect(inputTools.handleRequiredValidation).toHaveBeenCalled();
+                expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
         });
 
@@ -103,11 +100,9 @@ describe('UserAddressWidget', () => {
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                jest.spyOn(inputTools, 'handleRequiredValidation');
-
                 wrapper.find(`#${name}`).simulate('blur');
 
-                expect(inputTools.handleRequiredValidation).toHaveBeenCalled();
+                expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
         });
 
@@ -135,11 +130,9 @@ describe('UserAddressWidget', () => {
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                jest.spyOn(inputTools, 'handleRequiredValidation');
-
                 wrapper.find(`#${name}`).simulate('blur');
 
-                expect(inputTools.handleRequiredValidation).toHaveBeenCalled();
+                expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
         });
 
@@ -192,7 +185,7 @@ describe('UserAddressWidget', () => {
                 />);
         });
 
-        xit('should render UserAddressWidget correctly', () => {
+        it('should render UserAddressWidget correctly', () => {
             expect(wrapper).toMatchSnapshot();
         })
     })

@@ -1,8 +1,8 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { history } from '../../src/tools/history';
+import { history } from 'Tools/history';
 import { firebase, googleAuthProvider } from '../../src/firebase/firebase';
-import { startLogin, startLogout, } from '../../src/actions/auth';
+import { startLogin, startLogout, } from 'Actions/auth';
 
 const createMockStore = configureMockStore([thunk]);
 

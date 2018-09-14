@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requiredInputFieldClassName } from '../../tools/constants';
-import { isEmailValid } from '../../tools/email';
+import { requiredInputFieldClassName } from 'Tools/constants';
+import { isEmailValid } from 'Tools/email';
 
 export default class UserNameWidget extends React.Component {
     constructor(props) {

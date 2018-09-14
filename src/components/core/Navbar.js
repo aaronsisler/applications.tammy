@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/fontawesome-free-solid'
-import { startLogout } from '../../actions/auth';
-import { startClearUser } from '../../actions/user';
+import { startLogout } from 'Actions/auth';
+import { startClearUser } from 'Actions/user';
 
 const bodyOpenClassName = 'body_open';
 const navSideMenuOpenClassName = 'nav_side_menu_open';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setPositionsTextFilter } from '../../actions/filters/positionsText';
+import { setPositionsTextFilter } from 'Actions/filters/positionsText';
 
 class PositionListFilters extends React.Component {
     onTextChange = e => {

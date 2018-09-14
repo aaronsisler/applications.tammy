@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import selectPositions from '../../selectors/positions';
-import LoadingPage from '../core/LoadingPage';
+import selectPositions from 'Selectors/positions';
+import LoadingPage from 'Core/LoadingPage';
 import PositionList from './PositionList';
 import PositionListFilter from './PositionListFilter';
 import PositionDetails from './PositionDetails';

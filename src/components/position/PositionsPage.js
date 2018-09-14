@@ -1,5 +1,5 @@
 import React from 'react';
-import PositionContainer from '../position/PositionContainer';
+import PositionContainer from 'Position/PositionContainer';
 
 export default class PositionsPage extends React.Component {
     constructor(props) {

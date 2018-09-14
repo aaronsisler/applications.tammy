@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LoggedOutPage from '../../../src/components/core/LoggedOutPage';
+import LoggedOutPage from 'Core/LoggedOutPage';
 
 describe('LoggedOutPage', () => {
     it('should render LoggedOutPage correctly', () => {

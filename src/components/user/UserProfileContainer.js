@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
 import UserContactInfoWidget from './UserContactInfoWidget';
-import { startEditUser } from '../../actions/user';
-import LoadingPage from '../core/LoadingPage';
+import { startEditUser } from 'Actions/user';
+import LoadingPage from 'Core/LoadingPage';
 
 export class UserProfileContainer extends React.Component {
     constructor(props) {

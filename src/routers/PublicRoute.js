@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Navbar from '../components/core/Navbar';
-import Footer from '../components/core/Footer';
+import Navbar from 'Core/Navbar';
+import Footer from 'Core/Footer';
 
 export const PublicRoute = ({
     isAuthenticated,

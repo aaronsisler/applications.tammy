@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Navbar from '../components/core/Navbar';
-import Footer from '../components/core/Footer';
+import Navbar from 'Core/Navbar';
+import Footer from 'Core/Footer';
 
-import DashboardPage from '../components/core/DashboardPage';
-import LoginPage from '../components/core/LoginPage';
-import LoggedOutPage from '../components/core/LoggedOutPage';
-import NotFoundPage from '../components/core/NotFoundPage';
-import PositionsPage from '../components/position/PositionsPage';
-import UserProfilePage from '../components/user/UserProfilePage';
+import DashboardPage from 'Core/DashboardPage';
+import LoginPage from 'Core/LoginPage';
+import LoggedOutPage from 'Core/LoggedOutPage';
+import NotFoundPage from 'Core/NotFoundPage';
+import PositionsPage from 'Position/PositionsPage';
+import UserProfilePage from 'User/UserProfilePage';
 
-import { history } from '../tools/history';
+import { history } from 'Tools/history';
 
 const AppRouter = (props) => (
     <Router history={history}>

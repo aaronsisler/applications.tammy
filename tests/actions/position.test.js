@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { startSetPosition, startClearPosition, } from '../../src/actions/position';
-import * as positionActionHelpers from '../../src/actions/helpers/position';
+import { startSetPosition, startClearPosition, } from 'Actions/position';
+import * as positionActionHelpers from 'Actions/helpers/position';
 import positions, { defaultPositionsState } from '../fixtures/positions';
 
 const createMockStore = configureMockStore([thunk]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DashboardPage from '../../../src/components/core/DashboardPage';
+import DashboardPage from 'Core/DashboardPage';
 
 describe('DashboardPage', () => {
     it('should render DashboardPage correctly', () => {

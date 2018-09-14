@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { handleRequiredValidation } from './tools/inputs';
+import { handleRequiredValidation } from 'User/tools/inputs';
 
 export default class UserNameWidget extends React.Component {
     constructor(props) {

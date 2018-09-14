@@ -2,7 +2,7 @@ import {
     setUser,
     editUser,
     clearUser,
-} from '../../../src/actions/helpers/user';
+} from 'Actions/helpers/user';
 import { defaultAuthState } from '../../fixtures/auth';
 import userFixture from '../../fixtures/user';
 
