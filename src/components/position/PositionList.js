@@ -7,9 +7,6 @@ export default class PositionList extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         if (this.props.positions.length === 0) {
             return (

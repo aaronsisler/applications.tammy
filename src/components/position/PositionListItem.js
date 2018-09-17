@@ -31,16 +31,17 @@ export class PositionListItem extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startSetPosition: (id) => dispatch(startSetPosition(id))
+    startSetPosition: (positionId) => dispatch(startSetPosition(positionId))
 });
 
 export default connect(undefined, mapDispatchToProps)(PositionListItem);
 
 PositionListItem.propTypes = {
-    positionId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     jobId: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    positionId: PropTypes.string.isRequired,
     startSetPosition: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
 };

@@ -20,6 +20,7 @@ LoginPage.propTypes = {
     startLogin: PropTypes.func.isRequired,
 };
 
+/* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
     startLogin: () => dispatch(startLogin())
 });

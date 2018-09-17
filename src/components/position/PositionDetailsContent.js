@@ -40,6 +40,6 @@ export default class PositionDetailsContent extends React.Component {
 }
 
 PositionDetailsContent.propTypes = {
-    position: PropTypes.object,
+    position: PropTypes.object.isRequired,
 };
 

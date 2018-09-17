@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { handleRequiredValidation } from 'User/tools/inputs';
+import InputTools from 'User/tools/inputs';
 
 export default class UserNameWidget extends React.Component {
+    inputTools = new InputTools();
+
     constructor(props) {
         super(props);
         this.state = {
@@ -42,18 +44,20 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="firstName"
                                 name="firstName"
                                 placeholder="First Name"
                                 className="text_input"
                                 value={this.state.firstName}
                                 onChange={this.handleInputChange}
-                                onBlur={handleRequiredValidation}
+                                onBlur={this.inputTools.handleRequiredValidation}
                             />
                         </div>
                         <div className="user_name_input">
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="middleName"
                                 name="middleName"
                                 placeholder="Middle Name"
                                 className="text_input"
@@ -65,12 +69,13 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="lastName"
                                 name="lastName"
                                 placeholder="Last Name"
                                 className="text_input"
                                 value={this.state.lastName}
                                 onChange={this.handleInputChange}
-                                onBlur={handleRequiredValidation}
+                                onBlur={this.inputTools.handleRequiredValidation}
                             />
                         </div>
                     </div>
@@ -84,6 +89,7 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="displayName"
                                 name="displayName"
                                 placeholder="Display Name"
                                 className="text_input"

@@ -89,6 +89,7 @@ Navbar.propTypes = {
     startLogout: PropTypes.func.isRequired,
 };
 
+/* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
     startClearUser: () => dispatch(startClearUser()),
     startLogout: () => dispatch(startLogout()),

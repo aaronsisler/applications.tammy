@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfileContainer when user is defined should render UserProfileContainer correctly 1`] = `
+<div>
+  <div
+    id="user_profile_container"
+  >
+    <div
+      className="user_widget"
+    >
+      <UserNameWidget
+        id="UserNameWidget"
+        isReadOnly={false}
+        onSubmit={[Function]}
+        user={
+          Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "email": "johnny.appleseed@gmail.com",
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "12345",
+            "state": "NC",
+          }
+        }
+      />
+    </div>
+    <div
+      className="user_widget"
+    >
+      <UserNameWidget
+        id="UserContactInfoWidget"
+        isReadOnly={false}
+        onSubmit={[Function]}
+        user={
+          Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "email": "johnny.appleseed@gmail.com",
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "12345",
+            "state": "NC",
+          }
+        }
+      />
+    </div>
+    <div
+      className="user_widget"
+    >
+      <UserAddressWidget
+        id="UserAddressWidget"
+        isReadOnly={false}
+        onSubmit={[Function]}
+        user={
+          Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "email": "johnny.appleseed@gmail.com",
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "12345",
+            "state": "NC",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UserProfileContainer when user is undefined should render UserProfileContainer correctly 1`] = `
+<div>
+  <LoadingPage />
+</div>
+`;

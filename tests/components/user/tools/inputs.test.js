@@ -1,34 +1,39 @@
-import { requiredInputFieldClassName } from 'Tools/constants';
+import { errorInputFieldClassName } from 'Tools/constants';
 import { getElementsByNameClassListMock } from '../../../__mocks__/document';
 import InputTools from 'User/tools/inputs';
 
 describe('User Tool Inputs', () => {
+    let inputTools;
+
+    beforeEach(() => {
+        inputTools = new InputTools();
+        jest.spyOn(document, 'getElementsByName')
+            .mockReturnValue(getElementsByNameClassListMock);
+    });
+
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
+
     describe('handleRequiredValidation() method', () => {
         let eventMock;
-        let inputTools;
 
         beforeEach(() => {
             eventMock = { target: {} };
-            inputTools = new InputTools();
-            jest.spyOn(document, 'getElementsByName')
-                .mockReturnValue(getElementsByNameClassListMock);
-        });
-
-        afterEach(() => {
-            jest.restoreAllMocks();
+            jest.spyOn(inputTools, 'handleSetErrorClassname')
         });
 
         describe('when input value is present', () => {
-            it('should remove required input className to input element', () => {
+            it('should remove required input className from input element', () => {
                 const name = 'mockInputName';
                 const value = 'mockInputValue';
                 eventMock.target = { name, value, };
 
                 inputTools.handleRequiredValidation(eventMock);
 
-                expect(document.getElementsByName).toHaveBeenLastCalledWith(name);
-                expect(document.getElementsByName(name)[0].classList.remove)
-                    .toHaveBeenLastCalledWith(requiredInputFieldClassName);
+                expect(inputTools.handleSetErrorClassname)
+                    .toHaveBeenLastCalledWith(name);
             });
         });
 
@@ -39,10 +44,35 @@ describe('User Tool Inputs', () => {
 
                 inputTools.handleRequiredValidation(eventMock);
 
+                expect(inputTools.handleSetErrorClassname)
+                    .toHaveBeenLastCalledWith(name, false);
+            });
+        });
+    });
+
+    describe('handleSetErrorClassname', () => {
+        describe('when isInputValid is true', () => {
+            it('should remove required input className from input element', () => {
+                const name = 'mockInputName';
+
+                inputTools.handleSetErrorClassname(name);
+
+                expect(document.getElementsByName).toHaveBeenLastCalledWith(name);
+                expect(document.getElementsByName(name)[0].classList.remove)
+                    .toHaveBeenLastCalledWith(errorInputFieldClassName);
+            });
+        });
+
+        describe('when isInputValid is false', () => {
+            it('should add required input className to input element', () => {
+                const name = 'mockInputName';
+
+                inputTools.handleSetErrorClassname(name, false);
+
                 expect(document.getElementsByName).toHaveBeenLastCalledWith(name);
                 expect(document.getElementsByName(name)[0].classList.add)
-                    .toHaveBeenLastCalledWith(requiredInputFieldClassName);
+                    .toHaveBeenLastCalledWith(errorInputFieldClassName);
             });
-        })
-    })
-})
+        });
+    });
+});

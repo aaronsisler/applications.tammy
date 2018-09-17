@@ -15,4 +15,4 @@ export const analyticsLabels = {
     contactForm: 'Contact Form',
 }
 
-export const requiredInputFieldClassName = 'text_input_required';
+export const errorInputFieldClassName = 'text_input_error';

@@ -40,6 +40,7 @@ export class PositionDetails extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     position: state.position
 });

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionDetails should render PositionDetails correctly when position is NOT available 1`] = `
+<div
+  className="position_details"
+>
+  <div
+    className="empty"
+  >
+    Please select an item to view
+  </div>
+</div>
+`;
+
+exports[`PositionDetails should render PositionDetails correctly when position is available 1`] = `
+<div
+  className="position_details"
+>
+  <div
+    className="position_details_widget"
+  >
+    <div
+      className="position_details_header"
+    >
+      <div>
+        <div
+          className="position_details__title"
+        >
+          first title
+        </div>
+        <div
+          className="position_details__job_id"
+        >
+          Job Id: 
+          first job id
+        </div>
+      </div>
+      <div
+        className="position_details__location"
+      >
+        first location
+      </div>
+    </div>
+    <PositionDetailsContent
+      position={
+        Object {
+          "content": Object {
+            "description": "first description",
+            "requirements": Array [
+              "Skill 1",
+              "Skill 2",
+            ],
+            "responsibilities": Array [
+              "Responsibility 1",
+              "Responsibility 2",
+            ],
+          },
+          "jobId": "first job id",
+          "location": "first location",
+          "positionId": "firstPositionId",
+          "title": "first title",
+        }
+      }
+    />
+  </div>
+</div>
+`;

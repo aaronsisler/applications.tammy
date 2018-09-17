@@ -141,10 +141,9 @@ describe('UserAddressWidget', () => {
                 expect(wrapper.find('button').props().disabled).toBe(false);
             });
 
-            it('should be enabled when required fields ARE populated', () => {
+            it('should be disabled when required fields are NOT populated', () => {
                 wrapper.setState({
                     addressLine1: '',
-                    addressLine2: '',
                     city: '',
                     state: '',
                     postalCode: ''
@@ -187,6 +186,6 @@ describe('UserAddressWidget', () => {
 
         it('should render UserAddressWidget correctly', () => {
             expect(wrapper).toMatchSnapshot();
-        })
-    })
+        });
+    });
 });

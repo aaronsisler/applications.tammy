@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserNameWidget when isReadOnly is FALSE should render UserNameWidget correctly 1`] = `
+<div
+  id="user_name_widget"
+>
+  <div
+    className="user_name_legal_content"
+  >
+    <div
+      className="user_name_content_title"
+    >
+      Full Name
+    </div>
+    <div
+      className="user_name_legal_inputs"
+    >
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="firstName"
+          name="firstName"
+          onBlur={[MockFunction]}
+          onChange={[Function]}
+          placeholder="First Name"
+          readOnly={false}
+          type="text"
+          value="Johnny"
+        />
+      </div>
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="middleName"
+          name="middleName"
+          onChange={[Function]}
+          placeholder="Middle Name"
+          readOnly={false}
+          type="text"
+          value="Middleton"
+        />
+      </div>
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="lastName"
+          name="lastName"
+          onBlur={[MockFunction]}
+          onChange={[Function]}
+          placeholder="Last Name"
+          readOnly={false}
+          type="text"
+          value="Appleseed"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="user_name_display_content"
+  >
+    <div
+      className="user_name_content_title"
+    >
+      Display Name
+    </div>
+    <div
+      className="user_name_display_input"
+    >
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="displayName"
+          name="displayName"
+          onChange={[Function]}
+          placeholder="Display Name"
+          readOnly={false}
+          type="text"
+          value="Johnny Appleseed"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="user_name_widget_button"
+  >
+    <button
+      className="button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Update User Info
+    </button>
+  </div>
+</div>
+`;
+
+exports[`UserNameWidget when isReadOnly is TRUE should render UserNameWidget correctly 1`] = `
+<div
+  id="user_name_widget"
+>
+  <div
+    className="user_name_legal_content"
+  >
+    <div
+      className="user_name_content_title"
+    >
+      Full Name
+    </div>
+    <div
+      className="user_name_legal_inputs"
+    >
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="firstName"
+          name="firstName"
+          onBlur={[MockFunction]}
+          onChange={[Function]}
+          placeholder="First Name"
+          readOnly={true}
+          type="text"
+          value="Johnny"
+        />
+      </div>
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="middleName"
+          name="middleName"
+          onChange={[Function]}
+          placeholder="Middle Name"
+          readOnly={true}
+          type="text"
+          value="Middleton"
+        />
+      </div>
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="lastName"
+          name="lastName"
+          onBlur={[MockFunction]}
+          onChange={[Function]}
+          placeholder="Last Name"
+          readOnly={true}
+          type="text"
+          value="Appleseed"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="user_name_display_content"
+  >
+    <div
+      className="user_name_content_title"
+    >
+      Display Name
+    </div>
+    <div
+      className="user_name_display_input"
+    >
+      <div
+        className="user_name_input"
+      >
+        <input
+          className="text_input"
+          id="displayName"
+          name="displayName"
+          onChange={[Function]}
+          placeholder="Display Name"
+          readOnly={true}
+          type="text"
+          value="Johnny Appleseed"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="user_name_widget_button"
+  />
+</div>
+`;

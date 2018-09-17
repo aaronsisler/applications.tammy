@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setPositionsTextFilter } from 'Actions/filters/positionsText';
 
-class PositionListFilters extends React.Component {
-    onTextChange = e => {
+export class PositionListFilter extends React.Component {
+    onTextChange = (e) => {
         this.props.setPositionsTextFilter(e.target.value);
     }
 
@@ -25,18 +25,20 @@ class PositionListFilters extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     filters: state.filters.positions
 });
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     setPositionsTextFilter: (text) => dispatch(setPositionsTextFilter(text)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PositionListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(PositionListFilter);
 
-PositionListFilters.propTypes = {
-    setPositionsTextFilter: PropTypes.func.isRequired,
+PositionListFilter.propTypes = {
     filters: PropTypes.object.isRequired,
+    setPositionsTextFilter: PropTypes.func.isRequired,
 };
 
