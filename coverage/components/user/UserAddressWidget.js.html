@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.52% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/23</span>
+        <span class='fraction'>23/23</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">44.44% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>12/27</span>
+        <span class='fraction'>27/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/10</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/20</span>
+        <span class='fraction'>20/20</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -211,8 +211,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,31 +227,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -262,7 +262,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,11 +370,11 @@ export default class UserAddressWidget extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            addressLine1: props.user.addressLine1 ? props.user.addressLine1 : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
-            addressLine2: props.user.addressLine2 ? props.user.addressLine2 : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
-            city: props.user.city ? props.user.city : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
-            state: props.user.state ? props.user.state : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
-            postalCode: props.user.postalCode ? props.user.postalCode : <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+            addressLine1: props.user.addressLine1 ? props.user.addressLine1 : '',
+            addressLine2: props.user.addressLine2 ? props.user.addressLine2 : '',
+            city: props.user.city ? props.user.city : '',
+            state: props.user.state ? props.user.state : '',
+            postalCode: props.user.postalCode ? props.user.postalCode : '',
         };
     }
 &nbsp;
@@ -383,27 +383,27 @@ export default class UserAddressWidget extends React.Component {
         const inputValue = e.target.value;
 &nbsp;
         switch (inputName) {
-<span class="branch-0 cbranch-no" title="branch not covered" >            case 'postalCode':</span>
-<span class="cstat-no" title="statement not covered" >                this.handlePostalCodeValidation(inputValue);</span>
-<span class="cstat-no" title="statement not covered" >                return;</span>
-<span class="branch-1 cbranch-no" title="branch not covered" >            case 'state':</span>
-<span class="cstat-no" title="statement not covered" >                this.handleStateAbbreviationValidation(inputValue);</span>
-<span class="cstat-no" title="statement not covered" >                return;</span>
+            case 'postalCode':
+                this.handlePostalCodeValidation(inputValue);
+                return;
+            case 'state':
+                this.handleStateAbbreviationValidation(inputValue);
+                return;
             default:
                 this.handleAddInput(inputName, inputValue);
                 return;
         }
     }
 &nbsp;
-    handlePostalCodeValidation = <span class="fstat-no" title="function not covered" >(i</span>nputValue) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (!inputValue || inputValue.match(/^\d{1,5}?$/)) {</span>
-<span class="cstat-no" title="statement not covered" >            this.setState(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ postalCode: inputValue })</span>);</span>
+    handlePostalCodeValidation = (inputValue) =&gt; {
+        if (!inputValue || inputValue.match(/^\d{1,5}?$/)) {
+            this.setState(() =&gt; ({ postalCode: inputValue }));
         }
     }
 &nbsp;
-    handleStateAbbreviationValidation = <span class="fstat-no" title="function not covered" >(i</span>nputValue) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (!inputValue || inputValue.match(/^[A-Za-z]{1,2}$/)) {</span>
-<span class="cstat-no" title="statement not covered" >            this.setState(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ state: inputValue.toUpperCase() })</span>);</span>
+    handleStateAbbreviationValidation = (inputValue) =&gt; {
+        if (!inputValue || inputValue.match(/^[A-Za-z]{1,2}$/)) {
+            this.setState(() =&gt; ({ state: inputValue.toUpperCase() }));
         }
     }
 &nbsp;
@@ -523,7 +523,7 @@ UserAddressWidget.propTypes = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Sep 16 2018 21:45:51 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 18 2018 15:50:39 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

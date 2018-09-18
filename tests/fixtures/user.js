@@ -7,7 +7,7 @@ export default {
     addressLine2: 'Apt. 456',
     city: 'Durham',
     state: 'NC',
-    postalCode: '12345',
+    postalCode: '27540',
     email: 'johnny.appleseed@gmail.com',
     phoneAreaCode: '919',
     phonePrefix: '123',

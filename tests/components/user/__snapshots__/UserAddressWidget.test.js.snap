@@ -93,7 +93,7 @@ exports[`UserAddressWidget when isReadOnly is FALSE should render UserAddressWid
             placeholder="Postal Code"
             readOnly={false}
             type="text"
-            value="12345"
+            value="27540"
           />
         </div>
       </div>
@@ -206,7 +206,7 @@ exports[`UserAddressWidget when isReadOnly is TRUE should render UserAddressWidg
             placeholder="Postal Code"
             readOnly={true}
             type="text"
-            value="12345"
+            value="27540"
           />
         </div>
       </div>

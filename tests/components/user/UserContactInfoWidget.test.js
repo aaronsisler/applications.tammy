@@ -12,12 +12,12 @@ describe('UserContactInfoWidget', () => {
     let instance;
     let inputToolsMock;
 
-    const buildWrapper = (isReadOnly = false) => {
+    const buildWrapper = (userInput, isReadOnly = true) => {
         wrapper = shallow(
             <UserContactInfoWidget
                 isReadOnly={isReadOnly}
                 onSubmit={onSubmit}
-                user={user}
+                user={userInput}
             />);
     };
 
@@ -31,7 +31,7 @@ describe('UserContactInfoWidget', () => {
 
         beforeEach(() => {
             InputTools.mockClear();
-            buildWrapper();
+            buildWrapper(user, false);
             [inputToolsMock] = InputTools.mock.instances;
             instance = wrapper.instance();
         });
@@ -74,7 +74,7 @@ describe('UserContactInfoWidget', () => {
 
     describe('when isReadOnly is FALSE', () => {
         beforeEach(() => {
-            buildWrapper();
+            buildWrapper(user, false);
             instance = wrapper.instance();
         });
         it('should render UserContactInfoWidget correctly', () => {
@@ -276,9 +276,22 @@ describe('UserContactInfoWidget', () => {
 
     describe('when isReadOnly is TRUE', () => {
         it('should render UserContactInfoWidget correctly', () => {
-            buildWrapper(true);
+            buildWrapper(user);
 
             expect(wrapper).toMatchSnapshot();
+        });
+
+        it('should render UserContactInfoWidget with default props', () => {
+            const defaultUserContactInfo = {
+                email: '',
+                phoneAreaCode: '',
+                phonePrefix: '',
+                phoneLineNumber: '',
+                phoneExt: '',
+            }
+            buildWrapper(defaultUserContactInfo);
+
+            expect(wrapper.state()).toEqual({ ...defaultUserContactInfo, isValidEmail: false, });
         });
     });
 });

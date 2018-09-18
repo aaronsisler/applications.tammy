@@ -11,15 +11,19 @@ describe('UserAddressWidget', () => {
     let wrapper;
     let inputToolsMock;
 
+    const buildWrapper = (userInput, isReadOnly = true, ) => {
+        wrapper = shallow(
+            <UserAddressWidget
+                isReadOnly={isReadOnly}
+                onSubmit={onSubmit}
+                user={userInput}
+            />);
+    };
+
     describe('when isReadOnly is FALSE', () => {
         beforeEach(() => {
             InputTools.mockClear();
-            wrapper = shallow(
-                <UserAddressWidget
-                    isReadOnly={false}
-                    onSubmit={onSubmit}
-                    user={user}
-                />);
+            buildWrapper(user, false);
             [inputToolsMock] = InputTools.mock.instances;
         });
 
@@ -80,10 +84,10 @@ describe('UserAddressWidget', () => {
             const name = 'state';
 
             it('should set state on valid input change', () => {
-                const value = 'NC';
+                const value = 'MD';
 
                 wrapper.find(`#${name}`).simulate('change', {
-                    target: { value }
+                    target: { name, value }
                 });
 
                 expect(wrapper.state(name)).toBe(value);
@@ -93,7 +97,7 @@ describe('UserAddressWidget', () => {
                 const value = '1';
 
                 wrapper.find(`#${name}`).simulate('change', {
-                    target: { value }
+                    target: { name, value }
                 });
 
                 expect(wrapper.state(name)).toBe(user[name]);
@@ -113,7 +117,7 @@ describe('UserAddressWidget', () => {
                 const value = '12345';
 
                 wrapper.find(`#${name}`).simulate('change', {
-                    target: { value }
+                    target: { name, value }
                 });
 
                 expect(wrapper.state(name)).toBe(value);
@@ -123,7 +127,7 @@ describe('UserAddressWidget', () => {
                 const value = 'a';
 
                 wrapper.find(`#${name}`).simulate('change', {
-                    target: { value }
+                    target: { name, value }
                 });
 
                 expect(wrapper.state(name)).toBe(user[name]);
@@ -175,17 +179,23 @@ describe('UserAddressWidget', () => {
     });
 
     describe('when isReadOnly is TRUE', () => {
-        beforeEach(() => {
-            wrapper = shallow(
-                <UserAddressWidget
-                    isReadOnly={true}
-                    onSubmit={onSubmit}
-                    user={user}
-                />);
+        it('should render UserAddressWidget correctly', () => {
+            buildWrapper(user);
+
+            expect(wrapper).toMatchSnapshot();
         });
 
-        it('should render UserAddressWidget correctly', () => {
-            expect(wrapper).toMatchSnapshot();
+        it('should render UserAddressWidget with default props', () => {
+            const defaultUserAddress = {
+                addressLine1: '',
+                addressLine2: '',
+                city: '',
+                state: '',
+                postalCode: '',
+            }
+            buildWrapper(defaultUserAddress);
+
+            expect(wrapper.state()).toEqual(defaultUserAddress);
         });
     });
 });

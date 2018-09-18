@@ -11,15 +11,19 @@ describe('UserNameWidget', () => {
     let wrapper;
     let inputToolsMock;
 
+    const buildWrapper = (userInput, isReadOnly = true) => {
+        wrapper = shallow(
+            <UserNameWidget
+                isReadOnly={isReadOnly}
+                onSubmit={onSubmit}
+                user={userInput}
+            />);
+    }
+
     describe('when isReadOnly is FALSE', () => {
         beforeEach(() => {
             InputTools.mockClear();
-            wrapper = shallow(
-                <UserNameWidget
-                    isReadOnly={false}
-                    onSubmit={onSubmit}
-                    user={user}
-                />);
+            buildWrapper(user, false);
             [inputToolsMock] = InputTools.mock.instances;
         });
 
@@ -141,17 +145,22 @@ describe('UserNameWidget', () => {
     });
 
     describe('when isReadOnly is TRUE', () => {
-        beforeEach(() => {
-            wrapper = shallow(
-                <UserNameWidget
-                    isReadOnly={true}
-                    onSubmit={onSubmit}
-                    user={user}
-                />);
+        it('should render UserNameWidget correctly', () => {
+            buildWrapper(user);
+
+            expect(wrapper).toMatchSnapshot();
         });
 
-        it('should render UserNameWidget correctly', () => {
-            expect(wrapper).toMatchSnapshot();
+        it('should render UserNameWidget with default props', () => {
+            const defaultUserName = {
+                firstName: '',
+                middleName: '',
+                lastName: '',
+                displayName: '',
+            }
+            buildWrapper(defaultUserName);
+
+            expect(wrapper.state()).toEqual(defaultUserName);
         });
     });
 });
