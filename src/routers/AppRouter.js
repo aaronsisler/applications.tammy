@@ -13,18 +13,18 @@ import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
 import UserProfilePage from 'User/UserProfilePage';
 
-import { history } from 'Tools/history';
+import history from 'Tools/history';
 
-const AppRouter = (props) => (
+export const AppRouter = (props) => (
     <Router history={history}>
         <div>
             <Navbar isAuthenticated={props.isAuthenticated} />
             <Switch>
-                <Route path="/" component={PositionsPage} exact={true} />
-                <Route path="/dashboard" component={DashboardPage} exact={true} />
-                <Route path="/login" component={LoginPage} exact={true} />
-                <Route path="/logged_out" component={LoggedOutPage} exact={true} />
-                <Route path="/user_profile" component={UserProfilePage} exact={true} />
+                <Route path='/' component={PositionsPage} exact={true} />
+                <Route path='/dashboard' component={DashboardPage} exact={true} />
+                <Route path='/login' component={LoginPage} exact={true} />
+                <Route path='/logged_out' component={LoggedOutPage} exact={true} />
+                <Route path='/user_profile' component={UserProfilePage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
             <Footer />
@@ -32,6 +32,7 @@ const AppRouter = (props) => (
     </Router>
 );
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     isAuthenticated: !!state.auth.uid
 });

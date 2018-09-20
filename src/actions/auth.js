@@ -1,5 +1,5 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
-import { history } from 'Tools/history';
+import history from 'Tools/history';
 
 export const startLogin = (redirectUrl = '/dashboard') => () => {
     firebase.auth().signInWithPopup(googleAuthProvider)

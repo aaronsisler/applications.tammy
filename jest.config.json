@@ -5,16 +5,7 @@
     "coveragePathIgnorePatterns": [
         "src/app.js",
         "src/config.js",
-        "src/routers/AppRouter.js",
-        "src/routers/PrivateRoute.js",
-        "src/routers/PublicRoute.js",
-        "src/store/configureStore.js",
-        "src/tools/analytics.js",
-        "src/tools/analyticsEvents.js",
-        "src/tools/constants.js",
-        "src/tools/history.js",
         "src/components/__templates__/"
-
     ],
     "coverageReporters": [
         "html"
@@ -33,5 +24,6 @@
     ],
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
-    ]
+    ],
+    "testURL": "http://test.com/mockPath"
 }

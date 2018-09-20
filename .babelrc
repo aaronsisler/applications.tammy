@@ -19,6 +19,7 @@
                     "Reducers": "./src/reducers",
                     "Selectors": "./src/selectors",
                     "Shared": "./src/components/shared",
+                    "Src": "./src",
                     "Styles": "./src/styles",
                     "Tools": "./src/tools",
                     "User": "./src/components/user"
