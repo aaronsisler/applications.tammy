@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsPage should render PositionsPage correctly 1`] = `
+<div
+  id="positions_page"
+>
+  <Connect(PositionsContainer) />
+</div>
+`;

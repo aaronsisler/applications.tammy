@@ -1,5 +1,5 @@
 import React from 'react';
-import PositionContainer from '../position/PositionContainer';
+import PositionsContainer from 'Position/PositionsContainer';
 
 export default class PositionsPage extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ export default class PositionsPage extends React.Component {
     render() {
         return (
             <div id="positions_page">
-                <PositionContainer />
+                <PositionsContainer />
             </div>
         );
     }

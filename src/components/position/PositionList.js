@@ -7,9 +7,6 @@ export default class PositionList extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         if (this.props.positions.length === 0) {
             return (
@@ -24,7 +21,7 @@ export default class PositionList extends React.Component {
                 {
                     this.props.positions.map((position) =>
                         <PositionListItem
-                            key={position.id}
+                            key={position.positionId}
                             {...position}
                         />)
                 }

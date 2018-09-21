@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requiredInputFieldClassName } from '../../tools/constants';
+import InputTools from 'User/tools/inputs';
 
 export default class UserAddressWidget extends React.Component {
+    inputTools = new InputTools();
+
     constructor(props) {
         super(props);
         this.state = {
@@ -28,18 +30,6 @@ export default class UserAddressWidget extends React.Component {
             default:
                 this.handleAddInput(inputName, inputValue);
                 return;
-        }
-    }
-
-    handleRequiredValidation = (e) => {
-        const inputName = e.target.name;
-        const inputValue = e.target.value;
-
-        if (!inputValue) {
-            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
-        }
-        else {
-            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
         }
     }
 
@@ -79,18 +69,20 @@ export default class UserAddressWidget extends React.Component {
                                 <input
                                     readOnly={this.props.isReadOnly}
                                     type="text"
+                                    id="addressLine1"
                                     name="addressLine1"
                                     placeholder="Address Line 1"
                                     className="text_input"
                                     value={this.state.addressLine1}
                                     onChange={this.handleInputChange}
-                                    onBlur={this.handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
                                 <input
                                     readOnly={this.props.isReadOnly}
                                     type="text"
+                                    id="addressLine2"
                                     name="addressLine2"
                                     placeholder="Address Line 2"
                                     className="text_input"
@@ -104,52 +96,55 @@ export default class UserAddressWidget extends React.Component {
                                 <input
                                     readOnly={this.props.isReadOnly}
                                     type="text"
+                                    id="city"
                                     name="city"
                                     placeholder="City"
                                     className="text_input"
                                     value={this.state.city}
                                     onChange={this.handleInputChange}
-                                    onBlur={this.handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
                                 <input
                                     readOnly={this.props.isReadOnly}
                                     type="text"
+                                    id="state"
                                     name="state"
                                     placeholder="State"
                                     className="text_input"
                                     value={this.state.state}
                                     onChange={this.handleInputChange}
-                                    onBlur={this.handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                             <div className="user_address_input">
                                 <input
                                     readOnly={this.props.isReadOnly}
                                     type="text"
+                                    id="postalCode"
                                     name="postalCode"
                                     placeholder="Postal Code"
                                     className="text_input"
                                     value={this.state.postalCode}
                                     onChange={this.handleInputChange}
-                                    onBlur={this.handleRequiredValidation}
+                                    onBlur={this.inputTools.handleRequiredValidation}
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="user_address_widget_button">
-                    {!this.props.isReadOnly &&
+                {!this.props.isReadOnly &&
+                    <div className="user_address_widget_button">
                         <button
                             disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
                             onClick={this.handleSubmit}
                             className="button"
                         >
                             Update Address
-                    </button>
-                    }
-                </div>
+                       </button>
+                    </div>
+                }
             </div>
         )
     }

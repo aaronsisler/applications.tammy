@@ -1,0 +1,29 @@
+{
+    "collectCoverageFrom": [
+        "src/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+        "src/app.js",
+        "src/config.js",
+        "src/components/__templates__/"
+    ],
+    "coverageReporters": [
+        "html"
+    ],
+    "coverageThreshold": {
+        "global": {
+            "branches": 50,
+            "functions": 50,
+            "lines": 50,
+            "statements": 50
+        }
+    },
+    "setupFiles": [
+        "raf/polyfill",
+        "<rootDir>/tests/setupTests.js"
+    ],
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ],
+    "testURL": "http://test.com/mockPath"
+}

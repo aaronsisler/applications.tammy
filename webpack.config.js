@@ -49,6 +49,19 @@ module.exports = (env) => {
         },
         plugins: [
             CSSExtract
-        ]
+        ],
+        resolve: {
+            alias: {
+                Actions: path.resolve(__dirname, 'src/actions/'),
+                Core: path.resolve(__dirname, 'src/components/core/'),
+                Position: path.resolve(__dirname, 'src/components/position/'),
+                Reducers: path.resolve(__dirname, 'src/reducers/'),
+                Selectors: path.resolve(__dirname, 'src/selectors/'),
+                Shared: path.resolve(__dirname, 'src/components/shared/'),
+                Styles: path.resolve(__dirname, 'src/styles/'),
+                Tools: path.resolve(__dirname, 'src/tools/'),
+                User: path.resolve(__dirname, 'src/components/user/'),
+            }
+        }
     }
 };

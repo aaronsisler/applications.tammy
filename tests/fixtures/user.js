@@ -1,0 +1,16 @@
+export default {
+    firstName: 'Johnny',
+    middleName: 'Middleton',
+    lastName: 'Appleseed',
+    displayName: 'Johnny Appleseed',
+    addressLine1: '123 Evergreen Terrace',
+    addressLine2: 'Apt. 456',
+    city: 'Durham',
+    state: 'NC',
+    postalCode: '27540',
+    email: 'johnny.appleseed@gmail.com',
+    phoneAreaCode: '919',
+    phonePrefix: '123',
+    phoneLineNumber: '4567',
+    phoneExt: '12345',
+}

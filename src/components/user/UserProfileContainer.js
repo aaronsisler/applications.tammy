@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import UserNameWidget from './UserNameWidget';
 import UserAddressWidget from './UserAddressWidget';
 import UserContactInfoWidget from './UserContactInfoWidget';
-import { startEditUser } from '../../actions/user';
-import LoadingPage from '../core/LoadingPage';
+import { startEditUser } from 'Actions/user';
+import LoadingPage from 'Core/LoadingPage';
 
 export class UserProfileContainer extends React.Component {
     constructor(props) {
@@ -15,6 +15,7 @@ export class UserProfileContainer extends React.Component {
     onSubmit = (user) => {
         this.props.startEditUser(user);
     }
+
     render() {
         return (
             <div>
@@ -23,23 +24,26 @@ export class UserProfileContainer extends React.Component {
                     <div id="user_profile_container">
                         <div className="user_widget">
                             <UserNameWidget
+                                id='UserNameWidget'
                                 isReadOnly={this.props.isReadOnly}
-                                user={this.props.user}
                                 onSubmit={this.onSubmit}
+                                user={this.props.user}
                             />
                         </div>
                         <div className="user_widget">
                             <UserContactInfoWidget
+                                id='UserContactInfoWidget'
                                 isReadOnly={this.props.isReadOnly}
-                                user={this.props.user}
                                 onSubmit={this.onSubmit}
+                                user={this.props.user}
                             />
                         </div>
                         <div className="user_widget">
                             <UserAddressWidget
+                                id='UserAddressWidget'
                                 isReadOnly={this.props.isReadOnly}
-                                user={this.props.user}
                                 onSubmit={this.onSubmit}
+                                user={this.props.user}
                             />
                         </div>
                     </div>
@@ -49,18 +53,20 @@ export class UserProfileContainer extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     user: state.user,
-})
+});
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startEditUser: (user) => dispatch(startEditUser(user)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);
 
 UserProfileContainer.propTypes = {
     isReadOnly: PropTypes.bool,
-    user: PropTypes.object,
     startEditUser: PropTypes.func.isRequired,
+    user: PropTypes.object,
 };

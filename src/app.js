@@ -3,16 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { firebase } from './firebase/firebase';
 import 'normalize.css/normalize.css';
-import './styles/styles.scss';
+import 'Styles/styles.scss';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { login, logout } from './actions/auth';
-import { startSetPositionsWatched } from './actions/position_watch';
-import { startSetPositions } from './actions/positions';
-import { startSetUser } from './actions/user';
-import { startSetUserDocuments } from './actions/user_document';
-import LoadingPage from './components/core/LoadingPage';
+import { login, logout } from 'Actions/helpers/auth';
+import { startSetPositions } from 'Actions/positions';
+import { startSetUser } from 'Actions/user';
+import LoadingPage from 'Core/LoadingPage';
 
 const store = configureStore();
 
@@ -37,10 +35,7 @@ firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             store.dispatch(login(user.uid));
             store.dispatch(startSetUser()).then(() => {
-                store.dispatch(startSetPositionsWatched());
-                store.dispatch(startSetUserDocuments(user.uid)).then(() =>
-                    renderApp()
-                );
+                renderApp()
             });
         } else {
             store.dispatch(logout());

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startSetPosition } from '../../actions/position';
+import { startSetPosition } from 'Actions/position';
 
 export class PositionListItem extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ export class PositionListItem extends React.Component {
     }
 
     handleSetPosition = () => {
-        this.props.startSetPosition(this.props.id);
+        this.props.startSetPosition(this.props.positionId);
     }
 
     render() {
@@ -31,16 +31,17 @@ export class PositionListItem extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startSetPosition: (id) => dispatch(startSetPosition(id))
+    startSetPosition: (positionId) => dispatch(startSetPosition(positionId))
 });
 
 export default connect(undefined, mapDispatchToProps)(PositionListItem);
 
 PositionListItem.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     jobId: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    positionId: PropTypes.string.isRequired,
     startSetPosition: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
 };

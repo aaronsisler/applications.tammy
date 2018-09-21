@@ -1,18 +1,18 @@
-export const analyticsCategories = {
+export const ANALYTICS_CATEGORIES = {
     contact: 'Contact',
     navigate: 'Navigate',
 }
 
-export const analyticsActions = {
-    sendEmail: 'Send Email',
+export const ANALYTICS_ACTIONS = {
+    closeModal: 'Close Modal',
     navigateByButton: 'Navigate By Button',
     openModal: 'Open Modal',
-    closeModal: 'Close Modal',
+    sendEmail: 'Send Email',
 }
 
-export const analyticsLabels = {
+export const ANALYTICS_LABELS = {
     auditForm: 'Audit Form',
     contactForm: 'Contact Form',
 }
 
-export const requiredInputFieldClassName = 'text_input_required';
+export const ERROR_INPUT_FIELD_CLASSNAME = 'text_input_error';

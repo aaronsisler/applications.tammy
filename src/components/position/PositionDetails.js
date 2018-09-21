@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PositionDetailsContent from '../shared/position/PositionDetailsContent';
+import PositionDetailsContent from 'Position/PositionDetailsContent';
 
 export class PositionDetails extends React.Component {
     constructor(props) {
@@ -40,6 +40,7 @@ export class PositionDetails extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     position: state.position
 });

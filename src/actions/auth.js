@@ -1,10 +1,5 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
-import { history } from '../tools/history';
-
-export const login = (uid) => ({
-    type: 'LOGIN',
-    uid
-});
+import history from 'Tools/history';
 
 export const startLogin = (redirectUrl = '/dashboard') => () => {
     firebase.auth().signInWithPopup(googleAuthProvider)
@@ -13,8 +8,5 @@ export const startLogin = (redirectUrl = '/dashboard') => () => {
         })
 }
 
-export const logout = () => ({
-    type: 'LOGOUT'
-});
-
-export const startLogout = () => () => firebase.auth().signOut().then(() => history.push('/logged_out'));
+export const startLogout = () => () => firebase.auth().signOut()
+    .then(() => history.push('/logged_out'));

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requiredInputFieldClassName } from '../../tools/constants';
-import { isEmailValid } from '../../tools/email';
+import InputTools from 'User/tools/inputs';
+import { isEmailValid } from 'Tools/email';
 
 export default class UserNameWidget extends React.Component {
+    inputTools = new InputTools();
+
     constructor(props) {
         super(props);
         this.state = {
-            isEmailValid: props.user.email ? true : false,
+            isValidEmail: props.user.email ? true : false,
             email: props.user.email ? props.user.email : '',
             phoneAreaCode: props.user.phoneAreaCode ? props.user.phoneAreaCode : '',
             phonePrefix: props.user.phonePrefix ? props.user.phonePrefix : '',
@@ -26,13 +28,13 @@ export default class UserNameWidget extends React.Component {
         const inputName = e.target.name;
         const inputValue = e.target.value;
 
-        if (isEmailValid(inputValue)) {
-            document.getElementsByName(inputName)[0].classList.remove(requiredInputFieldClassName);
-            return this.setState({ isEmailValid: true });
+        if (!inputValue || isEmailValid(inputValue)) {
+            this.inputTools.handleSetErrorClassname(inputName);
+            return this.setState({ isValidEmail: true });
         }
         else {
-            document.getElementsByName(inputName)[0].classList.add(requiredInputFieldClassName);
-            return this.setState({ isEmailValid: false });
+            this.inputTools.handleSetErrorClassname(inputName, false);
+            return this.setState({ isValidEmail: false });
         }
     }
 
@@ -65,7 +67,8 @@ export default class UserNameWidget extends React.Component {
     }
 
     handleSubmit = () => {
-        const submitObject = Object.assign({}, this.state);
+        /* eslint-disable-next-line no-unused-vars */
+        const { isValidEmail, ...submitObject } = Object.assign({}, this.state);
         this.props.onSubmit(submitObject);
     }
 
@@ -80,6 +83,7 @@ export default class UserNameWidget extends React.Component {
                         <input
                             readOnly={this.props.isReadOnly}
                             type="text"
+                            id="email"
                             name="email"
                             placeholder="Email"
                             className="text_input"
@@ -98,6 +102,7 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="phoneAreaCode"
                                 name="phoneAreaCode"
                                 placeholder="(919)"
                                 className="text_input"
@@ -109,6 +114,7 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="phonePrefix"
                                 name="phonePrefix"
                                 placeholder="123"
                                 className="text_input"
@@ -120,6 +126,7 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="phoneLineNumber"
                                 name="phoneLineNumber"
                                 placeholder="4567"
                                 className="text_input"
@@ -131,6 +138,7 @@ export default class UserNameWidget extends React.Component {
                             <input
                                 readOnly={this.props.isReadOnly}
                                 type="text"
+                                id="phoneExt"
                                 name="phoneExt"
                                 placeholder="Ext."
                                 className="text_input"
@@ -143,7 +151,7 @@ export default class UserNameWidget extends React.Component {
                 <div className="user_contact_info_widget_button">
                     {!this.props.isReadOnly &&
                         <button
-                            disabled={!this.state.isEmailValid}
+                            disabled={!this.state.isValidEmail}
                             onClick={this.handleSubmit}
                             className="button"
                         >

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionList should render PositionDetailsContent correctly 1`] = `
+<div
+  className="position_details_content"
+>
+  <div
+    className="position_details_content__description"
+  >
+    <span>
+      Description:
+    </span>
+    <div>
+      first description
+    </div>
+  </div>
+  <div
+    className="position_details_content__responsibilities"
+  >
+    <span>
+      Responsibilities:
+    </span>
+    <ul
+      className="position_details_content__list"
+    >
+      <li
+        key="0"
+      >
+        Responsibility 1
+      </li>
+      <li
+        key="1"
+      >
+        Responsibility 2
+      </li>
+    </ul>
+  </div>
+  <div
+    className="position_details_content__requirements"
+  >
+    <span>
+      Requirements:
+    </span>
+    <ul
+      className="position_details_content__list"
+    >
+      <li
+        key="0"
+      >
+        Skill 1
+      </li>
+      <li
+        key="1"
+      >
+        Skill 2
+      </li>
+    </ul>
+  </div>
+</div>
+`;

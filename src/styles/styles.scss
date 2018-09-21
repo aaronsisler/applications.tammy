@@ -9,41 +9,14 @@
 @import './components/core/LoginPage';
 @import './components/core/LoggedOutPage';
 //Position
-@import './components/position/PositionApply';
-@import './components/position/PositionContainer';
+@import './components/position/PositionsContainer';
 @import './components/position/PositionDetails';
+@import './components/position/PositionDetailsContent';
 @import './components/position/PositionList';
 @import './components/position/PositionListItem';
-//Position Watch
-@import './components/position_watch/PositionWatchContainer';
-@import './components/position_watch/PositionWatchDetails';
-@import './components/position_watch/PositionWatchList';
-@import './components/position_watch/PositionWatchListItem';
-@import './components/position_watch/PositionWatchSubscriptionLevel';
 //Shared
-//Application
-@import './components/shared/application/ApplicationDocumentContainer';
-@import './components/shared/application/ApplicationProcessContainer';
-@import './components/shared/application/ApplicationProgressContainer';
-@import './components/shared/application/ApplicationProgressWidget';
-@import './components/shared/application/ApplicationProgressButtonsWidget';
-@import './components/shared/application/ApplicationReviewContainer';
-@import './components/shared/application/ApplicationSubmissionContainer';
-@import './components/shared/application/ApplicationUserContainer';
-//Document
-@import './components/shared/document/DocumentList';
-@import './components/shared/document/DocumentListFilter';
-@import './components/shared/document/DocumentListItem';
-@import './components/shared/document/DocumentSelectionList';
-@import './components/shared/document/DocumentSelectionListItem';
-@import './components/shared/document/DocumentUploadWidget';
-//Position
-@import './components/shared/position/PositionDetailsContent';
 //User
 @import './components/user/UserProfileContainer';
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
-@import './components/user/UserDocumentUploadWidget';
-@import './components/user/UserDocumentsPage';
-@import './components/user/UserDocumentsContainer';

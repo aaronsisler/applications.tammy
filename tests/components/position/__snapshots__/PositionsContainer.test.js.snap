@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsContainer should render PositionsContainer correctly 1`] = `
+<div
+  className="positions_container"
+>
+  <div
+    className="position_widget"
+  >
+    <div
+      className="position_list_wrapper"
+    >
+      <Connect(PositionListFilter) />
+      <PositionList
+        positions={
+          Array [
+            Object {
+              "content": Object {
+                "description": "first description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "first job id",
+              "location": "first location",
+              "positionId": "firstPositionId",
+              "title": "first title",
+            },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "title": "second title",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="position_details_wrapper"
+    >
+      <Connect(PositionDetails) />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PositionsContainer should render PositionsContainer correctly when text filter is applied 1`] = `
+<div
+  className="positions_container"
+>
+  <div
+    className="position_widget"
+  >
+    <div
+      className="position_list_wrapper"
+    >
+      <Connect(PositionListFilter) />
+      <PositionList
+        positions={
+          Array [
+            Object {
+              "content": Object {
+                "description": "first description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "first job id",
+              "location": "first location",
+              "positionId": "firstPositionId",
+              "title": "first title",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="position_details_wrapper"
+    >
+      <Connect(PositionDetails) />
+    </div>
+  </div>
+</div>
+`;

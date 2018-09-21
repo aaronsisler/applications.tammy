@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoggedOutPage should render LoggedOutPage correctly 1`] = `
+<div
+  id="logged_out_page"
+>
+  <div
+    className="logged_out_content"
+  >
+    You have been logged out.
+  </div>
+  <div
+    className="logged_out_link"
+  >
+    <Link
+      className="nav_link"
+      replace={false}
+      to="/login"
+    >
+      Back to Login
+    </Link>
+    <Link
+      className="nav_link"
+      replace={false}
+      to="/"
+    >
+      Back to Positions
+    </Link>
+  </div>
+</div>
+`;
