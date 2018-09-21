@@ -1,1 +1,1 @@
-export const analyticsTrackingId = 'UA-119891490-1';
+export const ANALYTICS_TRACKING_ID = 'UA-119891490-1';

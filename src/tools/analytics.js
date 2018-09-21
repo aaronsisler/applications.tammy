@@ -1,5 +1,5 @@
 import ReactGA from 'react-ga';
-import { analyticsTrackingId } from '../config';
+import { ANALYTICS_TRACKING_ID } from '../config';
 
 const eventTestObject = {
     category: 'Test Category',
@@ -8,7 +8,7 @@ const eventTestObject = {
 };
 
 export const initializeAnalytics = () => {
-    ReactGA.initialize(analyticsTrackingId);
+    ReactGA.initialize(ANALYTICS_TRACKING_ID);
 };
 
 export const handleEvent = (event) => {

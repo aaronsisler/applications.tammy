@@ -1,8 +1,8 @@
 import {
-    analyticsCategories,
-    analyticsActions,
-    analyticsLabels,
-    errorInputFieldClassName
+    ANALYTICS_CATEGORIES,
+    ANALYTICS_ACTIONS,
+    ANALYTICS_LABELS,
+    ERROR_INPUT_FIELD_CLASSNAME
 } from 'Tools/constants';
 
 describe('Tools Constants', () => {
@@ -13,7 +13,7 @@ describe('Tools Constants', () => {
                 navigate: expect.any(String),
             };
 
-            expect(analyticsCategories).toEqual(expectedObject);
+            expect(ANALYTICS_CATEGORIES).toEqual(expectedObject);
         })
     });
 
@@ -26,7 +26,7 @@ describe('Tools Constants', () => {
                 sendEmail: expect.any(String),
             };
 
-            expect(analyticsActions).toEqual(expectedObject);
+            expect(ANALYTICS_ACTIONS).toEqual(expectedObject);
         })
     });
 
@@ -37,13 +37,13 @@ describe('Tools Constants', () => {
                 contactForm: expect.any(String),
             };
 
-            expect(analyticsLabels).toEqual(expectedObject);
+            expect(ANALYTICS_LABELS).toEqual(expectedObject);
         })
     });
 
     describe('errorInputFieldClassName', () => {
         it('should export a string', () => {
-            expect(errorInputFieldClassName).toEqual(expect.any(String));
+            expect(ERROR_INPUT_FIELD_CLASSNAME).toEqual(expect.any(String));
         });
     });
 });

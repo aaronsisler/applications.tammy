@@ -1,5 +1,4 @@
 import ReactGA from 'react-ga';
-// jest.mock('react-ga');
 import {
     initializeAnalytics,
     handleContainerView,
@@ -8,7 +7,7 @@ import {
     handlePageView,
     handleTestEvent,
 } from 'Tools/analytics';
-import { analyticsTrackingId } from 'Src/config';
+import { ANALYTICS_TRACKING_ID } from 'Src/config';
 
 describe('Tools Analytics', () => {
     const mockPath = '/mockPath';
@@ -22,7 +21,7 @@ describe('Tools Analytics', () => {
         it('should call initialize with track id', () => {
             initializeAnalytics();
 
-            expect(ReactGA.initialize).toHaveBeenLastCalledWith(analyticsTrackingId);
+            expect(ReactGA.initialize).toHaveBeenLastCalledWith(ANALYTICS_TRACKING_ID);
         });
     });
 
