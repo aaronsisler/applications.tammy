@@ -1,37 +1,46 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-// import database, {storage} from '../../src/firebase/firebase';
+import database from '../../src/firebase/firebase';
 import { startSetUserDocuments } from 'Actions/userDocument';
-// import * as userDocumentActionHelpers from 'Actions/helpers/userDocument';
-import { defaultUserDocumentsState } from '../fixtures/userDocuments';
+import * as userDocumentActionHelpers from 'Actions/helpers/userDocument';
+import userDocuments from '../fixtures/userDocuments';
 
 const createMockStore = configureMockStore([thunk]);
 
 describe('User Documents Actions', () => {
-    // const positionsMock = [];
-    // positions.forEach((position) => {
-        // const val = () => ({ ...position });
-        // positionsMock.push({ key: position.positionId, val })
-    // })
+    const userDocumentsMock = [];
+    userDocuments.forEach((userDocument) => {
+        const val = () => ({ ...userDocument });
+        userDocumentsMock.push({ key: userDocument.userId, val })
+    });
 
     beforeEach(() => {
-        // const once = jest.fn();
-        // once.mockResolvedValue(positionsMock);
-        // jest.spyOn(database, 'ref').mockReturnValue({ once });
+        const once = jest.fn().mockResolvedValue(userDocumentsMock);
+        jest.spyOn(database, 'ref').mockReturnValue({ once });
     })
 
     afterEach(() => {
-        // database.ref.mockRestore();
+        database.ref.mockRestore();
     })
 
     describe('startSetUserDocuments() method', () => {
-        it(`should call dispatch with setUserDocuments`, () => {
-            // const setPositionsMock = jest.spyOn(userDocumentActionHelpers, 'setUserDocuments');
-            const store = createMockStore(defaultUserDocumentsState);
+        const mockUserId = 'mockUserId';
+        it(`should call dispatch with setUserDocuments`, async () => {
+            const setUserDocumentsMock = jest.spyOn(userDocumentActionHelpers, 'setUserDocuments');
+            const store = createMockStore();
 
-            store.dispatch(startSetUserDocuments('testingTaco'));
-            // expect(store.getActions().length).toBe(1);
-            // expect(setPositionsMock).toHaveBeenCalledWith(positions);
+            await store.dispatch(startSetUserDocuments(mockUserId));
+
+            expect(store.getActions().length).toBe(1);
+            expect(setUserDocumentsMock).toHaveBeenCalledWith(userDocuments);
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            const store = createMockStore();
+
+            await store.dispatch(startSetUserDocuments(mockUserId));
+
+            expect(database.ref).toHaveBeenLastCalledWith(`user_documents/${mockUserId}`)
         })
     })
 })

@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import database from '../../src/firebase/firebase';
 import { startSetPositions } from 'Actions/positions';
 import * as positionsActionHelpers from 'Actions/helpers/positions';
-import positions, { defaultPositionsState } from '../fixtures/positions';
+import positions from '../fixtures/positions';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -12,7 +12,7 @@ describe('Positions Actions', () => {
     positions.forEach((position) => {
         const val = () => ({ ...position });
         positionsMock.push({ key: position.positionId, val })
-    })
+    });
 
     beforeEach(() => {
         const once = jest.fn();
@@ -27,7 +27,7 @@ describe('Positions Actions', () => {
     describe('startSetPositions() method', () => {
         it(`should call dispatch with setPositions`, async () => {
             const setPositionsMock = jest.spyOn(positionsActionHelpers, 'setPositions');
-            const store = createMockStore(defaultPositionsState);
+            const store = createMockStore();
 
             await store.dispatch(startSetPositions());
 
