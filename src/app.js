@@ -10,6 +10,7 @@ import configureStore from './store/configureStore';
 import { login, logout } from 'Actions/helpers/auth';
 import { startSetPositions } from 'Actions/positions';
 import { startSetUser } from 'Actions/user';
+import { startSetUserDocuments } from 'Actions/userDocuments';
 import LoadingPage from 'Core/LoadingPage';
 
 const store = configureStore();
@@ -30,16 +31,15 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-firebase.auth().onAuthStateChanged((user) => {
-    store.dispatch(startSetPositions()).then(() => {
-        if (user) {
-            store.dispatch(login(user.uid));
-            store.dispatch(startSetUser()).then(() => {
-                renderApp()
-            });
-        } else {
-            store.dispatch(logout());
-            renderApp();
-        }
-    })
+firebase.auth().onAuthStateChanged(async (user) => {
+    store.dispatch(startSetPositions());
+    if (user) {
+        await store.dispatch(login(user.uid));
+        store.dispatch(startSetUser());
+        store.dispatch(startSetUserDocuments(user.uid));
+        renderApp();
+    } else {
+        await store.dispatch(logout());
+        renderApp();
+    }
 });

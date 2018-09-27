@@ -16,6 +16,7 @@ describe('ConfigureStore', () => {
             position: null,
             positions: [],
             user: null,
+            userDocuments: [],
         };
         const store = configureStore();
 

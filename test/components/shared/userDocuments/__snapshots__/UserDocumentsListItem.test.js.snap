@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDocumentsListItem should render UserDocumentsListItem correctly 1`] = `
+<a
+  className="document_list_item"
+  href="downloadURL1"
+>
+  <div
+    className="document_list_item__title"
+  >
+    Document Name 1
+  </div>
+  <div
+    className="document_list_item__date_uploaded"
+  >
+    2018/01/01 01:23:45A
+  </div>
+</a>
+`;

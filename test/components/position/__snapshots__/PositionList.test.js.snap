@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionList should render PositionList correctly no positions available 1`] = `
+exports[`PositionList should render PositionList correctly when no positions are available 1`] = `
 <div
   className="position_list empty"
 >
@@ -8,7 +8,7 @@ exports[`PositionList should render PositionList correctly no positions availabl
 </div>
 `;
 
-exports[`PositionList should render PositionList correctly when positions available 1`] = `
+exports[`PositionList should render PositionList correctly when positions are available 1`] = `
 <div
   className="position_list"
 >

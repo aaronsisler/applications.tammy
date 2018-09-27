@@ -1,5 +1,5 @@
 import database from '../firebase/firebase';
-import { setUserDocuments } from 'Actions/helpers/userDocument';
+import { setUserDocuments } from 'Actions/helpers/userDocuments';
 
 export const startSetUserDocuments = (userId) => (dispatch) =>
     database.ref(`user_documents/${userId}`).once('value').then((snapshot) => {

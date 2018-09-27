@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDocumentsList should render UserDocumentsList correctly when no user documents are available 1`] = `
+<div
+  className="document_list empty"
+>
+  No available items
+</div>
+`;
+
+exports[`UserDocumentsList should render UserDocumentsList correctly when user documents are available 1`] = `
+<div
+  className="document_list"
+>
+  <UserDocumentsListItem
+    dateUploaded="2018/01/01 01:23:45A"
+    documentName="Document Name 1"
+    downloadURL="downloadURL1"
+    key="0"
+  />
+  <UserDocumentsListItem
+    dateUploaded="2018/02/02 01:23:45A"
+    documentName="Document Name 2"
+    downloadURL="downloadURL2"
+    key="1"
+  />
+</div>
+`;
