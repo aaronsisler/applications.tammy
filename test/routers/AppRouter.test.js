@@ -8,6 +8,7 @@ import LoggedOutPage from 'Core/LoggedOutPage';
 import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
 import UserProfilePage from 'User/UserProfilePage';
+import UserDocumentsPage from 'User/UserDocumentsPage';
 
 import history from 'Tools/history';
 
@@ -71,18 +72,23 @@ describe('AppRouter', () => {
             expect(matchFound).toBe(true);
         });
 
-        it('should render LoginPage when at the root route', () => {
+        it('should render LoginPage when at the /login route', () => {
             const matchFound = queryRouteComponents('/login', LoginPage);
             expect(matchFound).toBe(true);
         });
 
-        it('should render LoggedOutPage when at the root route', () => {
+        it('should render LoggedOutPage when at the /logged_out route', () => {
             const matchFound = queryRouteComponents('/logged_out', LoggedOutPage);
             expect(matchFound).toBe(true);
         });
 
-        it('should render UserProfilePage when at the root route', () => {
+        it('should render UserProfilePage when at the /user_profile route', () => {
             const matchFound = queryRouteComponents('/user_profile', UserProfilePage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render UserDocumentsPage when at the /user_documents route', () => {
+            const matchFound = queryRouteComponents('/user_documents', UserDocumentsPage);
             expect(matchFound).toBe(true);
         });
 

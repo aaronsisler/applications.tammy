@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionListFilter should render PositionListFilter correctly 1`] = `
+exports[`PositionsListFilter should render PositionsListFilter correctly 1`] = `
 <div
-  className="position_list_filters"
+  className="positions_list_filters"
 >
   <div
     className="input_group__item"

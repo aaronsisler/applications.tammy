@@ -6,9 +6,6 @@ export default class PositionsPage extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div id="positions_page">

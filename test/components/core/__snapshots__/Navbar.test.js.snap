@@ -1,155 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar favicons bars icon should show if isNavOpen is FALSE 1`] = `
-<div
-  id="navbar"
->
-  <div
-    className="nav_toggles"
-  >
-    <FontAwesomeIcon$1
-      border={false}
-      className="navbar_favicon"
-      fixedWidth={false}
-      flip={null}
-      icon={
-        Object {
-          "icon": Array [
-            448,
-            512,
-            Array [],
-            "f0c9",
-            "M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z",
-          ],
-          "iconName": "bars",
-          "prefix": "fas",
-        }
-      }
-      listItem={false}
-      mask={null}
-      name=""
-      onClick={[Function]}
-      pull={null}
-      pulse={false}
-      rotation={null}
-      size="2x"
-      spin={false}
-      symbol={false}
-      transform={null}
-    />
-  </div>
-  <div
-    id="nav_side_menu"
-  >
-    <Link
-      className="nav_side_menu_link"
-      onClick={[Function]}
-      replace={false}
-      to="/dashboard"
-    >
-      Dashboard
-    </Link>
-    <Link
-      className="nav_side_menu_link"
-      onClick={[Function]}
-      replace={false}
-      to="/user_profile"
-    >
-      User Profile
-    </Link>
-    <Link
-      className="nav_side_menu_link"
-      onClick={[Function]}
-      replace={false}
-      to="/"
-    >
-      Positions
-    </Link>
-    <button
-      className="button nav_side_menu_link"
-      onClick={[Function]}
-    >
-      Logout
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Navbar favicons times icon should show if isNavOpen is TRUE 1`] = `
-<div
-  id="navbar"
->
-  <div
-    className="nav_toggles"
-  >
-    <FontAwesomeIcon$1
-      border={false}
-      className="navbar_favicon"
-      fixedWidth={false}
-      flip={null}
-      icon={
-        Object {
-          "icon": Array [
-            352,
-            512,
-            Array [],
-            "f00d",
-            "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z",
-          ],
-          "iconName": "times",
-          "prefix": "fas",
-        }
-      }
-      listItem={false}
-      mask={null}
-      name=""
-      onClick={[MockFunction]}
-      pull={null}
-      pulse={false}
-      rotation={null}
-      size="2x"
-      spin={false}
-      symbol={false}
-      transform={null}
-    />
-  </div>
-  <div
-    id="nav_side_menu"
-  >
-    <Link
-      className="nav_side_menu_link"
-      onClick={[MockFunction]}
-      replace={false}
-      to="/dashboard"
-    >
-      Dashboard
-    </Link>
-    <Link
-      className="nav_side_menu_link"
-      onClick={[MockFunction]}
-      replace={false}
-      to="/user_profile"
-    >
-      User Profile
-    </Link>
-    <Link
-      className="nav_side_menu_link"
-      onClick={[MockFunction]}
-      replace={false}
-      to="/"
-    >
-      Positions
-    </Link>
-    <button
-      className="button nav_side_menu_link"
-      onClick={[Function]}
-    >
-      Logout
-    </button>
-  </div>
-</div>
-`;
-
 exports[`Navbar when user is NOT authenticated should render Navbar correctly 1`] = `
 <div
   id="navbar"
@@ -267,6 +117,14 @@ exports[`Navbar when user is authenticated should render Navbar correctly 1`] = 
       to="/user_profile"
     >
       User Profile
+    </Link>
+    <Link
+      className="nav_side_menu_link"
+      onClick={[Function]}
+      replace={false}
+      to="/user_documents"
+    >
+      User Documents
     </Link>
     <Link
       className="nav_side_menu_link"

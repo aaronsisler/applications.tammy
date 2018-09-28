@@ -1,22 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionListFilter } from 'Position/PositionListFilter';
+import { PositionsListFilter } from 'Position/PositionsListFilter';
 
-describe('PositionListFilter', () => {
+describe('PositionsListFilter', () => {
     const setPositionsTextFilter = jest.fn();
     const filters = { text: 'initial filter' };
     let wrapper;
 
     beforeEach(() => {
         wrapper = shallow(
-            <PositionListFilter
+            <PositionsListFilter
                 filters={filters}
                 setPositionsTextFilter={setPositionsTextFilter}
             />
         );
     })
 
-    it('should render PositionListFilter correctly', () => {
+    it('should render PositionsListFilter correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
 

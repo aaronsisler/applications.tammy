@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PositionListItem from './PositionListItem';
+import PositionsListItem from './PositionsListItem';
 
-export default class PositionList extends React.Component {
+export default class PositionsList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -10,17 +10,17 @@ export default class PositionList extends React.Component {
     render() {
         if (this.props.positions.length === 0) {
             return (
-                <div className="position_list empty">
+                <div className="positions_list empty">
                     No available items
                 </div>
             );
         }
 
         return (
-            <div className="position_list">
+            <div className="positions_list">
                 {
                     this.props.positions.map((position) =>
-                        <PositionListItem
+                        <PositionsListItem
                             key={position.positionId}
                             {...position}
                         />)
@@ -30,7 +30,6 @@ export default class PositionList extends React.Component {
     }
 }
 
-PositionList.propTypes = {
+PositionsList.propTypes = {
     positions: PropTypes.array,
 };
-

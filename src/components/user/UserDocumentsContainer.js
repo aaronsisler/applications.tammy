@@ -24,6 +24,7 @@ export class UserDocumentsContainer extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     userDocuments: state.userDocuments,
 })

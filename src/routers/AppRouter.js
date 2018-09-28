@@ -12,6 +12,7 @@ import LoggedOutPage from 'Core/LoggedOutPage';
 import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
 import UserProfilePage from 'User/UserProfilePage';
+import UserDocumentsPage from 'User/UserDocumentsPage';
 
 import history from 'Tools/history';
 
@@ -25,6 +26,7 @@ export const AppRouter = (props) => (
                 <Route path='/login' component={LoginPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />
                 <Route path='/user_profile' component={UserProfilePage} exact={true} />
+                <Route path='/user_documents' component={UserDocumentsPage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
             <Footer />

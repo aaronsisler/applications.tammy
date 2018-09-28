@@ -4,19 +4,23 @@
 @import './base/visibility';
 @import './base/progress_bar';
 //Core
-@import './components/core/Navbar';
 @import './components/core/Footer';
-@import './components/core/LoginPage';
 @import './components/core/LoggedOutPage';
+@import './components/core/LoginPage';
+@import './components/core/Navbar';
 //Position
-@import './components/position/PositionsContainer';
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
-@import './components/position/PositionList';
-@import './components/position/PositionListItem';
+@import './components/position/PositionsList';
+@import './components/position/PositionsListItem';
+@import './components/position/PositionsContainer';
 //Shared
+//User Documents
+@import './components/shared/userDocuments/UserDocumentsList';
+@import './components/shared/userDocuments/UserDocumentsListItem';
 //User
 @import './components/user/UserProfileContainer';
 @import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
+@import './components/user/UserDocumentsContainer';

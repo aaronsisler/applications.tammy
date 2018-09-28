@@ -1,24 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PositionList from 'Position/PositionList';
+import PositionsList from 'Position/PositionsList';
 import positions from '../../fixtures/positions';
 
-describe('PositionList', () => {
+describe('PositionsList', () => {
     let wrapper;
 
     const buildWrapper = (positionsInput = []) => {
         wrapper = shallow(
-            <PositionList
+            <PositionsList
                 positions={positionsInput}
             />);
     }
 
-    it('should render PositionList correctly when positions are available', () => {
+    it('should render PositionsList correctly when positions are available', () => {
         buildWrapper(positions);
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render PositionList correctly when no positions are available', () => {
+    it('should render PositionsList correctly when no positions are available', () => {
         buildWrapper();
         expect(wrapper).toMatchSnapshot();
     });

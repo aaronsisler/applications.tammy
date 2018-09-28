@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import selectPositions from 'Selectors/positions';
-import PositionList from './PositionList';
-import PositionListFilter from './PositionListFilter';
+import PositionsList from './PositionsList';
+import PositionsListFilter from './PositionsListFilter';
 import PositionDetails from './PositionDetails';
 
 export class PositionsContainer extends React.Component {
@@ -18,10 +18,10 @@ export class PositionsContainer extends React.Component {
         return (
             <div className="positions_container">
                 {filteredPositions &&
-                    <div className="position_widget">
-                        <div className="position_list_wrapper">
-                            <PositionListFilter />
-                            <PositionList positions={filteredPositions} />
+                    <div className="positions_widget">
+                        <div className="positions_list_wrapper">
+                            <PositionsListFilter />
+                            <PositionsList positions={filteredPositions} />
                         </div>
                         <div className="position_details_wrapper">
                             <PositionDetails />
@@ -41,9 +41,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(PositionsContainer);
 
-
 PositionsContainer.propTypes = {
     filters: PropTypes.object,
     positions: PropTypes.array,
 };
-

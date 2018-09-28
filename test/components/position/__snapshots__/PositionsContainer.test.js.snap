@@ -5,13 +5,13 @@ exports[`PositionsContainer should render PositionsContainer correctly 1`] = `
   className="positions_container"
 >
   <div
-    className="position_widget"
+    className="positions_widget"
   >
     <div
-      className="position_list_wrapper"
+      className="positions_list_wrapper"
     >
-      <Connect(PositionListFilter) />
-      <PositionList
+      <Connect(PositionsListFilter) />
+      <PositionsList
         positions={
           Array [
             Object {
@@ -66,13 +66,13 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
   className="positions_container"
 >
   <div
-    className="position_widget"
+    className="positions_widget"
   >
     <div
-      className="position_list_wrapper"
+      className="positions_list_wrapper"
     >
-      <Connect(PositionListFilter) />
-      <PositionList
+      <Connect(PositionsListFilter) />
+      <PositionsList
         positions={
           Array [
             Object {

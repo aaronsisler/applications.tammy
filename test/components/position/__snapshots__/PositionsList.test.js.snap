@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionList should render PositionList correctly when no positions are available 1`] = `
+exports[`PositionsList should render PositionsList correctly when no positions are available 1`] = `
 <div
-  className="position_list empty"
+  className="positions_list empty"
 >
   No available items
 </div>
 `;
 
-exports[`PositionList should render PositionList correctly when positions are available 1`] = `
+exports[`PositionsList should render PositionsList correctly when positions are available 1`] = `
 <div
-  className="position_list"
+  className="positions_list"
 >
-  <Connect(PositionListItem)
+  <Connect(PositionsListItem)
     content={
       Object {
         "description": "first description",
@@ -32,7 +32,7 @@ exports[`PositionList should render PositionList correctly when positions are av
     positionId="firstPositionId"
     title="first title"
   />
-  <Connect(PositionListItem)
+  <Connect(PositionsListItem)
     content={
       Object {
         "description": "second description",
