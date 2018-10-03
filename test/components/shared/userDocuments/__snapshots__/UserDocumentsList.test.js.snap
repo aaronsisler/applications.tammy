@@ -16,12 +16,14 @@ exports[`UserDocumentsList should render UserDocumentsList correctly when user d
     dateUploaded="2018/01/01 01:23:45A"
     documentName="Document Name 1"
     downloadURL="downloadURL1"
+    id="firstDocumentId"
     key="0"
   />
   <UserDocumentsListItem
     dateUploaded="2018/02/02 01:23:45A"
     documentName="Document Name 2"
     downloadURL="downloadURL2"
+    id="secondDocumentId"
     key="1"
   />
 </div>

@@ -27,10 +27,9 @@ describe('User Helper Actions', () => {
             const updates = { name: 'new name' };
             const expectedAction = {
                 type: 'EDIT_USER',
-                userId,
                 updates,
             };
-            const action = editUser(userId, updates);
+            const action = editUser(updates);
 
             expect(action).toEqual(expectedAction)
         })

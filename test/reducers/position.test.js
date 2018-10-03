@@ -1,4 +1,5 @@
 import positionReducer from 'Reducers/position';
+import { clearPosition, setPosition } from 'Actions/helpers/position';
 import positions from '../fixtures/positions';
 
 const defaultState = null;
@@ -16,10 +17,7 @@ describe('position reducer', () => {
     });
 
     it('should set the position', () => {
-        const action = {
-            type: 'SET_POSITION',
-            position
-        }
+        const action = setPosition(position);
 
         const state = positionReducer(undefined, action);
 
@@ -27,9 +25,7 @@ describe('position reducer', () => {
     });
 
     it('should clear the position', () => {
-        const action = {
-            type: 'CLEAR_POSITION',
-        }
+        const action = clearPosition();
 
         const state = positionReducer(position, action);
 

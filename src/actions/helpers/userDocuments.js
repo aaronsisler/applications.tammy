@@ -3,7 +3,7 @@ export const setUserDocuments = (userDocuments) => ({
     userDocuments,
 });
 
-// export const addUserDocument = (userDocument) => ({
-//     type: 'ADD_USER_DOCUMENT',
-//     userDocument,
-// });
+export const addUserDocument = (userDocument) => ({
+    type: 'ADD_USER_DOCUMENT',
+    userDocument,
+});

@@ -17,7 +17,7 @@ export const startEditUser = (updates) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
 
     return database.ref(`users/${userId}`).update(updates).then(() => {
-        dispatch(editUser(userId, updates));
+        dispatch(editUser(updates));
     });
 };
 

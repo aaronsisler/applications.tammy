@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Progress } from 'react-sweet-progress';
 import { storage } from '../../../firebase/firebase';
+import fileUpload from '../../../firebase/fileUpload';
 import { startAddUserDocument } from 'Actions/userDocuments';
-
 
 export class UserDocumentsUploadWidget extends React.Component {
     constructor(props) {
@@ -32,28 +32,24 @@ export class UserDocumentsUploadWidget extends React.Component {
 
     handleUploadSuccess = (documentName) => {
         this.setState({ success: `${documentName} uploaded sucessfully`, progress: 100, isUploading: false });
-        storage.ref(this.storageRef).child(documentName).getDownloadURL()
+        fileUpload(this.props.userId, documentName)
             .then(downloadURL => {
-                this.props.startAddUserDocument(this.props.userId, { documentName, downloadURL })
+                this.props.startAddUserDocument({ documentName, downloadURL })
             });
     };
 
-
-    componentDidMount() {
-    }
-
     render() {
         return (
-            <div id="document_upload_widget">
-                <div className="document_upload_content">
-                    <div className="document_upload_content__loader">
+            <div id="user_documents_upload_widget">
+                <div className="user_documents_upload_content">
+                    <div className="user_documents_upload_content__loader">
                         <label className="button">
                             Upload a document
                             <FileUploader
                                 accept="application/pdf, application/msword, .pdf, .docx, .doc"
                                 hidden
-                                name="document_upload"
-                                storageRef={storage.ref(this.storageRef)}
+                                name="user_documents_upload"
+                                storageRef={storage.ref(`${this.props.userId}`)}
                                 onUploadStart={this.handleUploadStart}
                                 onUploadError={this.handleUploadError}
                                 onUploadSuccess={this.handleUploadSuccess}
@@ -62,12 +58,12 @@ export class UserDocumentsUploadWidget extends React.Component {
                         </label>
                     </div>
                     {this.state.success &&
-                        <div className="document_upload_content__success">
+                        <div className="user_documents_upload_content__success">
                             {this.state.success}
                         </div>
                     }
                     {this.state.isUploading &&
-                        <div className="document_upload_content__progress">
+                        <div className="user_documents_upload_content__progress">
                             <Progress
                                 percent={this.state.progress}
                             />
@@ -79,6 +75,7 @@ export class UserDocumentsUploadWidget extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
     userId: state.user && state.user.userId,
 })

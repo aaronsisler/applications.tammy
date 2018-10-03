@@ -47,7 +47,7 @@ describe('User Actions', () => {
             await store.dispatch(startEditUser(updates));
 
             expect(store.getActions().length).toBe(1);
-            expect(editUserMock).toHaveBeenCalledWith(userId, updates);
+            expect(editUserMock).toHaveBeenCalledWith(updates);
         })
     })
 

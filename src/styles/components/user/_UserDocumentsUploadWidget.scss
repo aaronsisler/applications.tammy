@@ -1,22 +1,36 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_document_upload_widget {
+    #user_documents_upload_widget {
         background: white;
         border: 1px solid $midLightGrey;
+        margin-bottom: $small;
         padding: $medium;
     }
-    .user_document_upload__title {
-        font-family: $secondaryFont;
-        font-size: $medium;
-    }
-    .user_document_upload_link {
+    .user_documents_upload_content {
         display: flex;
-        margin: 0;
-        padding: 0;
-        .nav_link {
-            margin-left: 0;
-        }
+        flex-flow: column;
+    }
+    .user_documents_upload_content__loader {
+        display: flex;
+        justify-content: space-around;
+        padding: $small;
+    }
+    .user_documents_upload_content__success {
+        align-items: center;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-around;
+        padding: $small;
+        text-align: center;
+        word-break: break-all;
+    }
+    .user_documents_upload_content__progress {
+        align-items: center;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-around;
+        padding: $xsmall;
     }
 }
 
@@ -27,14 +41,30 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_name_widget {
-        max-width: 70rem;
+    #user_documents_upload_widget {
+        max-width: 100rem;
     }
-    .user_document_upload__title {
-        margin: $xsmall;
+    .user_documents_upload_content {
+        flex-flow: row;
     }
-    .user_document_upload_link {
-        padding: 0 $xsmall;
+    .user_documents_upload_content__loader {
+        display: flex;
+        justify-content: flex-start;
+        padding: $medium;
+    }
+    .user_documents_upload_content__success {
+        align-items: center;
+        font-size: $medium;
+        justify-content: flex-start;
+        padding: $small 0;
+        text-align: none;
+    }
+    .user_documents_upload_content__progress {
+        align-items: center;
+        flex-grow: 1;
+        justify-content: flex-start;
+        max-width: 30rem;
+        padding: $xsmall 0;
     }
 }
 

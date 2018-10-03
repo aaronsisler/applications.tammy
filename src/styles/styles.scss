@@ -19,8 +19,9 @@
 @import './components/shared/userDocuments/UserDocumentsList';
 @import './components/shared/userDocuments/UserDocumentsListItem';
 //User
-@import './components/user/UserProfileContainer';
-@import './components/user/UserNameWidget';
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
 @import './components/user/UserDocumentsContainer';
+@import './components/user/UserDocumentsUploadWidget';
+@import './components/user/UserNameWidget';
+@import './components/user/UserProfileContainer';
