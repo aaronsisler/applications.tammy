@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import database from '../../src/firebase/firebase';
+import database from 'Firebase/firebase';
 import { startSetPositions } from 'Actions/positions';
 import * as positionsActionHelpers from 'Actions/helpers/positions';
 import positions from '../fixtures/positions';

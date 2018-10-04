@@ -1,4 +1,4 @@
-import database from '../firebase/firebase';
+import database from 'Firebase/firebase';
 import { addUserDocument, setUserDocuments } from 'Actions/helpers/userDocuments';
 
 export const startSetUserDocuments = () => (dispatch, getState) => {
@@ -19,9 +19,9 @@ export const startSetUserDocuments = () => (dispatch, getState) => {
 
 export const startAddUserDocument = (userDocument) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
-    const { documentName, downloadURL } = userDocument;
+    const { documentName, downloadUrl } = userDocument;
     const dateUploaded = new Date().toLocaleString();
-    const uploadedDocument = { documentName, downloadURL, dateUploaded }
+    const uploadedDocument = { documentName, downloadUrl, dateUploaded }
 
     return database.ref(`user_documents/${userId}`)
         .push(uploadedDocument)

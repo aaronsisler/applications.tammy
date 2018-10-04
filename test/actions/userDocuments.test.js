@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import database from '../../src/firebase/firebase';
+import database from 'Firebase/firebase';
 import { startAddUserDocument, startSetUserDocuments } from 'Actions/userDocuments';
 import * as userDocumentActionHelpers from 'Actions/helpers/userDocuments';
 import userDocuments from '../fixtures/userDocuments';

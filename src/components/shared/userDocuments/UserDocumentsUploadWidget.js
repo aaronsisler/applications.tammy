@@ -1,10 +1,10 @@
 import React from 'react';
-import FileUploader from 'react-firebase-file-uploader';
+import FirebaseFileUploader from 'react-firebase-file-uploader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Progress } from 'react-sweet-progress';
-import { storage } from '../../../firebase/firebase';
-import fileUpload from '../../../firebase/fileUpload';
+import { storage } from 'Firebase/firebase';
+import { retrieveDownloadUrl } from 'Firebase/storageUtils';
 import { startAddUserDocument } from 'Actions/userDocuments';
 
 export class UserDocumentsUploadWidget extends React.Component {
@@ -16,7 +16,6 @@ export class UserDocumentsUploadWidget extends React.Component {
             progress: 0,
             error: ''
         };
-        this.storageRef = `${this.props.userId}`;
     }
 
     handleUploadStart = () => this.setState({ isUploading: true, success: '', progress: 0 });
@@ -28,14 +27,12 @@ export class UserDocumentsUploadWidget extends React.Component {
             success: error,
             isUploading: false,
         });
-    }
+    };
 
-    handleUploadSuccess = (documentName) => {
+    handleUploadSuccess = async (documentName) => {
+        const downloadUrl = await retrieveDownloadUrl(this.props.userId, documentName);
+        this.props.startAddUserDocument({ documentName, downloadUrl });
         this.setState({ success: `${documentName} uploaded sucessfully`, progress: 100, isUploading: false });
-        fileUpload(this.props.userId, documentName)
-            .then(downloadURL => {
-                this.props.startAddUserDocument({ documentName, downloadURL })
-            });
     };
 
     render() {
@@ -45,15 +42,15 @@ export class UserDocumentsUploadWidget extends React.Component {
                     <div className="user_documents_upload_content__loader">
                         <label className="button">
                             Upload a document
-                            <FileUploader
+                            <FirebaseFileUploader
                                 accept="application/pdf, application/msword, .pdf, .docx, .doc"
                                 hidden
                                 name="user_documents_upload"
                                 storageRef={storage.ref(`${this.props.userId}`)}
-                                onUploadStart={this.handleUploadStart}
-                                onUploadError={this.handleUploadError}
-                                onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
+                                onUploadError={this.handleUploadError}
+                                onUploadStart={this.handleUploadStart}
+                                onUploadSuccess={this.handleUploadSuccess}
                             />
                         </label>
                     </div>
@@ -80,8 +77,9 @@ const mapStateToProps = (state) => ({
     userId: state.user && state.user.userId,
 })
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startAddUserDocument: (userId, userDocument) => dispatch(startAddUserDocument(userId, userDocument)),
+    startAddUserDocument: (userDocument) => dispatch(startAddUserDocument(userDocument)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDocumentsUploadWidget);

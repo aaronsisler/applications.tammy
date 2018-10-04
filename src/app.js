@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { firebase } from './firebase/firebase';
+import { firebase } from 'Firebase/firebase';
 import 'normalize.css/normalize.css';
 import 'Styles/styles.scss';
 

@@ -1,4 +1,4 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { firebase, googleAuthProvider } from 'Firebase/firebase';
 import history from 'Tools/history';
 
 export const startLogin = (redirectUrl = '/dashboard') => () => {

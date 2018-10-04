@@ -1,5 +1,4 @@
 const firebase = require.requireActual('firebase');
-const fbStorage = require.requireActual('firebase/storage');
 
 const onAuthStateChanged = jest.fn();
 
@@ -16,11 +15,15 @@ const initializeApp = jest.spyOn(firebase, 'initializeApp')
 
 const database = jest.spyOn(firebase, 'database').mockImplementation(() => ({ ref: jest.fn() }));
 
-const storage = fbStorage ? jest.fn() : undefined;
+const getDownloadURL = jest.fn().mockReturnValue('mockDownloadUrl');
+const child = jest.fn().mockImplementation(() => ({ getDownloadURL }));
+const ref = jest.fn().mockImplementation(() => ({ child }))
+
+const storage = jest.fn().mockImplementation(() => ({ ref }));
 
 export {
     auth,
     database,
     initializeApp,
-    storage
+    storage,
 }

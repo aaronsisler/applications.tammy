@@ -8,7 +8,7 @@ export default class UserDocumentsListItem extends React.Component {
 
     render() {
         return (
-            <a className="document_list_item" href={`${this.props.downloadURL}`}>
+            <a className="document_list_item" href={`${this.props.downloadUrl}`}>
                 <div className="document_list_item__title">
                     {this.props.documentName}
                 </div>
@@ -21,7 +21,7 @@ export default class UserDocumentsListItem extends React.Component {
 }
 
 UserDocumentsListItem.propTypes = {
-    downloadURL: PropTypes.string.isRequired,
+    downloadUrl: PropTypes.string.isRequired,
     documentName: PropTypes.string.isRequired,
     dateUploaded: PropTypes.string.isRequired,
 };

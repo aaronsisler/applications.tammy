@@ -1,4 +1,4 @@
-import database from '../firebase/firebase';
+import database from 'Firebase/firebase';
 import { setPositions } from 'Actions/helpers/positions';
 
 export const startSetPositions = () => (dispatch) =>

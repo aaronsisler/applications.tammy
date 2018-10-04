@@ -3,7 +3,7 @@
 exports[`UserDocumentsListItem should render UserDocumentsListItem correctly 1`] = `
 <a
   className="document_list_item"
-  href="downloadURL1"
+  href="downloadUrl1"
 >
   <div
     className="document_list_item__title"

@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import database from '../../src/firebase/firebase';
+import database from 'Firebase/firebase';
 import { startSetUser, startEditUser, startClearUser, } from '../../src/actions/user';
 import * as userActionHelpers from 'Actions/helpers/user';
 import { defaultAuthState } from '../fixtures/auth';

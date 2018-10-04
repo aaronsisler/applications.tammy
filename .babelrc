@@ -15,6 +15,7 @@
                 "alias": {
                     "Actions": "./src/actions",
                     "Core": "./src/components/core",
+                    "Firebase": "./src/firebase",
                     "Position": "./src/components/position",
                     "Reducers": "./src/reducers",
                     "Selectors": "./src/selectors",

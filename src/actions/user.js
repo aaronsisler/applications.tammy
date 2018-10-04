@@ -1,4 +1,4 @@
-import database from '../firebase/firebase';
+import database from 'Firebase/firebase';
 import { setUser, editUser, clearUser } from './helpers/user';
 
 export const startSetUser = () => (dispatch, getState) => {
