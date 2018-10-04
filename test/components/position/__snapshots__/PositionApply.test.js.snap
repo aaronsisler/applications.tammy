@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionApply when user is Authenticated should render correctly 1`] = `
+<div
+  className="position_apply"
+>
+  <div
+    className="position_apply_content__apply"
+  >
+    <Link
+      className="nav_link"
+      replace={false}
+      to="apply"
+    >
+      Apply Now
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`PositionApply when user is NOT Authenticated should render correctly 1`] = `
+<div
+  className="position_apply"
+>
+  <div
+    className="position_apply_content__login"
+  >
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Login with Google
+    </button>
+  </div>
+</div>
+`;

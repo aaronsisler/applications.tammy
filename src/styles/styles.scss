@@ -1,19 +1,22 @@
-//Base
+//Settings must be loaded first ALWAYS
 @import './base/settings';
+//Base
 @import './base/base';
-@import './base/visibility';
 @import './base/progress_bar';
+@import './base/visibility';
+//Application
 //Core
 @import './components/core/Footer';
 @import './components/core/LoggedOutPage';
 @import './components/core/LoginPage';
 @import './components/core/Navbar';
 //Position
+@import './components/position/PositionApply';
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
+@import './components/position/PositionsContainer';
 @import './components/position/PositionsList';
 @import './components/position/PositionsListItem';
-@import './components/position/PositionsContainer';
 //Shared
 //User Documents
 @import './components/shared/userDocuments/UserDocumentsList';

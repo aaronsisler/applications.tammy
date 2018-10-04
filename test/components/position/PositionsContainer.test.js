@@ -6,16 +6,24 @@ import positions from '../../fixtures/positions';
 describe('PositionsContainer', () => {
     let wrapper;
 
-    const buildWrapper = (positionsInput = [], filters = { text: '' }) => {
+    const buildWrapper = (positionsInput = [], positionInput = {}, filters = { text: '' }) => {
         wrapper = shallow(
             <PositionsContainer
                 filters={filters}
+                position={positionInput}
                 positions={positionsInput}
             />
         );
     };
 
-    it('should render PositionsContainer correctly', () => {
+    it('should render PositionsContainer correctly when a position is selected', () => {
+        const [position] = positions;
+        buildWrapper(positions, position);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render PositionsContainer correctly when a position is NOT selected', () => {
         buildWrapper(positions);
 
         expect(wrapper).toMatchSnapshot();
@@ -23,7 +31,7 @@ describe('PositionsContainer', () => {
 
     it('should render PositionsContainer correctly when text filter is applied', () => {
         const [{ jobId }] = positions;
-        buildWrapper(positions, { text: jobId });
+        buildWrapper(positions, undefined, { text: jobId });
 
         expect(wrapper).toMatchSnapshot();
     });
