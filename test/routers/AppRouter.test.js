@@ -2,13 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { AppRouter } from '../../src/routers/AppRouter';
 
+import ApplicationPage from 'Application/ApplicationPage';
 import DashboardPage from 'Core/DashboardPage';
-import LoginPage from 'Core/LoginPage';
 import LoggedOutPage from 'Core/LoggedOutPage';
+import LoginPage from 'Core/LoginPage';
 import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
-import UserProfilePage from 'User/UserProfilePage';
 import UserDocumentsPage from 'User/UserDocumentsPage';
+import UserProfilePage from 'User/UserProfilePage';
 
 import history from 'Tools/history';
 
@@ -62,8 +63,8 @@ describe('AppRouter', () => {
             routes = wrapper.find('Route');
         });
 
-        it('should render PositionsPage when at the root route', () => {
-            const matchFound = queryRouteComponents('/', PositionsPage);
+        it('should render ApplicationPage when at the /apply route', () => {
+            const matchFound = queryRouteComponents('/apply', ApplicationPage);
             expect(matchFound).toBe(true);
         });
 
@@ -72,18 +73,23 @@ describe('AppRouter', () => {
             expect(matchFound).toBe(true);
         });
 
-        it('should render LoginPage when at the /login route', () => {
-            const matchFound = queryRouteComponents('/login', LoginPage);
-            expect(matchFound).toBe(true);
-        });
-
         it('should render LoggedOutPage when at the /logged_out route', () => {
             const matchFound = queryRouteComponents('/logged_out', LoggedOutPage);
             expect(matchFound).toBe(true);
         });
 
-        it('should render UserProfilePage when at the /user_profile route', () => {
-            const matchFound = queryRouteComponents('/user_profile', UserProfilePage);
+        it('should render LoginPage when at the /login route', () => {
+            const matchFound = queryRouteComponents('/login', LoginPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render NotFoundPage when no matching route found', () => {
+            const matchFound = queryRouteComponents(undefined, NotFoundPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render PositionsPage when at the root route', () => {
+            const matchFound = queryRouteComponents('/', PositionsPage);
             expect(matchFound).toBe(true);
         });
 
@@ -92,8 +98,8 @@ describe('AppRouter', () => {
             expect(matchFound).toBe(true);
         });
 
-        it('should render NotFoundPage when no matching route found', () => {
-            const matchFound = queryRouteComponents(undefined, NotFoundPage);
+        it('should render UserProfilePage when at the /user_profile route', () => {
+            const matchFound = queryRouteComponents('/user_profile', UserProfilePage);
             expect(matchFound).toBe(true);
         });
     })
