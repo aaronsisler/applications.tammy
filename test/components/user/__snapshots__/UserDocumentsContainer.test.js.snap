@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDocumentsContainer should render UserDocumentsContainer correctly when user documents are NOT available 1`] = `
+<div>
+  <div
+    id="user_documents_container"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+    <DocumentList
+      userDocuments={Array []}
+    />
+  </div>
+</div>
+`;
+
+exports[`UserDocumentsContainer should render UserDocumentsContainer correctly when user documents are available 1`] = `
+<div>
+  <div
+    id="user_documents_container"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+    <DocumentList
+      userDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "id": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "id": "secondDocumentId",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

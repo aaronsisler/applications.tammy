@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsListFilter should render PositionsListFilter correctly 1`] = `
+<div
+  className="positions_list_filters"
+>
+  <div
+    className="input_group__item"
+  >
+    <input
+      className="text_input"
+      onChange={[Function]}
+      placeholder="Search positions"
+      type="text"
+      value="initial filter"
+    />
+  </div>
+</div>
+`;

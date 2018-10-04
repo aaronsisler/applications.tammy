@@ -1,0 +1,52 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .document_list_item {
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        color: $darkGrey;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-between;
+        padding: $medium;
+        text-decoration: none;
+        word-break: break-all;
+        &:hover {
+            background: #fafafa;
+            color: $secColor;
+        }
+        &__title {
+            padding-right: $small;
+        }
+        &__date_uploaded {
+            color: $fontGrey;
+            padding-left: $small;
+        }
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .document_list_item {
+        padding: $medium $large;
+        &__title {
+            padding: $medium;
+        }
+        &__date_uploaded {
+            padding: $medium;
+        }
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

@@ -1,4 +1,4 @@
-import database from '../firebase/firebase';
+import database from 'Firebase/firebase';
 import { setUser, editUser, clearUser } from './helpers/user';
 
 export const startSetUser = () => (dispatch, getState) => {
@@ -17,7 +17,7 @@ export const startEditUser = (updates) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
 
     return database.ref(`users/${userId}`).update(updates).then(() => {
-        dispatch(editUser(userId, updates));
+        dispatch(editUser(updates));
     });
 };
 

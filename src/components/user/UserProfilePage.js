@@ -6,9 +6,6 @@ export default class UserProfilePage extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div id="user_profile_page">

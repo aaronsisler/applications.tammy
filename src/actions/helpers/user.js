@@ -3,9 +3,8 @@ export const setUser = (user) => ({
     user,
 });
 
-export const editUser = (userId, updates) => ({
+export const editUser = (updates) => ({
     type: 'EDIT_USER',
-    userId,
     updates,
 });
 

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsList should render PositionsList correctly when no positions are available 1`] = `
+<div
+  className="positions_list empty"
+>
+  No available items
+</div>
+`;
+
+exports[`PositionsList should render PositionsList correctly when positions are available 1`] = `
+<div
+  className="positions_list"
+>
+  <Connect(PositionsListItem)
+    content={
+      Object {
+        "description": "first description",
+        "requirements": Array [
+          "Skill 1",
+          "Skill 2",
+        ],
+        "responsibilities": Array [
+          "Responsibility 1",
+          "Responsibility 2",
+        ],
+      }
+    }
+    jobId="first job id"
+    key="firstPositionId"
+    location="first location"
+    positionId="firstPositionId"
+    title="first title"
+  />
+  <Connect(PositionsListItem)
+    content={
+      Object {
+        "description": "second description",
+        "requirements": Array [
+          "Skill 1",
+          "Skill 2",
+        ],
+        "responsibilities": Array [
+          "Responsibility 1",
+          "Responsibility 2",
+        ],
+      }
+    }
+    jobId="second job id"
+    key="secondPositionId"
+    location="second location"
+    positionId="secondPositionId"
+    title="second title"
+  />
+</div>
+`;
