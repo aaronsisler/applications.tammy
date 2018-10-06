@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import applicationReducer from 'Reducers/application';
 import authReducer from 'Reducers/auth';
 import positionsFilterReducer from 'Reducers/filters/positions';
 import positionReducer from 'Reducers/position';
@@ -12,6 +13,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default () => {
     const store = createStore(
         combineReducers({
+            application: applicationReducer,
             auth: authReducer,
             filters: combineReducers({
                 positions: positionsFilterReducer,

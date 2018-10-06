@@ -20,7 +20,7 @@ describe('auth reducer', () => {
         const state = authReducer(undefined, action);
 
         expect(state).toEqual({ uid });
-    })
+    });
 
     it('should return default state on logout', () => {
         const action = logout();
@@ -28,5 +28,5 @@ describe('auth reducer', () => {
         const state = authReducer(undefined, action);
 
         expect(state).toEqual(defaultState);
-    })
-})
+    });
+});

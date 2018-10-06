@@ -1,5 +1,8 @@
 //Settings must be loaded first ALWAYS
 @import './base/settings';
+//Third party files
+@import 'rc-steps/assets/index.css';
+@import 'rc-steps/assets/iconfont.css';
 //Base
 @import './base/base';
 @import './base/progress_bar';

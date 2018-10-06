@@ -7,6 +7,7 @@ describe('ConfigureStore', () => {
 
     it('should create the default state', () => {
         const defaultState = {
+            application: { user: {}, userDocuments: [] },
             auth: {},
             filters: {
                 positions: {

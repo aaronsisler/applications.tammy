@@ -4,6 +4,6 @@ exports[`ApplicationPage should render ApplicationPage correctly 1`] = `
 <div
   id="application_page"
 >
-  application_page
+  <Connect(ApplicationProcessContainer) />
 </div>
 `;
