@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ApplicationProgressWidget from 'Application/ApplicationProgressWidget';
-import { steps } from '../../fixtures/application';
+import { ApplicationProgressWidget } from 'Application/ApplicationProgressWidget';
+import { steps } from '../../fixtures/applicationProcess';
 
 describe('ApplicationProgressWidget', () => {
     let wrapper;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ApplicationProgressButtonsWidget from 'Application/ApplicationProgressButtonsWidget';
+import { ApplicationProgressButtonsWidget } from 'Application/ApplicationProgressButtonsWidget';
+import { steps } from '../../fixtures/applicationProcess';
 
 describe('ApplicationProgressButtonsWidget', () => {
     let wrapper;
-    const maxSteps = 4;
+    const maxSteps = steps.length;
     const handleDecrementCurrentStep = jest.fn();
     const handleIncrementCurrentStep = jest.fn();
 

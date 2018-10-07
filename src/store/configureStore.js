@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import applicationReducer from 'Reducers/application';
+import applicationProcessReducer from 'Reducers/applicationProcess';
 import authReducer from 'Reducers/auth';
 import positionsFilterReducer from 'Reducers/filters/positions';
 import positionReducer from 'Reducers/position';
@@ -14,6 +15,7 @@ export default () => {
     const store = createStore(
         combineReducers({
             application: applicationReducer,
+            applicationProcess: applicationProcessReducer,
             auth: authReducer,
             filters: combineReducers({
                 positions: positionsFilterReducer,

@@ -13,12 +13,8 @@ export class ApplicationProcessContainer extends React.Component {
             return history.push('/');
         }
 
-        this.steps = [{ title: "Personal Info" }, { title: "Documents" }, { title: "Final Review" }, { title: "Done" }];
         this.state = {
-            currentStep: 0,
-            maxSteps: this.steps.length,
             position: props.position,
-            steps: this.steps,
         }
     }
 
@@ -26,32 +22,10 @@ export class ApplicationProcessContainer extends React.Component {
         this.props.startClearApplication();
     }
 
-    handleDecrementCurrentStep = () => {
-        let { currentStep } = this.state;
-        if (currentStep == this.state.maxSteps) {
-            currentStep--;
-        }
-        currentStep--;
-        this.setState({ currentStep });
-    }
-
-    handleIncrementCurrentStep = () => {
-        let { currentStep } = this.state;
-        currentStep++;
-        if (currentStep == this.state.maxSteps - 1) {
-            currentStep++;
-            return this.setState({ currentStep });
-        }
-        this.setState({ currentStep });
-    }
-
     render() {
         return (
             <div className="application_process_container">
-                <ApplicationProgressWidget
-                    currentStep={this.state.currentStep}
-                    steps={this.state.steps}
-                />
+                <ApplicationProgressWidget />
             </div>
         );
     }

@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Steps, { Step } from 'rc-steps';
 import PropTypes from 'prop-types';
 
-export default class ApplicationProgressWidget extends React.Component {
+export class ApplicationProgressWidget extends React.Component {
     constructor(props) {
         super(props);
         this.stepsRef = [];
@@ -26,7 +27,15 @@ export default class ApplicationProgressWidget extends React.Component {
     }
 }
 
+/* istanbul ignore next */
+const mapStateToProps = (state) => ({
+    currentStep: state.applicationProcess.currentStep,
+    steps: state.applicationProcess.steps,
+});
+
+export default connect(mapStateToProps)(ApplicationProgressWidget);
+
 ApplicationProgressWidget.propTypes = {
-    currentStep: PropTypes.number,
-    steps: PropTypes.array,
+    currentStep: PropTypes.number.isRequired,
+    steps: PropTypes.array.isRequired,
 };

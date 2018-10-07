@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export default class ApplicationProgressButtonsWidget extends React.Component {
+export class ApplicationProgressButtonsWidget extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -24,6 +25,14 @@ export default class ApplicationProgressButtonsWidget extends React.Component {
         );
     }
 }
+
+/* istanbul ignore next */
+const mapStateToProps = (state) => ({
+    currentStep: state.applicationProcess.currentStep,
+    maxSteps: state.applicationProcess.maxSteps,
+});
+
+export default connect(mapStateToProps)(ApplicationProgressButtonsWidget);
 
 ApplicationProgressButtonsWidget.propTypes = {
     currentStep: PropTypes.number.isRequired,
