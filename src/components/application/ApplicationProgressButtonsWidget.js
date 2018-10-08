@@ -11,14 +11,33 @@ export class ApplicationProgressButtonsWidget extends React.Component {
         return (
             <div className="application_progress_buttons_widget">
                 <div className="application_progress_buttons_wrapper">
-                    {this.props.currentStep > 0 &&
-                        <button id='previousStep' className="button" onClick={this.props.handleDecrementCurrentStep}>Previous Step</button>
+                    {
+                        (this.props.currentStep > 0 && this.props.currentStep <= (this.props.maxSteps - 2)) &&
+                        <button
+                            id='previousStep'
+                            className="button"
+                            onClick={this.props.handleDecrementStep}
+                        >
+                            Previous Step
+                        </button>
                     }
                     {this.props.currentStep < (this.props.maxSteps - 2) &&
-                        <button id='nextStep' className="button" onClick={this.props.handleIncrementCurrentStep}>Save and Continue</button>
+                        <button
+                            id='nextStep'
+                            className="button"
+                            onClick={this.props.handleIncrementStep}
+                        >
+                            Save and Continue
+                        </button>
                     }
                     {this.props.currentStep == (this.props.maxSteps - 2) &&
-                        <button id='submitApplication' className="button" onClick={this.props.handleIncrementCurrentStep}>Submit Application</button>
+                        <button
+                            id='submitApplication'
+                            className="button"
+                            onClick={this.props.handleIncrementStep}
+                        >
+                            Submit Application
+                        </button>
                     }
                 </div>
             </div>
@@ -37,6 +56,6 @@ export default connect(mapStateToProps)(ApplicationProgressButtonsWidget);
 ApplicationProgressButtonsWidget.propTypes = {
     currentStep: PropTypes.number.isRequired,
     maxSteps: PropTypes.number.isRequired,
-    handleDecrementCurrentStep: PropTypes.func.isRequired,
-    handleIncrementCurrentStep: PropTypes.func.isRequired,
+    handleDecrementStep: PropTypes.func.isRequired,
+    handleIncrementStep: PropTypes.func.isRequired,
 };

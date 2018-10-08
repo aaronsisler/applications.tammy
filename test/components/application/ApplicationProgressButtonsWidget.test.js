@@ -54,7 +54,7 @@ describe('ApplicationProgressButtonsWidget', () => {
         });
     });
 
-    describe('when at final step', () => {
+    describe('when at review step', () => {
         beforeEach(() => {
             buildWrapper(maxSteps - 2);
         });
@@ -71,6 +71,16 @@ describe('ApplicationProgressButtonsWidget', () => {
         it('clicking submit application button calls handleIncrementCurrentStep from props', () => {
             wrapper.find('#submitApplication').simulate('click');
             expect(handleIncrementCurrentStep).toHaveBeenCalled();
+        });
+    });
+
+    describe('when at final step', () => {
+        beforeEach(() => {
+            buildWrapper(maxSteps - 1);
+        });
+
+        it('renders correctly', () => {
+            expect(wrapper).toMatchSnapshot();
         });
     });
 })

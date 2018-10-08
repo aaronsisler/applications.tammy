@@ -43,6 +43,34 @@ exports[`ApplicationProgressButtonsWidget when at final step renders correctly 1
 >
   <div
     className="application_progress_buttons_wrapper"
+  />
+</div>
+`;
+
+exports[`ApplicationProgressButtonsWidget when at first step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+>
+  <div
+    className="application_progress_buttons_wrapper"
+  >
+    <button
+      className="button"
+      id="nextStep"
+      onClick={[MockFunction]}
+    >
+      Save and Continue
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ApplicationProgressButtonsWidget when at review step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+>
+  <div
+    className="application_progress_buttons_wrapper"
   >
     <button
       className="button"
@@ -86,24 +114,6 @@ exports[`ApplicationProgressButtonsWidget when at final step renders correctly 1
       }
     >
       Submit Application
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ApplicationProgressButtonsWidget when at first step renders correctly 1`] = `
-<div
-  className="application_progress_buttons_widget"
->
-  <div
-    className="application_progress_buttons_wrapper"
-  >
-    <button
-      className="button"
-      id="nextStep"
-      onClick={[MockFunction]}
-    >
-      Save and Continue
     </button>
   </div>
 </div>

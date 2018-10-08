@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { history } from '../../tools/history';
 import { startClearApplication } from 'Actions/application';
+import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
+import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
 
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
@@ -26,6 +28,10 @@ export class ApplicationProcessContainer extends React.Component {
         return (
             <div className="application_process_container">
                 <ApplicationProgressWidget />
+                <ApplicationProgressButtonsWidget
+                    handleDecrementCurrentStep={this.props.startDecrementCurrentStep}
+                    handleIncrementCurrentStep={this.props.startIncrementCurrentStep}
+                />
             </div>
         );
     }
@@ -39,6 +45,8 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplication: () => dispatch(startClearApplication()),
+    startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
+    startIncrementCurrentStep: () => dispatch(startIncrementCurrentStep()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
@@ -46,4 +54,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessCo
 ApplicationProcessContainer.propTypes = {
     position: PropTypes.object,
     startClearApplication: PropTypes.func.isRequired,
+    startDecrementCurrentStep: PropTypes.func.isRequired,
+    startIncrementCurrentStep: PropTypes.func.isRequired,
 };

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
 import UserProfileContainer from 'User/UserProfileContainer';
 import { startClearApplicationUser, startSetApplicationUser } from 'Actions/application';
+import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
 
 export class ApplicationUserContainer extends React.Component {
     constructor(props) {
@@ -24,10 +25,8 @@ export class ApplicationUserContainer extends React.Component {
         return (
             <div className="application_user_container">
                 <ApplicationProgressButtonsWidget
-                    currentStep={this.props.currentStep}
-                    maxSteps={this.props.maxSteps}
-                    handleDecrementCurrentStep={this.handleDecrementStep}
-                    handleIncrementCurrentStep={this.handleIncrementStep}
+                    handleDecrementStep={this.handleDecrementStep}
+                    handleIncrementStep={this.handleIncrementStep}
                 />
                 <UserProfileContainer />
             </div>
@@ -40,16 +39,16 @@ const mapStateToProps = () => ({
 
 const mapDispatchToProps = (dispatch) => ({
     startClearApplicationUser: () => dispatch(startClearApplicationUser()),
+    startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
+    startIncrementCurrentStep: () => dispatch(startIncrementCurrentStep()),
     startSetApplicationUser: () => dispatch(startSetApplicationUser()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationUserContainer);
 
 ApplicationUserContainer.propTypes = {
-    currentStep: PropTypes.number.isRequired,
     handleIncrementCurrentStep: PropTypes.func.isRequired,
     handleDecrementCurrentStep: PropTypes.func.isRequired,
-    maxSteps: PropTypes.number.isRequired,
     startClearApplicationUser: PropTypes.func.isRequired,
     startSetApplicationUser: PropTypes.func.isRequired,
 };

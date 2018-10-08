@@ -1,8 +1,9 @@
+//Third party files
+@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/rc-steps/assets/index.css';
+@import '../../node_modules/rc-steps/assets/iconfont.css';
 //Settings must be loaded first ALWAYS
 @import './base/settings';
-//Third party files
-@import 'rc-steps/assets/index.css';
-@import 'rc-steps/assets/iconfont.css';
 //Base
 @import './base/base';
 @import './base/progress_bar';
