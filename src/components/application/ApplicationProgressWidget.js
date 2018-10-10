@@ -15,8 +15,12 @@ export class ApplicationProgressWidget extends React.Component {
                 <Steps current={this.props.currentStep}>
                     {
                         this.props.steps.map((step, index) => (
-                            <Step ref={c => this.stepsRef[index] = c}
+                            <Step
                                 key={index}
+                                ref={
+                                    /* istanbul ignore next */
+                                    c => this.stepsRef[index] = c
+                                }
                                 title={step.title}
                             />
                         ))

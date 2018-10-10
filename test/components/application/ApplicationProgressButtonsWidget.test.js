@@ -6,16 +6,16 @@ import { steps } from '../../fixtures/applicationProcess';
 describe('ApplicationProgressButtonsWidget', () => {
     let wrapper;
     const maxSteps = steps.length;
-    const handleDecrementCurrentStep = jest.fn();
-    const handleIncrementCurrentStep = jest.fn();
+    const handleDecrementStep = jest.fn();
+    const handleIncrementStep = jest.fn();
 
     const buildWrapper = (currentStep = 0) => {
         wrapper = shallow(
             <ApplicationProgressButtonsWidget
                 currentStep={currentStep}
+                handleDecrementStep={handleDecrementStep}
+                handleIncrementStep={handleIncrementStep}
                 maxSteps={maxSteps}
-                handleDecrementCurrentStep={handleDecrementCurrentStep}
-                handleIncrementCurrentStep={handleIncrementCurrentStep}
             />);
     };
 
@@ -28,9 +28,9 @@ describe('ApplicationProgressButtonsWidget', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('clicking button calls handleIncrementCurrentStep from props', () => {
+        it('clicking button calls handleIncrementStep from props', () => {
             wrapper.find('#nextStep').simulate('click');
-            expect(handleIncrementCurrentStep).toHaveBeenCalled();
+            expect(handleIncrementStep).toHaveBeenCalled();
         });
     });
 
@@ -43,14 +43,14 @@ describe('ApplicationProgressButtonsWidget', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('clicking previous step button calls handleDecrementCurrentStep from props', () => {
+        it('clicking previous step button calls handleDecrementStep from props', () => {
             wrapper.find('#previousStep').simulate('click');
-            expect(handleDecrementCurrentStep).toHaveBeenCalled();
+            expect(handleDecrementStep).toHaveBeenCalled();
         });
 
         it('clicking next step button calls handleIncrementCurrentStep from props', () => {
             wrapper.find('#nextStep').simulate('click');
-            expect(handleIncrementCurrentStep).toHaveBeenCalled();
+            expect(handleIncrementStep).toHaveBeenCalled();
         });
     });
 
@@ -63,14 +63,14 @@ describe('ApplicationProgressButtonsWidget', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('clicking previous step button calls handleDecrementCurrentStep from props', () => {
+        it('clicking previous step button calls handleDecrementStep from props', () => {
             wrapper.find('#previousStep').simulate('click');
-            expect(handleDecrementCurrentStep).toHaveBeenCalled();
+            expect(handleDecrementStep).toHaveBeenCalled();
         });
 
-        it('clicking submit application button calls handleIncrementCurrentStep from props', () => {
+        it('clicking submit application button calls handleIncrementStep from props', () => {
             wrapper.find('#submitApplication').simulate('click');
-            expect(handleIncrementCurrentStep).toHaveBeenCalled();
+            expect(handleIncrementStep).toHaveBeenCalled();
         });
     });
 
@@ -83,4 +83,4 @@ describe('ApplicationProgressButtonsWidget', () => {
             expect(wrapper).toMatchSnapshot();
         });
     });
-})
+});

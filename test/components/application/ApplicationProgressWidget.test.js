@@ -36,5 +36,5 @@ describe('ApplicationProgressWidget', () => {
         });
 
         expect(stepsTitles).toEqual(steps);
-    })
+    });
 });

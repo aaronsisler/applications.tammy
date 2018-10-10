@@ -55,7 +55,7 @@ export default connect(mapStateToProps)(ApplicationProgressButtonsWidget);
 
 ApplicationProgressButtonsWidget.propTypes = {
     currentStep: PropTypes.number.isRequired,
-    maxSteps: PropTypes.number.isRequired,
     handleDecrementStep: PropTypes.func.isRequired,
     handleIncrementStep: PropTypes.func.isRequired,
+    maxSteps: PropTypes.number.isRequired,
 };

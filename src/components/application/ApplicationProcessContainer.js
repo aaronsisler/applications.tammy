@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { history } from '../../tools/history';
+import history from '../../tools/history';
 import { startClearApplication } from 'Actions/application';
-import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
-import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
+import ApplicationUserContainer from './ApplicationUserContainer';
 
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
@@ -28,10 +27,8 @@ export class ApplicationProcessContainer extends React.Component {
         return (
             <div className="application_process_container">
                 <ApplicationProgressWidget />
-                <ApplicationProgressButtonsWidget
-                    handleDecrementCurrentStep={this.props.startDecrementCurrentStep}
-                    handleIncrementCurrentStep={this.props.startIncrementCurrentStep}
-                />
+
+                {this.props.currentStep == 0 && <ApplicationUserContainer />}
             </div>
         );
     }
@@ -39,21 +36,19 @@ export class ApplicationProcessContainer extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
+    currentStep: state.applicationProcess.currentStep,
     position: state.position,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplication: () => dispatch(startClearApplication()),
-    startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
-    startIncrementCurrentStep: () => dispatch(startIncrementCurrentStep()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
+    currentStep: PropTypes.number,
     position: PropTypes.object,
     startClearApplication: PropTypes.func.isRequired,
-    startDecrementCurrentStep: PropTypes.func.isRequired,
-    startIncrementCurrentStep: PropTypes.func.isRequired,
 };

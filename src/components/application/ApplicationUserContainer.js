@@ -13,12 +13,12 @@ export class ApplicationUserContainer extends React.Component {
 
     handleDecrementStep = () => {
         this.props.startClearApplicationUser();
-        this.props.handleDecrementCurrentStep();
+        this.props.startDecrementCurrentStep();
     }
 
     handleIncrementStep = () => {
         this.props.startSetApplicationUser();
-        this.props.handleIncrementCurrentStep();
+        this.props.startIncrementCurrentStep();
     }
 
     render() {
@@ -34,9 +34,7 @@ export class ApplicationUserContainer extends React.Component {
     }
 }
 
-const mapStateToProps = () => ({
-})
-
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplicationUser: () => dispatch(startClearApplicationUser()),
     startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
@@ -44,11 +42,11 @@ const mapDispatchToProps = (dispatch) => ({
     startSetApplicationUser: () => dispatch(startSetApplicationUser()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicationUserContainer);
+export default connect(undefined, mapDispatchToProps)(ApplicationUserContainer);
 
 ApplicationUserContainer.propTypes = {
-    handleIncrementCurrentStep: PropTypes.func.isRequired,
-    handleDecrementCurrentStep: PropTypes.func.isRequired,
     startClearApplicationUser: PropTypes.func.isRequired,
+    startDecrementCurrentStep: PropTypes.func.isRequired,
+    startIncrementCurrentStep: PropTypes.func.isRequired,
     startSetApplicationUser: PropTypes.func.isRequired,
 };

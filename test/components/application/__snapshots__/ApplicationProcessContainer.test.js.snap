@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationProcessContainer should render correctly when on User info step 1`] = `
+<div
+  className="application_process_container"
+>
+  <Connect(ApplicationProgressWidget) />
+  <Connect(ApplicationUserContainer) />
+</div>
+`;
