@@ -1,5 +1,6 @@
 import applicationReducer from 'Reducers/application';
-import { clearApplication } from 'Actions/helpers/application';
+import { clearApplication, setApplicationUser } from 'Actions/helpers/application';
+import { user } from '../fixtures/user';
 
 const defaultState = { user: {}, userDocuments: [] };
 
@@ -19,5 +20,13 @@ describe('application reducer', () => {
         const state = applicationReducer({ user: { userId: '123' }, userDocuments: [{ mockId: 'mockData' }] }, action);
 
         expect(state).toEqual({ user: {}, userDocuments: [] });
+    });
+
+    it(`should set the application's user`, () => {
+        const action = setApplicationUser(user);
+
+        const state = applicationReducer(defaultState, action);
+
+        expect(state).toEqual({ user, userDocuments: [] });
     });
 });
