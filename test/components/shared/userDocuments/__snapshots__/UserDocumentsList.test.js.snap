@@ -16,15 +16,15 @@ exports[`UserDocumentsList should render UserDocumentsList correctly when user d
     dateUploaded="2018/01/01 01:23:45A"
     documentName="Document Name 1"
     downloadUrl="downloadUrl1"
-    id="firstDocumentId"
     key="0"
+    userDocumentId="firstDocumentId"
   />
   <UserDocumentsListItem
     dateUploaded="2018/02/02 01:23:45A"
     documentName="Document Name 2"
     downloadUrl="downloadUrl2"
-    id="secondDocumentId"
     key="1"
+    userDocumentId="secondDocumentId"
   />
 </div>
 `;

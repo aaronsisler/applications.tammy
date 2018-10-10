@@ -8,7 +8,7 @@ export const startSetUserDocuments = () => (dispatch, getState) => {
         const userDocuments = [];
         snapshot.forEach((childSnapshot) => {
             userDocuments.push({
-                id: childSnapshot.key,
+                userDocumentId: childSnapshot.key,
                 ...childSnapshot.val(),
             });
         });
@@ -27,7 +27,7 @@ export const startAddUserDocument = (userDocument) => (dispatch, getState) => {
         .push(uploadedDocument)
         .then((ref) => {
             dispatch(addUserDocument({
-                id: ref.key,
+                userDocumentId: ref.key,
                 ...uploadedDocument
             }))
         });

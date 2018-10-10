@@ -13,7 +13,7 @@ describe('User Documents Actions', () => {
     const userDocumentsMock = [];
     userDocuments.forEach((userDocument) => {
         const val = () => ({ ...userDocument });
-        userDocumentsMock.push({ key: userDocument.id, val })
+        userDocumentsMock.push({ key: userDocument.userDocumentId, val })
     });
     let store;
 
