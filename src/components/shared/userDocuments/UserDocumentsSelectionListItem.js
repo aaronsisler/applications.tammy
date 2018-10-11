@@ -36,6 +36,7 @@ export class UserDocumentsSelectionListItem extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startAddApplicationUserDocument: (userDocumentId) => dispatch(startAddApplicationUserDocument(userDocumentId)),
     startRemoveApplicationUserDocument: (userDocumentId) => dispatch(startRemoveApplicationUserDocument(userDocumentId)),
