@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserDocumentsSelectionList from 'Shared/userDocuments/UserDocumentsSelectionList';
+import { UserDocumentsSelectionContainer } from 'Shared/userDocuments/UserDocumentsSelectionContainer';
 import userDocuments from '../../../fixtures/userDocuments';
 
 describe('UserDocumentsSelectionList', () => {
@@ -8,21 +8,15 @@ describe('UserDocumentsSelectionList', () => {
 
     const buildWrapper = (applicationUserDocuments, userDocumentsInput) => {
         wrapper = shallow(
-            <UserDocumentsSelectionList
+            <UserDocumentsSelectionContainer
                 applicationUserDocuments={applicationUserDocuments}
                 userDocuments={userDocumentsInput}
             />
         );
     };
 
-    it('should render UserDocumentsSelectionList correctly when user documents are available', () => {
+    it('should render UserDocumentsSelectionContainer correctly', () => {
         buildWrapper(userDocuments, userDocuments);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render UserDocumentsSelectionList correctly when user documents is empty', () => {
-        buildWrapper([], []);
 
         expect(wrapper).toMatchSnapshot();
     });

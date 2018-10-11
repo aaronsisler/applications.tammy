@@ -25,23 +25,8 @@ exports[`UserDocumentsSelectionList should render UserDocumentsSelectionList cor
 
 exports[`UserDocumentsSelectionList should render UserDocumentsSelectionList correctly when user documents is empty 1`] = `
 <div
-  className="user_documents_selection_list"
+  className="user_documents_selection_list empty"
 >
-  <Connect(UserDocumentsSelectionListItem)
-    dateUploaded="2018/01/01 01:23:45A"
-    documentName="Document Name 1"
-    downloadUrl="downloadUrl1"
-    isDocumentAdded={false}
-    key="0"
-    userDocumentId="firstDocumentId"
-  />
-  <Connect(UserDocumentsSelectionListItem)
-    dateUploaded="2018/02/02 01:23:45A"
-    documentName="Document Name 2"
-    downloadUrl="downloadUrl2"
-    isDocumentAdded={false}
-    key="1"
-    userDocumentId="secondDocumentId"
-  />
+  No available items
 </div>
 `;
