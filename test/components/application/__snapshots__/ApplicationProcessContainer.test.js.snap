@@ -9,6 +9,15 @@ exports[`ApplicationProcessContainer should render correctly when on Review step
 </div>
 `;
 
+exports[`ApplicationProcessContainer should render correctly when on Submitted step 1`] = `
+<div
+  className="application_process_container"
+>
+  <Connect(ApplicationProgressWidget) />
+  <ApplicationSubmissionContainer />
+</div>
+`;
+
 exports[`ApplicationProcessContainer should render correctly when on User Documents step 1`] = `
 <div
   className="application_process_container"
