@@ -3,6 +3,7 @@ import {
     clearApplication,
     removeApplicationUserDocument,
     setApplicationUser,
+    submitApplication,
 } from 'Actions/helpers/application';
 import { user } from '../../fixtures/user';
 import userDocuments from '../../fixtures/userDocuments';
@@ -50,6 +51,16 @@ describe('Application Action Helpers', () => {
             expect(action).toEqual({
                 type: 'SET_APPLICATION_USER',
                 user
+            });
+        });
+    });
+
+    describe('submitApplication() method', () => {
+        it(`should setup 'submit application user' action object`, () => {
+            const action = submitApplication();
+
+            expect(action).toEqual({
+                type: 'SUBMIT_APPLICATION',
             });
         });
     });

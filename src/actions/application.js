@@ -1,8 +1,10 @@
+import database from 'Firebase/firebase';
 import {
     addApplicationUserDocument,
     clearApplication,
     removeApplicationUserDocument,
     setApplicationUser,
+    submitApplication,
 } from 'Actions/helpers/application';
 
 export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, getState) => {
@@ -22,4 +24,13 @@ export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch)
 export const startSetApplicationUser = () => (dispatch, getState) => {
     const { user } = getState();
     dispatch(setApplicationUser(user));
+}
+
+export const startSubmitApplication = () => (dispatch, getState) => {
+    const { user, userDocuments } = getState().application;
+    const { positionId } = getState().position;
+    database.ref(`applications/${positionId}`).push({
+        user,
+        userDocuments
+    }).then(() => dispatch(submitApplication()));
 }

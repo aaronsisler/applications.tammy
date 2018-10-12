@@ -1,13 +1,16 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import * as applicationActionHelpers from 'Actions/helpers/application';
+import database from 'Firebase/firebase';
+import positions from '../fixtures/positions';
 import { user } from '../fixtures/user';
 import userDocuments from '../fixtures/userDocuments';
 import {
     startAddApplicationUserDocument,
     startClearApplication,
     startRemoveApplicationUserDocument,
-    startSetApplicationUser
+    startSetApplicationUser,
+    startSubmitApplication
 } from 'Actions/application';
 
 const createMockStore = configureMockStore([thunk]);
@@ -15,6 +18,8 @@ const createMockStore = configureMockStore([thunk]);
 describe('Application Actions', () => {
     const [userDocument] = userDocuments;
     const { userDocumentId } = userDocument;
+    const [position] = positions;
+    const { positionId } = position;
 
     describe('startAddApplicationUserDocument() method', () => {
         it(`should call dispatch with addApplicationUserDocument`, async () => {
@@ -61,6 +66,37 @@ describe('Application Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(setApplicationUserMock).toHaveBeenLastCalledWith(user);
+        });
+    });
+
+    describe('startSubmitApplication() method', () => {
+        let store;
+        const push = jest.fn().mockResolvedValue({});
+
+        beforeEach(() => {
+            store = createMockStore({ application: { user, userDocuments }, position });
+            jest.spyOn(database, 'ref').mockReturnValue({ push });
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startSubmitApplication());
+
+            expect(database.ref).toHaveBeenLastCalledWith(`applications/${positionId}`);
+        });
+
+        it('should call push with user and user documents', async () => {
+            await store.dispatch(startSubmitApplication());
+
+            expect(push).toHaveBeenLastCalledWith({ user, userDocuments });
+        })
+
+        it(`should call dispatch with submitApplication`, async () => {
+            const submitApplicationMock = jest.spyOn(applicationActionHelpers, 'submitApplication');
+
+            await store.dispatch(startSubmitApplication());
+
+            expect(store.getActions().length).toBe(1);
+            expect(submitApplicationMock).toHaveBeenCalled();
         });
     });
 });

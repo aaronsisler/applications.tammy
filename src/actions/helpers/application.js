@@ -16,3 +16,7 @@ export const setApplicationUser = (user) => ({
     type: 'SET_APPLICATION_USER',
     user
 });
+
+export const submitApplication = () => ({
+    type: 'SUBMIT_APPLICATION'
+});

@@ -18,11 +18,11 @@ describe('Positions Actions', () => {
         const once = jest.fn();
         once.mockResolvedValue(positionsMock);
         jest.spyOn(database, 'ref').mockReturnValue({ once });
-    })
+    });
 
     afterEach(() => {
         database.ref.mockRestore();
-    })
+    });
 
     describe('startSetPositions() method', () => {
         it(`should call dispatch with setPositions`, async () => {
@@ -33,6 +33,6 @@ describe('Positions Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(setPositionsMock).toHaveBeenCalledWith(positions);
-        })
-    })
-})
+        });
+    });
+});
