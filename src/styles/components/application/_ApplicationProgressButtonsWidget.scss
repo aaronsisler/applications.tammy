@@ -1,0 +1,45 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .application_progress_buttons_widget {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        display: flex;
+        justify-content: center;
+        margin-bottom: $medium;
+        padding: $xsmall;
+    }
+    .application_progress_buttons_wrapper {
+        .button {
+            margin: $xsmall;
+            padding: $small;
+        }
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .application_progress_buttons_widget {
+        max-width: 40rem;
+        padding: $medium;
+    }
+    .application_progress_buttons_wrapper {
+        .button {
+            margin: $xsmall;
+            padding: $small $medium;
+        }
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

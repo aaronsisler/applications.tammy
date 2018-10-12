@@ -9,6 +9,14 @@
 @import './base/progress_bar';
 @import './base/visibility';
 //Application
+@import './components/application/ApplicationUserDocumentsContainer';
+@import './components/application/ApplicationProcessContainer';
+@import './components/application/ApplicationProgressContainer';
+@import './components/application/ApplicationProgressWidget';
+@import './components/application/ApplicationProgressButtonsWidget';
+@import './components/application/ApplicationReviewContainer';
+@import './components/application/ApplicationSubmissionContainer';
+@import './components/application/ApplicationUserContainer';
 //Core
 @import './components/core/Footer';
 @import './components/core/LoggedOutPage';
@@ -25,6 +33,9 @@
 //User Documents
 @import './components/shared/userDocuments/UserDocumentsList';
 @import './components/shared/userDocuments/UserDocumentsListItem';
+@import './components/shared/userDocuments/UserDocumentsSelectionList';
+@import './components/shared/userDocuments/UserDocumentsSelectionListItem';
+@import './components/shared/userDocuments/UserDocumentsUploadWidget';
 //User
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
