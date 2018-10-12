@@ -6,6 +6,7 @@ const applicationReducerDefaultState = {
 const applicationReducer = (state = applicationReducerDefaultState, action) => {
     switch (action.type) {
         case 'CLEAR_APPLICATION':
+        case 'SUBMIT_APPLICATION':
             return { user: {}, userDocuments: [] }
         case 'SET_APPLICATION_USER':
             return {

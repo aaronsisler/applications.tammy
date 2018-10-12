@@ -6,6 +6,7 @@ import {
     clearApplication,
     removeApplicationUserDocument,
     setApplicationUser,
+    submitApplication,
 } from 'Actions/helpers/application';
 
 const defaultState = { user: {}, userDocuments: [] };
@@ -24,6 +25,14 @@ describe('application reducer', () => {
 
     it('should clear the application', () => {
         const action = clearApplication();
+
+        const state = applicationReducer({ user: { userId: '123' }, userDocuments: [{ mockId: 'mockData' }] }, action);
+
+        expect(state).toEqual({ user: {}, userDocuments: [] });
+    });
+
+    it('should clear the application on application submission', () => {
+        const action = submitApplication();
 
         const state = applicationReducer({ user: { userId: '123' }, userDocuments: [{ mockId: 'mockData' }] }, action);
 
