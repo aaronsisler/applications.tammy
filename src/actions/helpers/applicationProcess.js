@@ -5,3 +5,7 @@ export const decrementCurrentStep = () => ({
 export const incrementCurrentStep = () => ({
     type: 'INCREMENT_CURRENT_STEP'
 });
+
+export const resetCurrentStep = () => ({
+    type: 'RESET_CURRENT_STEP'
+});

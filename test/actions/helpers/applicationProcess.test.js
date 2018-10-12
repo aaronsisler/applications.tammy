@@ -1,6 +1,7 @@
 import {
     decrementCurrentStep,
     incrementCurrentStep,
+    resetCurrentStep,
 } from 'Actions/helpers/applicationProcess';
 
 describe('Application Process Action Helpers', () => {
@@ -10,9 +11,9 @@ describe('Application Process Action Helpers', () => {
 
             expect(action).toEqual({
                 type: 'DECREMENT_CURRENT_STEP',
-            })
-        })
-    })
+            });
+        });
+    });
 
     describe('incrementCurrentStep() method', () => {
         it(`should setup 'increment current step' action object`, () => {
@@ -20,7 +21,17 @@ describe('Application Process Action Helpers', () => {
 
             expect(action).toEqual({
                 type: 'INCREMENT_CURRENT_STEP',
-            })
-        })
-    })
-})
+            });
+        });
+    });
+
+    describe('resetCurrentStep() method', () => {
+        it(`should setup 'reset current step' action object`, () => {
+            const action = resetCurrentStep();
+
+            expect(action).toEqual({
+                type: 'RESET_CURRENT_STEP',
+            });
+        });
+    });
+});

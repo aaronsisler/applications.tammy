@@ -1,5 +1,9 @@
 import applicationProcessReducer from 'Reducers/applicationProcess';
-import { decrementCurrentStep, incrementCurrentStep } from 'Actions/helpers/applicationProcess';
+import {
+    decrementCurrentStep,
+    incrementCurrentStep,
+    resetCurrentStep,
+} from 'Actions/helpers/applicationProcess';
 import { steps } from '../fixtures/applicationProcess';
 
 const defaultState = {
@@ -41,5 +45,13 @@ describe('application process reducer', () => {
         const state = applicationProcessReducer(defaultState, action);
 
         expect(state).toEqual({ ...defaultState, currentStep: 1 });
+    });
+
+    it('should reset the current step to zero', () => {
+        const action = resetCurrentStep();
+
+        const state = applicationProcessReducer({ ...defaultState, currentStep: 2 }, action);
+
+        expect(state).toEqual(defaultState);
     });
 })

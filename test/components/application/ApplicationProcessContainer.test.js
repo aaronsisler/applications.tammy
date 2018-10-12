@@ -7,6 +7,7 @@ describe('ApplicationProcessContainer', () => {
     let wrapper;
     const [position] = positions;
     const startClearApplication = jest.fn();
+    const startResetCurrentStep = jest.fn();
 
     const buildWrapper = (positionInput, currentStep = 0) => {
         wrapper = shallow(
@@ -14,6 +15,7 @@ describe('ApplicationProcessContainer', () => {
                 currentStep={currentStep}
                 position={positionInput}
                 startClearApplication={startClearApplication}
+                startResetCurrentStep={startResetCurrentStep}
             />
         );
     };
@@ -54,5 +56,13 @@ describe('ApplicationProcessContainer', () => {
         wrapper.unmount();
 
         expect(startClearApplication).toHaveBeenCalled();
+    });
+
+    it('should call startResetCurrentStep on unmount', () => {
+        buildWrapper(position);
+
+        wrapper.unmount();
+
+        expect(startResetCurrentStep).toHaveBeenCalled();
     });
 });

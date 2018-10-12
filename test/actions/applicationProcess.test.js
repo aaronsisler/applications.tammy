@@ -1,6 +1,10 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
+import {
+    startDecrementCurrentStep,
+    startIncrementCurrentStep,
+    startResetCurrentStep,
+} from 'Actions/applicationProcess';
 import * as applicationProcessActionHelpers from 'Actions/helpers/applicationProcess';
 
 const createMockStore = configureMockStore([thunk]);
@@ -33,4 +37,15 @@ describe('Application Process Actions', () => {
             expect(incrementCurrentStepMock).toHaveBeenCalled();
         });
     });
-})
+
+    describe('startResetCurrentStep() method', () => {
+        it(`should call dispatch with resetCurrentStep`, async () => {
+            const resetCurrentStepMock = jest.spyOn(applicationProcessActionHelpers, 'resetCurrentStep');
+
+            await store.dispatch(startResetCurrentStep());
+
+            expect(store.getActions().length).toBe(1);
+            expect(resetCurrentStepMock).toHaveBeenCalled();
+        });
+    });
+});

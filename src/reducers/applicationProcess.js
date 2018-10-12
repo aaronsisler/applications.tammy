@@ -20,6 +20,8 @@ const applicationProcessReducer = (state = applicationProcessReducerDefaultState
                 return { ...state };
             }
             return { ...state, currentStep: state.currentStep - 1 }
+        case 'RESET_CURRENT_STEP':
+            return { ...state, currentStep: 0 };
         default:
             return state;
     }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../tools/history';
 import { startClearApplication } from 'Actions/application';
+import { startResetCurrentStep } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationUserDocumentsContainer from './ApplicationUserDocumentsContainer';
@@ -24,6 +25,7 @@ export class ApplicationProcessContainer extends React.Component {
 
     componentWillUnmount() {
         this.props.startClearApplication();
+        this.props.startResetCurrentStep();
     }
 
     render() {
@@ -49,6 +51,7 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplication: () => dispatch(startClearApplication()),
+    startResetCurrentStep: () => dispatch(startResetCurrentStep()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
@@ -57,4 +60,5 @@ ApplicationProcessContainer.propTypes = {
     currentStep: PropTypes.number,
     position: PropTypes.object,
     startClearApplication: PropTypes.func.isRequired,
+    startResetCurrentStep: PropTypes.func.isRequired,
 };
