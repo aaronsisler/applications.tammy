@@ -24,6 +24,18 @@ describe('ApplicationProcessContainer', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
+    it('should render correctly when on User Documents step', () => {
+        buildWrapper(position, 1);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render correctly when on Review step', () => {
+        buildWrapper(position, 2);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
     it('should set position in the state', () => {
         buildWrapper(position);
 

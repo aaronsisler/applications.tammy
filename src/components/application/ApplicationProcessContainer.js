@@ -6,6 +6,7 @@ import { startClearApplication } from 'Actions/application';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationUserDocumentsContainer from './ApplicationUserDocumentsContainer';
+import ApplicationReviewContainer from './ApplicationReviewContainer';
 
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ export class ApplicationProcessContainer extends React.Component {
 
                 {this.props.currentStep == 0 && <ApplicationUserContainer />}
                 {this.props.currentStep == 1 && <ApplicationUserDocumentsContainer />}
+                {this.props.currentStep == 2 && <ApplicationReviewContainer />}
             </div>
         );
     }

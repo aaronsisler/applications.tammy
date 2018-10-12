@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ApplicationProcessContainer should render correctly when on Review step 1`] = `
+<div
+  className="application_process_container"
+>
+  <Connect(ApplicationProgressWidget) />
+  <Connect(ApplicationReviewContainer) />
+</div>
+`;
+
+exports[`ApplicationProcessContainer should render correctly when on User Documents step 1`] = `
+<div
+  className="application_process_container"
+>
+  <Connect(ApplicationProgressWidget) />
+  <Connect(ApplicationUserDocumentsContainer) />
+</div>
+`;
+
 exports[`ApplicationProcessContainer should render correctly when on User info step 1`] = `
 <div
   className="application_process_container"

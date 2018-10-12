@@ -45,12 +45,13 @@ export class ApplicationUserDocumentsContainer extends React.Component {
 const mapStateToProps = (state) => ({
     applicationUserDocuments: state.application.userDocuments,
     userDocuments: state.userDocuments,
-})
+});
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
     startIncrementCurrentStep: () => dispatch(startIncrementCurrentStep()),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationUserDocumentsContainer);
 
