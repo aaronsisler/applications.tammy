@@ -1,7 +1,7 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .document_list_item {
+    .user_documents_list_item {
         align-items: center;
         border-bottom: 1px solid #eee;
         color: $darkGrey;
@@ -32,7 +32,7 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    .document_list_item {
+    .user_documents_list_item {
         padding: $medium $large;
         &__title {
             padding: $medium;

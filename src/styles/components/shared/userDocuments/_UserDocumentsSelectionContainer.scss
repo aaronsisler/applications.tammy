@@ -1,15 +1,8 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .user_documents_list {
-        background: white;
-        border: 1px solid $midLightGrey;
-        &.empty {
-            font-family: $secondaryFont;
-            font-size: $midlarge;
-            padding: $large 0;
-            text-align: center;
-        }
+    .user_documents_selection_container {
+        padding: 0 $medium $medium;
     }
 }
 
@@ -20,8 +13,9 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    .user_documents_list {
-        max-width: 100rem;
+    .user_documents_selection_container {
+        padding: $medium $large;
+        padding-right: 0;
     }
 }
 

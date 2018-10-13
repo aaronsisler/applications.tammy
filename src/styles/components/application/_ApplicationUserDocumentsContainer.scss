@@ -8,6 +8,7 @@
         background-color: white;
         border: 1px solid $midLightGrey;
         font-size: $medium;
+        margin: 0 $medium;
         padding: $medium;
         text-align: center;
     }
@@ -24,6 +25,7 @@
         max-width: 100rem;
     }
     .application_user_documents_container__no_docs {
+        margin: $large 0 0 $large;
         padding: $large;
         text-align: left;
     }

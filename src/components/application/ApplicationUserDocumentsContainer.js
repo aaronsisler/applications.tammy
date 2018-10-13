@@ -24,7 +24,7 @@ export class ApplicationUserDocumentsContainer extends React.Component {
                 {this.props.applicationUserDocuments.length == 0 &&
                     <div className="application_user_documents_container__no_docs">
                         Please select at least one document to continue
-                    </div>
+                </div>
                 }
                 {this.props.applicationUserDocuments.length > 0 &&
                     <ApplicationProgressButtonsWidget

@@ -4,6 +4,10 @@
     .application_review_container {
         margin-top: $medium;
     }
+    .application_review_container__user_documents {
+        padding: $medium;
+        padding-bottom: 0;
+    }
 }
 
 //Medium screens - TABLET
@@ -12,7 +16,12 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .application_review_container__user_documents {
+        max-width: 100rem;
+        padding: $large 0 0 $large;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

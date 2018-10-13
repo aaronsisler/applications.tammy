@@ -12,20 +12,22 @@ export class ApplicationProgressWidget extends React.Component {
     render() {
         return (
             <div className="application_progress_widget">
-                <Steps current={this.props.currentStep}>
-                    {
-                        this.props.steps.map((step, index) => (
-                            <Step
-                                key={index}
-                                ref={
-                                    /* istanbul ignore next */
-                                    c => this.stepsRef[index] = c
-                                }
-                                title={step.title}
-                            />
-                        ))
-                    }
-                </Steps>
+                <div className="application_progress_wrapper">
+                    <Steps current={this.props.currentStep}>
+                        {
+                            this.props.steps.map((step, index) => (
+                                <Step
+                                    key={index}
+                                    ref={
+                                        /* istanbul ignore next */
+                                        c => this.stepsRef[index] = c
+                                    }
+                                    title={step.title}
+                                />
+                            ))
+                        }
+                    </Steps>
+                </div>
             </div>
         );
     }

@@ -3,7 +3,6 @@
 @media only screen {
     .application_process_container {
         background-color: $lightGrey;
-        padding: $small;
     }
 }
 
@@ -13,11 +12,7 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {
-    .application_process_container {
-        padding: $large;
-    }
-}
+@media only screen and (min-width: $largeScreen) {}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

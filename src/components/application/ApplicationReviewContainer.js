@@ -30,8 +30,10 @@ export class ApplicationReviewContainer extends React.Component {
                     handleDecrementStep={this.handleDecrementStep}
                     handleIncrementStep={this.handleIncrementStep}
                 />
+                <div className="application_review_container__user_documents">
+                    <UserDocumentsList userDocuments={this.props.applicationUserDocuments} />
+                </div>
                 <UserProfileContainer isReadOnly={true} />
-                <UserDocumentsList userDocuments={this.props.applicationUserDocuments} />
             </div>
         );
     }

@@ -2,9 +2,11 @@
 //max-width 640px, small screens
 @media only screen {
     .application_submission_container {
+        padding: $medium;
+    }
+    .application_submission_container_wrapper {
         background-color: white;
         border: 1px solid $midLightGrey;
-        margin-top: $medium;
         padding: $medium;
     }
     .application_submission_container__content {
@@ -28,7 +30,17 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     .application_submission_container {
+        display: flex;
         max-width: 100rem;
+        padding: $large;
+        padding-right: 0;
+    }
+    .application_submission_container_wrapper {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        display: flex;
+        flex: 1;
+        flex-flow: column;
     }
 }
 

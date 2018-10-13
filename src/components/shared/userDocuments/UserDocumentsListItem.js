@@ -8,11 +8,11 @@ export default class UserDocumentsListItem extends React.Component {
 
     render() {
         return (
-            <a className="document_list_item" href={`${this.props.downloadUrl}`}>
-                <div className="document_list_item__title">
+            <a className="user_documents_list_item" href={`${this.props.downloadUrl}`}>
+                <div className="user_documents_list_item__title">
                     {this.props.documentName}
                 </div>
-                <div className="document_list_item__date_uploaded">
+                <div className="user_documents_list_item__date_uploaded">
                     {this.props.dateUploaded}
                 </div>
             </a>
