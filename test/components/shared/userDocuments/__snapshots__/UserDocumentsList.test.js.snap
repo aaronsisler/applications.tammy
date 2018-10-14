@@ -2,7 +2,7 @@
 
 exports[`UserDocumentsList should render UserDocumentsList correctly when no user documents are available 1`] = `
 <div
-  className="document_list empty"
+  className="user_documents_list empty"
 >
   No available items
 </div>
@@ -10,7 +10,7 @@ exports[`UserDocumentsList should render UserDocumentsList correctly when no use
 
 exports[`UserDocumentsList should render UserDocumentsList correctly when user documents are available 1`] = `
 <div
-  className="document_list"
+  className="user_documents_list"
 >
   <UserDocumentsListItem
     dateUploaded="2018/01/01 01:23:45A"

@@ -5,20 +5,24 @@ exports[`ApplicationSubmissionContainer should render ApplicationSubmissionConta
   className="application_submission_container"
 >
   <div
-    className="application_submission_container__content"
+    className="application_submission_container_wrapper"
   >
-    Thank you for your application! We will be in contact shortly.
-  </div>
-  <div
-    className="application_submission_container__link"
-  >
-    <Link
-      className="nav_link"
-      replace={false}
-      to="/"
+    <div
+      className="application_submission_container__content"
     >
-      Back to Positions
-    </Link>
+      Thank you for your application! We will be in contact shortly.
+    </div>
+    <div
+      className="application_submission_container__link"
+    >
+      <Link
+        className="nav_link"
+        replace={false}
+        to="/"
+      >
+        Back to Positions
+      </Link>
+    </div>
   </div>
 </div>
 `;
