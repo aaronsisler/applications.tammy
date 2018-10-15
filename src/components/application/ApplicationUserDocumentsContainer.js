@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ApplicationProgressButtonsWidget from './ApplicationProgressButtonsWidget';
-import UserDocumentsSelectionContainer from 'Shared/userDocuments/UserDocumentsSelectionContainer';
+import UserDocumentsSelectionList from 'Shared/userDocuments/UserDocumentsSelectionList';
+import UserDocumentsUploadWidget from 'Shared/userDocuments/UserDocumentsUploadWidget';
 import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
 
 export class ApplicationUserDocumentsContainer extends React.Component {
@@ -32,10 +33,14 @@ export class ApplicationUserDocumentsContainer extends React.Component {
                         handleIncrementStep={this.handleIncrementStep}
                     />
                 }
-                <UserDocumentsSelectionContainer
+                <UserDocumentsSelectionList
                     applicationUserDocuments={this.props.applicationUserDocuments}
                     userDocuments={this.props.userDocuments}
                 />
+
+                <div className="application_user_documents__wrapper">
+                    <UserDocumentsUploadWidget />
+                </div>
             </div>
         );
     }

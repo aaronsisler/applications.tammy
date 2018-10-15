@@ -9,7 +9,7 @@ exports[`ApplicationUserDocumentsContainer when application documents are not se
   >
     Please select at least one document to continue
   </div>
-  <Connect(UserDocumentsSelectionContainer)
+  <Connect(UserDocumentsSelectionList)
     applicationUserDocuments={Array []}
     userDocuments={
       Array [
@@ -28,6 +28,11 @@ exports[`ApplicationUserDocumentsContainer when application documents are not se
       ]
     }
   />
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+  </div>
 </div>
 `;
 
@@ -39,7 +44,7 @@ exports[`ApplicationUserDocumentsContainer when application documents are select
     handleDecrementStep={[Function]}
     handleIncrementStep={[Function]}
   />
-  <Connect(UserDocumentsSelectionContainer)
+  <Connect(UserDocumentsSelectionList)
     applicationUserDocuments={
       Array [
         Object {
@@ -73,5 +78,10 @@ exports[`ApplicationUserDocumentsContainer when application documents are select
       ]
     }
   />
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+  </div>
 </div>
 `;

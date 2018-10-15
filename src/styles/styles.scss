@@ -31,16 +31,14 @@
 @import './components/position/PositionsListItem';
 //Shared
 //User Documents
+@import './components/shared/userDocuments/UserDocumentsContainer';
 @import './components/shared/userDocuments/UserDocumentsList';
 @import './components/shared/userDocuments/UserDocumentsListItem';
-@import './components/shared/userDocuments/UserDocumentsSelectionContainer';
 @import './components/shared/userDocuments/UserDocumentsSelectionList';
 @import './components/shared/userDocuments/UserDocumentsSelectionListItem';
 @import './components/shared/userDocuments/UserDocumentsUploadWidget';
 //User
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
-@import './components/user/UserDocumentsContainer';
-@import './components/user/UserDocumentsUploadWidget';
 @import './components/user/UserNameWidget';
 @import './components/user/UserProfileContainer';

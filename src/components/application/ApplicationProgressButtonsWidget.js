@@ -10,36 +10,34 @@ export class ApplicationProgressButtonsWidget extends React.Component {
     render() {
         return (
             <div className="application_progress_buttons_widget">
-                <div className="application_progress_buttons_wrapper">
-                    {
-                        (this.props.currentStep > 0 && this.props.currentStep <= (this.props.maxSteps - 2)) &&
-                        <button
-                            id='previousStep'
-                            className="button"
-                            onClick={this.props.handleDecrementStep}
-                        >
-                            Previous Step
+                {
+                    (this.props.currentStep > 0 && this.props.currentStep <= (this.props.maxSteps - 2)) &&
+                    <button
+                        id='previousStep'
+                        className="button"
+                        onClick={this.props.handleDecrementStep}
+                    >
+                        Previous Step
                         </button>
-                    }
-                    {this.props.currentStep < (this.props.maxSteps - 2) &&
-                        <button
-                            id='nextStep'
-                            className="button"
-                            onClick={this.props.handleIncrementStep}
-                        >
-                            Save and Continue
+                }
+                {this.props.currentStep < (this.props.maxSteps - 2) &&
+                    <button
+                        id='nextStep'
+                        className="button"
+                        onClick={this.props.handleIncrementStep}
+                    >
+                        Save and Continue
                         </button>
-                    }
-                    {this.props.currentStep == (this.props.maxSteps - 2) &&
-                        <button
-                            id='submitApplication'
-                            className="button"
-                            onClick={this.props.handleIncrementStep}
-                        >
-                            Submit Application
+                }
+                {this.props.currentStep == (this.props.maxSteps - 2) &&
+                    <button
+                        id='submitApplication'
+                        className="button"
+                        onClick={this.props.handleIncrementStep}
+                    >
+                        Submit Application
                         </button>
-                    }
-                </div>
+                }
             </div>
         );
     }

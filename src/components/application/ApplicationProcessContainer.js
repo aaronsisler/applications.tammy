@@ -31,7 +31,9 @@ export class ApplicationProcessContainer extends React.Component {
     render() {
         return (
             <div className="application_process_container">
-                <ApplicationProgressWidget />
+                <div className="application_process_container__wrapper">
+                    <ApplicationProgressWidget />
+                </div>
 
                 {this.props.currentStep == 0 && <ApplicationUserContainer />}
                 {this.props.currentStep == 1 && <ApplicationUserDocumentsContainer />}

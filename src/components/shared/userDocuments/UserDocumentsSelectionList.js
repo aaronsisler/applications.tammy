@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import UserDocumentsSelectionListItem from './UserDocumentsSelectionListItem';
 
-export default class UserDocumentsSelectionList extends React.Component {
+export class UserDocumentsSelectionList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -40,6 +41,14 @@ export default class UserDocumentsSelectionList extends React.Component {
         );
     }
 }
+
+/* istanbul ignore next */
+const mapStateToProps = (state) => ({
+    applicationUserDocuments: state.application.userDocuments,
+    userDocuments: state.userDocuments,
+});
+
+export default connect(mapStateToProps)(UserDocumentsSelectionList);
 
 UserDocumentsSelectionList.propTypes = {
     applicationUserDocuments: PropTypes.array.isRequired,

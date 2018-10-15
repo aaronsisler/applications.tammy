@@ -4,7 +4,11 @@ exports[`ApplicationProcessContainer should render correctly when on Review step
 <div
   className="application_process_container"
 >
-  <Connect(ApplicationProgressWidget) />
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
   <Connect(ApplicationReviewContainer) />
 </div>
 `;
@@ -13,7 +17,11 @@ exports[`ApplicationProcessContainer should render correctly when on Submitted s
 <div
   className="application_process_container"
 >
-  <Connect(ApplicationProgressWidget) />
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
   <ApplicationSubmissionContainer />
 </div>
 `;
@@ -22,7 +30,11 @@ exports[`ApplicationProcessContainer should render correctly when on User Docume
 <div
   className="application_process_container"
 >
-  <Connect(ApplicationProgressWidget) />
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
   <Connect(ApplicationUserDocumentsContainer) />
 </div>
 `;
@@ -31,7 +43,11 @@ exports[`ApplicationProcessContainer should render correctly when on User info s
 <div
   className="application_process_container"
 >
-  <Connect(ApplicationProgressWidget) />
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
   <Connect(ApplicationUserContainer) />
 </div>
 `;

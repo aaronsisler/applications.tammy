@@ -4,6 +4,10 @@
     .application_process_container {
         background-color: $lightGrey;
     }
+    .application_process_container__wrapper {
+        margin: 0 $medium;
+        padding-top: $medium;
+    }
 }
 
 //Medium screens - TABLET
@@ -12,7 +16,12 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .application_process_container__wrapper {
+        margin: 0 $large;
+        padding: $large 0 $medium;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

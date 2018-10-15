@@ -2,10 +2,6 @@
 //max-width 640px, small screens
 @media only screen {
     .application_progress_widget {
-        padding: $medium;
-        padding-bottom: 0;
-    }
-    .application_progress_wrapper {
         background-color: white;
         border: 1px solid $midLightGrey;
         padding: $medium;
@@ -21,7 +17,6 @@
 @media only screen and (min-width: $largeScreen) {
     .application_progress_widget {
         max-width: 100rem;
-        padding: $large 0 0 $large;
     }
 }
 

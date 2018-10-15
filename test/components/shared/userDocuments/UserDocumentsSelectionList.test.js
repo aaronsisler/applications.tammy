@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserDocumentsSelectionList from 'Shared/userDocuments/UserDocumentsSelectionList';
+import { UserDocumentsSelectionList } from 'Shared/userDocuments/UserDocumentsSelectionList';
 import userDocuments from '../../../fixtures/userDocuments';
 
 describe('UserDocumentsSelectionList', () => {
