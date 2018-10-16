@@ -6,7 +6,6 @@
         border: 1px solid $midLightGrey;
         display: flex;
         justify-content: center;
-        margin: 0 $medium;
         padding: $medium;
         .button {
             margin: $xsmall;
@@ -23,7 +22,6 @@
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
     .application_progress_buttons_widget {
-        margin-left: $large;
         max-width: 45rem;
         padding: $medium $large;
         .button {

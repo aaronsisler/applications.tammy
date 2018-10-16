@@ -4,10 +4,14 @@ exports[`ApplicationReviewContainer should render ApplicationReviewContainer cor
 <div
   className="application_review_container"
 >
-  <Connect(ApplicationProgressButtonsWidget)
-    handleDecrementStep={[Function]}
-    handleIncrementStep={[Function]}
-  />
+  <div
+    className="application_review_container__wrapper"
+  >
+    <Connect(ApplicationProgressButtonsWidget)
+      handleDecrementStep={[Function]}
+      handleIncrementStep={[Function]}
+    />
+  </div>
   <div
     className="application_review_container__user_documents"
   >

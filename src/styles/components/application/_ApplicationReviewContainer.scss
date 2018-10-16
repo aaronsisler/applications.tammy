@@ -8,6 +8,9 @@
         padding: $medium;
         padding-bottom: 0;
     }
+    .application_review_container__wrapper {
+        padding: 0 $medium;
+    }
 }
 
 //Medium screens - TABLET
@@ -20,6 +23,9 @@
     .application_review_container__user_documents {
         max-width: 100rem;
         padding: $large 0 0 $large;
+    }
+    .application_review_container__wrapper {
+        padding: 0 $large;
     }
 }
 

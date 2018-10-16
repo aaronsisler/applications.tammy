@@ -9,25 +9,29 @@ exports[`ApplicationUserDocumentsContainer when application documents are not se
   >
     Please select at least one document to continue
   </div>
-  <Connect(UserDocumentsSelectionList)
-    applicationUserDocuments={Array []}
-    userDocuments={
-      Array [
-        Object {
-          "dateUploaded": "2018/01/01 01:23:45A",
-          "documentName": "Document Name 1",
-          "downloadUrl": "downloadUrl1",
-          "userDocumentId": "firstDocumentId",
-        },
-        Object {
-          "dateUploaded": "2018/02/02 01:23:45A",
-          "documentName": "Document Name 2",
-          "downloadUrl": "downloadUrl2",
-          "userDocumentId": "secondDocumentId",
-        },
-      ]
-    }
-  />
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsSelectionList)
+      applicationUserDocuments={Array []}
+      userDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+    />
+  </div>
   <div
     className="application_user_documents__wrapper"
   >
@@ -44,40 +48,44 @@ exports[`ApplicationUserDocumentsContainer when application documents are select
     handleDecrementStep={[Function]}
     handleIncrementStep={[Function]}
   />
-  <Connect(UserDocumentsSelectionList)
-    applicationUserDocuments={
-      Array [
-        Object {
-          "dateUploaded": "2018/01/01 01:23:45A",
-          "documentName": "Document Name 1",
-          "downloadUrl": "downloadUrl1",
-          "userDocumentId": "firstDocumentId",
-        },
-        Object {
-          "dateUploaded": "2018/02/02 01:23:45A",
-          "documentName": "Document Name 2",
-          "downloadUrl": "downloadUrl2",
-          "userDocumentId": "secondDocumentId",
-        },
-      ]
-    }
-    userDocuments={
-      Array [
-        Object {
-          "dateUploaded": "2018/01/01 01:23:45A",
-          "documentName": "Document Name 1",
-          "downloadUrl": "downloadUrl1",
-          "userDocumentId": "firstDocumentId",
-        },
-        Object {
-          "dateUploaded": "2018/02/02 01:23:45A",
-          "documentName": "Document Name 2",
-          "downloadUrl": "downloadUrl2",
-          "userDocumentId": "secondDocumentId",
-        },
-      ]
-    }
-  />
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsSelectionList)
+      applicationUserDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+      userDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+    />
+  </div>
   <div
     className="application_user_documents__wrapper"
   >

@@ -4,6 +4,9 @@
     .application_user_container {
         margin-top: $medium;
     }
+    .application_user_container__wrapper {
+        padding: 0 $medium;
+    }
 }
 
 //Medium screens - TABLET
@@ -12,7 +15,11 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .application_user_container__wrapper {
+        padding: 0 $large;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

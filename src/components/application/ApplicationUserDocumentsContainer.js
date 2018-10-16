@@ -33,10 +33,12 @@ export class ApplicationUserDocumentsContainer extends React.Component {
                         handleIncrementStep={this.handleIncrementStep}
                     />
                 }
-                <UserDocumentsSelectionList
-                    applicationUserDocuments={this.props.applicationUserDocuments}
-                    userDocuments={this.props.userDocuments}
-                />
+                <div className="application_user_documents__wrapper">
+                    <UserDocumentsSelectionList
+                        applicationUserDocuments={this.props.applicationUserDocuments}
+                        userDocuments={this.props.userDocuments}
+                    />
+                </div>
 
                 <div className="application_user_documents__wrapper">
                     <UserDocumentsUploadWidget />

@@ -28,6 +28,7 @@
     .application_user_documents_container {
         margin-left: $large;
         max-width: 100rem;
+        padding-bottom: $medium;
     }
     .application_user_documents_container__no_docs {
         margin: 0;
@@ -36,7 +37,7 @@
         text-align: left;
     }
     .application_user_documents__wrapper {
-        padding: $medium 0 $large 0;
+        padding: $medium 0;
     }
 }
 

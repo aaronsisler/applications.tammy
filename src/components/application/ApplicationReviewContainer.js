@@ -26,10 +26,12 @@ export class ApplicationReviewContainer extends React.Component {
     render() {
         return (
             <div className="application_review_container">
-                <ApplicationProgressButtonsWidget
-                    handleDecrementStep={this.handleDecrementStep}
-                    handleIncrementStep={this.handleIncrementStep}
-                />
+                <div className="application_review_container__wrapper">
+                    <ApplicationProgressButtonsWidget
+                        handleDecrementStep={this.handleDecrementStep}
+                        handleIncrementStep={this.handleIncrementStep}
+                    />
+                </div>
                 <div className="application_review_container__user_documents">
                     <UserDocumentsList userDocuments={this.props.applicationUserDocuments} />
                 </div>

@@ -5,7 +5,11 @@ exports[`UserDocumentsContainer should render UserDocumentsContainer correctly w
   <div
     id="user_documents_container"
   >
-    <Connect(UserDocumentsUploadWidget) />
+    <div
+      className="user_documents_container__wrapper"
+    >
+      <Connect(UserDocumentsUploadWidget) />
+    </div>
     <UserDocumentsList
       userDocuments={Array []}
     />
@@ -18,7 +22,11 @@ exports[`UserDocumentsContainer should render UserDocumentsContainer correctly w
   <div
     id="user_documents_container"
   >
-    <Connect(UserDocumentsUploadWidget) />
+    <div
+      className="user_documents_container__wrapper"
+    >
+      <Connect(UserDocumentsUploadWidget) />
+    </div>
     <UserDocumentsList
       userDocuments={
         Array [

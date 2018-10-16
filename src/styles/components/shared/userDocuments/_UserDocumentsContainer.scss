@@ -7,6 +7,9 @@
         flex-flow: column;
         padding: $medium;
     }
+    .user_documents_container__wrapper {
+        padding-bottom: $medium;
+    }
 }
 
 //Medium screens - TABLET
@@ -18,6 +21,9 @@
 @media only screen and (min-width: $largeScreen) {
     #user_documents_container {
         padding: $large;
+    }
+    .user_documents_container__wrapper {
+        padding-bottom: $large;
     }
 }
 

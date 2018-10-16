@@ -24,10 +24,12 @@ export class ApplicationUserContainer extends React.Component {
     render() {
         return (
             <div className="application_user_container">
-                <ApplicationProgressButtonsWidget
-                    handleDecrementStep={this.handleDecrementStep}
-                    handleIncrementStep={this.handleIncrementStep}
-                />
+                <div className="application_user_container__wrapper">
+                    <ApplicationProgressButtonsWidget
+                        handleDecrementStep={this.handleDecrementStep}
+                        handleIncrementStep={this.handleIncrementStep}
+                    />
+                </div>
                 <UserProfileContainer />
             </div>
         );
