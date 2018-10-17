@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationProgressButtonsWidget when at a middle step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+>
+  <button
+    className="button"
+    id="previousStep"
+    onClick={[MockFunction]}
+  >
+    Previous Step
+  </button>
+  <button
+    className="button"
+    id="nextStep"
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    Save and Continue
+  </button>
+</div>
+`;
+
+exports[`ApplicationProgressButtonsWidget when at final step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+/>
+`;
+
+exports[`ApplicationProgressButtonsWidget when at first step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+>
+  <button
+    className="button"
+    id="nextStep"
+    onClick={[MockFunction]}
+  >
+    Save and Continue
+  </button>
+</div>
+`;
+
+exports[`ApplicationProgressButtonsWidget when at review step renders correctly 1`] = `
+<div
+  className="application_progress_buttons_widget"
+>
+  <button
+    className="button"
+    id="previousStep"
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    Previous Step
+  </button>
+  <button
+    className="button"
+    id="submitApplication"
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    Submit Application
+  </button>
+</div>
+`;

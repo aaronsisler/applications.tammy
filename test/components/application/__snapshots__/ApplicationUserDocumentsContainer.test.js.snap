@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationUserDocumentsContainer when application documents are not selected should render ApplicationUserDocumentsContainer correctly 1`] = `
+<div
+  className="application_user_documents_container"
+>
+  <div
+    className="application_user_documents_container__no_docs"
+  >
+    Please select at least one document to continue
+  </div>
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsSelectionList)
+      applicationUserDocuments={Array []}
+      userDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+    />
+  </div>
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+  </div>
+</div>
+`;
+
+exports[`ApplicationUserDocumentsContainer when application documents are selected should render ApplicationUserDocumentsContainer correctly 1`] = `
+<div
+  className="application_user_documents_container"
+>
+  <Connect(ApplicationProgressButtonsWidget)
+    handleDecrementStep={[Function]}
+    handleIncrementStep={[Function]}
+  />
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsSelectionList)
+      applicationUserDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+      userDocuments={
+        Array [
+          Object {
+            "dateUploaded": "2018/01/01 01:23:45A",
+            "documentName": "Document Name 1",
+            "downloadUrl": "downloadUrl1",
+            "userDocumentId": "firstDocumentId",
+          },
+          Object {
+            "dateUploaded": "2018/02/02 01:23:45A",
+            "documentName": "Document Name 2",
+            "downloadUrl": "downloadUrl2",
+            "userDocumentId": "secondDocumentId",
+          },
+        ]
+      }
+    />
+  </div>
+  <div
+    className="application_user_documents__wrapper"
+  >
+    <Connect(UserDocumentsUploadWidget) />
+  </div>
+</div>
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserDocumentsListItem from './UserDocumentsListItem';
 
-export default class DocumentList extends React.Component {
+export default class UserDocumentsList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -10,14 +10,14 @@ export default class DocumentList extends React.Component {
     render() {
         if (this.props.userDocuments.length === 0) {
             return (
-                <div className="document_list empty">
+                <div className="user_documents_list empty">
                     No available items
                 </div>
             );
         }
 
         return (
-            <div className="document_list">
+            <div className="user_documents_list">
                 {
                     this.props.userDocuments.map((userDocument, index) =>
                         <UserDocumentsListItem key={index} {...userDocument} />)
@@ -27,6 +27,6 @@ export default class DocumentList extends React.Component {
     }
 }
 
-DocumentList.propTypes = {
+UserDocumentsList.propTypes = {
     userDocuments: PropTypes.array,
 };

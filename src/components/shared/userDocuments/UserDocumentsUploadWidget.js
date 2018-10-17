@@ -32,7 +32,7 @@ export class UserDocumentsUploadWidget extends React.Component {
     handleUploadSuccess = async (documentName) => {
         const downloadUrl = await retrieveDownloadUrl(this.props.userId, documentName);
         this.props.startAddUserDocument({ documentName, downloadUrl });
-        this.setState({ success: `${documentName} uploaded sucessfully`, progress: 100, isUploading: false });
+        this.setState({ success: `${documentName} uploaded sucessfully!`, progress: 100, isUploading: false });
     };
 
     render() {

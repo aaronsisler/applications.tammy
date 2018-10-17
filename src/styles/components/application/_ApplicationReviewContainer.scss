@@ -1,11 +1,15 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_documents_container {
-        background-color: $lightGrey;
-        display: flex;
-        flex-flow: column;
-        padding: $small 0;
+    .application_review_container {
+        margin-top: $medium;
+    }
+    .application_review_container__user_documents {
+        padding: $medium;
+        padding-bottom: 0;
+    }
+    .application_review_container__wrapper {
+        padding: 0 $medium;
     }
 }
 
@@ -16,8 +20,12 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_documents_container {
-        padding: $large;
+    .application_review_container__user_documents {
+        max-width: 100rem;
+        padding: $large 0 0 $large;
+    }
+    .application_review_container__wrapper {
+        padding: 0 $large;
     }
 }
 

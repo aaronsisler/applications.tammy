@@ -1,4 +1,5 @@
 import configureStore from 'Src/store/configureStore';
+import { steps } from '../fixtures/applicationProcess';
 
 describe('ConfigureStore', () => {
     it('should export a function', () => {
@@ -7,6 +8,8 @@ describe('ConfigureStore', () => {
 
     it('should create the default state', () => {
         const defaultState = {
+            application: { user: {}, userDocuments: [] },
+            applicationProcess: { currentStep: 0, maxSteps: 4, steps },
             auth: {},
             filters: {
                 positions: {

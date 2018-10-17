@@ -5,8 +5,12 @@ exports[`UserDocumentsContainer should render UserDocumentsContainer correctly w
   <div
     id="user_documents_container"
   >
-    <Connect(UserDocumentsUploadWidget) />
-    <DocumentList
+    <div
+      className="user_documents_container__wrapper"
+    >
+      <Connect(UserDocumentsUploadWidget) />
+    </div>
+    <UserDocumentsList
       userDocuments={Array []}
     />
   </div>
@@ -18,21 +22,25 @@ exports[`UserDocumentsContainer should render UserDocumentsContainer correctly w
   <div
     id="user_documents_container"
   >
-    <Connect(UserDocumentsUploadWidget) />
-    <DocumentList
+    <div
+      className="user_documents_container__wrapper"
+    >
+      <Connect(UserDocumentsUploadWidget) />
+    </div>
+    <UserDocumentsList
       userDocuments={
         Array [
           Object {
             "dateUploaded": "2018/01/01 01:23:45A",
             "documentName": "Document Name 1",
             "downloadUrl": "downloadUrl1",
-            "id": "firstDocumentId",
+            "userDocumentId": "firstDocumentId",
           },
           Object {
             "dateUploaded": "2018/02/02 01:23:45A",
             "documentName": "Document Name 2",
             "downloadUrl": "downloadUrl2",
-            "id": "secondDocumentId",
+            "userDocumentId": "secondDocumentId",
           },
         ]
       }

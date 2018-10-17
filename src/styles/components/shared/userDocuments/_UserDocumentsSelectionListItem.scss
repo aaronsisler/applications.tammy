@@ -1,0 +1,57 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .user_documents_selection_list_item {
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        color: $darkGrey;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-between;
+        padding: $medium;
+        text-decoration: none;
+        word-break: break-all;
+        &:hover {
+            background-color: $lightGrey;
+            color: $secColor;
+            cursor: pointer;
+        }
+        &__title {
+            padding-right: $small;
+        }
+        &__date_uploaded {
+            color: $fontGrey;
+            padding-left: $small;
+        }
+        &.user_documents_selection_list_item_selected {
+            background-color: $midLightGrey;
+            color: $mainColor;
+        }
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .user_documents_selection_list_item {
+        padding: $medium $large;
+        &__title {
+            padding: $medium;
+        }
+        &__date_uploaded {
+            padding: $medium;
+        }
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

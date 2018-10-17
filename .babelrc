@@ -14,6 +14,7 @@
                 ],
                 "alias": {
                     "Actions": "./src/actions",
+                    "Application": "./src/components/application",
                     "Core": "./src/components/core",
                     "Firebase": "./src/firebase",
                     "Position": "./src/components/position",

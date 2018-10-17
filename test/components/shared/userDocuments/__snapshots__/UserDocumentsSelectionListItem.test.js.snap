@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDocumentsSelectionListItem when isDocumentAdded is FALSE should render UserDocumentsSelectionListItem correctly 1`] = `
+<div
+  className="user_documents_selection_list_item "
+  onClick={[Function]}
+>
+  <div
+    className="user_documents_selection_list_item__title"
+  >
+    Document Name 1
+  </div>
+  <div
+    className="user_documents_selection_list_item__date_uploaded"
+  >
+    2018/01/01 01:23:45A
+  </div>
+</div>
+`;
+
+exports[`UserDocumentsSelectionListItem when isDocumentAdded is FALSE should render UserDocumentsSelectionListItem correctly after click 1`] = `
+<div
+  className="user_documents_selection_list_item "
+  onClick={[Function]}
+>
+  <div
+    className="user_documents_selection_list_item__title"
+  >
+    Document Name 1
+  </div>
+  <div
+    className="user_documents_selection_list_item__date_uploaded"
+  >
+    2018/01/01 01:23:45A
+  </div>
+</div>
+`;
+
+exports[`UserDocumentsSelectionListItem when isDocumentAdded is TRUE should render UserDocumentsSelectionListItem correctly 1`] = `
+<div
+  className="user_documents_selection_list_item user_documents_selection_list_item_selected"
+  onClick={[Function]}
+>
+  <div
+    className="user_documents_selection_list_item__title"
+  >
+    Document Name 1
+  </div>
+  <div
+    className="user_documents_selection_list_item__date_uploaded"
+  >
+    2018/01/01 01:23:45A
+  </div>
+</div>
+`;
+
+exports[`UserDocumentsSelectionListItem when isDocumentAdded is TRUE should render UserDocumentsSelectionListItem correctly after click 1`] = `
+<div
+  className="user_documents_selection_list_item user_documents_selection_list_item_selected"
+  onClick={[Function]}
+>
+  <div
+    className="user_documents_selection_list_item__title"
+  >
+    Document Name 1
+  </div>
+  <div
+    className="user_documents_selection_list_item__date_uploaded"
+  >
+    2018/01/01 01:23:45A
+  </div>
+</div>
+`;

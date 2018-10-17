@@ -14,7 +14,9 @@ export class UserDocumentsContainer extends React.Component {
             <div>
                 {this.props.userDocuments &&
                     <div id="user_documents_container">
-                        <UserDocumentsUploadWidget />
+                        <div className="user_documents_container__wrapper">
+                            <UserDocumentsUploadWidget />
+                        </div>
                         <UserDocumentsList
                             userDocuments={this.props.userDocuments}
                         />

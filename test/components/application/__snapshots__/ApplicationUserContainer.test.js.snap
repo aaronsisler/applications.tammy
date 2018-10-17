@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationUserContainer renders correctly 1`] = `
+<div
+  className="application_user_container"
+>
+  <div
+    className="application_user_container__wrapper"
+  >
+    <Connect(ApplicationProgressButtonsWidget)
+      handleDecrementStep={[Function]}
+      handleIncrementStep={[Function]}
+    />
+  </div>
+  <Connect(UserProfileContainer) />
+</div>
+`;

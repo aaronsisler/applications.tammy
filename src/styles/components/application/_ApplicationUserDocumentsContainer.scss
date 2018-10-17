@@ -1,0 +1,50 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .application_user_documents_container {
+        margin-top: $medium;
+    }
+    .application_user_documents_container__no_docs {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        font-size: $medium;
+        margin: 0 $medium;
+        padding: $medium;
+        text-align: center;
+    }
+    .application_user_documents__wrapper {
+        padding: $medium;
+        padding-top: 0;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .application_user_documents_container {
+        margin-left: $large;
+        max-width: 100rem;
+        padding-bottom: $medium;
+    }
+    .application_user_documents_container__no_docs {
+        margin: 0;
+        margin-top: $medium;
+        padding: $large;
+        text-align: left;
+    }
+    .application_user_documents__wrapper {
+        padding: $medium 0;
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

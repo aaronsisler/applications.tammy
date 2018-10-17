@@ -118,7 +118,7 @@ describe('UserDocumentsUploadWidget', () => {
 
         describe('onUploadSuccess() method', () => {
             const documentName = 'mockDocumentName';
-            const message = `${documentName} uploaded sucessfully`;
+            const message = `${documentName} uploaded sucessfully!`;
             const downloadUrl = 'mockDownloadUrl';
 
             it('should call retrieveDownloadUrl', async () => {

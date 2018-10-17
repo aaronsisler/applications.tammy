@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDocumentsSelectionList should render UserDocumentsSelectionList correctly when user documents are available 1`] = `
+<div
+  className="user_documents_selection_list"
+>
+  <Connect(UserDocumentsSelectionListItem)
+    dateUploaded="2018/01/01 01:23:45A"
+    documentName="Document Name 1"
+    downloadUrl="downloadUrl1"
+    isDocumentAdded={true}
+    key="0"
+    userDocumentId="firstDocumentId"
+  />
+  <Connect(UserDocumentsSelectionListItem)
+    dateUploaded="2018/02/02 01:23:45A"
+    documentName="Document Name 2"
+    downloadUrl="downloadUrl2"
+    isDocumentAdded={true}
+    key="1"
+    userDocumentId="secondDocumentId"
+  />
+</div>
+`;
+
+exports[`UserDocumentsSelectionList should render UserDocumentsSelectionList correctly when user documents is empty 1`] = `
+<div
+  className="user_documents_selection_list empty"
+>
+  No available items
+</div>
+`;

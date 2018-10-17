@@ -1,0 +1,45 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .application_submission_container {
+        background-color: white;
+        border: 1px solid $midLightGrey;
+        margin: $medium;
+        margin-bottom: 0;
+        padding: $medium;
+    }
+    .application_submission_container__content {
+        display: flex;
+        font-size: $midlarge;
+        justify-content: center;
+        padding: $small;
+        text-align: center;
+    }
+    .application_submission_container__link {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: $mediumScreen) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: $largeScreen) {
+    .application_submission_container {
+        display: flex;
+        flex-flow: column;
+        margin: $medium 0 $medium $large;
+        max-width: 100rem;
+    }
+}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: $xlargeScreen) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: $xxlargeScreen) {}

@@ -1,27 +1,44 @@
-//Base
+//Third party files
+@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/rc-steps/assets/index.css';
+@import '../../node_modules/rc-steps/assets/iconfont.css';
+//Settings must be loaded first ALWAYS
 @import './base/settings';
+//Base
 @import './base/base';
-@import './base/visibility';
 @import './base/progress_bar';
+@import './base/visibility';
+//Application
+@import './components/application/ApplicationUserDocumentsContainer';
+@import './components/application/ApplicationProcessContainer';
+@import './components/application/ApplicationProgressContainer';
+@import './components/application/ApplicationProgressWidget';
+@import './components/application/ApplicationProgressButtonsWidget';
+@import './components/application/ApplicationReviewContainer';
+@import './components/application/ApplicationSubmissionContainer';
+@import './components/application/ApplicationUserContainer';
 //Core
 @import './components/core/Footer';
 @import './components/core/LoggedOutPage';
 @import './components/core/LoginPage';
 @import './components/core/Navbar';
 //Position
+@import './components/position/PositionApply';
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
+@import './components/position/PositionsContainer';
 @import './components/position/PositionsList';
 @import './components/position/PositionsListItem';
-@import './components/position/PositionsContainer';
 //Shared
 //User Documents
+@import './components/shared/userDocuments/UserDocumentsContainer';
 @import './components/shared/userDocuments/UserDocumentsList';
 @import './components/shared/userDocuments/UserDocumentsListItem';
+@import './components/shared/userDocuments/UserDocumentsSelectionList';
+@import './components/shared/userDocuments/UserDocumentsSelectionListItem';
+@import './components/shared/userDocuments/UserDocumentsUploadWidget';
 //User
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';
-@import './components/user/UserDocumentsContainer';
-@import './components/user/UserDocumentsUploadWidget';
 @import './components/user/UserNameWidget';
 @import './components/user/UserProfileContainer';

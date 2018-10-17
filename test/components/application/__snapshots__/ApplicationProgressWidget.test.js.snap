@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationProgressWidget should render correctly 1`] = `
+<div
+  className="application_progress_widget"
+>
+  <Steps
+    current={0}
+    direction="horizontal"
+    iconPrefix="rc"
+    labelPlacement="horizontal"
+    prefixCls="rc-steps"
+    progressDot={false}
+    size=""
+    status="process"
+  >
+    <Step
+      key="0"
+      title="Personal Info"
+    />
+    <Step
+      key="1"
+      title="Documents"
+    />
+    <Step
+      key="2"
+      title="Final Review"
+    />
+    <Step
+      key="3"
+      title="Done"
+    />
+  </Steps>
+</div>
+`;

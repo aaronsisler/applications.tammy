@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "app.js",
     "author": "Aaron Sisler",
-    "license": "MIT",
+    "license": "private",
     "engines": {
         "yarn": "1.7.0",
         "node": "8.9.4"

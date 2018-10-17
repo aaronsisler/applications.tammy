@@ -4,7 +4,7 @@
     #user_documents_upload_widget {
         background: white;
         border: 1px solid $midLightGrey;
-        margin-bottom: $small;
+        max-width: 100rem;
         padding: $medium;
     }
     .user_documents_upload_content {
@@ -41,9 +41,6 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_documents_upload_widget {
-        max-width: 100rem;
-    }
     .user_documents_upload_content {
         flex-flow: row;
     }

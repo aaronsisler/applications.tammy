@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import selectPositions from 'Selectors/positions';
+import PositionApply from './PositionApply';
+import PositionDetails from './PositionDetails';
 import PositionsList from './PositionsList';
 import PositionsListFilter from './PositionsListFilter';
-import PositionDetails from './PositionDetails';
 
 export class PositionsContainer extends React.Component {
     constructor(props) {
@@ -25,6 +26,9 @@ export class PositionsContainer extends React.Component {
                         </div>
                         <div className="position_details_wrapper">
                             <PositionDetails />
+                            {this.props.position &&
+                                <PositionApply />
+                            }
                         </div>
                     </div>
                 }
@@ -36,6 +40,7 @@ export class PositionsContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
     filters: state.filters.positions,
+    position: state.position,
     positions: state.positions,
 });
 
@@ -43,5 +48,6 @@ export default connect(mapStateToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
     filters: PropTypes.object,
+    position: PropTypes.object,
     positions: PropTypes.array,
 };

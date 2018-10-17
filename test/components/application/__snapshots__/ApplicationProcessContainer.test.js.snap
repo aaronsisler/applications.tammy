@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationProcessContainer should render correctly when on Review step 1`] = `
+<div
+  className="application_process_container"
+>
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
+  <Connect(ApplicationReviewContainer) />
+</div>
+`;
+
+exports[`ApplicationProcessContainer should render correctly when on Submitted step 1`] = `
+<div
+  className="application_process_container"
+>
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
+  <ApplicationSubmissionContainer />
+</div>
+`;
+
+exports[`ApplicationProcessContainer should render correctly when on User Documents step 1`] = `
+<div
+  className="application_process_container"
+>
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
+  <Connect(ApplicationUserDocumentsContainer) />
+</div>
+`;
+
+exports[`ApplicationProcessContainer should render correctly when on User info step 1`] = `
+<div
+  className="application_process_container"
+>
+  <div
+    className="application_process_container__wrapper"
+  >
+    <Connect(ApplicationProgressWidget) />
+  </div>
+  <Connect(ApplicationUserContainer) />
+</div>
+`;
