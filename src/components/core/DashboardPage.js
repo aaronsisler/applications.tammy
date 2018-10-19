@@ -1,8 +1,9 @@
 import React from 'react';
+import PositionsWatchContainer from 'PositionWatch/PositionsWatchContainer';
 
 const DashboardPage = () => (
     <div id="dashboard_page">
-        DashboardPage
+        <PositionsWatchContainer />
     </div>
 );
 

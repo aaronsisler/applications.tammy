@@ -6,6 +6,7 @@ import authReducer from 'Reducers/auth';
 import positionsFilterReducer from 'Reducers/filters/positions';
 import positionReducer from 'Reducers/position';
 import positionsReducer from 'Reducers/positions';
+import positionsWatchedReducer from 'Reducers/positionsWatched';
 import userReducer from 'Reducers/user';
 import userDocumentsReducer from 'Reducers/userDocuments';
 
@@ -22,6 +23,7 @@ export default () => {
             }),
             position: positionReducer,
             positions: positionsReducer,
+            positionsWatched: positionsWatchedReducer,
             user: userReducer,
             userDocuments: userDocumentsReducer,
         }),

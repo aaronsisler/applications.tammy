@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../tools/history';
 import { startClearApplication } from 'Actions/application';
-import { startResetCurrentStep } from 'Actions/applicationProcess';
+import { startResetApplicationProcess } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationUserDocumentsContainer from './ApplicationUserDocumentsContainer';
@@ -13,19 +13,20 @@ import ApplicationSubmissionContainer from './ApplicationSubmissionContainer';
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
         super(props);
-
-        if (!props.position) {
+        if (!this.props.position) {
             return history.push('/');
         }
+    }
 
-        this.state = {
-            position: props.position,
+    componentDidUpdate() {
+        if (!this.props.position) {
+            return history.push('/');
         }
     }
 
     componentWillUnmount() {
         this.props.startClearApplication();
-        this.props.startResetCurrentStep();
+        this.props.startResetApplicationProcess();
     }
 
     render() {
@@ -53,7 +54,7 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplication: () => dispatch(startClearApplication()),
-    startResetCurrentStep: () => dispatch(startResetCurrentStep()),
+    startResetApplicationProcess: () => dispatch(startResetApplicationProcess()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
@@ -62,5 +63,5 @@ ApplicationProcessContainer.propTypes = {
     currentStep: PropTypes.number,
     position: PropTypes.object,
     startClearApplication: PropTypes.func.isRequired,
-    startResetCurrentStep: PropTypes.func.isRequired,
+    startResetApplicationProcess: PropTypes.func.isRequired,
 };

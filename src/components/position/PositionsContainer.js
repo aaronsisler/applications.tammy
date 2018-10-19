@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { startClearPosition } from 'Actions/position';
 import selectPositions from 'Selectors/positions';
 import PositionApply from './PositionApply';
 import PositionDetails from './PositionDetails';
@@ -10,6 +11,10 @@ import PositionsListFilter from './PositionsListFilter';
 export class PositionsContainer extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    componentWillUnmount() {
+        this.props.startClearPosition();
     }
 
     render() {
@@ -44,10 +49,16 @@ const mapStateToProps = (state) => ({
     positions: state.positions,
 });
 
-export default connect(mapStateToProps)(PositionsContainer);
+/* istanbul ignore next */
+const mapDispatchToProps = (dispatch) => ({
+    startClearPosition: () => dispatch(startClearPosition()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
     filters: PropTypes.object,
     position: PropTypes.object,
     positions: PropTypes.array,
+    startClearPosition: PropTypes.func.isRequired,
 };

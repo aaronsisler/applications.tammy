@@ -3,17 +3,20 @@ import configureMockStore from 'redux-mock-store';
 import {
     startDecrementCurrentStep,
     startIncrementCurrentStep,
-    startResetCurrentStep,
+    startResetApplicationProcess,
+    startSetPositionId,
 } from 'Actions/applicationProcess';
 import * as applicationProcessActionHelpers from 'Actions/helpers/applicationProcess';
+import positions from '../fixtures/positions';
 
 const createMockStore = configureMockStore([thunk]);
 
 describe('Application Process Actions', () => {
+    const [position] = positions;
     let store;
 
     beforeEach(() => {
-        store = createMockStore();
+        store = createMockStore({ position });
     });
 
     describe('startDecrementCurrentStep() method', () => {
@@ -38,14 +41,26 @@ describe('Application Process Actions', () => {
         });
     });
 
-    describe('startResetCurrentStep() method', () => {
-        it(`should call dispatch with resetCurrentStep`, async () => {
-            const resetCurrentStepMock = jest.spyOn(applicationProcessActionHelpers, 'resetCurrentStep');
+    describe('startResetApplicationProcess() method', () => {
+        it(`should call dispatch with resetApplicationProcess`, async () => {
+            const resetApplicationProcessMock = jest.spyOn(applicationProcessActionHelpers, 'resetApplicationProcess');
 
-            await store.dispatch(startResetCurrentStep());
+            await store.dispatch(startResetApplicationProcess());
 
             expect(store.getActions().length).toBe(1);
-            expect(resetCurrentStepMock).toHaveBeenCalled();
+            expect(resetApplicationProcessMock).toHaveBeenCalled();
+        });
+    });
+
+    describe('startSetPositionId() method', () => {
+        it(`should call dispatch with setPositionId`, async () => {
+            const { positionId } = position;
+            const setPositionIdMock = jest.spyOn(applicationProcessActionHelpers, 'setPositionId');
+
+            await store.dispatch(startSetPositionId(positionId));
+
+            expect(store.getActions().length).toBe(1);
+            expect(setPositionIdMock).toHaveBeenLastCalledWith(positionId);
         });
     });
 });

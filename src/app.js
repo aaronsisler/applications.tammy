@@ -10,7 +10,6 @@ import configureStore from './store/configureStore';
 import { login, logout } from 'Actions/helpers/auth';
 import { startSetPositions } from 'Actions/positions';
 import { startSetUser } from 'Actions/user';
-import { startSetPosition } from 'Actions/position';
 import { startSetUserDocuments } from 'Actions/userDocuments';
 import LoadingPage from 'Core/LoadingPage';
 
@@ -37,7 +36,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
         await store.dispatch(login(user.uid));
         store.dispatch(startSetUser());
-        store.dispatch(startSetPosition("1"));
         store.dispatch(startSetUserDocuments(user.uid));
         renderApp();
     } else {

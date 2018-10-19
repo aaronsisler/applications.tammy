@@ -4,6 +4,6 @@ exports[`DashboardPage should render DashboardPage correctly 1`] = `
 <div
   id="dashboard_page"
 >
-  DashboardPage
+  <Connect(PositionsWatchContainer) />
 </div>
 `;

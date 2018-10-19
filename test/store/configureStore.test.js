@@ -9,7 +9,7 @@ describe('ConfigureStore', () => {
     it('should create the default state', () => {
         const defaultState = {
             application: { user: {}, userDocuments: [] },
-            applicationProcess: { currentStep: 0, maxSteps: 4, steps },
+            applicationProcess: { currentStep: 0, maxSteps: 4, positionId: null, steps },
             auth: {},
             filters: {
                 positions: {
@@ -18,6 +18,7 @@ describe('ConfigureStore', () => {
             },
             position: null,
             positions: [],
+            positionsWatched: [],
             user: null,
             userDocuments: [],
         };

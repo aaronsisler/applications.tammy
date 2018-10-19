@@ -18,6 +18,7 @@
                     "Core": "./src/components/core",
                     "Firebase": "./src/firebase",
                     "Position": "./src/components/position",
+                    "PositionWatch": "./src/components/positionWatch",
                     "Reducers": "./src/reducers",
                     "Selectors": "./src/selectors",
                     "Shared": "./src/components/shared",
