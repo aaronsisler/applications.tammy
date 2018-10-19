@@ -10,16 +10,16 @@ const createMockStore = configureMockStore([thunk]);
 
 describe('User Actions', () => {
     let store;
+    let once;
     let update;
     const userId = defaultAuthState.auth.uid;
     const user = { ...userFixture, userId };
 
     beforeEach(() => {
         store = createMockStore(defaultAuthState);
-        const once = jest.fn();
         update = jest.fn();
         const val = () => ({ ...user });
-        once.mockResolvedValue({ key: userId, val });
+        once = jest.fn().mockResolvedValue({ key: userId, val });
         update.mockResolvedValue();
         jest.spyOn(database, 'ref').mockReturnValue({ once, update });
     })
@@ -43,6 +43,12 @@ describe('User Actions', () => {
             await store.dispatch(startSetUser());
 
             expect(database.ref).toHaveBeenLastCalledWith(`users/${userId}`);
+        });
+
+        it(`should call once with value`, async () => {
+            await store.dispatch(startSetUser());
+
+            expect(once).toHaveBeenLastCalledWith('value');
         });
     });
 

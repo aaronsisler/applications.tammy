@@ -21,7 +21,7 @@ export const startAddUserDocument = (userDocument) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
     const { documentName, downloadUrl } = userDocument;
     const dateUploaded = new Date().toLocaleString();
-    const uploadedDocument = { documentName, downloadUrl, dateUploaded }
+    const uploadedDocument = { documentName, downloadUrl, dateUploaded };
 
     return database.ref(`user_documents/${userId}`)
         .push(uploadedDocument)
