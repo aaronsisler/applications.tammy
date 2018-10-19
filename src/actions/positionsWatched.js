@@ -5,6 +5,12 @@ import {
     setSubscriptionLevel
 } from 'Actions/helpers/positionsWatched';
 
+export const startRemoveSubscription = (positionId) => (dispatch, getState) => {
+    const { uid: userId } = getState().auth;
+    return database.ref(`position_watch/${userId}/${positionId}`).remove()
+        .then(() => dispatch(removeSubscription(positionId)));
+}
+
 export const startSetPositionsWatched = () => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
 
@@ -17,23 +23,15 @@ export const startSetPositionsWatched = () => (dispatch, getState) => {
             });
         });
 
-        dispatch(setPositionsWatched(positionsWatched));
+        return dispatch(setPositionsWatched(positionsWatched));
     });
 }
 
 export const startSetSubscriptionLevel = (positionId, subscriptionLevel) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
     return database.ref(`position_watch/${userId}/${positionId}`).update({ subscriptionLevel })
-        .then(() => {
-            dispatch(setSubscriptionLevel(positionId, subscriptionLevel));
-        });
+        .then(() => dispatch(setSubscriptionLevel(positionId, subscriptionLevel)));
 }
 
-export const startRemoveSubscription = (positionId) => (dispatch, getState) => {
-    const { uid: userId } = getState().auth;
-    return database.ref(`position_watch/${userId}/${positionId}`).remove()
-        .then(() => {
-            dispatch(removeSubscription(positionId));
-        });
-}
+
 
