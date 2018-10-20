@@ -1,10 +1,10 @@
 const positionswatched = [
     {
-        positionId: 'positionId1',
+        positionId: 'firstPositionId',
         subscriptionLevel: 'ALL',
     },
     {
-        positionId: 'positionId2',
+        positionId: 'secondPositionId',
         subscriptionLevel: 'REQUIRED',
     },
 ]

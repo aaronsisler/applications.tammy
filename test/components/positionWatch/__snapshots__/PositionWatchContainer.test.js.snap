@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when NO positions are watched 1`] = `
+<div
+  className="position_watch_container"
+>
+  <div
+    className="position_watch_widget"
+  >
+    <div
+      className="position_watch_list__wrapper"
+    >
+      <PositionsList
+        positions={Array []}
+      />
+    </div>
+    <div
+      className="position_watch_details__wrapper"
+    >
+      <Connect(PositionWatchDetails) />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions are watched 1`] = `
+<div
+  className="position_watch_container"
+>
+  <div
+    className="position_watch_widget"
+  >
+    <div
+      className="position_watch_list__wrapper"
+    >
+      <PositionsList
+        positions={
+          Array [
+            Object {
+              "content": Object {
+                "description": "first description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "first job id",
+              "location": "first location",
+              "positionId": "firstPositionId",
+              "subscriptionLevel": "ALL",
+              "title": "first title",
+            },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "subscriptionLevel": "REQUIRED",
+              "title": "second title",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="position_watch_details__wrapper"
+    >
+      <Connect(PositionWatchDetails) />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions watched is not in positions list 1`] = `
+<div
+  className="position_watch_container"
+>
+  <div
+    className="position_watch_widget"
+  >
+    <div
+      className="position_watch_list__wrapper"
+    >
+      <PositionsList
+        positions={
+          Array [
+            Object {
+              "content": Object {
+                "description": "first description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "first job id",
+              "location": "first location",
+              "positionId": "firstPositionId",
+              "subscriptionLevel": "ALL",
+              "title": "first title",
+            },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "subscriptionLevel": "REQUIRED",
+              "title": "second title",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="position_watch_details__wrapper"
+    >
+      <Connect(PositionWatchDetails) />
+    </div>
+  </div>
+</div>
+`;

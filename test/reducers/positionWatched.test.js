@@ -38,17 +38,27 @@ describe('positions watched reducer', () => {
         expect(state).toEqual(positionsWatched);
     });
 
-    it('should set subscription level', () => {
-        const subscriptionLevel = 'MOCK_SUB_LEVEL';
-        const expectedResult = [
-            {
-                positionId,
-                subscriptionLevel
-            }];
-        const action = setSubscriptionLevel(positionId, subscriptionLevel);
+    describe('SET_SUBSCRIPTION_LEVEL', () => {
+        it('should set subscription level if position id is matched', () => {
+            const subscriptionLevel = 'MOCK_SUB_LEVEL';
+            const expectedResult = [
+                {
+                    positionId,
+                    subscriptionLevel
+                }];
+            const action = setSubscriptionLevel(positionId, subscriptionLevel);
 
-        const state = positionsWatchedReducer([positionWatched], action);
+            const state = positionsWatchedReducer([positionWatched], action);
 
-        expect(state).toEqual(expectedResult);
+            expect(state).toEqual(expectedResult);
+        });
+
+        it('should set NOT subscription level if position id is NOT matched', () => {
+            const action = setSubscriptionLevel('NON_EXISTANT_POSITION_ID', 'MOCK SUBSCRIPTION');
+
+            const state = positionsWatchedReducer(positionsWatched, action);
+
+            expect(state).toEqual(positionsWatched);
+        });
     });
 });

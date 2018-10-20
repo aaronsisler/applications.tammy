@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscriptionWidget 1`] = `
+<div
+  className="position_watch_subscription_widget"
+>
+  <div
+    className="position_watch_subscription_widget__select_wrapper"
+  >
+    <div
+      className="position_watch_subscription_widget__title"
+    >
+      Subscription Level:
+    </div>
+    <div
+      className="position_watch_subscription_widget__select"
+    >
+      <select
+        className="select"
+        onChange={[Function]}
+        value="ALL"
+      >
+        <option
+          value="ALL"
+        >
+          ALL
+        </option>
+        <option
+          value="SOME"
+        >
+          SOME
+        </option>
+        <option
+          value="REQUIRED"
+        >
+          REQUIRED
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="position_watch_subscription_widget__removal"
+  >
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Remove Watch
+    </button>
+  </div>
+</div>
+`;
