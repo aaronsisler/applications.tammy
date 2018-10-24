@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { startClearPosition } from 'Actions/position';
-import { startSetPositionsWatched } from 'Actions/positionsWatched';
 import PositionsList from 'Position/PositionsList';
-import PositionWatchDetails from 'PositionWatch/PositionWatchDetails';
-import PositionWatchAdd from './PositionWatchAdd';
+import PositionWatchAddDetails from 'PositionWatch/PositionWatchAddDetails';
 
-export class PositionsWatchContainer extends React.Component {
+export class PositionsWatchAddContainer extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -19,10 +18,10 @@ export class PositionsWatchContainer extends React.Component {
     render() {
         const { positions, positionsWatched } = this.props;
         const positionsConcat = [];
-        positionsWatched.map((positionWatched) => {
-            const positionFind = positions.find((position) => positionWatched.positionId === position.positionId);
-            if (positionFind) {
-                positionsConcat.push({ ...positionFind, ...positionWatched })
+        positions.map((position) => {
+            const positionFind = positionsWatched.find((positionWatched) => positionWatched.positionId === position.positionId);
+            if (!positionFind) {
+                positionsConcat.push({ ...position });
             }
         });
 
@@ -31,11 +30,11 @@ export class PositionsWatchContainer extends React.Component {
                 {this.props.positionsWatched &&
                     <div className="position_watch_widget">
                         <div className="position_watch_list__wrapper">
-                            <PositionWatchAdd />
+                            <Link className="nav_link" to="/dashboard">Back to Dashboard</Link>
                             <PositionsList positions={positionsConcat} />
                         </div>
                         <div className="position_watch_details__wrapper">
-                            <PositionWatchDetails />
+                            <PositionWatchAddDetails />
                         </div>
                     </div>
                 }
@@ -53,15 +52,13 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearPosition: () => dispatch(startClearPosition()),
-    startSetPositionsWatched: () => dispatch(startSetPositionsWatched()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchAddContainer);
 
-PositionsWatchContainer.propTypes = {
+PositionsWatchAddContainer.propTypes = {
     positions: PropTypes.array,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
-    startSetPositionsWatched: PropTypes.func.isRequired,
 };
 

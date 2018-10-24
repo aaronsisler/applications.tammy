@@ -1,3 +1,9 @@
+export const addSubscription = (positionId, subscriptionLevel) => ({
+    type: 'ADD_SUBSCRIPTION',
+    positionId,
+    subscriptionLevel
+});
+
 export const removeSubscription = (positionId) => ({
     type: 'REMOVE_SUBSCRIPTION',
     positionId

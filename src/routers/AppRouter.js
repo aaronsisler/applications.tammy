@@ -12,6 +12,7 @@ import LoggedOutPage from 'Core/LoggedOutPage';
 import LoginPage from 'Core/LoginPage';
 import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
+import PositionsWatchAddPage from 'PositionWatch/PositionsWatchAddPage';
 import UserDocumentsPage from 'User/UserDocumentsPage';
 import UserProfilePage from 'User/UserProfilePage';
 
@@ -27,6 +28,7 @@ export const AppRouter = (props) => (
                 <Route path='/dashboard' component={DashboardPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />
                 <Route path='/login' component={LoginPage} exact={true} />
+                <Route path='/position_watch_add' component={PositionsWatchAddPage} exact={true} />
                 <Route path='/user_documents' component={UserDocumentsPage} exact={true} />
                 <Route path='/user_profile' component={UserProfilePage} exact={true} />
                 <Route component={NotFoundPage} />
