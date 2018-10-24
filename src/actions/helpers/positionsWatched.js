@@ -1,21 +1,20 @@
-export const addSubscription = (positionId, subscriptionLevel) => ({
+export const addSubscription = (positionWatched) => ({
     type: 'ADD_SUBSCRIPTION',
-    positionId,
-    subscriptionLevel
+    positionWatched,
 });
 
 export const removeSubscription = (positionId) => ({
     type: 'REMOVE_SUBSCRIPTION',
-    positionId
+    positionId,
 });
 
 export const setPositionsWatched = (positionsWatched) => ({
     type: 'SET_POSITIONS_WATCHED',
-    positionsWatched
+    positionsWatched,
 });
 
 export const setSubscriptionLevel = (positionId, subscriptionLevel) => ({
     type: 'SET_SUBSCRIPTION_LEVEL',
     positionId,
-    subscriptionLevel
+    subscriptionLevel,
 });

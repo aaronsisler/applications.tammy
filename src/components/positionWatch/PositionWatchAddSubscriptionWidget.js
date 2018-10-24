@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
 import {
     startAddSubscription,
     startRemoveSubscription,
@@ -21,15 +20,11 @@ export class PositionWatchAddSubscriptionWidget extends React.Component {
         if (this.state.subscriptionLevel === 'NONE') {
             this.props.startAddSubscription(this.props.positionId, subscriptionLevel);
         } else if (subscriptionLevel === 'NONE') {
-            this.handleRemoveSubscription();
+            this.props.startRemoveSubscription(this.props.positionId);
         } else {
             this.props.startSetSubscriptionLevel(this.props.positionId, subscriptionLevel);
         }
         return this.setState(() => ({ subscriptionLevel }));
-    }
-
-    handleRemoveSubscription = () => {
-        this.props.startRemoveSubscription(this.props.positionId);
     }
 
     render() {
@@ -65,7 +60,6 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startAddSubscription: (positionId, subscriptionLevel) => dispatch(startAddSubscription(positionId, subscriptionLevel)),
-    startClearPosition: () => dispatch(startClearPosition()),
     startRemoveSubscription: (positionId) => dispatch(startRemoveSubscription(positionId)),
     startSetSubscriptionLevel: (positionId, subscriptionLevel) => dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel)),
 });
@@ -74,7 +68,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddSubs
 
 PositionWatchAddSubscriptionWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
-    startClearPosition: PropTypes.func.isRequired,
     startAddSubscription: PropTypes.func.isRequired,
     startRemoveSubscription: PropTypes.func.isRequired,
     startSetSubscriptionLevel: PropTypes.func.isRequired,

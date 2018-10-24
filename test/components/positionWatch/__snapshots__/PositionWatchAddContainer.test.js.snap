@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when NO positions are watched 1`] = `
+exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when NO positions are watched 1`] = `
 <div
   className="position_watch_container"
 >
@@ -13,9 +13,76 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
       <Link
         className="nav_link"
         replace={false}
-        to="/position_watch_add"
+        to="/dashboard"
       >
-        Add Position Watch
+        Back to Dashboard
+      </Link>
+      <PositionsList
+        positions={
+          Array [
+            Object {
+              "content": Object {
+                "description": "first description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "first job id",
+              "location": "first location",
+              "positionId": "firstPositionId",
+              "title": "first title",
+            },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "title": "second title",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="position_watch_details__wrapper"
+    >
+      <Connect(PositionWatchAddDetails) />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when all positions are watched 1`] = `
+<div
+  className="position_watch_container"
+>
+  <div
+    className="position_watch_widget"
+  >
+    <div
+      className="position_watch_list__wrapper"
+    >
+      <Link
+        className="nav_link"
+        replace={false}
+        to="/dashboard"
+      >
+        Back to Dashboard
       </Link>
       <PositionsList
         positions={Array []}
@@ -24,13 +91,13 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     <div
       className="position_watch_details__wrapper"
     >
-      <Connect(PositionWatchDetails) />
+      <Connect(PositionWatchAddDetails) />
     </div>
   </div>
 </div>
 `;
 
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions are watched 1`] = `
+exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when only one position is being watched 1`] = `
 <div
   className="position_watch_container"
 >
@@ -43,31 +110,13 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
       <Link
         className="nav_link"
         replace={false}
-        to="/position_watch_add"
+        to="/dashboard"
       >
-        Add Position Watch
+        Back to Dashboard
       </Link>
       <PositionsList
         positions={
           Array [
-            Object {
-              "content": Object {
-                "description": "first description",
-                "requirements": Array [
-                  "Skill 1",
-                  "Skill 2",
-                ],
-                "responsibilities": Array [
-                  "Responsibility 1",
-                  "Responsibility 2",
-                ],
-              },
-              "jobId": "first job id",
-              "location": "first location",
-              "positionId": "firstPositionId",
-              "subscriptionLevel": "ALL",
-              "title": "first title",
-            },
             Object {
               "content": Object {
                 "description": "second description",
@@ -83,7 +132,6 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               "jobId": "second job id",
               "location": "second location",
               "positionId": "secondPositionId",
-              "subscriptionLevel": "REQUIRED",
               "title": "second title",
             },
           ]
@@ -93,13 +141,13 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     <div
       className="position_watch_details__wrapper"
     >
-      <Connect(PositionWatchDetails) />
+      <Connect(PositionWatchAddDetails) />
     </div>
   </div>
 </div>
 `;
 
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions watched is not in positions list 1`] = `
+exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when positions watched is not in positions list 1`] = `
 <div
   className="position_watch_container"
 >
@@ -112,75 +160,18 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
       <Link
         className="nav_link"
         replace={false}
-        to="/position_watch_add"
+        to="/dashboard"
       >
-        Add Position Watch
+        Back to Dashboard
       </Link>
       <PositionsList
-        positions={
-          Array [
-            Object {
-              "content": Object {
-                "description": "first description",
-                "requirements": Array [
-                  "Skill 1",
-                  "Skill 2",
-                ],
-                "responsibilities": Array [
-                  "Responsibility 1",
-                  "Responsibility 2",
-                ],
-              },
-              "jobId": "first job id",
-              "location": "first location",
-              "positionId": "firstPositionId",
-              "subscriptionLevel": "ALL",
-              "title": "first title",
-            },
-            Object {
-              "content": Object {
-                "description": "second description",
-                "requirements": Array [
-                  "Skill 1",
-                  "Skill 2",
-                ],
-                "responsibilities": Array [
-                  "Responsibility 1",
-                  "Responsibility 2",
-                ],
-              },
-              "jobId": "second job id",
-              "location": "second location",
-              "positionId": "secondPositionId",
-              "subscriptionLevel": "REQUIRED",
-              "title": "second title",
-            },
-            Object {
-              "content": Object {
-                "description": "first description",
-                "requirements": Array [
-                  "Skill 1",
-                  "Skill 2",
-                ],
-                "responsibilities": Array [
-                  "Responsibility 1",
-                  "Responsibility 2",
-                ],
-              },
-              "jobId": "first job id",
-              "location": "first location",
-              "positionId": "mockNewPositionId",
-              "subscriptionLevel": "REQUIRED",
-              "title": "first title",
-            },
-          ]
-        }
+        positions={Array []}
       />
     </div>
     <div
       className="position_watch_details__wrapper"
     >
-      <Connect(PositionWatchDetails) />
+      <Connect(PositionWatchAddDetails) />
     </div>
   </div>
 </div>

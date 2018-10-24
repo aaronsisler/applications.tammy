@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscriptionWidget correctly 1`] = `
+exports[`PositionWatchSubscriptionWidget should render PositionWatchAddSubscriptionWidget correctly 1`] = `
 <div
   className="position_watch_subscription_widget"
 >
@@ -18,7 +18,7 @@ exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscription
       <select
         className="select"
         onChange={[Function]}
-        value="ALL"
+        value="NONE"
       >
         <option
           value="ALL"
@@ -35,18 +35,13 @@ exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscription
         >
           REQUIRED
         </option>
+        <option
+          value="NONE"
+        >
+          NONE
+        </option>
       </select>
     </div>
-  </div>
-  <div
-    className="position_watch_subscription_widget__removal"
-  >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Remove Watch
-    </button>
   </div>
 </div>
 `;

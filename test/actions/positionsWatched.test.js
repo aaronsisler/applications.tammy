@@ -2,13 +2,18 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import database from 'Firebase/firebase';
 import {
+    startAddSubscription,
     startRemoveSubscription,
     startSetPositionsWatched,
     startSetSubscriptionLevel,
 } from 'Actions/positionsWatched';
 import * as positionsWatchedActionHelpers from 'Actions/helpers/positionsWatched';
 import { defaultAuthState } from '../fixtures/auth';
-import positionsWatched from '../fixtures/positionsWatched';
+import positions from '../fixtures/positions';
+import {
+    positionsWatchedDatabase,
+    positionsWatchedStore
+} from '../fixtures/positionsWatched';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -17,23 +22,46 @@ describe('Positions Watched Actions', () => {
     let once;
     let remove;
     let update;
-    const [positionWatched] = positionsWatched;
+    const [positionWatched] = positionsWatchedDatabase;
     const { positionId } = positionWatched;
     const subscriptionLevel = 'MOCK_SUB_LEVEL';
     const { uid: userId } = defaultAuthState.auth;
     const positionsWatchedMock = [];
 
-    positionsWatched.forEach((positionwatched) => {
+    positionsWatchedDatabase.forEach((positionwatched) => {
         const val = () => ({ ...positionwatched });
-        positionsWatchedMock.push({ key: positionwatched.positionId, val })
+        positionsWatchedMock.push({ key: positionwatched.positionId, val });
     });
 
     beforeEach(() => {
-        store = createMockStore(defaultAuthState);
+        store = createMockStore({ ...defaultAuthState, positions });
         once = jest.fn().mockResolvedValue(positionsWatchedMock);
         remove = jest.fn().mockResolvedValue();
         update = jest.fn().mockResolvedValue();
         jest.spyOn(database, 'ref').mockReturnValue({ once, remove, update });
+    });
+
+    describe('startAddSubscription() method', () => {
+        it(`should call dispatch with addSubscription`, async () => {
+            const addSubscriptionMock = jest.spyOn(positionsWatchedActionHelpers, 'addSubscription');
+
+            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+
+            expect(store.getActions().length).toBe(1);
+            expect(addSubscriptionMock).toHaveBeenCalledWith({ ...positionsWatchedStore[0], subscriptionLevel });
+        });
+
+        it(`should call update with subscription level`, async () => {
+            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+
+            expect(update).toHaveBeenLastCalledWith({ subscriptionLevel });
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+
+            expect(database.ref).toHaveBeenLastCalledWith(`position_watch/${userId}/${positionId}`);
+        });
     });
 
     describe('startRemoveSubscription() method', () => {
@@ -66,7 +94,7 @@ describe('Positions Watched Actions', () => {
             await store.dispatch(startSetPositionsWatched());
 
             expect(store.getActions().length).toBe(1);
-            expect(setPositionsWatchedMock).toHaveBeenCalledWith(positionsWatched);
+            expect(setPositionsWatchedMock).toHaveBeenCalledWith(positionsWatchedStore);
         });
 
         it(`should call once with value`, async () => {

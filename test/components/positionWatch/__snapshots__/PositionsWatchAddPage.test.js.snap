@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PositionsWatchAddPage should render PositionsWatchAddPage correctly 1`] = `
+<div
+  id="positions_watch_add_page"
+>
+  <Connect(PositionsWatchAddContainer) />
+</div>
+`;

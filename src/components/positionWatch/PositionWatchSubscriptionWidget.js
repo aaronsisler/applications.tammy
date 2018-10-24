@@ -64,7 +64,6 @@ export class PositionWatchSubscriptionWidget extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    position: state.position,
     positionId: state.position.positionId,
     positionsWatched: state.positionsWatched,
 });
@@ -79,7 +78,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchSubscriptionWidget);
 
 PositionWatchSubscriptionWidget.propTypes = {
-    position: PropTypes.object,
     positionId: PropTypes.string.isRequired,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,

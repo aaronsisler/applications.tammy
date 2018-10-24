@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionsWatchContainer } from 'PositionWatch/PositionsWatchContainer';
+import { PositionsWatchAddContainer } from 'PositionWatch/PositionsWatchAddContainer';
 import { positionsWatchedStore } from '../../fixtures/positionsWatched';
 import positions from '../../fixtures/positions';
 
-describe('PositionsWatchContainer', () => {
+describe('PositionsWatchAddContainer', () => {
     const startClearPosition = jest.fn();
     let wrapper;
     const [position] = positions;
 
     const buildWrapper = (positionsWatchedInput = []) => {
         wrapper = shallow(
-            <PositionsWatchContainer
+            <PositionsWatchAddContainer
                 positions={positions}
                 positionsWatched={positionsWatchedInput}
                 startClearPosition={startClearPosition}
@@ -19,19 +19,27 @@ describe('PositionsWatchContainer', () => {
         );
     };
 
-    it('should render PositionsWatchContainer correctly when positions are watched', () => {
+    it('should render PositionsWatchAddContainer correctly when all positions are watched', () => {
         buildWrapper(positionsWatchedStore);
 
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render PositionsWatchContainer correctly when NO positions are watched', () => {
+    it('should render PositionsWatchAddContainer correctly when NO positions are watched', () => {
         buildWrapper();
 
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render PositionsWatchContainer correctly when positions watched is not in positions list', () => {
+    it('should render PositionsWatchAddContainer correctly when only one position is being watched', () => {
+        const [positionWatched] = positionsWatchedStore;
+
+        buildWrapper([positionWatched]);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render PositionsWatchAddContainer correctly when positions watched is not in positions list', () => {
         const newPositionWatched = { ...position, positionId: 'mockNewPositionId', subscriptionLevel: 'REQUIRED' };
         buildWrapper([...positionsWatchedStore, newPositionWatched]);
 

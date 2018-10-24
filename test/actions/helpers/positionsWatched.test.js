@@ -1,13 +1,26 @@
 import {
+    addSubscription,
     removeSubscription,
     setPositionsWatched,
     setSubscriptionLevel,
 } from 'Actions/helpers/positionsWatched';
-import positionsWatched from '../../fixtures/positionswatched';
+import { positionsWatchedStore } from '../../fixtures/positionswatched';
 
 describe('Positions Watched Action Helpers', () => {
-    const [positionwatched] = positionsWatched;
-    const { positionId, subscriptionLevel } = positionwatched;
+    const [positionWatched] = positionsWatchedStore;
+    const { positionId, subscriptionLevel } = positionWatched;
+
+    describe('addSubscription() method', () => {
+        it(`should setup 'add subscription' action object`, () => {
+            const action = addSubscription(positionWatched);
+
+            expect(action).toEqual({
+                type: 'ADD_SUBSCRIPTION',
+                positionWatched
+            });
+        });
+    });
+
     describe('removeSubscription() method', () => {
         it(`should setup 'remove subscription' action object`, () => {
             const action = removeSubscription(positionId);
@@ -21,11 +34,11 @@ describe('Positions Watched Action Helpers', () => {
 
     describe('setPositionsWatched() method', () => {
         it(`should setup 'set positions watched' action object`, () => {
-            const action = setPositionsWatched(positionsWatched);
+            const action = setPositionsWatched(positionsWatchedStore);
 
             expect(action).toEqual({
                 type: 'SET_POSITIONS_WATCHED',
-                positionsWatched
+                positionsWatched: positionsWatchedStore
             });
         });
     });

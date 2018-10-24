@@ -1,4 +1,6 @@
-const positionswatched = [
+import positions from './positions';
+
+const positionsWatchedDatabase = [
     {
         positionId: 'firstPositionId',
         subscriptionLevel: 'ALL',
@@ -7,10 +9,21 @@ const positionswatched = [
         positionId: 'secondPositionId',
         subscriptionLevel: 'REQUIRED',
     },
-]
+];
 
-export const defaultPositionsState = {
-    positionswatched
+const [position1, position2] = positions;
+const [positionWatch1, positionWatch2] = positionsWatchedDatabase;
+
+const positionsWatchedStore = [
+    { ...position1, ...positionWatch1 },
+    { ...position2, ...positionWatch2 }
+];
+
+export const defaultPositionsWatchedState = {
+    positionsWatchedStore
 }
 
-export default positionswatched;
+export {
+    positionsWatchedDatabase,
+    positionsWatchedStore,
+};
