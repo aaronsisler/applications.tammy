@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
-import PositionWatchAddSubscriptionWidget from 'PositionWatch/PositionWatchAddSubscriptionWidget';
+import PositionWatchAddWidget from 'PositionWatch/PositionWatchAddWidget';
 
 export class PositionWatchAddDetails extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ export class PositionWatchAddDetails extends React.Component {
                                 {position.location}
                             </div>
                         </div>
-                        <PositionWatchAddSubscriptionWidget />
+                        <PositionWatchAddWidget />
                         <PositionDetailsContent position={position} />
                     </div>
                 }

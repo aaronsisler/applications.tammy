@@ -13,13 +13,13 @@ import ApplicationSubmissionContainer from './ApplicationSubmissionContainer';
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
         super(props);
-        if (!this.props.position) {
+        if (!this.props.positionId) {
             return history.push('/');
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.position) {
+        if (!this.props.positionId) {
             return history.push('/');
         }
     }
@@ -48,7 +48,7 @@ export class ApplicationProcessContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
     currentStep: state.applicationProcess.currentStep,
-    position: state.position,
+    positionId: state.applicationProcess.positionId,
 });
 
 /* istanbul ignore next */
@@ -61,7 +61,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessCo
 
 ApplicationProcessContainer.propTypes = {
     currentStep: PropTypes.number,
-    position: PropTypes.object,
+    positionId: PropTypes.string,
     startClearApplication: PropTypes.func.isRequired,
     startResetApplicationProcess: PropTypes.func.isRequired,
 };

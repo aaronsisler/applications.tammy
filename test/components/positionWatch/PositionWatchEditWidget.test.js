@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionWatchSubscriptionWidget } from 'PositionWatch/PositionWatchSubscriptionWidget';
+import { PositionWatchEditWidget } from 'PositionWatch/PositionWatchEditWidget';
 import { positionsWatchedStore } from '../../fixtures/positionsWatched';
 
-describe('PositionWatchSubscriptionWidget', () => {
+describe('PositionWatchEditWidget', () => {
     const [positionWatched] = positionsWatchedStore;
     const { positionId, subscriptionLevel } = positionWatched;
     const startClearPosition = jest.fn();
@@ -13,7 +13,7 @@ describe('PositionWatchSubscriptionWidget', () => {
 
     const buildWrapper = () => {
         wrapper = shallow(
-            <PositionWatchSubscriptionWidget
+            <PositionWatchEditWidget
                 positionId={positionId}
                 positionsWatched={[positionWatched]}
                 startClearPosition={startClearPosition}
@@ -27,7 +27,7 @@ describe('PositionWatchSubscriptionWidget', () => {
         buildWrapper();
     });
 
-    it('should render PositionWatchSubscriptionWidget correctly', () => {
+    it('should render PositionWatchEditWidget correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
 

@@ -7,7 +7,7 @@ import {
     startSetSubscriptionLevel
 } from 'Actions/positionsWatched';
 
-export class PositionWatchSubscriptionWidget extends React.Component {
+export class PositionWatchEditWidget extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -32,12 +32,12 @@ export class PositionWatchSubscriptionWidget extends React.Component {
     render() {
         const currentSubscriptionLevel = this.retrieveSubscriptionLevel();
         return (
-            <div className="position_watch_subscription_widget">
-                <div className="position_watch_subscription_widget__select_wrapper">
-                    <div className="position_watch_subscription_widget__title">
-                        Subscription&nbsp;Level:
+            <div className="position_watch_edit_widget">
+                <div className="position_watch_edit_widget__select_wrapper">
+                    <div className="position_watch_edit_widget__title">
+                        Notification&nbsp;Level:
                     </div>
-                    <div className="position_watch_subscription_widget__select">
+                    <div className="position_watch_edit_widget__select">
                         <select
                             className="select"
                             value={currentSubscriptionLevel}
@@ -49,7 +49,7 @@ export class PositionWatchSubscriptionWidget extends React.Component {
                         </select>
                     </div>
                 </div>
-                <div className="position_watch_subscription_widget__removal">
+                <div className="position_watch_edit_widget__removal">
                     <button
                         className="button"
                         onClick={this.handleRemoveSubscription}
@@ -75,9 +75,9 @@ const mapDispatchToProps = (dispatch) => ({
     startSetSubscriptionLevel: (positionId, subscriptionLevel) => dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchSubscriptionWidget);
+export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchEditWidget);
 
-PositionWatchSubscriptionWidget.propTypes = {
+PositionWatchEditWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,

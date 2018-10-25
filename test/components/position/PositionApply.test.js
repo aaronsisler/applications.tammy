@@ -25,6 +25,12 @@ describe('PositionApply', () => {
         it('should render correctly', () => {
             expect(wrapper).toMatchSnapshot();
         });
+
+        it('it should call startSetPositionId when the Apply link is clicked', () => {
+            wrapper.find('.nav_link').simulate('click');
+
+            expect(startSetPositionId).toHaveBeenCalled();
+        });
     });
 
     describe('when user is NOT Authenticated', () => {
@@ -36,22 +42,22 @@ describe('PositionApply', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('should call startSetPositionId', () => {
-            wrapper.find('.button').simulate('click');
+        describe('when Login button is clicked', () => {
+            beforeEach(() => {
+                wrapper.find('.button').simulate('click');
+            });
 
-            expect(startSetPositionId).toHaveBeenCalled();
-        });
+            it('should call startSetPositionId', () => {
+                expect(startSetPositionId).toHaveBeenCalled();
+            });
 
-        it('should call startLogin with apply redirectUrl', () => {
-            wrapper.find('.button').simulate('click');
+            it('should call startLogin with apply redirectUrl', () => {
+                expect(startLogin).toHaveBeenLastCalledWith('apply');
+            });
 
-            expect(startLogin).toHaveBeenLastCalledWith('apply');
-        });
-
-        it('should call startSetPositionId before startLogin', () => {
-            wrapper.find('.button').simulate('click');
-
-            expect(startSetPositionId).toHaveBeenCalledBefore(startLogin);
+            it('should call startSetPositionId before startLogin', () => {
+                expect(startSetPositionId).toHaveBeenCalledBefore(startLogin);
+            });
         });
     });
 });

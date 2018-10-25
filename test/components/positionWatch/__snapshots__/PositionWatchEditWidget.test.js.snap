@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscriptionWidget correctly 1`] = `
+exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly 1`] = `
 <div
-  className="position_watch_subscription_widget"
+  className="position_watch_edit_widget"
 >
   <div
-    className="position_watch_subscription_widget__select_wrapper"
+    className="position_watch_edit_widget__select_wrapper"
   >
     <div
-      className="position_watch_subscription_widget__title"
+      className="position_watch_edit_widget__title"
     >
-      Subscription Level:
+      Notification Level:
     </div>
     <div
-      className="position_watch_subscription_widget__select"
+      className="position_watch_edit_widget__select"
     >
       <select
         className="select"
@@ -39,7 +39,7 @@ exports[`PositionWatchSubscriptionWidget should render PositionWatchSubscription
     </div>
   </div>
   <div
-    className="position_watch_subscription_widget__removal"
+    className="position_watch_edit_widget__removal"
   >
     <button
       className="button"

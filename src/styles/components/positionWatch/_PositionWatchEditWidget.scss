@@ -1,28 +1,22 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .positions_list_item {
-        align-items: center;
-        border-bottom: 1px solid #eee;
-        color: $darkGrey;
-        cursor: pointer;
+    .position_watch_edit_widget {
         display: flex;
-        font-size: $medium;
         justify-content: space-between;
-        padding: $medium $small;
-        text-decoration: none;
-        &:hover {
-            background: #fafafa;
-            color: $secColor;
-        }
-        &__title {
-            margin-bottom: $small;
-        }
-        &__job_id {
-            color: $fontGrey;
-        }
-        &__location {
-            color: $fontGrey;
+        padding: $small $medium;
+    }
+    .position_watch_edit_widget__select_wrapper {
+        align-items: center;
+        display: flex;
+    }
+    .position_watch_edit_widget__title {
+        font-size: $medium;
+        margin-right: $xsmall;
+    }
+    .position_watch_edit_widget__select {
+        select {
+            font-size: $medium;
         }
     }
 }

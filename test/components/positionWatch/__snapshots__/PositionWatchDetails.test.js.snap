@@ -41,7 +41,7 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
         first location
       </div>
     </div>
-    <Connect(PositionWatchSubscriptionWidget) />
+    <Connect(PositionWatchEditWidget) />
     <PositionDetailsContent
       position={
         Object {

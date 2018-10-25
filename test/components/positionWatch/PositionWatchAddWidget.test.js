@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionWatchAddSubscriptionWidget } from 'PositionWatch/PositionWatchAddSubscriptionWidget';
+import { PositionWatchAddWidget } from 'PositionWatch/PositionWatchAddWidget';
 import { positionsWatchedStore } from '../../fixtures/positionsWatched';
 
-describe('PositionWatchSubscriptionWidget', () => {
+describe('PositionWatchAddWidget', () => {
     const [positionWatched] = positionsWatchedStore;
-    const { positionId, subscriptionLevel } = positionWatched;
+    const { positionId } = positionWatched;
     const startAddSubscription = jest.fn();
     const startRemoveSubscription = jest.fn();
     const startSetSubscriptionLevel = jest.fn();
@@ -13,7 +13,7 @@ describe('PositionWatchSubscriptionWidget', () => {
 
     const buildWrapper = () => {
         wrapper = shallow(
-            <PositionWatchAddSubscriptionWidget
+            <PositionWatchAddWidget
                 positionId={positionId}
                 startAddSubscription={startAddSubscription}
                 startRemoveSubscription={startRemoveSubscription}
@@ -26,7 +26,7 @@ describe('PositionWatchSubscriptionWidget', () => {
         buildWrapper();
     });
 
-    it('should render PositionWatchAddSubscriptionWidget correctly', () => {
+    it('should render PositionWatchAddWidget correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
@@ -64,6 +64,7 @@ describe('PositionWatchSubscriptionWidget', () => {
 
             beforeEach(() => {
                 wrapper.setState({ subscriptionLevel: 'ALL' });
+                expect(wrapper.find('select').prop('value')).toEqual('ALL');
             });
 
             it('should call startRemoveSubscription with positionId', () => {
@@ -73,16 +74,12 @@ describe('PositionWatchSubscriptionWidget', () => {
             });
 
             it('should set the new subscription level correctly in the select input', () => {
-                expect(wrapper.find('select').prop('value')).toEqual('ALL');
-
                 wrapper.find('select').simulate('change', event);
 
                 expect(wrapper.find('select').prop('value')).toEqual(newSubscriptionLevel);
             });
 
             it('should set the new subscription level correctly in the state', () => {
-                expect(wrapper.find('select').prop('value')).toEqual('ALL');
-
                 wrapper.find('select').simulate('change', event);
 
                 expect(wrapper.state('subscriptionLevel')).toEqual(newSubscriptionLevel);
@@ -95,6 +92,7 @@ describe('PositionWatchSubscriptionWidget', () => {
 
             beforeEach(() => {
                 wrapper.setState({ subscriptionLevel: 'ALL' });
+                expect(wrapper.find('select').prop('value')).toEqual('ALL');
             });
 
             it('should call startSetSubscriptionLevel with positionId and new subscription level', () => {
@@ -104,16 +102,12 @@ describe('PositionWatchSubscriptionWidget', () => {
             });
 
             it('should set the new subscription level correctly in the select input', () => {
-                expect(wrapper.find('select').prop('value')).toEqual('ALL');
-
                 wrapper.find('select').simulate('change', event);
 
                 expect(wrapper.find('select').prop('value')).toEqual(newSubscriptionLevel);
             });
 
             it('should set the new subscription level correctly in the state', () => {
-                expect(wrapper.find('select').prop('value')).toEqual('ALL');
-
                 wrapper.find('select').simulate('change', event);
 
                 expect(wrapper.state('subscriptionLevel')).toEqual(newSubscriptionLevel);

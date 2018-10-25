@@ -7,7 +7,7 @@ import {
     startSetSubscriptionLevel
 } from 'Actions/positionsWatched';
 
-export class PositionWatchAddSubscriptionWidget extends React.Component {
+export class PositionWatchAddWidget extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,12 +29,12 @@ export class PositionWatchAddSubscriptionWidget extends React.Component {
 
     render() {
         return (
-            <div className="position_watch_subscription_widget">
-                <div className="position_watch_subscription_widget__select_wrapper">
-                    <div className="position_watch_subscription_widget__title">
-                        Subscription&nbsp;Level:
+            <div className="position_watch_add_widget">
+                <div className="position_watch_add_widget__select_wrapper">
+                    <div className="position_watch_add_widget__title">
+                        Notification&nbsp;Level:
                     </div>
-                    <div className="position_watch_subscription_widget__select">
+                    <div className="position_watch_add_widget__select">
                         <select
                             className="select"
                             value={this.state.subscriptionLevel}
@@ -64,9 +64,9 @@ const mapDispatchToProps = (dispatch) => ({
     startSetSubscriptionLevel: (positionId, subscriptionLevel) => dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddSubscriptionWidget);
+export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddWidget);
 
-PositionWatchAddSubscriptionWidget.propTypes = {
+PositionWatchAddWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     startAddSubscription: PropTypes.func.isRequired,
     startRemoveSubscription: PropTypes.func.isRequired,

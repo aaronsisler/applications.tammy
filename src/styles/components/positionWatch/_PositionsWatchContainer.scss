@@ -20,6 +20,9 @@
         display: flex;
         flex-flow: column;
         flex-grow: 1;
+        .nav_link {
+            margin: 0;
+        }
         input {
             border: none;
             border-bottom: 1px solid $midLightGrey;
