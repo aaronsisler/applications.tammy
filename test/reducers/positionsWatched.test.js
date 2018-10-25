@@ -1,9 +1,9 @@
 import positionsWatchedReducer from 'Reducers/positionsWatched';
 import {
-    addSubscription,
-    removeSubscription,
+    addPositionWatch,
+    removePositionWatch,
     setPositionsWatched,
-    setSubscriptionLevel
+    setPositionWatchLevel
 } from 'Actions/helpers/positionsWatched';
 import {
     positionsWatchedStore
@@ -25,16 +25,16 @@ describe('positions watched reducer', () => {
         expect(state).toEqual(defaultState);
     });
 
-    it('should add subscription', () => {
-        const action = addSubscription(positionWatched);
+    it('should add position watch', () => {
+        const action = addPositionWatch(positionWatched);
 
         const state = positionsWatchedReducer(undefined, action);
 
         expect(state).toEqual([positionWatched]);
     });
 
-    it('should remove subscription', () => {
-        const action = removeSubscription(positionId);
+    it('should remove position watch', () => {
+        const action = removePositionWatch(positionId);
 
         const state = positionsWatchedReducer([positionWatched], action);
 
@@ -49,23 +49,24 @@ describe('positions watched reducer', () => {
         expect(state).toEqual(positionsWatchedStore);
     });
 
-    describe('when calling set subscription level', () => {
-        it('should set subscription level if position id is matched', () => {
-            const subscriptionLevel = 'MOCK_SUB_LEVEL';
+    describe('when calling set position watch level', () => {
+        const notificationLevel = 'MOCK_NOTIFICATION_LEVEL';
+
+        it('should set position watch level if position id is matched', () => {
             const expectedResult = [
                 {
                     ...positionWatched,
-                    subscriptionLevel
+                    notificationLevel
                 }];
-            const action = setSubscriptionLevel(positionId, subscriptionLevel);
+            const action = setPositionWatchLevel(positionId, notificationLevel);
 
             const state = positionsWatchedReducer([positionWatched], action);
 
             expect(state).toEqual(expectedResult);
         });
 
-        it('should set NOT subscription level if position id is NOT matched', () => {
-            const action = setSubscriptionLevel('NON_EXISTANT_POSITION_ID', 'MOCK SUBSCRIPTION');
+        it('should set NOT position watch level if position id is NOT matched', () => {
+            const action = setPositionWatchLevel('NON_EXISTANT_POSITION_ID', notificationLevel);
 
             const state = positionsWatchedReducer(positionsWatchedStore, action);
 

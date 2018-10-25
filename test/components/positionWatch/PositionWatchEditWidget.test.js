@@ -5,10 +5,10 @@ import { positionsWatchedStore } from '../../fixtures/positionsWatched';
 
 describe('PositionWatchEditWidget', () => {
     const [positionWatched] = positionsWatchedStore;
-    const { positionId, subscriptionLevel } = positionWatched;
+    const { positionId, notificationLevel } = positionWatched;
     const startClearPosition = jest.fn();
-    const startRemoveSubscription = jest.fn();
-    const startSetSubscriptionLevel = jest.fn();
+    const startRemovePositionWatch = jest.fn();
+    const startSetPositionWatchLevel = jest.fn();
     let wrapper;
 
     const buildWrapper = () => {
@@ -17,8 +17,8 @@ describe('PositionWatchEditWidget', () => {
                 positionId={positionId}
                 positionsWatched={[positionWatched]}
                 startClearPosition={startClearPosition}
-                startRemoveSubscription={startRemoveSubscription}
-                startSetSubscriptionLevel={startSetSubscriptionLevel}
+                startRemovePositionWatch={startRemovePositionWatch}
+                startSetPositionWatchLevel={startSetPositionWatchLevel}
             />
         );
     };
@@ -31,35 +31,35 @@ describe('PositionWatchEditWidget', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should set the subscriptionLevel correctly on construction', () => {
-        expect(wrapper.find('select').prop('value')).toEqual(subscriptionLevel);
+    it('should set the notificationLevel correctly on construction', () => {
+        expect(wrapper.find('select').prop('value')).toEqual(notificationLevel);
     });
 
-    describe('when the subscription select input is changed', () => {
-        it('should call startSetSubscriptionLevel with positionId and new subscription level', () => {
-            const newSubscriptionLevel = 'SOME';
-            const event = { target: { value: newSubscriptionLevel } };
+    describe('when the notification select input is changed', () => {
+        it('should call startSetPositionWatchLevel with positionId and new notification level', () => {
+            const newNotificationLevel = 'SOME';
+            const event = { target: { value: newNotificationLevel } };
 
             wrapper.find('select').simulate('change', event);
 
-            expect(startSetSubscriptionLevel).toHaveBeenLastCalledWith(positionId, newSubscriptionLevel);
+            expect(startSetPositionWatchLevel).toHaveBeenLastCalledWith(positionId, newNotificationLevel);
         });
 
-        it('should set the new subscription level correctly', () => {
-            const newSubscriptionLevel = 'SOME';
-            expect(wrapper.find('select').prop('value')).toEqual(subscriptionLevel);
+        it('should set the new notification level correctly', () => {
+            const newNotificationLevel = 'SOME';
+            expect(wrapper.find('select').prop('value')).toEqual(notificationLevel);
 
-            wrapper.setProps({ positionsWatched: [{ positionId, subscriptionLevel: newSubscriptionLevel }] });
+            wrapper.setProps({ positionsWatched: [{ positionId, notificationLevel: newNotificationLevel }] });
 
-            expect(wrapper.find('select').prop('value')).toEqual(newSubscriptionLevel);
+            expect(wrapper.find('select').prop('value')).toEqual(newNotificationLevel);
         });
     });
 
-    describe('when the remove subscription button is clicked', () => {
-        it('should call startRemoveSubscription with positionId', () => {
+    describe('when the remove notification button is clicked', () => {
+        it('should call startRemovePositionWatch with positionId', () => {
             wrapper.find('button').simulate('click');
 
-            expect(startRemoveSubscription).toHaveBeenLastCalledWith(positionId);
+            expect(startRemovePositionWatch).toHaveBeenLastCalledWith(positionId);
         });
 
         it('should call startClearPosition', () => {

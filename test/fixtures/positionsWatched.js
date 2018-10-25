@@ -3,11 +3,11 @@ import positions from './positions';
 const positionsWatchedDatabase = [
     {
         positionId: 'firstPositionId',
-        subscriptionLevel: 'ALL',
+        notificationLevel: 'ALL',
     },
     {
         positionId: 'secondPositionId',
-        subscriptionLevel: 'REQUIRED',
+        notificationLevel: 'REQUIRED',
     },
 ];
 

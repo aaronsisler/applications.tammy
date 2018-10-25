@@ -1,10 +1,10 @@
-export const addSubscription = (positionWatched) => ({
-    type: 'ADD_SUBSCRIPTION',
+export const addPositionWatch = (positionWatched) => ({
+    type: 'ADD_POSITION_WATCH',
     positionWatched,
 });
 
-export const removeSubscription = (positionId) => ({
-    type: 'REMOVE_SUBSCRIPTION',
+export const removePositionWatch = (positionId) => ({
+    type: 'REMOVE_POSITION_WATCH',
     positionId,
 });
 
@@ -13,8 +13,8 @@ export const setPositionsWatched = (positionsWatched) => ({
     positionsWatched,
 });
 
-export const setSubscriptionLevel = (positionId, subscriptionLevel) => ({
-    type: 'SET_SUBSCRIPTION_LEVEL',
+export const setPositionWatchLevel = (positionId, notificationLevel) => ({
+    type: 'SET_POSITION_WATCH_LEVEL',
     positionId,
-    subscriptionLevel,
+    notificationLevel,
 });

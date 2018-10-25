@@ -4,16 +4,16 @@ const positionsWatchedReducer = (state = positionsWatchedReducerDefaultState, ac
     switch (action.type) {
         case 'SET_POSITIONS_WATCHED':
             return action.positionsWatched;
-        case 'ADD_SUBSCRIPTION':
+        case 'ADD_POSITION_WATCH':
                 return [...state, action.positionWatched];
-        case 'REMOVE_SUBSCRIPTION':
+        case 'REMOVE_POSITION_WATCH':
             return state.filter((positionwatched) => positionwatched.positionId != action.positionId);
-        case 'SET_SUBSCRIPTION_LEVEL':
+        case 'SET_POSITION_WATCH_LEVEL':
             return state.map((positionWatched) => {
                 if (positionWatched.positionId === action.positionId) {
                     return {
                         ...positionWatched,
-                        subscriptionLevel: action.subscriptionLevel
+                        notificationLevel: action.notificationLevel
                     }
                 }
                 return positionWatched;

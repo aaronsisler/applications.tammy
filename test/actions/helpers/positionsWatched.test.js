@@ -1,32 +1,32 @@
 import {
-    addSubscription,
-    removeSubscription,
+    addPositionWatch,
+    removePositionWatch,
     setPositionsWatched,
-    setSubscriptionLevel,
+    setPositionWatchLevel,
 } from 'Actions/helpers/positionsWatched';
 import { positionsWatchedStore } from '../../fixtures/positionswatched';
 
 describe('Positions Watched Action Helpers', () => {
     const [positionWatched] = positionsWatchedStore;
-    const { positionId, subscriptionLevel } = positionWatched;
+    const { positionId, notificationLevel } = positionWatched;
 
-    describe('addSubscription() method', () => {
-        it(`should setup 'add subscription' action object`, () => {
-            const action = addSubscription(positionWatched);
+    describe('addPositionWatch() method', () => {
+        it(`should setup 'add position watch' action object`, () => {
+            const action = addPositionWatch(positionWatched);
 
             expect(action).toEqual({
-                type: 'ADD_SUBSCRIPTION',
+                type: 'ADD_POSITION_WATCH',
                 positionWatched
             });
         });
     });
 
-    describe('removeSubscription() method', () => {
-        it(`should setup 'remove subscription' action object`, () => {
-            const action = removeSubscription(positionId);
+    describe('removePositionWatch() method', () => {
+        it(`should setup 'remove position watch' action object`, () => {
+            const action = removePositionWatch(positionId);
 
             expect(action).toEqual({
-                type: 'REMOVE_SUBSCRIPTION',
+                type: 'REMOVE_POSITION_WATCH',
                 positionId
             });
         });
@@ -43,14 +43,14 @@ describe('Positions Watched Action Helpers', () => {
         });
     });
 
-    describe('setSubscriptionLevel() method', () => {
-        it(`should setup 'set subscription level' action object`, () => {
-            const action = setSubscriptionLevel(positionId, subscriptionLevel);
+    describe('setPositionWatchLevel() method', () => {
+        it(`should setup 'set position watch level' action object`, () => {
+            const action = setPositionWatchLevel(positionId, notificationLevel);
 
             expect(action).toEqual({
-                type: 'SET_SUBSCRIPTION_LEVEL',
+                type: 'SET_POSITION_WATCH_LEVEL',
                 positionId,
-                subscriptionLevel,
+                notificationLevel,
             });
         });
     });

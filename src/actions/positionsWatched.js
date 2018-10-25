@@ -1,27 +1,27 @@
 import database from 'Firebase/firebase';
 import {
-    addSubscription,
-    removeSubscription,
+    addPositionWatch,
+    removePositionWatch,
     setPositionsWatched,
-    setSubscriptionLevel
+    setPositionWatchLevel
 } from 'Actions/helpers/positionsWatched';
 
-export const startAddSubscription = (positionId, subscriptionLevel) => (dispatch, getState) => {
+export const startAddPositionWatch = (positionId, notificationLevel) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
     const { positions } = getState();
-    return database.ref(`position_watch/${userId}/${positionId}`).update({ subscriptionLevel })
+    return database.ref(`position_watch/${userId}/${positionId}`).update({ notificationLevel })
         .then(() => {
             const positionFind = positions.find((position) => position.positionId === positionId)
-            const positionWatched = { ...positionFind, subscriptionLevel };
+            const positionWatched = { ...positionFind, notificationLevel };
 
-            dispatch(addSubscription(positionWatched));
+            dispatch(addPositionWatch(positionWatched));
         });
 }
 
-export const startRemoveSubscription = (positionId) => (dispatch, getState) => {
+export const startRemovePositionWatch = (positionId) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
     return database.ref(`position_watch/${userId}/${positionId}`).remove()
-        .then(() => dispatch(removeSubscription(positionId)));
+        .then(() => dispatch(removePositionWatch(positionId)));
 }
 
 export const startSetPositionsWatched = () => (dispatch, getState) => {
@@ -39,15 +39,15 @@ export const startSetPositionsWatched = () => (dispatch, getState) => {
 
         positionsWatched = positionsWatched.map((positionWatched) => ({
             ...(positions.find((position) => positionWatched.positionId === position.positionId)),
-            subscriptionLevel: positionWatched.subscriptionLevel
+            notificationLevel: positionWatched.notificationLevel
         }));
 
         return dispatch(setPositionsWatched(positionsWatched));
     });
 }
 
-export const startSetSubscriptionLevel = (positionId, subscriptionLevel) => (dispatch, getState) => {
+export const startSetPositionWatchLevel = (positionId, notificationLevel) => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
-    return database.ref(`position_watch/${userId}/${positionId}`).update({ subscriptionLevel })
-        .then(() => dispatch(setSubscriptionLevel(positionId, subscriptionLevel)));
+    return database.ref(`position_watch/${userId}/${positionId}`).update({ notificationLevel })
+        .then(() => dispatch(setPositionWatchLevel(positionId, notificationLevel)));
 }

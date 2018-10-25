@@ -2,10 +2,10 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import database from 'Firebase/firebase';
 import {
-    startAddSubscription,
-    startRemoveSubscription,
+    startAddPositionWatch,
+    startRemovePositionWatch,
     startSetPositionsWatched,
-    startSetSubscriptionLevel,
+    startSetPositionWatchLevel,
 } from 'Actions/positionsWatched';
 import * as positionsWatchedActionHelpers from 'Actions/helpers/positionsWatched';
 import { defaultAuthState } from '../fixtures/auth';
@@ -24,7 +24,7 @@ describe('Positions Watched Actions', () => {
     let update;
     const [positionWatched] = positionsWatchedDatabase;
     const { positionId } = positionWatched;
-    const subscriptionLevel = 'MOCK_SUB_LEVEL';
+    const notificationLevel = 'MOCK_NOTIFICATION_LEVEL';
     const { uid: userId } = defaultAuthState.auth;
     const positionsWatchedMock = [];
 
@@ -41,47 +41,47 @@ describe('Positions Watched Actions', () => {
         jest.spyOn(database, 'ref').mockReturnValue({ once, remove, update });
     });
 
-    describe('startAddSubscription() method', () => {
-        it(`should call dispatch with addSubscription`, async () => {
-            const addSubscriptionMock = jest.spyOn(positionsWatchedActionHelpers, 'addSubscription');
+    describe('startAddPositionWatch() method', () => {
+        it(`should call dispatch with addPositionWatch`, async () => {
+            const addPositionWatchMock = jest.spyOn(positionsWatchedActionHelpers, 'addPositionWatch');
 
-            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+            await store.dispatch(startAddPositionWatch(positionId, notificationLevel));
 
             expect(store.getActions().length).toBe(1);
-            expect(addSubscriptionMock).toHaveBeenCalledWith({ ...positionsWatchedStore[0], subscriptionLevel });
+            expect(addPositionWatchMock).toHaveBeenCalledWith({ ...positionsWatchedStore[0], notificationLevel });
         });
 
-        it(`should call update with subscription level`, async () => {
-            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+        it(`should call update with notification level`, async () => {
+            await store.dispatch(startAddPositionWatch(positionId, notificationLevel));
 
-            expect(update).toHaveBeenLastCalledWith({ subscriptionLevel });
+            expect(update).toHaveBeenLastCalledWith({ notificationLevel });
         });
 
         it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startAddSubscription(positionId, subscriptionLevel));
+            await store.dispatch(startAddPositionWatch(positionId, notificationLevel));
 
             expect(database.ref).toHaveBeenLastCalledWith(`position_watch/${userId}/${positionId}`);
         });
     });
 
-    describe('startRemoveSubscription() method', () => {
-        it(`should call dispatch with removeSubscription`, async () => {
-            const removeSubscriptionMock = jest.spyOn(positionsWatchedActionHelpers, 'removeSubscription');
+    describe('startRemovePositionWatch() method', () => {
+        it(`should call dispatch with removePositionWatch`, async () => {
+            const removePositionWatchMock = jest.spyOn(positionsWatchedActionHelpers, 'removePositionWatch');
 
-            await store.dispatch(startRemoveSubscription(positionId));
+            await store.dispatch(startRemovePositionWatch(positionId));
 
             expect(store.getActions().length).toBe(1);
-            expect(removeSubscriptionMock).toHaveBeenCalledWith(positionId);
+            expect(removePositionWatchMock).toHaveBeenCalledWith(positionId);
         });
 
         it(`should call remove`, async () => {
-            await store.dispatch(startRemoveSubscription(positionId));
+            await store.dispatch(startRemovePositionWatch(positionId));
 
             expect(remove).toHaveBeenCalled();
         });
 
         it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startRemoveSubscription(positionId));
+            await store.dispatch(startRemovePositionWatch(positionId));
 
             expect(database.ref).toHaveBeenLastCalledWith(`position_watch/${userId}/${positionId}`);
         });
@@ -110,24 +110,24 @@ describe('Positions Watched Actions', () => {
         });
     });
 
-    describe('startSetSubscriptionLevel() method', () => {
-        it(`should call dispatch with setSubscriptionLevel`, async () => {
-            const setSubscriptionLevelMock = jest.spyOn(positionsWatchedActionHelpers, 'setSubscriptionLevel');
+    describe('startSetPositionWatchLevel() method', () => {
+        it(`should call dispatch with setPositionWatchLevel`, async () => {
+            const setPositionWatchLevelMock = jest.spyOn(positionsWatchedActionHelpers, 'setPositionWatchLevel');
 
-            await store.dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel));
+            await store.dispatch(startSetPositionWatchLevel(positionId, notificationLevel));
 
             expect(store.getActions().length).toBe(1);
-            expect(setSubscriptionLevelMock).toHaveBeenCalledWith(positionId, subscriptionLevel);
+            expect(setPositionWatchLevelMock).toHaveBeenCalledWith(positionId, notificationLevel);
         });
 
-        it(`should call update with subscription level`, async () => {
-            await store.dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel));
+        it(`should call update with notification level`, async () => {
+            await store.dispatch(startSetPositionWatchLevel(positionId, notificationLevel));
 
-            expect(update).toHaveBeenLastCalledWith({ subscriptionLevel });
+            expect(update).toHaveBeenLastCalledWith({ notificationLevel });
         });
 
         it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel));
+            await store.dispatch(startSetPositionWatchLevel(positionId, notificationLevel));
 
             expect(database.ref).toHaveBeenLastCalledWith(`position_watch/${userId}/${positionId}`);
         });

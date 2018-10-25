@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startClearPosition } from 'Actions/position';
 import {
-    startRemoveSubscription,
-    startSetSubscriptionLevel
+    startRemovePositionWatch,
+    startSetPositionWatchLevel
 } from 'Actions/positionsWatched';
 
 export class PositionWatchEditWidget extends React.Component {
@@ -12,25 +12,25 @@ export class PositionWatchEditWidget extends React.Component {
         super(props);
     }
 
-    handleSetSubscriptionLevel = (e) => {
-        const subscriptionLevel = e.target.value;
-        this.props.startSetSubscriptionLevel(this.props.positionId, subscriptionLevel)
+    handleSetPositionWatchLevel = (e) => {
+        const notificationLevel = e.target.value;
+        this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel)
     }
 
-    handleRemoveSubscription = () => {
-        this.props.startRemoveSubscription(this.props.positionId);
+    handleRemovePositionWatch = () => {
+        this.props.startRemovePositionWatch(this.props.positionId);
         this.props.startClearPosition();
     }
 
-    retrieveSubscriptionLevel = () => {
+    retrievePositionWatchLevel = () => {
         const { positionId, positionsWatched } = this.props;
         const positionData = positionsWatched
             .find((positionWatched) => positionWatched.positionId === positionId);
-        return positionData.subscriptionLevel;
+        return positionData.notificationLevel;
     }
 
     render() {
-        const currentSubscriptionLevel = this.retrieveSubscriptionLevel();
+        const currentPositionwatchLevel = this.retrievePositionWatchLevel();
         return (
             <div className="position_watch_edit_widget">
                 <div className="position_watch_edit_widget__select_wrapper">
@@ -40,8 +40,8 @@ export class PositionWatchEditWidget extends React.Component {
                     <div className="position_watch_edit_widget__select">
                         <select
                             className="select"
-                            value={currentSubscriptionLevel}
-                            onChange={this.handleSetSubscriptionLevel}
+                            value={currentPositionwatchLevel}
+                            onChange={this.handleSetPositionWatchLevel}
                         >
                             <option value="ALL">ALL</option>
                             <option value="SOME">SOME</option>
@@ -52,7 +52,7 @@ export class PositionWatchEditWidget extends React.Component {
                 <div className="position_watch_edit_widget__removal">
                     <button
                         className="button"
-                        onClick={this.handleRemoveSubscription}
+                        onClick={this.handleRemovePositionWatch}
                     >
                         Remove Watch
                     </button>
@@ -71,8 +71,8 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearPosition: () => dispatch(startClearPosition()),
-    startRemoveSubscription: (positionId) => dispatch(startRemoveSubscription(positionId)),
-    startSetSubscriptionLevel: (positionId, subscriptionLevel) => dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel)),
+    startRemovePositionWatch: (positionId) => dispatch(startRemovePositionWatch(positionId)),
+    startSetPositionWatchLevel: (positionId, notificationLevel) => dispatch(startSetPositionWatchLevel(positionId, notificationLevel)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchEditWidget);
@@ -81,6 +81,6 @@ PositionWatchEditWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
-    startRemoveSubscription: PropTypes.func.isRequired,
-    startSetSubscriptionLevel: PropTypes.func.isRequired,
+    startRemovePositionWatch: PropTypes.func.isRequired,
+    startSetPositionWatchLevel: PropTypes.func.isRequired,
 };

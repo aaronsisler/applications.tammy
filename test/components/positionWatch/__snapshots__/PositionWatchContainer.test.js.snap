@@ -64,8 +64,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               },
               "jobId": "first job id",
               "location": "first location",
+              "notificationLevel": "ALL",
               "positionId": "firstPositionId",
-              "subscriptionLevel": "ALL",
               "title": "first title",
             },
             Object {
@@ -82,8 +82,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               },
               "jobId": "second job id",
               "location": "second location",
+              "notificationLevel": "REQUIRED",
               "positionId": "secondPositionId",
-              "subscriptionLevel": "REQUIRED",
               "title": "second title",
             },
           ]
@@ -133,8 +133,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               },
               "jobId": "first job id",
               "location": "first location",
+              "notificationLevel": "ALL",
               "positionId": "firstPositionId",
-              "subscriptionLevel": "ALL",
               "title": "first title",
             },
             Object {
@@ -151,8 +151,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               },
               "jobId": "second job id",
               "location": "second location",
+              "notificationLevel": "REQUIRED",
               "positionId": "secondPositionId",
-              "subscriptionLevel": "REQUIRED",
               "title": "second title",
             },
             Object {
@@ -169,8 +169,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               },
               "jobId": "first job id",
               "location": "first location",
+              "notificationLevel": "REQUIRED",
               "positionId": "mockNewPositionId",
-              "subscriptionLevel": "REQUIRED",
               "title": "first title",
             },
           ]

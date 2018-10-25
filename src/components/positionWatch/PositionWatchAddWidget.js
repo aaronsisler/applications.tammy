@@ -2,29 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-    startAddSubscription,
-    startRemoveSubscription,
-    startSetSubscriptionLevel
+    startAddPositionWatch,
+    startRemovePositionWatch,
+    startSetPositionWatchLevel
 } from 'Actions/positionsWatched';
 
 export class PositionWatchAddWidget extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            subscriptionLevel: 'NONE',
+            notificationLevel: 'NONE',
         }
     }
 
-    handleSetSubscriptionLevel = (e) => {
-        const subscriptionLevel = e.target.value;
-        if (this.state.subscriptionLevel === 'NONE') {
-            this.props.startAddSubscription(this.props.positionId, subscriptionLevel);
-        } else if (subscriptionLevel === 'NONE') {
-            this.props.startRemoveSubscription(this.props.positionId);
+    handleSetPositionWatchLevel = (e) => {
+        const notificationLevel = e.target.value;
+        if (this.state.notificationLevel === 'NONE') {
+            this.props.startAddPositionWatch(this.props.positionId, notificationLevel);
+        } else if (notificationLevel === 'NONE') {
+            this.props.startRemovePositionWatch(this.props.positionId);
         } else {
-            this.props.startSetSubscriptionLevel(this.props.positionId, subscriptionLevel);
+            this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel);
         }
-        return this.setState(() => ({ subscriptionLevel }));
+        return this.setState(() => ({ notificationLevel }));
     }
 
     render() {
@@ -37,8 +37,8 @@ export class PositionWatchAddWidget extends React.Component {
                     <div className="position_watch_add_widget__select">
                         <select
                             className="select"
-                            value={this.state.subscriptionLevel}
-                            onChange={this.handleSetSubscriptionLevel}
+                            value={this.state.notificationLevel}
+                            onChange={this.handleSetPositionWatchLevel}
                         >
                             <option value='ALL'>ALL</option>
                             <option value='SOME'>SOME</option>
@@ -59,16 +59,16 @@ const mapStateToProps = (state) => ({
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startAddSubscription: (positionId, subscriptionLevel) => dispatch(startAddSubscription(positionId, subscriptionLevel)),
-    startRemoveSubscription: (positionId) => dispatch(startRemoveSubscription(positionId)),
-    startSetSubscriptionLevel: (positionId, subscriptionLevel) => dispatch(startSetSubscriptionLevel(positionId, subscriptionLevel)),
+    startAddPositionWatch: (positionId, notificationLevel) => dispatch(startAddPositionWatch(positionId, notificationLevel)),
+    startRemovePositionWatch: (positionId) => dispatch(startRemovePositionWatch(positionId)),
+    startSetPositionWatchLevel: (positionId, notificationLevel) => dispatch(startSetPositionWatchLevel(positionId, notificationLevel)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddWidget);
 
 PositionWatchAddWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
-    startAddSubscription: PropTypes.func.isRequired,
-    startRemoveSubscription: PropTypes.func.isRequired,
-    startSetSubscriptionLevel: PropTypes.func.isRequired,
+    startAddPositionWatch: PropTypes.func.isRequired,
+    startRemovePositionWatch: PropTypes.func.isRequired,
+    startSetPositionWatchLevel: PropTypes.func.isRequired,
 };

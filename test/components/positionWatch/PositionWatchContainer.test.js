@@ -32,7 +32,7 @@ describe('PositionsWatchContainer', () => {
     });
 
     it('should render PositionsWatchContainer correctly when positions watched is not in positions list', () => {
-        const newPositionWatched = { ...position, positionId: 'mockNewPositionId', subscriptionLevel: 'REQUIRED' };
+        const newPositionWatched = { ...position, positionId: 'mockNewPositionId', notificationLevel: 'REQUIRED' };
         buildWrapper([...positionsWatchedStore, newPositionWatched]);
 
         expect(wrapper).toMatchSnapshot();
