@@ -1,7 +1,8 @@
 import {
     decrementCurrentStep,
     incrementCurrentStep,
-    resetCurrentStep
+    resetApplicationProcess,
+    setPositionId,
 } from 'Actions/helpers/applicationProcess';
 
 export const startDecrementCurrentStep = () => (dispatch) =>
@@ -10,5 +11,10 @@ export const startDecrementCurrentStep = () => (dispatch) =>
 export const startIncrementCurrentStep = () => (dispatch) =>
     dispatch(incrementCurrentStep());
 
-export const startResetCurrentStep = () => (dispatch) =>
-    dispatch(resetCurrentStep());
+export const startResetApplicationProcess = () => (dispatch) =>
+    dispatch(resetApplicationProcess());
+
+export const startSetPositionId = () => (dispatch, getState) => {
+    const { positionId } = getState().position;
+    return dispatch(setPositionId(positionId));
+}

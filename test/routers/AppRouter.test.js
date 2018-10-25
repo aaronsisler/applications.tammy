@@ -8,6 +8,7 @@ import LoggedOutPage from 'Core/LoggedOutPage';
 import LoginPage from 'Core/LoginPage';
 import NotFoundPage from 'Core/NotFoundPage';
 import PositionsPage from 'Position/PositionsPage';
+import PositionsWatchAddPage from 'PositionWatch/PositionsWatchAddPage';
 import UserDocumentsPage from 'User/UserDocumentsPage';
 import UserProfilePage from 'User/UserProfilePage';
 
@@ -90,6 +91,11 @@ describe('AppRouter', () => {
 
         it('should render PositionsPage when at the root route', () => {
             const matchFound = queryRouteComponents('/', PositionsPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render PositionsWatchAddPage when at the /position_watch_add route', () => {
+            const matchFound = queryRouteComponents('/position_watch_add', PositionsWatchAddPage);
             expect(matchFound).toBe(true);
         });
 

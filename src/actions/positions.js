@@ -11,5 +11,5 @@ export const startSetPositions = () => (dispatch) =>
             });
         });
 
-        dispatch(setPositions(positions));
+        return dispatch(setPositions(positions));
     });

@@ -29,6 +29,10 @@
 @import './components/position/PositionsContainer';
 @import './components/position/PositionsList';
 @import './components/position/PositionsListItem';
+//PositionWatch
+@import './components/positionWatch/PositionsWatchContainer';
+@import './components/positionWatch/PositionWatchAddWidget';
+@import './components/positionWatch/PositionWatchEditWidget';
 //Shared
 //User Documents
 @import './components/shared/userDocuments/UserDocumentsContainer';

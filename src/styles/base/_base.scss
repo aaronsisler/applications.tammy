@@ -32,6 +32,10 @@
         color: white;
         font-size: $medium;
         padding: $small $medium;
+        &:hover {
+            background: $secColor;
+            transition: background .3s ease-in-out;
+        }
     }
     .button:disabled {
         opacity: 0.5;
@@ -57,7 +61,12 @@
         font-size: $medium;
         margin: $small;
         padding: $small;
+        text-align: center;
         text-decoration: none;
+        &:hover {
+            background: $secColor;
+            transition: background .3s ease-in-out;
+        }
     }
 }
 

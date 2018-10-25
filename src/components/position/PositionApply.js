@@ -3,20 +3,30 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { startLogin } from 'Actions/auth';
+import { startSetPositionId } from 'Actions/applicationProcess';
 
 export class PositionApply extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    handleLogin = () => this.props.startLogin('apply');
+    handleLogin = async () => {
+        await this.props.startSetPositionId();
+        this.props.startLogin('apply');
+    }
 
     render() {
         return (
             <div className="position_apply">
                 {this.props.isAuthenticated &&
                     <div className="position_apply_content__apply">
-                        <Link className="nav_link" to="apply">Apply Now</Link>
+                        <Link
+                            className="nav_link"
+                            onClick={this.props.startSetPositionId}
+                            to="apply"
+                        >
+                            Apply Now
+                        </Link>
                     </div>
                 }
                 {!this.props.isAuthenticated &&
@@ -36,12 +46,13 @@ export class PositionApply extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    isAuthenticated: !!state.user
+    isAuthenticated: !!state.user,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
-    startLogin: (redirectUrl) => dispatch(startLogin(redirectUrl))
+    startLogin: (redirectUrl) => dispatch(startLogin(redirectUrl)),
+    startSetPositionId: () => dispatch(startSetPositionId()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);
@@ -49,5 +60,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);
 PositionApply.propTypes = {
     isAuthenticated: PropTypes.bool,
     startLogin: PropTypes.func.isRequired,
+    startSetPositionId: PropTypes.func.isRequired,
 };
 

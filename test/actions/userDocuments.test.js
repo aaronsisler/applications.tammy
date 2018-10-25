@@ -9,18 +9,20 @@ import { defaultAuthState } from '../fixtures/auth';
 const createMockStore = configureMockStore([thunk]);
 
 describe('User Documents Actions', () => {
+    let store;
+    let once;
+    let push;
     const { uid: mockUserId } = defaultAuthState.auth;
     const userDocumentsMock = [];
     userDocuments.forEach((userDocument) => {
         const val = () => ({ ...userDocument });
         userDocumentsMock.push({ key: userDocument.userDocumentId, val })
     });
-    let store;
 
     beforeEach(() => {
         store = createMockStore(defaultAuthState);
-        const once = jest.fn().mockResolvedValue(userDocumentsMock);
-        const push = jest.fn().mockResolvedValue(userDocumentsMock[0]);
+        once = jest.fn().mockResolvedValue(userDocumentsMock);
+        push = jest.fn().mockResolvedValue(userDocumentsMock[0]);
         jest.spyOn(database, 'ref').mockReturnValue({ once, push });
     });
 
@@ -42,6 +44,12 @@ describe('User Documents Actions', () => {
             await store.dispatch(startSetUserDocuments());
 
             expect(database.ref).toHaveBeenLastCalledWith(`user_documents/${mockUserId}`)
+        });
+
+        it(`should call once with value`, async () => {
+            await store.dispatch(startSetUserDocuments());
+
+            expect(once).toHaveBeenLastCalledWith('value');
         });
     });
 
@@ -66,6 +74,13 @@ describe('User Documents Actions', () => {
             await store.dispatch(startAddUserDocument(userDocument));
 
             expect(database.ref).toHaveBeenLastCalledWith(`user_documents/${mockUserId}`)
+        });
+
+        it(`should call push with uploaded document`, async () => {
+            const { documentName, downloadUrl } = userDocument;
+            await store.dispatch(startAddUserDocument(userDocument));
+
+            expect(push).toHaveBeenLastCalledWith({ documentName, downloadUrl, dateUploaded: expect.any(String), });
         });
     });
 });

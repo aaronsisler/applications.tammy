@@ -9,6 +9,7 @@ exports[`PositionApply when user is Authenticated should render correctly 1`] = 
   >
     <Link
       className="nav_link"
+      onClick={[MockFunction]}
       replace={false}
       to="apply"
     >

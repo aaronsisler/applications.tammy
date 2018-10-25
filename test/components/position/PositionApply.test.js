@@ -4,6 +4,7 @@ import { PositionApply } from 'Position/PositionApply';
 
 describe('PositionApply', () => {
     const startLogin = jest.fn();
+    const startSetPositionId = jest.fn();
     let wrapper;
 
     const buildWrapper = (isAuthenticated = true) => {
@@ -11,6 +12,7 @@ describe('PositionApply', () => {
             <PositionApply
                 isAuthenticated={isAuthenticated}
                 startLogin={startLogin}
+                startSetPositionId={startSetPositionId}
             />
         );
     };
@@ -23,6 +25,12 @@ describe('PositionApply', () => {
         it('should render correctly', () => {
             expect(wrapper).toMatchSnapshot();
         });
+
+        it('it should call startSetPositionId when the Apply link is clicked', () => {
+            wrapper.find('.nav_link').simulate('click');
+
+            expect(startSetPositionId).toHaveBeenCalled();
+        });
     });
 
     describe('when user is NOT Authenticated', () => {
@@ -34,10 +42,22 @@ describe('PositionApply', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('should call startLogin with apply redirectUrl', () => {
-            wrapper.find('.button').simulate('click');
+        describe('when Login button is clicked', () => {
+            beforeEach(() => {
+                wrapper.find('.button').simulate('click');
+            });
 
-            expect(startLogin).toHaveBeenLastCalledWith('apply');
+            it('should call startSetPositionId', () => {
+                expect(startSetPositionId).toHaveBeenCalled();
+            });
+
+            it('should call startLogin with apply redirectUrl', () => {
+                expect(startLogin).toHaveBeenLastCalledWith('apply');
+            });
+
+            it('should call startSetPositionId before startLogin', () => {
+                expect(startSetPositionId).toHaveBeenCalledBefore(startLogin);
+            });
         });
     });
 });

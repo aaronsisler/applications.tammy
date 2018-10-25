@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../tools/history';
 import { startClearApplication } from 'Actions/application';
-import { startResetCurrentStep } from 'Actions/applicationProcess';
+import { startResetApplicationProcess } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
 import ApplicationUserDocumentsContainer from './ApplicationUserDocumentsContainer';
@@ -13,19 +13,20 @@ import ApplicationSubmissionContainer from './ApplicationSubmissionContainer';
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
         super(props);
-
-        if (!props.position) {
+        if (!this.props.positionId) {
             return history.push('/');
         }
+    }
 
-        this.state = {
-            position: props.position,
+    componentDidUpdate() {
+        if (!this.props.positionId) {
+            return history.push('/');
         }
     }
 
     componentWillUnmount() {
         this.props.startClearApplication();
-        this.props.startResetCurrentStep();
+        this.props.startResetApplicationProcess();
     }
 
     render() {
@@ -47,20 +48,20 @@ export class ApplicationProcessContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
     currentStep: state.applicationProcess.currentStep,
-    position: state.position,
+    positionId: state.applicationProcess.positionId,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startClearApplication: () => dispatch(startClearApplication()),
-    startResetCurrentStep: () => dispatch(startResetCurrentStep()),
+    startResetApplicationProcess: () => dispatch(startResetApplicationProcess()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
     currentStep: PropTypes.number,
-    position: PropTypes.object,
+    positionId: PropTypes.string,
     startClearApplication: PropTypes.func.isRequired,
-    startResetCurrentStep: PropTypes.func.isRequired,
+    startResetApplicationProcess: PropTypes.func.isRequired,
 };

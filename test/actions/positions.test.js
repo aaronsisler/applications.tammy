@@ -8,6 +8,8 @@ import positions from '../fixtures/positions';
 const createMockStore = configureMockStore([thunk]);
 
 describe('Positions Actions', () => {
+    const store = createMockStore();
+    let once;
     const positionsMock = [];
     positions.forEach((position) => {
         const val = () => ({ ...position });
@@ -15,8 +17,7 @@ describe('Positions Actions', () => {
     });
 
     beforeEach(() => {
-        const once = jest.fn();
-        once.mockResolvedValue(positionsMock);
+        once = jest.fn().mockResolvedValue(positionsMock);
         jest.spyOn(database, 'ref').mockReturnValue({ once });
     });
 
@@ -27,12 +28,17 @@ describe('Positions Actions', () => {
     describe('startSetPositions() method', () => {
         it(`should call dispatch with setPositions`, async () => {
             const setPositionsMock = jest.spyOn(positionsActionHelpers, 'setPositions');
-            const store = createMockStore();
 
             await store.dispatch(startSetPositions());
 
             expect(store.getActions().length).toBe(1);
             expect(setPositionsMock).toHaveBeenCalledWith(positions);
+        });
+
+        it(`should call once with value`, async () => {
+            await store.dispatch(startSetPositions());
+
+            expect(once).toHaveBeenLastCalledWith('value');
         });
     });
 });

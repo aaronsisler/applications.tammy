@@ -8,6 +8,7 @@ const steps = [
 const applicationProcessReducerDefaultState = {
     currentStep: 0,
     maxSteps: steps.length,
+    positionId: null,
     steps
 };
 
@@ -20,8 +21,10 @@ const applicationProcessReducer = (state = applicationProcessReducerDefaultState
                 return { ...state };
             }
             return { ...state, currentStep: state.currentStep - 1 }
-        case 'RESET_CURRENT_STEP':
-            return { ...state, currentStep: 0 };
+        case 'RESET_APPLICATION_PROCESS':
+            return { ...state, currentStep: 0, positionId: null };
+        case 'SET_POSITION_ID':
+            return { ...state, positionId: action.positionId }
         default:
             return state;
     }
