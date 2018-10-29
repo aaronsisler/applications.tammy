@@ -6,7 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/fontawesome-free-solid'
 import { startLogout } from 'Actions/auth';
 import { startClearUser } from 'Actions/user';
-import NotificationContainer from 'Notification/NotificationContainer';
+import NotificationsContainer from 'Notification/NotificationsContainer';
 
 const bodyOpenClassName = 'body_open';
 const navSideMenuOpenClassName = 'nav_side_menu_open';
@@ -46,7 +46,7 @@ export class Navbar extends React.Component {
         return (
             <div id="navbar">
                 <div className="nav_toggles">
-                    <NotificationContainer />
+                    {this.props.isAuthenticated && <NotificationsContainer />}
                     {
                         !this.state.isNavOpen &&
                         <FontAwesomeIcon

@@ -5,25 +5,23 @@ import { faEnvelope } from '@fortawesome/fontawesome-free-solid'
 import NotificationBadge from 'react-notification-badge';
 import { Effect } from 'react-notification-badge';
 
-export default class NotificationIcon extends React.Component {
+export default class NotificationsIcon extends React.Component {
     constructor(props) {
         super(props);
         this.style = {
             backgroundColor: '#ffc107',
-            bottom: '-5px',
+            bottom: '-1rem',
             color: 'black',
             fontSize: '1.6rem',
             left: '-10px',
             right: '',
             top: '',
         }
-
-        this.state = { count: 1 }
     }
 
     render() {
         return (
-            <div id="notification_icon">
+            <div id="notifications_icon">
                 <NotificationBadge
                     count={this.props.unreadNotificationsCount}
                     effect={Effect.SCALE}
@@ -39,6 +37,6 @@ export default class NotificationIcon extends React.Component {
     }
 }
 
-NotificationIcon.propTypes = {
+NotificationsIcon.propTypes = {
     unreadNotificationsCount: PropTypes.number.isRequired,
 };

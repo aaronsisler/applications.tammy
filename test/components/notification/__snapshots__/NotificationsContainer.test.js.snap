@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsContainer when list is currently toggled closed should render NotificationsContainer correctly 1`] = `
+<div>
+  <div
+    id="notifications_container"
+  >
+    <div
+      className="notifications_container__wrapper"
+      onClick={[Function]}
+    >
+      <NotificationsIcon
+        unreadNotificationsCount={1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NotificationsContainer when list is currently toggled open should render NotificationsContainer correctly 1`] = `
+<div>
+  <div
+    id="notifications_container"
+  >
+    <div
+      className="notifications_container__wrapper"
+      onClick={[Function]}
+    >
+      <NotificationsIcon
+        unreadNotificationsCount={1}
+      />
+    </div>
+  </div>
+</div>
+`;

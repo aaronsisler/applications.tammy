@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsList should render NotificationsList correctly when no notifications are available 1`] = `
+<div
+  className="empty"
+  id="notifications_list"
+>
+  No available items
+</div>
+`;
+
+exports[`NotificationsList should render NotificationsList correctly when notifications are available 1`] = `
+<div
+  id="notifications_list"
+>
+  <div
+    className="notifications_list__header"
+  >
+    <div
+      className="notifications_list__title"
+    >
+      Notifications
+    </div>
+    <div
+      className="notifications_list__action"
+    >
+      <button
+        className="button"
+      >
+        Mark all as Read
+      </button>
+    </div>
+  </div>
+  <div
+    className="notifications_list__content"
+  >
+    <Connect(NotificationsListItem)
+      hasBeenViewed={false}
+      key="firstNotificationId"
+      notificationId="firstNotificationId"
+      notificationMessage="First Notification"
+    />
+    <Connect(NotificationsListItem)
+      hasBeenViewed={true}
+      key="secondNotificationId"
+      notificationId="secondNotificationId"
+      notificationMessage="Second Notification"
+    />
+  </div>
+</div>
+`;

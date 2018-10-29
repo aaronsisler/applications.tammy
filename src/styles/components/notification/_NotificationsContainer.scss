@@ -1,7 +1,13 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #notification_icon {
+    #notifications_container {
+        display: flex;
+        flex-flow: column;
+        margin-right: $small;
+    }
+    .notifications_container__wrapper {
+        cursor: pointer;
         display: flex;
     }
 }

@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startAddNotification, startStreamNotifications } from 'Actions/notifications';
-import NotificationIcon from './NotificationIcon';
+import { startStreamNotifications } from 'Actions/notifications';
+import NotificationsIcon from 'Notification/NotificationsIcon';
+import NotificationsList from 'Notification/NotificationsList';
 
-export class NotificationContainer extends React.Component {
+export class NotificationsContainer extends React.Component {
     constructor(props) {
         super(props);
         this.props.startStreamNotifications();
+        this.state = {
+            isListToggledOpen: false
+        }
     }
 
     handleCountUnreadNotifications = () => {
@@ -17,16 +21,21 @@ export class NotificationContainer extends React.Component {
         return unreadNotificationsCount;
     }
 
+    handleToggleNotificationsList = () => this.setState((prevState) => ({
+        isListToggledOpen: !prevState.isListToggledOpen,
+    }))
+
     render() {
         const unreadNotificationsCount = this.handleCountUnreadNotifications();
         return (
-            <div>
-                <div>
-                    <button className="button" onClick={this.props.startAddNotification}>Click to Add</button>
+            <div id="notifications_container">
+                <div
+                    className="notifications_container__wrapper"
+                    onClick={this.handleToggleNotificationsList}
+                >
+                    <NotificationsIcon unreadNotificationsCount={unreadNotificationsCount} />
                 </div>
-                <div id="notification_container">
-                    <NotificationIcon unreadNotificationsCount={unreadNotificationsCount} />
-                </div>
+                {this.state.isListToggledOpen && <NotificationsList notifications={this.props.notifications} />}
             </div>
         )
     }
@@ -39,14 +48,12 @@ const mapStateToProps = (state) => ({
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startAddNotification: () => dispatch(startAddNotification()),
     startStreamNotifications: () => dispatch(startStreamNotifications()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotificationContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationsContainer);
 
-NotificationContainer.propTypes = {
+NotificationsContainer.propTypes = {
     notifications: PropTypes.array,
-    startAddNotification: PropTypes.func.isRequired,
     startStreamNotifications: PropTypes.func.isRequired,
 };

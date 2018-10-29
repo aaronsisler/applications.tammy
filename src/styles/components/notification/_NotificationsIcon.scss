@@ -1,10 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #notification_container {
+    #notifications_icon {
         display: flex;
         flex-flow: row;
-        margin-right: $small;
+        justify-content: flex-end;
     }
 }
 
