@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsListItem should render NotificationsIcon correctly 1`] = `
+<div
+  className="notifications_list_item"
+>
+  <div
+    className="notifications_list_item__message"
+  >
+    I am a notification message
+  </div>
+</div>
+`;

@@ -16,6 +16,7 @@ describe('ConfigureStore', () => {
                     text: '',
                 },
             },
+            notifications: [],
             position: null,
             positions: [],
             positionsWatched: [],

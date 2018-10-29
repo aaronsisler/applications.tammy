@@ -5,7 +5,7 @@
         background-color: $mainColor;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding: $small;
     }
     .navbar_favicon {
@@ -21,7 +21,7 @@
         height: 100%;
         padding: $large 0;
         position: fixed;
-        left: -$navMenuWidth;
+        right: -$navMenuWidth;
         top: 0;
         transition: all 0.3s ease;
         width: $navMenuWidth;
@@ -48,10 +48,10 @@
         }
     }
     #nav_side_menu.nav_side_menu_open {
-        left: 0;
+        right: 0;
     }
     .body_open {
-        left: $navMenuWidth;
+        left: -$navMenuWidth;
     }
 }
 

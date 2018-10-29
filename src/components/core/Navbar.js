@@ -6,6 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/fontawesome-free-solid'
 import { startLogout } from 'Actions/auth';
 import { startClearUser } from 'Actions/user';
+import NotificationsContainer from 'Notification/NotificationsContainer';
 
 const bodyOpenClassName = 'body_open';
 const navSideMenuOpenClassName = 'nav_side_menu_open';
@@ -45,6 +46,7 @@ export class Navbar extends React.Component {
         return (
             <div id="navbar">
                 <div className="nav_toggles">
+                    {this.props.isAuthenticated && <NotificationsContainer />}
                     {
                         !this.state.isNavOpen &&
                         <FontAwesomeIcon
@@ -84,16 +86,16 @@ export class Navbar extends React.Component {
     }
 }
 
-Navbar.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
-    startClearUser: PropTypes.func.isRequired,
-    startLogout: PropTypes.func.isRequired,
-};
-
 /* istanbul ignore next */
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     startClearUser: () => dispatch(startClearUser()),
     startLogout: () => dispatch(startLogout()),
 })
 
 export default connect(undefined, mapDispatchToProps)(Navbar);
+
+Navbar.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
+    startClearUser: PropTypes.func.isRequired,
+    startLogout: PropTypes.func.isRequired,
+};

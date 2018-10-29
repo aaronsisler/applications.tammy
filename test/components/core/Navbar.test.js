@@ -47,7 +47,7 @@ describe('Navbar', () => {
             it('should show if isNavOpen is TRUE', () => {
                 wrapper.setState({ isNavOpen: true });
                 expect(wrapper.state('isNavOpen')).toBe(true);
-                expect(wrapper.find('.nav_toggles').children().prop('icon').iconName).toBe('times');
+                expect(wrapper.find('.navbar_favicon').prop('icon').iconName).toBe('times');
             });
 
             it('should call handleCloseSideMenu when clicked', () => {
@@ -61,7 +61,7 @@ describe('Navbar', () => {
         describe('bars icon', () => {
             it('should show if isNavOpen is FALSE', () => {
                 expect(wrapper.state('isNavOpen')).toBe(false);
-                expect(wrapper.find('.nav_toggles').children().prop('icon').iconName).toBe('bars');
+                expect(wrapper.find('.navbar_favicon').prop('icon').iconName).toBe('bars');
             });
 
             xit('should call handleOpenSideMenu when clicked', () => {

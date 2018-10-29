@@ -22,6 +22,11 @@
 @import './components/core/LoggedOutPage';
 @import './components/core/LoginPage';
 @import './components/core/Navbar';
+//Notification
+@import './components/notification/NotificationsContainer';
+@import './components/notification/NotificationsIcon';
+@import './components/notification/NotificationsList';
+@import './components/notification/NotificationsListItem';
 //Position
 @import './components/position/PositionApply';
 @import './components/position/PositionDetails';

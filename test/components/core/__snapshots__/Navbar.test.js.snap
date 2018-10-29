@@ -68,6 +68,7 @@ exports[`Navbar when user is authenticated should render Navbar correctly 1`] = 
   <div
     className="nav_toggles"
   >
+    <Connect(NotificationsContainer) />
     <FontAwesomeIcon$1
       border={false}
       className="navbar_favicon"
