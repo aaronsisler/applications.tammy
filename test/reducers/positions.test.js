@@ -15,7 +15,7 @@ describe('positions reducer', () => {
         expect(state).toEqual(defaultState);
     });
 
-    it('should set the position', () => {
+    it('should set the positions', () => {
         const action = setPositions(positions);
 
         const state = positionsReducer(undefined, action);

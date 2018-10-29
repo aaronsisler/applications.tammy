@@ -40,5 +40,11 @@ describe('Positions Actions', () => {
 
             expect(once).toHaveBeenLastCalledWith('value');
         });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startSetPositions());
+
+            expect(database.ref).toHaveBeenLastCalledWith(`positions`);
+        });
     });
 });

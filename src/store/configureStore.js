@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import applicationReducer from 'Reducers/application';
 import applicationProcessReducer from 'Reducers/applicationProcess';
 import authReducer from 'Reducers/auth';
+import notificationsReducer from 'Reducers/notifications';
 import positionsFilterReducer from 'Reducers/filters/positions';
 import positionReducer from 'Reducers/position';
 import positionsReducer from 'Reducers/positions';
@@ -21,6 +22,7 @@ export default () => {
             filters: combineReducers({
                 positions: positionsFilterReducer,
             }),
+            notifications: notificationsReducer,
             position: positionReducer,
             positions: positionsReducer,
             positionsWatched: positionsWatchedReducer,
