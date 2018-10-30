@@ -43,6 +43,7 @@
         text-decoration: none;
         text-transform: uppercase;
         &:hover {
+            background: none;
             border-bottom: 1px solid white;
             transition: border-bottom .3s ease-in-out;
         }

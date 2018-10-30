@@ -1,30 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-    startAddPositionWatch,
-    startRemovePositionWatch,
-    startSetPositionWatchLevel
-} from 'Actions/positionsWatched';
+import { startAddPositionWatch } from 'Actions/positionsWatched';
+import { startClearPosition } from 'Actions/position';
 
 export class PositionWatchAddWidget extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            notificationLevel: 'NONE',
-        }
     }
 
-    handleSetPositionWatchLevel = (e) => {
+    handleSetPositionWatchLevel = async (e) => {
         const notificationLevel = e.target.value;
-        if (this.state.notificationLevel === 'NONE') {
-            this.props.startAddPositionWatch(this.props.positionId, notificationLevel);
-        } else if (notificationLevel === 'NONE') {
-            this.props.startRemovePositionWatch(this.props.positionId);
-        } else {
-            this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel);
-        }
-        return this.setState(() => ({ notificationLevel }));
+        await this.props.startAddPositionWatch(this.props.positionId, notificationLevel);
+        return this.props.startClearPosition();
     }
 
     render() {
@@ -37,7 +25,7 @@ export class PositionWatchAddWidget extends React.Component {
                     <div className="position_watch_add_widget__select">
                         <select
                             className="select"
-                            value={this.state.notificationLevel}
+                            value="NONE"
                             onChange={this.handleSetPositionWatchLevel}
                         >
                             <option value='ALL'>ALL</option>
@@ -60,8 +48,7 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startAddPositionWatch: (positionId, notificationLevel) => dispatch(startAddPositionWatch(positionId, notificationLevel)),
-    startRemovePositionWatch: (positionId) => dispatch(startRemovePositionWatch(positionId)),
-    startSetPositionWatchLevel: (positionId, notificationLevel) => dispatch(startSetPositionWatchLevel(positionId, notificationLevel)),
+    startClearPosition: () => dispatch(startClearPosition()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddWidget);
@@ -69,6 +56,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchAddWidg
 PositionWatchAddWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     startAddPositionWatch: PropTypes.func.isRequired,
-    startRemovePositionWatch: PropTypes.func.isRequired,
-    startSetPositionWatchLevel: PropTypes.func.isRequired,
+    startClearPosition: PropTypes.func.isRequired,
 };
