@@ -41,6 +41,15 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
           first location
         </div>
       </div>
+      <div>
+        <Link
+          className="nav_link"
+          replace={false}
+          to="/applicants"
+        >
+          View Applicants
+        </Link>
+      </div>
     </div>
     <Connect(PositionWatchEditWidget) />
     <PositionDetailsContent

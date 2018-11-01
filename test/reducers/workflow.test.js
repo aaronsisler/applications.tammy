@@ -1,4 +1,4 @@
-import workflowReducer from 'Reducers/position';
+import workflowReducer from 'Reducers/workflow';
 import {
     clearWorkflowPosition,
     setWorkflowPosition,
