@@ -8,6 +8,7 @@ describe('ConfigureStore', () => {
 
     it('should create the default state', () => {
         const defaultState = {
+            applicants: [],
             application: { user: {}, userDocuments: [] },
             applicationProcess: { currentStep: 0, maxSteps: 4, positionId: null, steps },
             auth: {},
@@ -22,6 +23,7 @@ describe('ConfigureStore', () => {
             positionsWatched: [],
             user: null,
             userDocuments: [],
+            workflow: { position: null },
         };
         const store = configureStore();
 

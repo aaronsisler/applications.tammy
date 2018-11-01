@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { AppRouter } from '../../src/routers/AppRouter';
 
+import ApplicantsPage from 'Applicant/ApplicantsPage';
 import ApplicationPage from 'Application/ApplicationPage';
 import DashboardPage from 'Core/DashboardPage';
 import LoggedOutPage from 'Core/LoggedOutPage';
@@ -62,6 +63,11 @@ describe('AppRouter', () => {
     describe('Route Navigation', () => {
         beforeEach(() => {
             routes = wrapper.find('Route');
+        });
+
+        it('should render ApplicantsPage when at the /applicants route', () => {
+            const matchFound = queryRouteComponents('/applicants', ApplicantsPage);
+            expect(matchFound).toBe(true);
         });
 
         it('should render ApplicationPage when at the /apply route', () => {

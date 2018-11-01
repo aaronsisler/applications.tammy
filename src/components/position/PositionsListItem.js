@@ -33,7 +33,7 @@ export class PositionsListItem extends React.Component {
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startSetPosition: (positionId) => dispatch(startSetPosition(positionId))
+    startSetPosition: (positionId) => dispatch(startSetPosition(positionId)),
 });
 
 export default connect(undefined, mapDispatchToProps)(PositionsListItem);

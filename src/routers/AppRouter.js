@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Navbar from 'Core/Navbar';
 import Footer from 'Core/Footer';
 
+import ApplicantsPage from 'Applicant/ApplicantsPage';
 import ApplicationPage from 'Application/ApplicationPage';
 import DashboardPage from 'Core/DashboardPage';
 import LoggedOutPage from 'Core/LoggedOutPage';
@@ -24,6 +25,7 @@ export const AppRouter = (props) => (
             <Navbar isAuthenticated={props.isAuthenticated} />
             <Switch>
                 <Route path='/' component={PositionsPage} exact={true} />
+                <Route path="/applicants" component={ApplicantsPage} exact={true} />
                 <Route path="/apply" component={ApplicationPage} exact={true} />
                 <Route path='/dashboard' component={DashboardPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />

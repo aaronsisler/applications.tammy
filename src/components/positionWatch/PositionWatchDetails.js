@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
@@ -33,6 +33,14 @@ export class PositionWatchDetails extends React.Component {
                                     Location: {position.location}
                                 </div>
                             </div>
+                            <div>
+                                <Link
+                                    className="nav_link"
+                                    to="/applicants"
+                                >
+                                    View Applicants
+                                </Link>
+                            </div>
                         </div>
                         <PositionWatchEditWidget />
                         <PositionDetailsContent position={position} />
@@ -53,14 +61,3 @@ export default connect(mapStateToProps)(PositionWatchDetails);
 PositionWatchDetails.propTypes = {
     position: PropTypes.object,
 };
-
-/*
-<div>
-                                <Link
-                                    className="nav_link"
-                                    to="/applicants"
-                                    onClick={this.handleSetPosition}>
-                                    View Applicants
-                                </Link>
-                            </div>
-                            */
