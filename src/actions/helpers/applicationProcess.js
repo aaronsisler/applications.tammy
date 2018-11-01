@@ -9,8 +9,3 @@ export const incrementCurrentStep = () => ({
 export const resetApplicationProcess = () => ({
     type: 'RESET_APPLICATION_PROCESS'
 });
-
-export const setPositionId = (positionId) => ({
-    type: 'SET_POSITION_ID',
-    positionId,
-})

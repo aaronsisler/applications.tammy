@@ -4,7 +4,6 @@ import {
     startDecrementCurrentStep,
     startIncrementCurrentStep,
     startResetApplicationProcess,
-    startSetPositionId,
 } from 'Actions/applicationProcess';
 import * as applicationProcessActionHelpers from 'Actions/helpers/applicationProcess';
 import positions from '../fixtures/positions';
@@ -49,18 +48,6 @@ describe('Application Process Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(resetApplicationProcessMock).toHaveBeenCalled();
-        });
-    });
-
-    describe('startSetPositionId() method', () => {
-        it(`should call dispatch with setPositionId`, async () => {
-            const { positionId } = position;
-            const setPositionIdMock = jest.spyOn(applicationProcessActionHelpers, 'setPositionId');
-
-            await store.dispatch(startSetPositionId(positionId));
-
-            expect(store.getActions().length).toBe(1);
-            expect(setPositionIdMock).toHaveBeenLastCalledWith(positionId);
         });
     });
 });
