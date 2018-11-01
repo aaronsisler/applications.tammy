@@ -74,7 +74,7 @@ describe('Application Actions', () => {
         const push = jest.fn().mockResolvedValue({});
 
         beforeEach(() => {
-            store = createMockStore({ application: { user, userDocuments }, applicationProcess: { positionId } });
+            store = createMockStore({ application: { user, userDocuments }, workflow: { position } });
             jest.spyOn(database, 'ref').mockReturnValue({ push });
         });
 

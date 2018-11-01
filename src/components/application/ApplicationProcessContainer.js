@@ -48,7 +48,7 @@ export class ApplicationProcessContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
     currentStep: state.applicationProcess.currentStep,
-    positionId: state.applicationProcess.positionId,
+    positionId: state.workflow.position.positionId,
 });
 
 /* istanbul ignore next */

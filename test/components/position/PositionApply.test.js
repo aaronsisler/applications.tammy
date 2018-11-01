@@ -4,7 +4,7 @@ import { PositionApply } from 'Position/PositionApply';
 
 describe('PositionApply', () => {
     const startLogin = jest.fn();
-    const startSetPositionId = jest.fn();
+    const startSetWorkflowPosition = jest.fn();
     let wrapper;
 
     const buildWrapper = (isAuthenticated = true) => {
@@ -12,7 +12,7 @@ describe('PositionApply', () => {
             <PositionApply
                 isAuthenticated={isAuthenticated}
                 startLogin={startLogin}
-                startSetPositionId={startSetPositionId}
+                startSetWorkflowPosition={startSetWorkflowPosition}
             />
         );
     };
@@ -26,10 +26,10 @@ describe('PositionApply', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it('it should call startSetPositionId when the Apply link is clicked', () => {
+        it('it should call startSetWorkflowPosition when the Apply link is clicked', () => {
             wrapper.find('.nav_link').simulate('click');
 
-            expect(startSetPositionId).toHaveBeenCalled();
+            expect(startSetWorkflowPosition).toHaveBeenCalled();
         });
     });
 
@@ -47,16 +47,16 @@ describe('PositionApply', () => {
                 wrapper.find('.button').simulate('click');
             });
 
-            it('should call startSetPositionId', () => {
-                expect(startSetPositionId).toHaveBeenCalled();
+            it('should call startSetWorkflowPosition', () => {
+                expect(startSetWorkflowPosition).toHaveBeenCalled();
             });
 
             it('should call startLogin with apply redirectUrl', () => {
                 expect(startLogin).toHaveBeenLastCalledWith('apply');
             });
 
-            it('should call startSetPositionId before startLogin', () => {
-                expect(startSetPositionId).toHaveBeenCalledBefore(startLogin);
+            it('should call startSetWorkflowPosition before startLogin', () => {
+                expect(startSetWorkflowPosition).toHaveBeenCalledBefore(startLogin);
             });
         });
     });

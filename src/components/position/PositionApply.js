@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { startLogin } from 'Actions/auth';
-import { startSetPositionId } from 'Actions/applicationProcess';
+import { startSetWorkflowPosition } from 'Actions/workflow';
 
 export class PositionApply extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export class PositionApply extends React.Component {
     }
 
     handleLogin = async () => {
-        await this.props.startSetPositionId();
+        await this.props.startSetWorkflowPosition();
         this.props.startLogin('apply');
     }
 
@@ -22,7 +22,7 @@ export class PositionApply extends React.Component {
                     <div className="position_apply_content__apply">
                         <Link
                             className="nav_link"
-                            onClick={this.props.startSetPositionId}
+                            onClick={this.props.startSetWorkflowPosition}
                             to="apply"
                         >
                             Apply Now
@@ -52,7 +52,7 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
     startLogin: (redirectUrl) => dispatch(startLogin(redirectUrl)),
-    startSetPositionId: () => dispatch(startSetPositionId()),
+    startSetWorkflowPosition: () => dispatch(startSetWorkflowPosition()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);
@@ -60,6 +60,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);
 PositionApply.propTypes = {
     isAuthenticated: PropTypes.bool,
     startLogin: PropTypes.func.isRequired,
-    startSetPositionId: PropTypes.func.isRequired,
+    startSetWorkflowPosition: PropTypes.func.isRequired,
 };
 
