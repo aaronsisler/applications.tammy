@@ -34,11 +34,12 @@ exports[`PositionDetails should render PositionDetails correctly when position i
           Job Id: 
           first job id
         </div>
-      </div>
-      <div
-        className="position_details__location"
-      >
-        first location
+        <div
+          className="position_details__location"
+        >
+          Location: 
+          first location
+        </div>
       </div>
     </div>
     <PositionDetailsContent

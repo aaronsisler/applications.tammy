@@ -2,7 +2,7 @@
 
 exports[`PositionWatchDetails should render PositionWatchDetails correctly when position is NOT available 1`] = `
 <div
-  className="position_details"
+  className="position_watch_details"
 >
   <div
     className="empty"
@@ -14,31 +14,32 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
 
 exports[`PositionWatchDetails should render PositionWatchDetails correctly when position is available 1`] = `
 <div
-  className="position_details"
+  className="position_watch_details"
 >
   <div
-    className="position_details_widget"
+    className="position_watch_details_widget"
   >
     <div
-      className="position_details_header"
+      className="position_watch_details_header"
     >
       <div>
         <div
-          className="position_details__title"
+          className="position_watch_details__title"
         >
           first title
         </div>
         <div
-          className="position_details__job_id"
+          className="position_watch_details__job_id"
         >
           Job Id: 
           first job id
         </div>
-      </div>
-      <div
-        className="position_details__location"
-      >
-        first location
+        <div
+          className="position_watch_details__location"
+        >
+          Location: 
+          first location
+        </div>
       </div>
     </div>
     <Connect(PositionWatchEditWidget) />

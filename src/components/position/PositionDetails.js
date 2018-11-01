@@ -27,9 +27,9 @@ export class PositionDetails extends React.Component {
                                 <div className="position_details__job_id">
                                     Job Id: {position.jobId}
                                 </div>
-                            </div>
-                            <div className="position_details__location">
-                                {position.location}
+                                <div className="position_details__location">
+                                    Location: {position.location}
+                                </div>
                             </div>
                         </div>
                         <PositionDetailsContent position={position} />

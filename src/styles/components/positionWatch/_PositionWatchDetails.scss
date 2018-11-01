@@ -1,7 +1,7 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .position_details {
+    .position_watch_details {
         display: flex;
         flex-grow: 1;
         justify-content: space-around;
@@ -11,32 +11,32 @@
             font-size: $midlarge;
         }
     }
-    .position_details_widget {
+    .position_watch_details_widget {
         display: flex;
         flex-flow: column;
         flex-grow: 1;
     }
-    .position_details_header {
+    .position_watch_details_header {
         align-items: center;
         background-color: $midLightGrey;
         border-bottom: 1px solid $midGrey;
         display: flex;
         justify-content: space-between;
-        padding: $small $medium;
+        padding: $small $small $small $medium;
     }
-    .position_details__title {
+    .position_watch_details__title {
         color: $darkGrey;
         font-family: $secondaryFont;
         font-size: $midlarge;
         margin-bottom: $small;
     }
-    .position_details__job_id {
+    .position_watch_details__job_id {
         color: $grey;
         font-family: $secondaryFont;
         font-size: $medium;
         margin-bottom: $xsmall;
     }
-    .position_details__location {
+    .position_watch_details__location {
         color: $grey;
         font-family: $secondaryFont;
         font-size: $medium;

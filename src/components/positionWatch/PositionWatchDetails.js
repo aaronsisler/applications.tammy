@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
@@ -12,25 +13,25 @@ export class PositionWatchDetails extends React.Component {
     render() {
         const { position } = this.props;
         return (
-            <div className="position_details">
+            <div className="position_watch_details">
                 {!position &&
                     <div className="empty">
                         Please select an item to view
                     </div>
                 }
                 {position &&
-                    <div className="position_details_widget">
-                        <div className="position_details_header">
+                    <div className="position_watch_details_widget">
+                        <div className="position_watch_details_header">
                             <div>
-                                <div className="position_details__title">
+                                <div className="position_watch_details__title">
                                     {position.title}
                                 </div>
-                                <div className="position_details__job_id">
+                                <div className="position_watch_details__job_id">
                                     Job Id: {position.jobId}
                                 </div>
-                            </div>
-                            <div className="position_details__location">
-                                {position.location}
+                                <div className="position_watch_details__location">
+                                    Location: {position.location}
+                                </div>
                             </div>
                         </div>
                         <PositionWatchEditWidget />
@@ -53,3 +54,13 @@ PositionWatchDetails.propTypes = {
     position: PropTypes.object,
 };
 
+/*
+<div>
+                                <Link
+                                    className="nav_link"
+                                    to="/applicants"
+                                    onClick={this.handleSetPosition}>
+                                    View Applicants
+                                </Link>
+                            </div>
+                            */
