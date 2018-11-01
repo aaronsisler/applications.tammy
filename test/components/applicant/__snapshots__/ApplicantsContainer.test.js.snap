@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
+<div
+  className="applicants_container"
+>
+  <div
+    className="applicants_widget"
+  >
+    <div
+      className="applicants_list_wrapper"
+    >
+      <ApplicantsList
+        applicants={
+          Array [
+            Object {
+              "applicantId": "firstApplicantId",
+            },
+            Object {
+              "applicantId": "secondApplicantId",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="applicants_details_wrapper"
+    >
+      <Connect(ApplicantDetails) />
+    </div>
+  </div>
+</div>
+`;

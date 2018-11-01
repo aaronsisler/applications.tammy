@@ -15,11 +15,13 @@ describe('PositionsList', () => {
 
     it('should render PositionsList correctly when positions are available', () => {
         buildWrapper(positions);
+
         expect(wrapper).toMatchSnapshot();
     });
 
     it('should render PositionsList correctly when no positions are available', () => {
         buildWrapper();
+
         expect(wrapper).toMatchSnapshot();
     });
 });

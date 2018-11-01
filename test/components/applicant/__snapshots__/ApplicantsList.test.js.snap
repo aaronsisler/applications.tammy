@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantsList should render ApplicantsList correctly when applicants are available 1`] = `
+<div
+  className="applicants_list"
+>
+  <Connect(ApplicantsListItem)
+    applicantId="firstApplicantId"
+    key="firstApplicantId"
+  />
+  <Connect(ApplicantsListItem)
+    applicantId="secondApplicantId"
+    key="secondApplicantId"
+  />
+</div>
+`;
+
+exports[`ApplicantsList should render ApplicantsList correctly when no applicants are available 1`] = `
+<div
+  className="applicants_list empty"
+>
+  No available items
+</div>
+`;

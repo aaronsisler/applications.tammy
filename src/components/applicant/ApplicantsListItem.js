@@ -10,8 +10,8 @@ export class ApplicantsListItem extends React.Component {
     render() {
         return (
             <div className="applicants_list_item">
-                <div className="positions_list_item__content">
-                    <div className="positions_list_item__displayName">
+                <div className="applicants_list_item__content">
+                    <div className="applicants_list_item__displayName">
                         {this.props.displayName}
                     </div>
                 </div>
