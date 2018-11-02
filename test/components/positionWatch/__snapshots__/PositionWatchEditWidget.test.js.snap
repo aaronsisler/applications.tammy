@@ -50,3 +50,29 @@ exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly
   </div>
 </div>
 `;
+
+exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly when positions watched does not contain a matching position id 1`] = `
+<div
+  className="position_watch_edit_widget"
+>
+  <div
+    className="position_watch_edit_widget__select_wrapper"
+  >
+    <div
+      className="position_watch_edit_widget__title"
+    >
+      Notification Level:
+    </div>
+  </div>
+  <div
+    className="position_watch_edit_widget__removal"
+  >
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Remove Watch
+    </button>
+  </div>
+</div>
+`;

@@ -11,11 +11,11 @@ describe('PositionWatchEditWidget', () => {
     const startSetPositionWatchLevel = jest.fn();
     let wrapper;
 
-    const buildWrapper = () => {
+    const buildWrapper = (positionWatchedInput = positionWatched) => {
         wrapper = shallow(
             <PositionWatchEditWidget
                 positionId={positionId}
-                positionsWatched={[positionWatched]}
+                positionsWatched={[positionWatchedInput]}
                 startClearPosition={startClearPosition}
                 startRemovePositionWatch={startRemovePositionWatch}
                 startSetPositionWatchLevel={startSetPositionWatchLevel}
@@ -33,6 +33,12 @@ describe('PositionWatchEditWidget', () => {
 
     it('should set the notificationLevel correctly on construction', () => {
         expect(wrapper.find('select').prop('value')).toEqual(notificationLevel);
+    });
+
+    it('should render PositionWatchEditWidget correctly when positions watched does not contain a matching position id', () => {
+        buildWrapper({ positionId: 'nonMatchingPositionId' })
+
+        expect(wrapper).toMatchSnapshot();
     });
 
     describe('when the notification select input is changed', () => {
