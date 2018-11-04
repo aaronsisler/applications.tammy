@@ -1,7 +1,6 @@
 import database from 'Firebase/firebase';
 import {
     addApplicationUserDocument,
-    clearApplication,
     removeApplicationUserDocument,
     setApplicationUser,
     submitApplication,
@@ -13,13 +12,8 @@ export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, ge
     dispatch(addApplicationUserDocument(userDocumentMatch))
 }
 
-export const startClearApplication = () => (dispatch) => {
-    dispatch(clearApplication())
-}
-
-export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) => {
+export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) =>
     dispatch(removeApplicationUserDocument(userDocumentId))
-}
 
 export const startSetApplicationUser = () => (dispatch, getState) => {
     const { user } = getState();

@@ -7,7 +7,6 @@ import { user } from '../fixtures/user';
 import userDocuments from '../fixtures/userDocuments';
 import {
     startAddApplicationUserDocument,
-    startClearApplication,
     startRemoveApplicationUserDocument,
     startSetApplicationUser,
     startSubmitApplication
@@ -30,18 +29,6 @@ describe('Application Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(addApplicationUserDocumentMock).toHaveBeenLastCalledWith(userDocument);
-        });
-    });
-
-    describe('startClearApplication() method', () => {
-        it(`should call dispatch with clearApplication`, async () => {
-            const clearApplicationMock = jest.spyOn(applicationActionHelpers, 'clearApplication');
-            const store = createMockStore();
-
-            await store.dispatch(startClearApplication());
-
-            expect(store.getActions().length).toBe(1);
-            expect(clearApplicationMock).toHaveBeenCalled();
         });
     });
 
