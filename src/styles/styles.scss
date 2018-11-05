@@ -37,14 +37,15 @@
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
 @import './components/position/PositionsContainer';
-@import './components/position/PositionsList';
-@import './components/position/PositionsListItem';
 //PositionWatch
 @import './components/positionWatch/PositionsWatchContainer';
 @import './components/positionWatch/PositionWatchAddWidget';
 @import './components/positionWatch/PositionWatchDetails';
 @import './components/positionWatch/PositionWatchEditWidget';
 //Shared
+//Position
+@import './components/shared/position/PositionsList';
+@import './components/shared/position/PositionsListItem';
 //User Documents
 @import './components/shared/userDocuments/UserDocumentsContainer';
 @import './components/shared/userDocuments/UserDocumentsList';

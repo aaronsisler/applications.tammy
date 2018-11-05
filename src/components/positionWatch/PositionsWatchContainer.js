@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { startClearPosition } from 'Actions/position';
-import PositionsList from 'Position/PositionsList';
+import PositionsList from 'Shared/position/PositionsList';
 import PositionWatchDetails from 'PositionWatch/PositionWatchDetails';
 
 export class PositionsWatchContainer extends React.Component {

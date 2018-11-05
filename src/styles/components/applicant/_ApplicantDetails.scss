@@ -20,14 +20,25 @@
         align-items: center;
         background-color: $midLightGrey;
         border-bottom: 1px solid $midGrey;
+        color: $darkGrey;
         display: flex;
+        font-size: $medium;
         justify-content: space-between;
         padding: $small $medium;
     }
-    .applicant_details__displayName {
-        color: $darkGrey;
-        font-family: $secondaryFont;
+    .applicant_details__display_name {
         font-size: $midlarge;
+        margin-bottom: $small;
+    }
+    .applicant_details__legal_name {
+        font-family: $secondaryFont;
+    }
+    .applicant_details_contact {
+        strong {
+            font-family: $secondaryFont;
+        }
+    }
+    .applicant_details__display_phone_number {
         margin-bottom: $small;
     }
 }

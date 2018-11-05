@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PositionsList from 'Position/PositionsList';
-import positions from '../../fixtures/positions';
+import PositionsList from 'Shared/position/PositionsList';
+import positions from '../../../fixtures/positions';
 
 describe('PositionsList', () => {
     let wrapper;

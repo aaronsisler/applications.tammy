@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionsListItem, mapDispatchToProps } from 'Position/PositionsListItem';
-import positions from '../../fixtures/positions';
+import { PositionsListItem, mapDispatchToProps } from 'Shared/position/PositionsListItem';
+import positions from '../../../fixtures/positions';
 
 import * as positionActions from 'Actions/position';
 

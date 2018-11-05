@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startClearPosition } from 'Actions/position';
 import selectPositions from 'Selectors/positions';
-import PositionApply from './PositionApply';
-import PositionDetails from './PositionDetails';
-import PositionsList from './PositionsList';
-import PositionsListFilter from './PositionsListFilter';
+import PositionApply from 'Position/PositionApply';
+import PositionDetails from 'Position/PositionDetails';
+import PositionsList from 'Shared/position/PositionsList';
+import PositionsListFilter from 'Position/PositionsListFilter';
 
 export class PositionsContainer extends React.Component {
     constructor(props) {

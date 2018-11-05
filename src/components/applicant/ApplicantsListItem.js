@@ -16,7 +16,7 @@ export class ApplicantsListItem extends React.Component {
                         {this.props.displayName}
                     </div>
                     <div className="applicants_list_item__legal_name">
-                        {this.props.lastName}, {this.props.firstName}
+                        {this.props.lastName},&nbsp;{this.props.firstName}
                     </div>
                 </div>
             </div>
@@ -24,8 +24,7 @@ export class ApplicantsListItem extends React.Component {
     }
 }
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
     startSetApplicant: () => dispatch(startSetApplicant(ownProps.applicantId)),
 });
 
