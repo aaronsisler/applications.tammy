@@ -5,11 +5,13 @@ import applicants from '../../fixtures/applicants';
 
 describe('ApplicantsContainer', () => {
     let wrapper;
+    const startSetApplicants = jest.fn();
 
     const buildWrapper = () => {
         wrapper = shallow(
             <ApplicantsContainer
                 applicants={applicants}
+                startSetApplicants={startSetApplicants}
             />
         );
     };
@@ -18,5 +20,11 @@ describe('ApplicantsContainer', () => {
         buildWrapper();
 
         expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should call startSetApplicants on construction', () => {
+        buildWrapper();
+
+        expect(startSetApplicants).toHaveBeenCalled();
     });
 });

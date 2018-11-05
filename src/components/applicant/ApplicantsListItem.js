@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { startSetApplicant } from 'Actions/applicant';
 
 export class ApplicantsListItem extends React.Component {
     constructor(props) {
@@ -9,10 +10,13 @@ export class ApplicantsListItem extends React.Component {
 
     render() {
         return (
-            <div className="applicants_list_item">
+            <div className="applicants_list_item" onClick={this.props.startSetApplicant}>
                 <div className="applicants_list_item__content">
-                    <div className="applicants_list_item__displayName">
+                    <div className="applicants_list_item__display_name">
                         {this.props.displayName}
+                    </div>
+                    <div className="applicants_list_item__legal_name">
+                        {this.props.lastName}, {this.props.firstName}
                     </div>
                 </div>
             </div>
@@ -21,11 +25,16 @@ export class ApplicantsListItem extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    startSetApplicant: () => dispatch(startSetApplicant(ownProps.applicantId)),
 });
 
 export default connect(undefined, mapDispatchToProps)(ApplicantsListItem);
 
 ApplicantsListItem.propTypes = {
-    displayName: PropTypes.string,
+    applicantId: PropTypes.string.isRequired,
+    displayName: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    startSetApplicant: PropTypes.func.isRequired,
 };

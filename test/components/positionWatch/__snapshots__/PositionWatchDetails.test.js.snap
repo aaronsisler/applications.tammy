@@ -12,7 +12,7 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
 </div>
 `;
 
-exports[`PositionWatchDetails should render PositionWatchDetails correctly when position is available 1`] = `
+exports[`PositionWatchDetails when position is available should render PositionWatchDetails correctly 1`] = `
 <div
   className="position_watch_details"
 >
@@ -44,6 +44,7 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
       <div>
         <Link
           className="nav_link"
+          onClick={[Function]}
           replace={false}
           to="/applicants"
         >

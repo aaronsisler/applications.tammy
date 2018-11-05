@@ -4,23 +4,37 @@ import { PositionWatchDetails } from 'PositionWatch/PositionWatchDetails';
 import positions from '../../fixtures/positions';
 
 describe('PositionWatchDetails', () => {
-    it('should render PositionWatchDetails correctly when position is available', () => {
-        const [position] = positions;
-        const wrapper = shallow(
+    const startSetWorkflowPosition = jest.fn();
+    let wrapper;
+    const [position] = positions;
+
+    const buildWrapper = (positionInput) => {
+        wrapper = shallow(
             <PositionWatchDetails
-                position={position}
+                position={positionInput}
+                startSetWorkflowPosition={startSetWorkflowPosition}
             />
         );
+    };
 
-        expect(wrapper).toMatchSnapshot();
+    describe('when position is available', () => {
+        beforeEach(() => {
+            buildWrapper(position);
+        });
+
+        it('should render PositionWatchDetails correctly', () => {
+            expect(wrapper).toMatchSnapshot();
+        });
+
+        it('should call startSetWorkflowPosition when the link is clicked', () => {
+            wrapper.find('.nav_link').simulate('click')
+
+            expect(startSetWorkflowPosition).toHaveBeenCalled();
+        });
     });
 
     it('should render PositionWatchDetails correctly when position is NOT available', () => {
-        const wrapper = shallow(
-            <PositionWatchDetails
-                position={undefined}
-            />
-        );
+        buildWrapper();
 
         expect(wrapper).toMatchSnapshot();
     });

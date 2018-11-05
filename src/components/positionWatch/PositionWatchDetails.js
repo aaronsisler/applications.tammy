@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
+import { startSetWorkflowPosition } from 'Actions/workflow';
 
 export class PositionWatchDetails extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    handleSetWorkFlowPosition = async () => {
+        await this.props.startSetWorkflowPosition();
     }
 
     render() {
@@ -37,6 +42,7 @@ export class PositionWatchDetails extends React.Component {
                                 <Link
                                     className="nav_link"
                                     to="/applicants"
+                                    onClick={this.handleSetWorkFlowPosition}
                                 >
                                     View Applicants
                                 </Link>
@@ -56,8 +62,14 @@ const mapStateToProps = (state) => ({
     position: state.position,
 });
 
-export default connect(mapStateToProps)(PositionWatchDetails);
+/* istanbul ignore next */
+const mapDispatchToProps = dispatch => ({
+    startSetWorkflowPosition: () => dispatch(startSetWorkflowPosition()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchDetails);
 
 PositionWatchDetails.propTypes = {
     position: PropTypes.object,
+    startSetWorkflowPosition: PropTypes.func.isRequired,
 };

@@ -1,0 +1,42 @@
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .applicants_list_item {
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        color: $darkGrey;
+        cursor: pointer;
+        display: flex;
+        font-size: $medium;
+        justify-content: space-between;
+        padding: $medium $small;
+        text-decoration: none;
+        &:hover {
+            background: #fafafa;
+            color: $secColor;
+        }
+        &__display_name {
+            font-size: $midlarge;
+            margin-bottom: $small;
+        }
+        &__legal_name {
+            color: $fontGrey;
+        }
+    }
+}
+
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: 40.063em) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: 64.063em) {}
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: 90.063em) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: 120.063em) {}

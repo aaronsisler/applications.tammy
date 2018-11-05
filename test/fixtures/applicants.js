@@ -1,9 +1,13 @@
+import user from './user';
+
 const applicants = [
     {
         applicantId: 'firstApplicantId',
+        user,
     },
     {
         applicantId: 'secondApplicantId',
+        user,
     },
 ]
 

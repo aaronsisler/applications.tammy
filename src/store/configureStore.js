@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import applicantReducer from 'Reducers/applicant';
 import applicantsReducer from 'Reducers/applicants';
 import applicationReducer from 'Reducers/application';
 import applicationProcessReducer from 'Reducers/applicationProcess';
@@ -18,6 +19,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default () => {
     const store = createStore(
         combineReducers({
+            applicant: applicantReducer,
             applicants: applicantsReducer,
             application: applicationReducer,
             applicationProcess: applicationProcessReducer,

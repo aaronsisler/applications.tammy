@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionsListItem } from 'Position/PositionsListItem';
+import { PositionsListItem, mapDispatchToProps } from 'Position/PositionsListItem';
 import positions from '../../fixtures/positions';
+
+import * as positionActions from 'Actions/position';
 
 describe('PositionsListItem', () => {
     const startSetPosition = jest.fn();
@@ -23,6 +25,18 @@ describe('PositionsListItem', () => {
     it('should call startSetPosition prop when clicked', () => {
         wrapper.find('.positions_list_item').simulate('click');
 
-        expect(startSetPosition).toHaveBeenLastCalledWith(position.positionId);
-    })
+        expect(startSetPosition).toHaveBeenCalled();
+    });
+
+    describe('mapDispatchToProps', () => {
+        it('should call startSetPosition with positionId', () => {
+            const startSetPositionMock = jest.spyOn(positionActions, 'startSetPosition');
+            const dispatch = jest.fn();
+            const { positionId } = position;
+
+            mapDispatchToProps(dispatch, { positionId }).startSetPosition();
+
+            expect(startSetPositionMock).toHaveBeenLastCalledWith(positionId);
+        });
+    });
 });

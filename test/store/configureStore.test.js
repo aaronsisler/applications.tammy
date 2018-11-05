@@ -8,6 +8,7 @@ describe('ConfigureStore', () => {
 
     it('should create the default state', () => {
         const defaultState = {
+            applicant: null,
             applicants: [],
             application: { user: {}, userDocuments: [] },
             applicationProcess: { currentStep: 0, maxSteps: 4, steps },

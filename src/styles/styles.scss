@@ -8,6 +8,11 @@
 @import './base/base';
 @import './base/progress_bar';
 @import './base/visibility';
+//Applicant
+@import './components/applicant/ApplicantDetails';
+@import './components/applicant/ApplicantsContainer';
+@import './components/applicant/ApplicantsList';
+@import './components/applicant/ApplicantsListItem';
 //Application
 @import './components/application/ApplicationUserDocumentsContainer';
 @import './components/application/ApplicationProcessContainer';

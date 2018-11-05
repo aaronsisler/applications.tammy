@@ -11,7 +11,7 @@ const [position] = positions;
 
 describe('Applicants Actions', () => {
     const { positionId } = position;
-    const store = createMockStore({ position });
+    const store = createMockStore({ workflow: { position } });
     let once;
     const applicantsMock = [];
     applicants.forEach((applicant) => {
@@ -47,7 +47,7 @@ describe('Applicants Actions', () => {
         it(`should call database ref with specific path`, async () => {
             await store.dispatch(startSetApplicants());
 
-            expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}`);
+            expect(database.ref).toHaveBeenLastCalledWith(`applications/${positionId}`);
         });
     });
 });

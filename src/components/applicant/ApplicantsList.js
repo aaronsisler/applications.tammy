@@ -22,7 +22,10 @@ export default class ApplicantsList extends React.Component {
                     this.props.applicants.map((applicant) =>
                         <ApplicantsListItem
                             key={applicant.applicantId}
-                            {...applicant}
+                            applicantId={applicant.applicantId}
+                            displayName={applicant.user.displayName}
+                            firstName={applicant.user.firstName}
+                            lastName={applicant.user.lastName}
                         />)
                 }
             </div>

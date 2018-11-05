@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { startSetApplicants } from 'Actions/applicants';
 import ApplicantDetails from 'Applicant/ApplicantDetails';
 import ApplicantsList from 'Applicant/ApplicantsList';
 
 export class ApplicantsContainer extends React.Component {
     constructor(props) {
         super(props);
+        props.startSetApplicants();
     }
 
     render() {
@@ -17,7 +19,7 @@ export class ApplicantsContainer extends React.Component {
                         <div className="applicants_list_wrapper">
                             <ApplicantsList applicants={this.props.applicants} />
                         </div>
-                        <div className="applicants_details_wrapper">
+                        <div className="applicant_details_wrapper">
                             <ApplicantDetails />
                         </div>
                     </div>
@@ -33,11 +35,13 @@ const mapStateToProps = (state) => ({
 });
 
 /* istanbul ignore next */
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch) => ({
+    startSetApplicants: () => dispatch(startSetApplicants()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicantsContainer);
 
 ApplicantsContainer.propTypes = {
     applicants: PropTypes.array,
+    startSetApplicants: PropTypes.func.isRequired,
 };
