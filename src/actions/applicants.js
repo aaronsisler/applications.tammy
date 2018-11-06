@@ -5,7 +5,7 @@ export const startSetApplicants = () => (dispatch, getState) => {
     // const { positionId } = getState().workflow.position;
     const positionId = '1';
 
-    database.ref(`applications/${positionId}`).once('value').then((snapshot) => {
+    return database.ref(`applications/${positionId}`).once('value').then((snapshot) => {
         const applicants = [];
         snapshot.forEach((childSnapshot) => {
             applicants.push({

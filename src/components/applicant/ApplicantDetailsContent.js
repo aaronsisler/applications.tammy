@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 export default class ApplicantDetailsContent extends React.Component {
     constructor(props) {
@@ -9,7 +10,23 @@ export default class ApplicantDetailsContent extends React.Component {
     render() {
         return (
             <div className="applicant_details_content">
-                Applicant Content goes here
+                <Tabs>
+                    <TabList>
+                        <Tab>Workflow</Tab>
+                        <Tab>Documents</Tab>
+                        <Tab>Info</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        This is the Applicant Workflow
+                    </TabPanel>
+                    <TabPanel>
+                        This is the Applicant Documents
+                    </TabPanel>
+                    <TabPanel>
+                        This is the Applicant Info
+                    </TabPanel>
+                </Tabs>
             </div>
         );
     }
@@ -18,4 +35,3 @@ export default class ApplicantDetailsContent extends React.Component {
 ApplicantDetailsContent.propTypes = {
     applicant: PropTypes.object.isRequired,
 };
-

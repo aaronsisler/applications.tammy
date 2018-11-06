@@ -8,7 +8,7 @@ import ApplicantsList from 'Applicant/ApplicantsList';
 export class ApplicantsContainer extends React.Component {
     constructor(props) {
         super(props);
-        props.startSetApplicants();
+        // props.startSetApplicants();
     }
 
     render() {
