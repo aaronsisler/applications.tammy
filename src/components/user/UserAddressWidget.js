@@ -153,5 +153,5 @@ export default class UserAddressWidget extends React.Component {
 UserAddressWidget.propTypes = {
     isReadOnly: PropTypes.bool,
     user: PropTypes.object.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func,
 };

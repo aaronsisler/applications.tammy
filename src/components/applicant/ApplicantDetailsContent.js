@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ApplicantProcessContainer from 'Applicant/ApplicantProcessContainer';
+import ApplicantUserDocuments from 'Applicant/ApplicantUserDocuments';
+import ApplicantUserInfo from 'Applicant/ApplicantUserInfo';
 
 export default class ApplicantDetailsContent extends React.Component {
     constructor(props) {
@@ -8,6 +11,7 @@ export default class ApplicantDetailsContent extends React.Component {
     }
 
     render() {
+        const { applicant } = this.props;
         return (
             <div className="applicant_details_content">
                 <Tabs>
@@ -18,13 +22,13 @@ export default class ApplicantDetailsContent extends React.Component {
                     </TabList>
 
                     <TabPanel>
-                        This is the Applicant Workflow
+                        {applicant && <ApplicantProcessContainer applicant={applicant} />}
                     </TabPanel>
                     <TabPanel>
-                        This is the Applicant Documents
+                        {applicant.userDocuments && <ApplicantUserDocuments userDocuments={applicant.userDocuments} />}
                     </TabPanel>
                     <TabPanel>
-                        This is the Applicant Info
+                        {applicant.user && <ApplicantUserInfo user={applicant.user} />}
                     </TabPanel>
                 </Tabs>
             </div>
