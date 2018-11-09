@@ -22,7 +22,7 @@ describe('ApplicantsContainer', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call startSetApplicants on construction', () => {
+    xit('should call startSetApplicants on construction', () => {
         buildWrapper();
 
         expect(startSetApplicants).toHaveBeenCalled();

@@ -17,7 +17,10 @@ export class ApplicantProcessContainer extends React.Component {
         }
     }
 
-    handleAddStatusNote = () => this.props.startAddApplicantNote(this.state.statusNote);
+    handleAddStatusNote = () => {
+        this.props.startAddApplicantNote(this.state.statusNote);
+        return this.setState(() => ({ statusNote: '' }));
+    }
 
     handleSetApplicantStatus = (e) => {
         const applicantStatus = e.target.value;
@@ -63,7 +66,7 @@ export class ApplicantProcessContainer extends React.Component {
                         value={this.state.statusNote}
                         onChange={this.handleStatusNoteChange}
                         cols="100"
-                        rows="10"
+                        rows="5"
                     >
                     </textarea>
                     <button
@@ -74,7 +77,7 @@ export class ApplicantProcessContainer extends React.Component {
                 </button>
                 </div>
                 <div className="applicant_process_container__notes">
-                    <NotesList notes={applicant.applicantNotes}/>
+                    <NotesList notes={applicant.applicantNotes} />
                 </div>
             </div>
         );

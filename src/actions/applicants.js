@@ -8,13 +8,9 @@ export const startSetApplicants = () => (dispatch, getState) => {
         const applicants = [];
         snapshot.forEach((childSnapshot) => {
             const applicant = childSnapshot.val();
-            const applicantNotes = applicant.applicantNotes ? [...Object.values(applicant.applicantNotes)] : [];
-            // applicant.applicantNotes.forEach((applicantNote) => {
-            // applicantNotes.push
-            // })
-            // console.log(applicant.applicationNotes);
-            // console.log(Object.values(applicant.applicationNotes));
-            console.log(applicantNotes);
+            const applicantNotes = applicant.applicantNotes
+                ? [...Object.values(applicant.applicantNotes)]
+                : [];
             applicants.push({
                 applicantId: childSnapshot.key,
                 positionId,

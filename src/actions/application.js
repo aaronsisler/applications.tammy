@@ -23,7 +23,7 @@ export const startSetApplicationUser = () => (dispatch, getState) => {
 export const startSubmitApplication = () => (dispatch, getState) => {
     const { user, userDocuments } = getState().application;
     const { positionId } = getState().workflow.position;
-    return database.ref(`applications/${positionId}`).push({
+    return database.ref(`applicants/${positionId}`).push({
         applicantStatus: 'APPLIED',
         user,
         userDocuments,

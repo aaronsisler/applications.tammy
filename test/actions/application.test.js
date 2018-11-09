@@ -68,13 +68,17 @@ describe('Application Actions', () => {
         it(`should call database ref with specific path`, async () => {
             await store.dispatch(startSubmitApplication());
 
-            expect(database.ref).toHaveBeenLastCalledWith(`applications/${positionId}`);
+            expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}`);
         });
 
         it('should call push with user and user documents', async () => {
             await store.dispatch(startSubmitApplication());
 
-            expect(push).toHaveBeenLastCalledWith({ user, userDocuments });
+            expect(push).toHaveBeenLastCalledWith({
+                applicantStatus: 'APPLIED',
+                user,
+                userDocuments,
+            });
         })
 
         it(`should call dispatch with submitApplication`, async () => {

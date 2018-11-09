@@ -14,7 +14,7 @@ const applicantReducer = (state = applicantReducerDefaultState, action) => {
         case 'ADD_APPLICANT_NOTE':
             return {
                 ...state,
-                applicationNotes: [...state.applicationNotes, action.applicantNote],
+                applicantNotes: [action.applicantNote, ...state.applicantNotes],
             }
         default:
             return state;
