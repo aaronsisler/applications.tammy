@@ -12,8 +12,12 @@ import { startSetPositions } from 'Actions/positions';
 import { startSetPositionsWatched } from 'Actions/positionsWatched';
 import { startSetUser } from 'Actions/user';
 import { startSetUserDocuments } from 'Actions/userDocuments';
+//Below is for deving only
 import { startSetApplicants } from 'Actions/applicants';
 import { startSetApplicant } from 'Actions/applicant';
+import { startSetPosition } from 'Actions/position';
+import { startSetWorkflowPosition } from 'Actions/workflow';
+
 import LoadingPage from 'Core/LoadingPage';
 
 const store = configureStore();
@@ -41,6 +45,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
         store.dispatch(startSetUser());
         store.dispatch(startSetUserDocuments(user.uid));
         await store.dispatch(startSetPositionsWatched());
+        await store.dispatch(startSetPosition("1"));
+        await store.dispatch(startSetWorkflowPosition());
         await store.dispatch(startSetApplicants());
         await store.dispatch(startSetApplicant('-LQGIaoqCoDcXmfCsrVM'));
         renderApp();

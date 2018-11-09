@@ -9,7 +9,7 @@ import {
 export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, getState) => {
     const { userDocuments } = getState();
     const userDocumentMatch = userDocuments.find((userDocument) => userDocument.userDocumentId == userDocumentId)
-    dispatch(addApplicationUserDocument(userDocumentMatch))
+    return dispatch(addApplicationUserDocument(userDocumentMatch))
 }
 
 export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) =>
@@ -17,14 +17,15 @@ export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch)
 
 export const startSetApplicationUser = () => (dispatch, getState) => {
     const { user } = getState();
-    dispatch(setApplicationUser(user));
+    return dispatch(setApplicationUser(user));
 }
 
 export const startSubmitApplication = () => (dispatch, getState) => {
     const { user, userDocuments } = getState().application;
     const { positionId } = getState().workflow.position;
-    database.ref(`applications/${positionId}`).push({
+    return database.ref(`applications/${positionId}`).push({
+        applicantStatus: 'APPLIED',
         user,
-        userDocuments
+        userDocuments,
     }).then(() => dispatch(submitApplication()));
 }

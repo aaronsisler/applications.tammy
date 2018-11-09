@@ -6,6 +6,16 @@ const applicantReducer = (state = applicantReducerDefaultState, action) => {
             return action.applicant;
         case 'CLEAR_APPLICANT':
             return null;
+        case 'SET_APPLICANT_STATUS':
+            return {
+                ...state,
+                applicantStatus: action.applicantStatus,
+            }
+        case 'ADD_APPLICANT_NOTE':
+            return {
+                ...state,
+                applicationNotes: [...state.applicationNotes, action.applicantNote],
+            }
         default:
             return state;
     }
