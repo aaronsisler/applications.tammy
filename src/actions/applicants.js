@@ -4,7 +4,7 @@ import { setApplicants } from 'Actions/helpers/applicants';
 export const startSetApplicants = () => (dispatch, getState) => {
     const { positionId } = getState().workflow.position;
 
-    return database.ref(`applications/${positionId}`).once('value').then((snapshot) => {
+    return database.ref(`applicants/${positionId}`).once('value').then((snapshot) => {
         const applicants = [];
         snapshot.forEach((childSnapshot) => {
             const applicant = childSnapshot.val();

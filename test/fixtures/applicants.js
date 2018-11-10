@@ -23,6 +23,14 @@ const applicants = [
     },
 ]
 
+export const applicantWithNoNotes =
+{
+    applicantId: 'firstApplicantId',
+    positionId,
+    user,
+}
+
+
 export const defaultApplicantsState = {
     applicants
 }
