@@ -13,13 +13,15 @@ export class ApplicantProcessContainer extends React.Component {
         super(props);
         this.state = {
             applicantStatus: props.applicant.applicantStatus,
+            applicantNotes: props.applicant.applicantNotes.reverse(),
             statusNote: '',
         }
     }
 
     handleAddStatusNote = () => {
-        this.props.startAddApplicantNote(this.state.statusNote);
-        return this.setState(() => ({ statusNote: '' }));
+        const { statusNote } = this.state;
+        this.props.startAddApplicantNote(statusNote);
+        return this.setState((prevState) => ({ applicantNotes: [{ statusNote }, ...prevState.applicantNotes], statusNote: '' }));
     }
 
     handleSetApplicantStatus = (e) => {
@@ -77,7 +79,7 @@ export class ApplicantProcessContainer extends React.Component {
                 </button>
                 </div>
                 <div className="applicant_process_container__notes">
-                    <NotesList notes={applicant.applicantNotes} />
+                    <NotesList notes={this.state.applicantNotes} />
                 </div>
             </div>
         );

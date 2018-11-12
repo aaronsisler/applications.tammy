@@ -65,6 +65,15 @@ describe('Application Actions', () => {
             jest.spyOn(database, 'ref').mockReturnValue({ push });
         });
 
+        it(`should call dispatch with submitApplication`, async () => {
+            const submitApplicationMock = jest.spyOn(applicationActionHelpers, 'submitApplication');
+
+            await store.dispatch(startSubmitApplication());
+
+            expect(store.getActions().length).toBe(1);
+            expect(submitApplicationMock).toHaveBeenCalled();
+        });
+
         it(`should call database ref with specific path`, async () => {
             await store.dispatch(startSubmitApplication());
 
@@ -79,15 +88,6 @@ describe('Application Actions', () => {
                 user,
                 userDocuments,
             });
-        })
-
-        it(`should call dispatch with submitApplication`, async () => {
-            const submitApplicationMock = jest.spyOn(applicationActionHelpers, 'submitApplication');
-
-            await store.dispatch(startSubmitApplication());
-
-            expect(store.getActions().length).toBe(1);
-            expect(submitApplicationMock).toHaveBeenCalled();
         });
     });
 });

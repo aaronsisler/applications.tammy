@@ -6,6 +6,16 @@ import {
     setApplicantStatus
 } from 'Actions/helpers/applicant';
 
+export const startAddApplicantNote = (statusNote) => (dispatch, getState) => {
+    const { applicantId, positionId } = getState().applicant;
+
+    return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`)
+        .push({ statusNote })
+        .then(() => {
+            dispatch(addApplicantNote({ statusNote }));
+        });
+}
+
 export const startClearApplicant = () => (dispatch) => dispatch(clearApplicant());
 
 export const startSetApplicant = (applicantId) => (dispatch, getState) => {
@@ -18,16 +28,6 @@ export const startSetApplicant = (applicantId) => (dispatch, getState) => {
 export const startSetApplicantStatus = (applicantStatus) => (dispatch, getState) => {
     const { applicantId, positionId } = getState().applicant;
 
-    return database.ref(`applications/${positionId}/${applicantId}`).update({ applicantStatus })
+    return database.ref(`applicants/${positionId}/${applicantId}`).update({ applicantStatus })
         .then(() => dispatch(setApplicantStatus(applicantStatus)));
-}
-
-export const startAddApplicantNote = (statusNote) => (dispatch, getState) => {
-    const { applicantId, positionId } = getState().applicant;
-
-    return database.ref(`applications/${positionId}/${applicantId}/applicantNotes`)
-        .push({ statusNote })
-        .then(() => {
-            dispatch(addApplicantNote({ statusNote }));
-        });
 }

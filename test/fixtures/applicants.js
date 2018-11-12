@@ -28,6 +28,7 @@ export const applicantWithNoNotes =
     applicantId: 'firstApplicantId',
     positionId,
     user,
+    applicantNotes: [],
 }
 
 

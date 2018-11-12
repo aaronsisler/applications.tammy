@@ -1,6 +1,11 @@
 import applicantReducer from 'Reducers/applicant';
-import { clearApplicant, setApplicant } from 'Actions/helpers/applicant';
-import applicants from '../fixtures/applicants';
+import {
+    addApplicantNote,
+    clearApplicant,
+    setApplicant,
+    setApplicantStatus
+} from 'Actions/helpers/applicant';
+import applicants, { applicantWithNoNotes } from '../fixtures/applicants';
 
 const defaultState = null;
 const [applicant] = applicants;
@@ -14,6 +19,16 @@ describe('applicant reducer', () => {
         const state = applicantReducer(undefined, action);
 
         expect(state).toEqual(defaultState);
+    });
+
+    it('should add the applicant note', () => {
+        const statusNote = 'newMockNote';
+
+        const action = addApplicantNote({ statusNote });
+
+        const state = applicantReducer(applicantWithNoNotes, action);
+
+        expect(state).toEqual({ ...applicantWithNoNotes, applicantNotes: [{ statusNote }] });
     });
 
     it('should clear the applicant', () => {

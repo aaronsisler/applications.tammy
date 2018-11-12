@@ -1,16 +1,66 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { startClearApplicant, startSetApplicant } from 'Actions/applicant';
+import database from 'Firebase/firebase';
+import {
+    startAddApplicantNote,
+    startClearApplicant,
+    startSetApplicant,
+    startSetApplicantStatus
+} from 'Actions/applicant';
 import * as applicantActionHelpers from 'Actions/helpers/applicant';
 import applicants from '../fixtures/applicants';
+import { position } from '../fixtures/positions';
+import { APPLICANT_STATUSES } from 'Tools/constants';
 
 const createMockStore = configureMockStore([thunk]);
 
 describe('Applicant Actions', () => {
+    let store;
+    let push;
+    let update;
+    const [applicant] = applicants;
+    const { applicantId } = applicant;
+    const { positionId } = position;
+
+    beforeEach(() => {
+        store = createMockStore({ applicant, applicants });
+        push = jest.fn().mockResolvedValue();
+        update = jest.fn().mockResolvedValue();
+        jest.spyOn(database, 'ref').mockReturnValue({ push, update });
+    });
+
+    afterEach(() => {
+        database.ref.mockRestore();
+    });
+
+    describe('startAddApplicantNote() method', () => {
+        const statusNote = 'mockNewNote';
+
+        it(`should call dispatch with submitApplication`, async () => {
+            const addApplicantNoteMock = jest.spyOn(applicantActionHelpers, 'addApplicantNote');
+
+            await store.dispatch(startAddApplicantNote(statusNote));
+
+            expect(store.getActions().length).toBe(1);
+            expect(addApplicantNoteMock).toHaveBeenLastCalledWith({ statusNote });
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startAddApplicantNote(statusNote));
+
+            expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}/${applicantId}/applicantNotes`);
+        });
+
+        it('should call push with status note', async () => {
+            await store.dispatch(startAddApplicantNote(statusNote));
+
+            expect(push).toHaveBeenLastCalledWith({ statusNote });
+        });
+    });
+
     describe('startClearApplicant() method', () => {
         it(`should call dispatch with clearApplicant`, async () => {
             const clearApplicantMock = jest.spyOn(applicantActionHelpers, 'clearApplicant');
-            const store = createMockStore();
 
             await store.dispatch(startClearApplicant());
 
@@ -21,14 +71,37 @@ describe('Applicant Actions', () => {
 
     describe('startSetApplicant() method', () => {
         it(`should call dispatch with setApplicant`, async () => {
-            const [applicant] = applicants;
             const setApplicantMock = jest.spyOn(applicantActionHelpers, 'setApplicant');
-            const store = createMockStore({ applicants });
 
             await store.dispatch(startSetApplicant(applicant.applicantId));
 
             expect(store.getActions().length).toBe(1);
             expect(setApplicantMock).toHaveBeenLastCalledWith(applicant);
+        });
+    });
+
+    describe('startSetApplicantStatus() method', () => {
+        const [applicantStatus] = APPLICANT_STATUSES;
+
+        it(`should call dispatch with setApplicantStatus`, async () => {
+            const setApplicantStatusMock = jest.spyOn(applicantActionHelpers, 'setApplicantStatus');
+
+            await store.dispatch(startSetApplicantStatus(applicantStatus));
+
+            expect(store.getActions().length).toBe(1);
+            expect(setApplicantStatusMock).toHaveBeenLastCalledWith(applicantStatus);
+        });
+
+        it(`should call update with applicant status`, async () => {
+            await store.dispatch(startSetApplicantStatus(applicantStatus));
+
+            expect(update).toHaveBeenLastCalledWith({ applicantStatus });
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startSetApplicantStatus(applicantStatus));
+
+            expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}/${applicantId}`);
         });
     });
 });
