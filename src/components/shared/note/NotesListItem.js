@@ -12,7 +12,7 @@ export default class NotesListItem extends React.Component {
                 <div className="notes_list_item__status_note">
                     <textarea
                         className="textarea"
-                        cols="100"
+                        cols="75"
                         readOnly={true}
                         rows="5"
                         value={this.props.statusNote}

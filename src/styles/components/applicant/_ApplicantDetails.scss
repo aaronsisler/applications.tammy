@@ -23,6 +23,7 @@
         color: $darkGrey;
         display: flex;
         font-size: $medium;
+        max-height: 10rem;
         justify-content: space-between;
         padding: $small $medium;
     }

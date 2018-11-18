@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import NotesList from 'Shared/notes/NotesList';
+import NotesList from 'Shared/note/NotesList';
 import { APPLICANT_STATUSES } from 'Tools/constants';
 import {
     startAddApplicantNote,
@@ -14,37 +14,67 @@ export class ApplicantProcessContainer extends React.Component {
         this.state = {
             applicantStatus: props.applicant.applicantStatus,
             applicantNotes: props.applicant.applicantNotes.reverse(),
+            isNotePopulated: false,
+            isStatusChanged: false,
+            prevApplicantStatus: props.applicant.applicantStatus,
             statusNote: '',
         }
     }
 
-    handleAddStatusNote = () => {
-        const { statusNote } = this.state;
-        this.props.startAddApplicantNote(statusNote);
-        return this.setState((prevState) => ({ applicantNotes: [{ statusNote }, ...prevState.applicantNotes], statusNote: '' }));
-    }
-
     handleSetApplicantStatus = (e) => {
         const applicantStatus = e.target.value;
-        return this.setState(() => ({ applicantStatus }));
+        if (applicantStatus === this.state.prevApplicantStatus) {
+            return this.setState(() => ({ applicantStatus, isStatusChanged: false }));
+        }
+        return this.setState(() => ({ applicantStatus, isStatusChanged: true }));
     }
 
     handleStatusNoteChange = (e) => {
         const statusNote = e.target.value;
-        return this.setState(() => ({ statusNote }));
+        if (statusNote) {
+            return this.setState(() => ({ isNotePopulated: true, statusNote }));
+        }
+        return this.setState(() => ({ isNotePopulated: false, statusNote }));
     }
 
-    handleSubmitStatusChange = () => this.props.startSetApplicantStatus(this.state.applicantStatus);
+    handleSubmitStatusChange = () => {
+        const { applicantStatus, isNotePopulated, isStatusChanged, statusNote } = this.state;
+        if (isNotePopulated && isStatusChanged) {
+            this.props.startAddApplicantNote(statusNote);
+            this.props.startSetApplicantStatus(applicantStatus);
+            return this.setState((prevState) => ({
+                applicantNotes: [{ statusNote }, ...prevState.applicantNotes],
+                isNotePopulated: false,
+                isStatusChanged: false,
+                prevApplicantStatus: applicantStatus,
+                statusNote: '',
+            }));
+        }
+    }
 
     render() {
-        const { applicant } = this.props;
         return (
-            <div className="applicant_process_container">
+            <div id="applicant_process_container">
+                <div className="applicant_process_container__instructions">
+                    Please write a note and select a new status to submit
+                </div>
+                <div className="applicant_process_container__status_change_note">
+                    <textarea
+                        placeholder="Write a note to change applicant status"
+                        className="textarea"
+                        value={this.state.statusNote}
+                        onChange={this.handleStatusNoteChange}
+                        cols="75"
+                        rows="5"
+                    >
+                    </textarea>
+                </div>
                 <div className="applicant_process_container__select">
                     <select
                         className="select"
-                        value={this.state.applicantStatus}
+                        disabled={!this.state.isNotePopulated}
                         onChange={this.handleSetApplicantStatus}
+                        value={this.state.applicantStatus}
                     >
                         {APPLICANT_STATUSES.map((applicantStatus, index) =>
                             <option
@@ -55,28 +85,12 @@ export class ApplicantProcessContainer extends React.Component {
                             </option>)}
                     </select>
                     <button
+                        className="button"
+                        disabled={!this.state.isNotePopulated || !this.state.isStatusChanged}
                         onClick={this.handleSubmitStatusChange}
-                        className="button"
                     >
-                        Update status
+                        Submit status change
                     </button>
-                </div>
-                <div className="applicant_process_container__status_change_note">
-                    <textarea
-                        placeholder="Add a note to change applicant status"
-                        className="textarea"
-                        value={this.state.statusNote}
-                        onChange={this.handleStatusNoteChange}
-                        cols="100"
-                        rows="5"
-                    >
-                    </textarea>
-                    <button
-                        onClick={this.handleAddStatusNote}
-                        className="button"
-                    >
-                        Add note
-                </button>
                 </div>
                 <div className="applicant_process_container__notes">
                     <NotesList notes={this.state.applicantNotes} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NotesListItem from 'Shared/notes/NotesListItem';
+import NotesListItem from 'Shared/note/NotesListItem';
 
 export default class NotesList extends React.Component {
     constructor(props) {

@@ -14,6 +14,7 @@
 @import './components/applicant/ApplicantsContainer';
 @import './components/applicant/ApplicantsList';
 @import './components/applicant/ApplicantsListItem';
+@import './components/applicant/ApplicantProcessContainer';
 //Application
 @import './components/application/ApplicationUserDocumentsContainer';
 @import './components/application/ApplicationProcessContainer';
@@ -44,6 +45,8 @@
 @import './components/positionWatch/PositionWatchDetails';
 @import './components/positionWatch/PositionWatchEditWidget';
 //Shared
+//Notes
+@import './components/shared/note/NotesList';
 //Position
 @import './components/shared/position/PositionsList';
 @import './components/shared/position/PositionsListItem';
