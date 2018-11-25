@@ -1,16 +1,17 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .applicants_container {
+    #applicants_container {
         background-color: $lightGrey;
         display: flex;
+        height: $inboxContainerHeight;
         justify-content: center;
         padding: $large;
     }
     .applicants_widget {
         display: flex;
         flex-grow: 1;
-        height: $inboxContainerHeight;
+        // height: $inboxContainerHeight;
         max-width: 100rem;
     }
     .applicants_list_wrapper {

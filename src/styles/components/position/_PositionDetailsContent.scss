@@ -3,6 +3,8 @@
 @media only screen {
     .position_details_content {
         font-size: $medium;
+        display: flex;
+        flex-flow: column;
         padding: $small $midlarge;
     }
     .position_details_content__description {

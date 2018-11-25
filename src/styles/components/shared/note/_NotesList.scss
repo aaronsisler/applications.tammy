@@ -5,7 +5,6 @@
         background: white;
         display: flex;
         flex-flow: column;
-        overflow-y: auto;
         &.empty {
             display: flex;
             justify-content: center;

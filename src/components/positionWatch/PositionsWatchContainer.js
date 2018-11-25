@@ -17,14 +17,14 @@ export class PositionsWatchContainer extends React.Component {
 
     render() {
         return (
-            <div className="position_watch_container">
+            <div className="inbox_container">
                 {this.props.positionsWatched &&
-                    <div className="position_watch_widget">
-                        <div className="position_watch_list__wrapper">
+                    <div className="inbox_widget">
+                        <div className="inbox_list">
                             <Link className="nav_link" to="/position_watch_add">Add Position Watch</Link>
                             <PositionsList positions={this.props.positionsWatched} />
                         </div>
-                        <div className="position_watch_details__wrapper">
+                        <div className="inbox_details">
                             <PositionWatchDetails />
                         </div>
                     </div>

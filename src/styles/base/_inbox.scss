@@ -1,0 +1,75 @@
+.inbox_container {
+    background-color: $lightGrey;
+    display: flex;
+    justify-content: center;
+    padding: $large;
+}
+
+.inbox_widget {
+    display: flex;
+    flex-grow: 1;
+    height: $inboxContainerHeight;
+    max-width: 110rem;
+}
+
+.inbox_list {
+    background-color: white;
+    border: 1px solid $midLightGrey;
+    border-right: None;
+    display: flex;
+    flex-basis: 25%;
+    flex-flow: column;
+    flex-grow: 1;
+    input {
+        border: none;
+        border-bottom: 1px solid $midLightGrey;
+        margin: 0;
+    }
+    .nav_link {
+        margin: 0;
+    }
+}
+
+.inbox_details {
+    background-color: white;
+    border: 1px solid $midLightGrey;
+    display: flex;
+    flex-basis: 75%;
+    flex-flow: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.inbox_details_header {
+    background-color: $midLightGrey;
+    border-bottom: 1px solid $midGrey;
+    padding: $small $medium;
+}
+
+.inbox_details_header {
+    &__title {
+        color: $darkGrey;
+        font-family: $secondaryFont;
+        font-size: $midlarge;
+        margin-bottom: $small;
+    }
+    &__job_id {
+        color: $grey;
+        font-family: $secondaryFont;
+        font-size: $medium;
+        margin-bottom: $xsmall;
+    }
+    &__location {
+        color: $grey;
+        font-family: $secondaryFont;
+        font-size: $medium;
+    }
+}
+
+.inbox_details_content {
+    flex-grow: 1;
+    overflow-y: auto;
+    &__link {
+        display: flex;
+    }
+}

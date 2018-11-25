@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
+import PositionApply from 'Position/PositionApply';
 
 export class PositionDetails extends React.Component {
     constructor(props) {
@@ -10,31 +11,35 @@ export class PositionDetails extends React.Component {
 
     render() {
         const { position } = this.props;
+        if (!position) {
+            return (
+                <div className="inbox_details empty">
+                    Please select an item to view
+                    </div>
+            )
+        }
+
         return (
-            <div className="position_details">
-                {!position &&
-                    <div className="empty">
-                        Please select an item to view
-                    </div>
-                }
-                {position &&
-                    <div className="position_details_widget">
-                        <div className="position_details_header">
-                            <div>
-                                <div className="position_details__title">
-                                    {position.title}
-                                </div>
-                                <div className="position_details__job_id">
-                                    Job Id: {position.jobId}
-                                </div>
-                                <div className="position_details__location">
-                                    Location: {position.location}
-                                </div>
-                            </div>
+            <div className="inbox_details" >
+                <div className="inbox_details_header">
+                    <div>
+                        <div className="inbox_details_header__title">
+                            {position.title}
                         </div>
-                        <PositionDetailsContent position={position} />
+                        <div className="inbox_details_header__job_id">
+                            Job Id: {position.jobId}
+                        </div>
+                        <div className="inbox_details_header__location">
+                            Location: {position.location}
+                        </div>
                     </div>
-                }
+                </div>
+                <div className="inbox_details_content">
+                    <PositionDetailsContent position={position} />
+                </div>
+                <div className="inbox_details_footer">
+                    <PositionApply />
+                </div>
             </div>
         );
     }

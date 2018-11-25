@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startClearPosition } from 'Actions/position';
 import selectPositions from 'Selectors/positions';
-import PositionApply from 'Position/PositionApply';
 import PositionDetails from 'Position/PositionDetails';
 import PositionsList from 'Shared/position/PositionsList';
 import PositionsListFilter from 'Position/PositionsListFilter';
@@ -22,19 +21,14 @@ export class PositionsContainer extends React.Component {
         const filteredPositions = selectPositions(positions, filters);
 
         return (
-            <div className="positions_container">
+            <div className="inbox_container">
                 {filteredPositions &&
-                    <div className="positions_widget">
-                        <div className="positions_list_wrapper">
+                    <div className="inbox_widget">
+                        <div className="inbox_list">
                             <PositionsListFilter />
                             <PositionsList positions={filteredPositions} />
                         </div>
-                        <div className="position_details_wrapper">
-                            <PositionDetails />
-                            {this.props.position &&
-                                <PositionApply />
-                            }
-                        </div>
+                        <PositionDetails />
                     </div>
                 }
             </div>

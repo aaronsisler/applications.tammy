@@ -37,7 +37,7 @@ export class ApplicantDetails extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <ApplicantDetailsContent applicant={applicant} />
+                        {false && <ApplicantDetailsContent applicant={applicant} />}
                     </div>
                 }
             </div>

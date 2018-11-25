@@ -6,6 +6,7 @@
 @import './base/settings';
 //Base
 @import './base/base';
+@import './base/inbox';
 @import './base/progress_bar';
 @import './base/visibility';
 @import './base/react_tabs';
@@ -38,9 +39,7 @@
 @import './components/position/PositionApply';
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
-@import './components/position/PositionsContainer';
 //PositionWatch
-@import './components/positionWatch/PositionsWatchContainer';
 @import './components/positionWatch/PositionWatchAddWidget';
 @import './components/positionWatch/PositionWatchDetails';
 @import './components/positionWatch/PositionWatchEditWidget';

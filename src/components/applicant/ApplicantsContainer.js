@@ -13,7 +13,7 @@ export class ApplicantsContainer extends React.Component {
 
     render() {
         return (
-            <div className="applicants_container">
+            <div id="applicants_container">
                 {this.props.applicants &&
                     <div className="applicants_widget">
                         <div className="applicants_list_wrapper">
