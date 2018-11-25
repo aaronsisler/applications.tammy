@@ -11,32 +11,33 @@ export class PositionWatchAddDetails extends React.Component {
 
     render() {
         const { position } = this.props;
+        if (!position) {
+            return (
+                <div className="inbox_details empty">
+                    Please select an item to view
+                    </div>
+            )
+        }
+
         return (
-            <div className="position_details">
-                {!position &&
-                    <div className="empty">
-                        Please select an item to view
-                    </div>
-                }
-                {position &&
-                    <div className="position_details_widget">
-                        <div className="position_details_header">
-                            <div>
-                                <div className="position_details__title">
-                                    {position.title}
-                                </div>
-                                <div className="position_details__job_id">
-                                    Job Id: {position.jobId}
-                                </div>
-                            </div>
-                            <div className="position_details__location">
-                                {position.location}
-                            </div>
+            <div className="inbox_details" >
+                <div className="inbox_details_header">
+                    <div>
+                        <div className="inbox_details_header__title">
+                            {position.title}
                         </div>
-                        <PositionWatchAddWidget />
-                        <PositionDetailsContent position={position} />
+                        <div className="inbox_details_header__job_id">
+                            Job Id: {position.jobId}
+                        </div>
+                        <div className="inbox_details_header__location">
+                            Location: {position.location}
+                        </div>
                     </div>
-                }
+                </div>
+                <div className="inbox_details_content">
+                    <PositionWatchAddWidget />
+                    <PositionDetailsContent position={position} />
+                </div>
             </div>
         );
     }
