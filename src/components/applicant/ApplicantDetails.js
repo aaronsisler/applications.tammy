@@ -10,36 +10,36 @@ export class ApplicantDetails extends React.Component {
 
     render() {
         const { applicant } = this.props;
+        if (!applicant) {
+            return (
+                <div className="inbox_details empty">
+                    Please select an applicant to view
+                </div>
+            )
+        }
         return (
-            <div className="applicant_details">
-                {!applicant &&
-                    <div className="empty">
-                        Please select an applicant to view
-                    </div>
-                }
-                {applicant &&
-                    <div className="applicant_details_widget">
-                        <div className="applicant_details_header">
-                            <div className="applicant_details__names">
-                                <div className="applicant_details__display_name">
-                                    {applicant.user.displayName}
-                                </div>
-                                <div className="applicant_details__legal_name">
-                                    {applicant.user.lastName},&nbsp;{applicant.user.firstName}
-                                </div>
+            <div className="inbox_details" >
+                <div className="inbox_details_header">
+                    <div>
+                        <div className="inbox_details_header__display_name">
+                            {applicant.user.displayName}
+                        </div>
+                        <div className="inbox_details_header__legal_name">
+                            {applicant.user.lastName},&nbsp;{applicant.user.firstName}
+                        </div>
+                        <div className="applicant_details_contact">
+                            <div className="applicant_details__display_phone_number">
+                                <strong>Phone:</strong>&nbsp;{applicant.user.displayPhoneNumber || "Not Provided"}
                             </div>
-                            <div className="applicant_details_contact">
-                                <div className="applicant_details__display_phone_number">
-                                    <strong>Phone:</strong>&nbsp;{applicant.user.displayPhoneNumber || "Not Provided"}
-                                </div>
-                                <div className="applicant_details__email">
-                                    <strong>Email:</strong>&nbsp;{applicant.user.email || "Not Provided"}
-                                </div>
+                            <div className="applicant_details__email">
+                                <strong>Email:</strong>&nbsp;{applicant.user.email || "Not Provided"}
                             </div>
                         </div>
-                        {false && <ApplicantDetailsContent applicant={applicant} />}
                     </div>
-                }
+                </div>
+                <div className="inbox_details_content">
+                    <ApplicantDetailsContent applicant={applicant} />
+                </div>
             </div>
         );
     }

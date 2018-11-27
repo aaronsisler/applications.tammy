@@ -13,15 +13,13 @@ export class ApplicantsContainer extends React.Component {
 
     render() {
         return (
-            <div id="applicants_container">
+            <div className="inbox_container">
                 {this.props.applicants &&
-                    <div className="applicants_widget">
-                        <div className="applicants_list_wrapper">
+                    <div className="inbox_widget">
+                        <div className="inbox_list">
                             <ApplicantsList applicants={this.props.applicants} />
                         </div>
-                        <div className="applicant_details_wrapper">
-                            <ApplicantDetails />
-                        </div>
+                        <ApplicantDetails />
                     </div>
                 }
             </div>
