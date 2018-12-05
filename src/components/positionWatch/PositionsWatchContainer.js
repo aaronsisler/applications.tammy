@@ -24,9 +24,7 @@ export class PositionsWatchContainer extends React.Component {
                             <Link className="nav_link" to="/position_watch_add">Add Position Watch</Link>
                             <PositionsList positions={this.props.positionsWatched} />
                         </div>
-                        <div className="inbox_details">
-                            <PositionWatchDetails />
-                        </div>
+                        <PositionWatchDetails />
                     </div>
                 }
             </div>

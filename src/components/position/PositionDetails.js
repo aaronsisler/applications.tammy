@@ -13,7 +13,7 @@ export class PositionDetails extends React.Component {
         const { position } = this.props;
         if (!position) {
             return (
-                <div className="inbox_details empty">
+                <div className="inbox_details_empty">
                     Please select an item to view
                     </div>
             )
@@ -33,12 +33,12 @@ export class PositionDetails extends React.Component {
                             Location: {position.location}
                         </div>
                     </div>
+                    <div>
+                        <PositionApply />
+                    </div>
                 </div>
                 <div className="inbox_details_content">
                     <PositionDetailsContent position={position} />
-                </div>
-                <div className="inbox_details_footer">
-                    <PositionApply />
                 </div>
             </div>
         );

@@ -1,5 +1,6 @@
 //Site Colors
 $mainColor: #135ba3;
+$darkMainColor: darken($mainColor, 20);
 $secColor: #009fc4;
 // Colors
 $lightGrey: #f5f7fa;
@@ -18,7 +19,6 @@ $midlarge: 2.4rem;
 $large: 3.2rem;
 $xlarge: 4.8rem;
 $xxlarge: 7.6rem;
-$navMenuWidth: 240px;
 $notificationListHorizontalPosition: 50px;
 $notificationListVerticalPosition: 60px;
 $notificationListWidth: 240px;

@@ -1,25 +1,34 @@
 .inbox_container {
-    background-color: $lightGrey;
-    display: flex;
-    justify-content: center;
-    padding: $large;
+    display: grid;
+    min-height: 90vh;
+    padding: $small 5%;
 }
 
 .inbox_widget {
-    display: flex;
-    flex-grow: 1;
-    height: $inboxContainerHeight;
-    max-width: 110rem;
+    display: grid;
+    grid-gap: $small;
+    grid-template-columns: 20% 80%;
+}
+
+.inbox_details {
+    display: grid;
+    grid-gap: $small;
+    grid-template-rows: 0.5fr 3fr;
+}
+
+.inbox_details_empty {
+    align-content: center;
+    background-color: white;
+    display: grid;
+    font-size: $midlarge;
+    height: 100%;
+    justify-content: center;
 }
 
 .inbox_list {
     background-color: white;
-    border: 1px solid $midLightGrey;
-    border-right: None;
-    display: flex;
-    flex-basis: 25%;
-    flex-flow: column;
-    flex-grow: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    height: 100%;
     input {
         border: none;
         border-bottom: 1px solid $midLightGrey;
@@ -30,52 +39,35 @@
     }
 }
 
-.inbox_details {
-    background-color: white;
-    border: 1px solid $midLightGrey;
-    display: flex;
-    flex-basis: 75%;
-    flex-flow: column;
-    flex-grow: 1;
-    justify-content: space-between;
-    &.empty {
-        align-items: center;
-        display: flex;
-        font-size: $midlarge;
-        justify-content: center;
-    }
-}
-
 .inbox_details_header {
-    background-color: $midLightGrey;
-    border-bottom: 1px solid $midGrey;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    color: $darkMainColor;
+    display: grid;
+    grid-template-columns: 85% 15%;
     padding: $small $medium;
 }
 
 .inbox_details_header {
     &__title {
-        color: $darkGrey;
         font-family: $secondaryFont;
+        font-weight: 600;
         font-size: $midlarge;
         margin-bottom: $small;
     }
     &__job_id {
-        color: $grey;
         font-family: $secondaryFont;
         font-size: $medium;
         margin-bottom: $xsmall;
     }
     &__location {
-        color: $grey;
         font-family: $secondaryFont;
         font-size: $medium;
     }
 }
 
 .inbox_details_content {
-    flex-grow: 1;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
     overflow-y: auto;
-    &__link {
-        display: flex;
-    }
 }

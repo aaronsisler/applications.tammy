@@ -4,7 +4,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Navbar from 'Core/Navbar';
-import Footer from 'Core/Footer';
 
 import ApplicantsPage from 'Applicant/ApplicantsPage';
 import ApplicationPage from 'Application/ApplicationPage';
@@ -35,7 +34,6 @@ export const AppRouter = (props) => (
                 <Route path='/user_profile' component={UserProfilePage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
-            <Footer />
         </div>
     </Router>
 );
