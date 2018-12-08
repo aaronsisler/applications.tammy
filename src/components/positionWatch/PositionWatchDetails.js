@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import LinkWrapper from 'Shared/universal/LinkWrapper';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
 import { startSetWorkflowPosition } from 'Actions/workflow';
@@ -38,15 +38,11 @@ export class PositionWatchDetails extends React.Component {
                             Location: {position.location}
                         </div>
                     </div>
-                    <>
-                        <Link
-                            className="nav_link"
-                            to="/applicants"
-                            onClick={this.handleSetWorkFlowPosition}
-                        >
-                            View Applicants
-                        </Link>
-                    </>
+                    <LinkWrapper
+                        linkText="View Applicants"
+                        onClick={this.handleSetWorkFlowPosition}
+                        to="/applicants"
+                    />
                 </div>
                 <div className="inbox_details_content">
                     <PositionWatchEditWidget />
