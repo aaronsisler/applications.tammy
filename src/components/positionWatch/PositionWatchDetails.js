@@ -38,15 +38,17 @@ export class PositionWatchDetails extends React.Component {
                             Location: {position.location}
                         </div>
                     </div>
+                    <>
+                        <Link
+                            className="nav_link"
+                            to="/applicants"
+                            onClick={this.handleSetWorkFlowPosition}
+                        >
+                            View Applicants
+                        </Link>
+                    </>
                 </div>
                 <div className="inbox_details_content">
-                    <Link
-                        className="nav_link"
-                        to="/applicants"
-                        onClick={this.handleSetWorkFlowPosition}
-                    >
-                        View Applicants
-                        </Link>
                     <PositionWatchEditWidget />
                     <PositionDetailsContent position={position} />
                 </div>

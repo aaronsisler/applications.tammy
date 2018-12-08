@@ -49,6 +49,11 @@
     display: grid;
     grid-template-columns: 85% 15%;
     padding: $small $medium;
+    .nav_link {
+        align-content: center;
+        display: grid;
+        justify-content: center;
+    }
 }
 
 .inbox_details_header {

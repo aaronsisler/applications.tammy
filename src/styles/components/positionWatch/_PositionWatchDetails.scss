@@ -1,46 +1,6 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .position_watch_details {
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-around;
-        .empty {
-            align-items: center;
-            display: flex;
-            font-size: $midlarge;
-        }
-    }
-    .position_watch_details_widget {
-        display: flex;
-        flex-flow: column;
-        flex-grow: 1;
-    }
-    .position_watch_details_header {
-        align-items: center;
-        background-color: $midLightGrey;
-        border-bottom: 1px solid $midGrey;
-        display: flex;
-        justify-content: space-between;
-        padding: $small $small $small $medium;
-    }
-    .position_watch_details__title {
-        color: $darkGrey;
-        font-family: $secondaryFont;
-        font-size: $midlarge;
-        margin-bottom: $small;
-    }
-    .position_watch_details__job_id {
-        color: $grey;
-        font-family: $secondaryFont;
-        font-size: $medium;
-        margin-bottom: $xsmall;
-    }
-    .position_watch_details__location {
-        color: $grey;
-        font-family: $secondaryFont;
-        font-size: $medium;
-    }
 }
 
 //Medium screens - TABLET
