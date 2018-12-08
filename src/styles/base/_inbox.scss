@@ -14,6 +14,7 @@
     display: grid;
     grid-gap: $small;
     grid-template-rows: 0.5fr 3fr;
+    height: 90vh;
 }
 
 .inbox_details_empty {
@@ -28,6 +29,8 @@
 .inbox_list {
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    display: grid;
+    grid-template-rows: 0.5fr 10fr;
     height: 100%;
     input {
         border: none;
