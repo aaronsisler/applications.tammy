@@ -3,38 +3,26 @@
 @media only screen {
     .position_details_content {
         font-size: $medium;
-        display: flex;
-        flex-flow: column;
-        padding: $small $midlarge;
+        display: grid;
+        grid-gap: $midlarge;
+        line-height: $midlarge;
+        width: 80%;
+        span {
+            color: $darkGrey;
+            font-size: $medium;
+            margin-bottom: $small;
+        }
     }
     .position_details_content__description {
         color: $fontGrey;
         display: flex;
         flex-flow: column;
-        margin: $small 0 $large;
-        span {
-            color: $darkGrey;
-            font-size: $medium;
-            margin-bottom: $small;
-        }
     }
     .position_details_content__responsibilities {
         color: $fontGrey;
-        margin: $small 0 $medium;
-        span {
-            color: $darkGrey;
-            font-size: $medium;
-            margin-bottom: $small;
-        }
     }
     .position_details_content__requirements {
         color: $fontGrey;
-        margin: $small 0;
-        span {
-            color: $darkGrey;
-            font-size: $medium;
-            margin-bottom: $small;
-        }
     }
     .position_details_content__list {
         padding: 0 $midlarge;
