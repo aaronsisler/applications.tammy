@@ -27,7 +27,9 @@ describe('PositionWatchDetails', () => {
         });
 
         it('should call startSetWorkflowPosition when the link is clicked', () => {
-            wrapper.find('.nav_link').simulate('click')
+            // console.log(wrapper.debug())
+            // console.log(wrapper.find('LinkWrapper'))
+            wrapper.find('LinkWrapper').props().onClick()
 
             expect(startSetWorkflowPosition).toHaveBeenCalled();
         });

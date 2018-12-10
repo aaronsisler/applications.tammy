@@ -21,7 +21,7 @@ export class PositionWatchDetails extends React.Component {
             return (
                 <div className="inbox_details_empty">
                     Please select an item to view
-                    </div>
+                </div>
             )
         }
         return (
