@@ -2,9 +2,10 @@
 //max-width 640px, small screens
 @media only screen {
     .position_watch_edit_widget {
+        align-content: center;
         display: grid;
-        grid-template-columns: 50% 50%;
-        width: 40%;
+        grid-template-columns: auto auto;
+        justify-content: left;
     }
     .position_watch_edit_widget__select_wrapper {
         align-items: center;

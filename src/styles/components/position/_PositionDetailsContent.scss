@@ -2,33 +2,24 @@
 //max-width 640px, small screens
 @media only screen {
     .position_details_content {
+        color: $fontGrey;
+        display: flex;
+        flex-flow: column;
         font-size: $medium;
-        display: grid;
-        grid-gap: $midlarge;
         line-height: $midlarge;
         width: 80%;
-        span {
+    }
+    .position_details_content_wrapper {
+        margin-bottom: $small;
+        .position_details_content_wrapper__header {
             color: $darkGrey;
             font-size: $medium;
             margin-bottom: $small;
         }
     }
-    .position_details_content__description {
-        color: $fontGrey;
-        display: flex;
-        flex-flow: column;
-    }
-    .position_details_content__responsibilities {
-        color: $fontGrey;
-    }
-    .position_details_content__requirements {
-        color: $fontGrey;
-    }
     .position_details_content__list {
         padding: 0 $midlarge;
-        li {
-            margin-bottom: $xsmall;
-        }
+        margin: 0;
     }
 }
 

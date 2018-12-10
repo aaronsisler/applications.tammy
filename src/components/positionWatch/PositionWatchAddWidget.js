@@ -20,7 +20,7 @@ export class PositionWatchAddWidget extends React.Component {
             <div className="position_watch_add_widget">
                 <div className="position_watch_add_widget__select_wrapper">
                     <div className="position_watch_add_widget__title">
-                        Notification&nbsp;Level:
+                        Notification&nbsp;Level:&nbsp;
                     </div>
                     <div className="position_watch_add_widget__select">
                         <select

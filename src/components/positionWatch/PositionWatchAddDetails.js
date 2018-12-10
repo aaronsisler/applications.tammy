@@ -13,7 +13,7 @@ export class PositionWatchAddDetails extends React.Component {
         const { position } = this.props;
         if (!position) {
             return (
-                <div className="inbox_details empty">
+                <div className="inbox_details_empty">
                     Please select an item to view
                     </div>
             )
@@ -34,7 +34,7 @@ export class PositionWatchAddDetails extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="inbox_details_content">
+                <div className="inbox_details_content position_watch_details">
                     <PositionWatchAddWidget />
                     <PositionDetailsContent position={position} />
                 </div>

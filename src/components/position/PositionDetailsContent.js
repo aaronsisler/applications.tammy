@@ -10,13 +10,13 @@ export default class PositionDetailsContent extends React.Component {
         const { position } = this.props;
         return (
             <div className="position_details_content">
-                <div className="position_details_content__description">
-                    <span>Description:</span>
+                <div className="position_details_content_wrapper">
+                    <div className="position_details_content_wrapper__header">Description:</div>
                     <div>{position.content.description}</div>
                 </div>
                 {position.content.responsibilities &&
-                    <div className="position_details_content__responsibilities">
-                        <span>Responsibilities:</span>
+                    <div className="position_details_content_wrapper">
+                        <div className="position_details_content_wrapper__header">Responsibilities:</div>
                         <ul className="position_details_content__list">
                             {position.content.responsibilities.map((responsibility, index) =>
                                 <li key={index}>{responsibility}</li>
@@ -25,8 +25,8 @@ export default class PositionDetailsContent extends React.Component {
                     </div>
                 }
                 {position.content.requirements &&
-                    <div className="position_details_content__requirements">
-                        <span>Requirements:</span>
+                    <div className="position_details_content_wrapper">
+                        <div className="position_details_content_wrapper__header">Requirements:</div>
                         <ul className="position_details_content__list">
                             {position.content.requirements.map((requirement, index) =>
                                 <li key={index}>{requirement}</li>

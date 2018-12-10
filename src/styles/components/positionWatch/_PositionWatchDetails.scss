@@ -4,6 +4,7 @@
     .position_watch_details {
         display: grid;
         grid-gap: $medium;
+        grid-template-rows: 0.5fr 5fr;
     }
 }
 
