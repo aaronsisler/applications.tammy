@@ -2,19 +2,14 @@
 //max-width 640px, small screens
 @media only screen {
     .position_watch_edit_widget {
-        display: flex;
-        justify-content: space-between;
-        padding: $small $medium;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 40%;
     }
     .position_watch_edit_widget__select_wrapper {
         align-items: center;
         display: flex;
-    }
-    .position_watch_edit_widget__title {
         font-size: $medium;
-        margin-right: $xsmall;
-    }
-    .position_watch_edit_widget__select {
         select {
             font-size: $medium;
         }

@@ -35,7 +35,7 @@ export class PositionWatchEditWidget extends React.Component {
             <div className="position_watch_edit_widget">
                 <div className="position_watch_edit_widget__select_wrapper">
                     <div className="position_watch_edit_widget__title">
-                        Notification&nbsp;Level:
+                        Notification&nbsp;Level:&nbsp;
                     </div>
                     {currentPositionwatchLevel &&
                         <div className="position_watch_edit_widget__select">

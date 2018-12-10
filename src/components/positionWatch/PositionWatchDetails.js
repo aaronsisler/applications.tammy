@@ -44,7 +44,7 @@ export class PositionWatchDetails extends React.Component {
                         to="/applicants"
                     />
                 </div>
-                <div className="inbox_details_content">
+                <div className="inbox_details_content position_watch_details">
                     <PositionWatchEditWidget />
                     <PositionDetailsContent position={position} />
                 </div>

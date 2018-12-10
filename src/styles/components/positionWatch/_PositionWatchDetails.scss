@@ -1,6 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
+    .position_watch_details {
+        display: grid;
+        grid-gap: $medium;
+    }
 }
 
 //Medium screens - TABLET
