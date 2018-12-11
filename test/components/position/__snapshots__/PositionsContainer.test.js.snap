@@ -2,13 +2,13 @@
 
 exports[`PositionsContainer should render PositionsContainer correctly when a position is NOT selected 1`] = `
 <div
-  className="positions_container"
+  className="inbox_container"
 >
   <div
-    className="positions_widget"
+    className="inbox_widget"
   >
     <div
-      className="positions_list_wrapper"
+      className="inbox_list"
     >
       <Connect(PositionsListFilter) />
       <PositionsList
@@ -52,25 +52,20 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <div
-      className="position_details_wrapper"
-    >
-      <Connect(PositionDetails) />
-      <Connect(PositionApply) />
-    </div>
+    <Connect(PositionDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsContainer should render PositionsContainer correctly when a position is selected 1`] = `
 <div
-  className="positions_container"
+  className="inbox_container"
 >
   <div
-    className="positions_widget"
+    className="inbox_widget"
   >
     <div
-      className="positions_list_wrapper"
+      className="inbox_list"
     >
       <Connect(PositionsListFilter) />
       <PositionsList
@@ -114,25 +109,20 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <div
-      className="position_details_wrapper"
-    >
-      <Connect(PositionDetails) />
-      <Connect(PositionApply) />
-    </div>
+    <Connect(PositionDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsContainer should render PositionsContainer correctly when text filter is applied 1`] = `
 <div
-  className="positions_container"
+  className="inbox_container"
 >
   <div
-    className="positions_widget"
+    className="inbox_widget"
   >
     <div
-      className="positions_list_wrapper"
+      className="inbox_list"
     >
       <Connect(PositionsListFilter) />
       <PositionsList
@@ -159,12 +149,7 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
         }
       />
     </div>
-    <div
-      className="position_details_wrapper"
-    >
-      <Connect(PositionDetails) />
-      <Connect(PositionApply) />
-    </div>
+    <Connect(PositionDetails) />
   </div>
 </div>
 `;
