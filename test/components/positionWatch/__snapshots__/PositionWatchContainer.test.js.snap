@@ -2,13 +2,13 @@
 
 exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when NO positions are watched 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -21,24 +21,20 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         positions={Array []}
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchDetails) />
-    </div>
+    <Connect(PositionWatchDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions are watched 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -90,24 +86,20 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         }
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchDetails) />
-    </div>
+    <Connect(PositionWatchDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions watched is not in positions list 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -177,11 +169,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         }
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchDetails) />
-    </div>
+    <Connect(PositionWatchDetails) />
   </div>
 </div>
 `;

@@ -10,7 +10,7 @@ exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly
     <div
       className="position_watch_edit_widget__title"
     >
-      Notification Level:
+      Notification Level: 
     </div>
     <div
       className="position_watch_edit_widget__select"
@@ -61,7 +61,7 @@ exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly
     <div
       className="position_watch_edit_widget__title"
     >
-      Notification Level:
+      Notification Level: 
     </div>
   </div>
   <div
