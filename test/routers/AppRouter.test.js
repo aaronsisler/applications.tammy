@@ -56,10 +56,6 @@ describe('AppRouter', () => {
         expect(wrapper.find('Connect(Navbar)').prop('isAuthenticated')).toBe(true);
     });
 
-    it('should render a Footer', () => {
-        expect(wrapper.find('Footer').length).toBe(1);
-    });
-
     describe('Route Navigation', () => {
         beforeEach(() => {
             routes = wrapper.find('Route');

@@ -2,13 +2,13 @@
 
 exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
 <div
-  className="applicants_container"
+  className="inbox_container"
 >
   <div
-    className="applicants_widget"
+    className="inbox_widget"
   >
     <div
-      className="applicants_list_wrapper"
+      className="inbox_list"
     >
       <ApplicantsList
         applicants={
@@ -73,11 +73,7 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
         }
       />
     </div>
-    <div
-      className="applicant_details_wrapper"
-    >
-      <Connect(ApplicantDetails) />
-    </div>
+    <Connect(ApplicantDetails) />
   </div>
 </div>
 `;
