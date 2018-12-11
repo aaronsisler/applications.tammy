@@ -12,7 +12,7 @@ export class ApplicantDetails extends React.Component {
         const { applicant } = this.props;
         if (!applicant) {
             return (
-                <div className="inbox_details empty">
+                <div className="inbox_details_empty">
                     Please select an applicant to view
                 </div>
             )
