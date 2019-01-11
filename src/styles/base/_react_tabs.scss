@@ -5,26 +5,24 @@
         padding: 0;
     }
     &__tab {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        color: $fontGrey;
         cursor: pointer;
         display: flex;
-        flex: 1;
         font-family: $secondaryFont;
         font-size: $medium;
-        font-weight: bold;
         justify-content: center;
-        padding: $small $medium;
+        padding: $small $medium $xsmall;
         &--selected {
-            background: $mainColor;
-            color: white;
+            border-bottom: 3px solid $secColor;
+            color: $midGrey;
+            font-weight: bold;
         }
     }
     &__tab-panel {
         display: none;
-        text-align: center;
         &--selected {
             display: flex;
+            padding-top: $large;
         }
     }
 }

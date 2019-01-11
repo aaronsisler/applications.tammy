@@ -1,5 +1,13 @@
 import database from 'Firebase/firebase';
-import { setUser, editUser, clearUser } from './helpers/user';
+import { clearUser, editUser, setUser } from 'Actions/helpers/user';
+
+export const startClearUser = () => (dispatch) => dispatch(clearUser());
+
+export const startEditUser = (updates) => (dispatch, getState) => {
+    const { uid: userId } = getState().auth;
+
+    return database.ref(`users/${userId}`).update(updates).then(() => dispatch(editUser(updates)));
+};
 
 export const startSetUser = () => (dispatch, getState) => {
     const { uid: userId } = getState().auth;
@@ -10,11 +18,3 @@ export const startSetUser = () => (dispatch, getState) => {
             ...snapshot.val()
         })));
 };
-
-export const startEditUser = (updates) => (dispatch, getState) => {
-    const { uid: userId } = getState().auth;
-
-    return database.ref(`users/${userId}`).update(updates).then(() => dispatch(editUser(updates)));
-};
-
-export const startClearUser = () => (dispatch) => dispatch(clearUser());

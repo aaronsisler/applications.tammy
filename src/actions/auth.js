@@ -5,7 +5,7 @@ export const startLogin = (redirectUrl = '/dashboard') => () => {
     firebase.auth().signInWithPopup(googleAuthProvider)
         .then(() => {
             history.push(redirectUrl);
-        })
+        });
 }
 
 export const startLogout = () => () => firebase.auth().signOut()

@@ -1,6 +1,5 @@
-export const setUser = (user) => ({
-    type: 'SET_USER',
-    user,
+export const clearUser = () => ({
+    type: 'CLEAR_USER'
 });
 
 export const editUser = (updates) => ({
@@ -8,6 +7,7 @@ export const editUser = (updates) => ({
     updates,
 });
 
-export const clearUser = () => ({
-    type: 'CLEAR_USER'
+export const setUser = (user) => ({
+    type: 'SET_USER',
+    user,
 });

@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startSetApplicants } from 'Actions/applicants';
+import selectApplicants from 'Selectors/applicants';
 import ApplicantDetails from 'Applicant/ApplicantDetails';
 import ApplicantsList from 'Applicant/ApplicantsList';
+import ApplicantsListFilter from 'Applicant/ApplicantsListFilter';
 
 export class ApplicantsContainer extends React.Component {
     constructor(props) {
@@ -17,6 +19,7 @@ export class ApplicantsContainer extends React.Component {
                 {this.props.applicants &&
                     <div className="inbox_widget">
                         <div className="inbox_list">
+                            <ApplicantsListFilter />
                             <ApplicantsList applicants={this.props.applicants} />
                         </div>
                         <ApplicantDetails />
@@ -29,7 +32,7 @@ export class ApplicantsContainer extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    applicants: state.applicants,
+    applicants: selectApplicants(state.applicants, state.filters.applicants),
 });
 
 /* istanbul ignore next */

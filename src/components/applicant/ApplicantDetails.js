@@ -27,13 +27,13 @@ export class ApplicantDetails extends React.Component {
                         <div className="inbox_details_header__legal_name">
                             {applicant.user.lastName},&nbsp;{applicant.user.firstName}
                         </div>
-                        <div className="applicant_details_contact">
-                            <div className="applicant_details__display_phone_number">
-                                <strong>Phone:</strong>&nbsp;{applicant.user.displayPhoneNumber || "Not Provided"}
-                            </div>
-                            <div className="applicant_details__email">
-                                <strong>Email:</strong>&nbsp;{applicant.user.email || "Not Provided"}
-                            </div>
+                    </div>
+                    <div className="inbox_details_header__contact">
+                        <div className="inbox_details_header__display_phone_number">
+                            <strong>Phone:</strong>&nbsp;{applicant.user.displayPhoneNumber || "Not Provided"}
+                        </div>
+                        <div className="inbox_details_header__email">
+                            <strong>Email:</strong>&nbsp;{applicant.user.email || "Not Provided"}
                         </div>
                     </div>
                 </div>

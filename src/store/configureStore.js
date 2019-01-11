@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import applicantReducer from 'Reducers/applicant';
 import applicantsReducer from 'Reducers/applicants';
+import applicantsFilterReducer from 'Reducers/filters/applicants';
 import applicationReducer from 'Reducers/application';
 import applicationProcessReducer from 'Reducers/applicationProcess';
 import authReducer from 'Reducers/auth';
@@ -25,6 +26,7 @@ export default () => {
             applicationProcess: applicationProcessReducer,
             auth: authReducer,
             filters: combineReducers({
+                applicants: applicantsFilterReducer,
                 positions: positionsFilterReducer,
             }),
             notifications: notificationsReducer,

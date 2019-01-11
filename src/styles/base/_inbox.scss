@@ -20,6 +20,7 @@
 .inbox_details_empty {
     align-content: center;
     background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
     display: grid;
     font-size: $midlarge;
     height: 100%;
@@ -48,25 +49,31 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
     color: $darkMainColor;
     display: grid;
-    grid-template-columns: 85% 15%;
+    grid-template-columns: 50% 50%;
     padding: $small $medium;
 }
 
 .inbox_details_header {
-    &__title {
-        font-family: $secondaryFont;
+    font-family: $secondaryFont;
+    font-size: $medium;
+    &__title,
+    &__display_name {
         font-weight: 600;
         font-size: $midlarge;
         margin-bottom: $small;
     }
-    &__job_id {
-        font-family: $secondaryFont;
-        font-size: $medium;
+    &__job_id,
+    &__legal_name,
+    &__display_phone_number {
         margin-bottom: $xsmall;
     }
-    &__location {
-        font-family: $secondaryFont;
-        font-size: $medium;
+    &__email {
+        word-break: break-all;
+    }
+    &__contact {
+        align-content: center;
+        display: grid;
+        justify-content: flex-end;
     }
 }
 

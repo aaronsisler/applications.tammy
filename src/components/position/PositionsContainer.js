@@ -17,16 +17,13 @@ export class PositionsContainer extends React.Component {
     }
 
     render() {
-        const { filters, positions } = this.props;
-        const filteredPositions = selectPositions(positions, filters);
-
         return (
             <div className="inbox_container">
-                {filteredPositions &&
+                {this.props.positions &&
                     <div className="inbox_widget">
                         <div className="inbox_list">
                             <PositionsListFilter />
-                            <PositionsList positions={filteredPositions} />
+                            <PositionsList positions={this.props.positions} />
                         </div>
                         <PositionDetails />
                     </div>
@@ -38,9 +35,7 @@ export class PositionsContainer extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    filters: state.filters.positions,
-    position: state.position,
-    positions: state.positions,
+    positions: selectPositions(state.positions, state.filters.positions),
 });
 
 /* istanbul ignore next */
@@ -51,8 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
-    filters: PropTypes.object,
-    position: PropTypes.object,
     positions: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
 };
