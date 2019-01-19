@@ -13,7 +13,7 @@ export class ApplicantProcessContainer extends React.Component {
         super(props);
         this.state = {
             applicantStatus: props.applicant.applicantStatus,
-            applicantNotes: props.applicant.applicantNotes.reverse(),
+            applicantNotes: props.applicant.applicantNotes,
             isNotePopulated: false,
             isStatusChanged: false,
             prevApplicantStatus: props.applicant.applicantStatus,
@@ -54,24 +54,22 @@ export class ApplicantProcessContainer extends React.Component {
 
     render() {
         return (
-            <div id="applicant_process_container">
+            <div className="applicant_process_container">
                 <div className="applicant_process_container__instructions">
                     Please write a note and select a new status to submit
                 </div>
-                <div className="applicant_process_container__status_change_note">
-                    <textarea
-                        placeholder="Write a note to change applicant status"
-                        className="textarea"
-                        value={this.state.statusNote}
-                        onChange={this.handleStatusNoteChange}
-                        cols="75"
-                        rows="5"
-                    >
-                    </textarea>
-                </div>
-                <div className="applicant_process_container__select">
+                <textarea
+                    placeholder="Write a note to change applicant status"
+                    className="applicant_process_container__note"
+                    value={this.state.statusNote}
+                    onChange={this.handleStatusNoteChange}
+                    cols="75"
+                    rows="5"
+                >
+                </textarea>
+                <div className="applicant_process_container__status_change">
                     <select
-                        className="select"
+                        className="applicant_process_container__select"
                         disabled={!this.state.isNotePopulated}
                         onChange={this.handleSetApplicantStatus}
                         value={this.state.applicantStatus}

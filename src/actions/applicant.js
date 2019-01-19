@@ -3,14 +3,17 @@ import {
     addApplicantNote,
     clearApplicant,
     setApplicant,
-    setApplicantStatus
+    setApplicantStatus,
+    setApplicantNotes,
 } from 'Actions/helpers/applicant';
 
 export const startAddApplicantNote = (statusNote) => (dispatch, getState) => {
     const { applicantId, positionId } = getState().applicant;
+    const date = new Date();
+    const priority = -(date.getTime());
 
     return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`)
-        .push({ statusNote })
+        .push().setWithPriority({ statusNote, priority }, priority)
         .then(() => {
             dispatch(addApplicantNote({ statusNote }));
         });
@@ -30,4 +33,17 @@ export const startSetApplicantStatus = (applicantStatus) => (dispatch, getState)
 
     return database.ref(`applicants/${positionId}/${applicantId}`).update({ applicantStatus })
         .then(() => dispatch(setApplicantStatus(applicantStatus)));
+}
+
+export const startSetApplicantNotes = () => (dispatch, getState) => {
+    const { applicantId, positionId } = getState().applicant;
+    return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`, {
+        query: {
+            orderByPriority: true,
+        }
+    }).then((snapshot) => {
+        const applicantNotes = [];
+        snapshot.forEach((childSnapshot) => applicantNotes.push(childSnapshot.statusNote));
+        return dispatch(setApplicantNotes(applicantNotes))
+    });
 }
