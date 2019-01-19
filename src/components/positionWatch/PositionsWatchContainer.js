@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { startClearPosition } from 'Actions/position';
-import PositionsList from 'Position/PositionsList';
+import PositionsList from 'Shared/position/PositionsList';
 import PositionWatchDetails from 'PositionWatch/PositionWatchDetails';
 
 export class PositionsWatchContainer extends React.Component {
@@ -17,16 +17,14 @@ export class PositionsWatchContainer extends React.Component {
 
     render() {
         return (
-            <div className="position_watch_container">
+            <div className="inbox_container">
                 {this.props.positionsWatched &&
-                    <div className="position_watch_widget">
-                        <div className="position_watch_list__wrapper">
+                    <div className="inbox_widget">
+                        <div className="inbox_list">
                             <Link className="nav_link" to="/position_watch_add">Add Position Watch</Link>
                             <PositionsList positions={this.props.positionsWatched} />
                         </div>
-                        <div className="position_watch_details__wrapper">
-                            <PositionWatchDetails />
-                        </div>
+                        <PositionWatchDetails />
                     </div>
                 }
             </div>

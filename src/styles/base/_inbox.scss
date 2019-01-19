@@ -1,0 +1,85 @@
+.inbox_container {
+    display: grid;
+    min-height: 90vh;
+    padding: $small 5%;
+}
+
+.inbox_widget {
+    display: grid;
+    grid-gap: $small;
+    grid-template-columns: 20% 80%;
+}
+
+.inbox_details {
+    display: grid;
+    grid-gap: $small;
+    grid-template-rows: 0.5fr 3fr;
+    height: 90vh;
+}
+
+.inbox_details_empty {
+    align-content: center;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    display: grid;
+    font-size: $midlarge;
+    height: 100%;
+    justify-content: center;
+}
+
+.inbox_list {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    display: grid;
+    grid-template-rows: 0.5fr 10fr;
+    height: 100%;
+    input {
+        border: none;
+        border-bottom: 1px solid $midLightGrey;
+        margin: 0;
+    }
+    .nav_link {
+        margin: 0;
+    }
+}
+
+.inbox_details_header {
+    align-content: center;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    color: $darkMainColor;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: $small $medium;
+}
+
+.inbox_details_header {
+    font-family: $secondaryFont;
+    font-size: $medium;
+    &__title,
+    &__display_name {
+        font-weight: 600;
+        font-size: $midlarge;
+        margin-bottom: $small;
+    }
+    &__job_id,
+    &__legal_name,
+    &__display_phone_number {
+        margin-bottom: $xsmall;
+    }
+    &__email {
+        word-break: break-all;
+    }
+    &__contact {
+        align-content: center;
+        display: grid;
+        justify-content: flex-end;
+    }
+}
+
+.inbox_details_content {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    padding: $large;
+    overflow-y: auto;
+}

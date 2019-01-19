@@ -2,7 +2,6 @@ import {
     decrementCurrentStep,
     incrementCurrentStep,
     resetApplicationProcess,
-    setPositionId,
 } from 'Actions/helpers/applicationProcess';
 
 describe('Application Process Action Helpers', () => {
@@ -32,18 +31,6 @@ describe('Application Process Action Helpers', () => {
 
             expect(action).toEqual({
                 type: 'RESET_APPLICATION_PROCESS',
-            });
-        });
-    });
-
-    describe('setPositionId() method', () => {
-        it(`should setup 'set position id' action object`, () => {
-            const positionId = 'mockPositionId';
-            const action = setPositionId(positionId);
-
-            expect(action).toEqual({
-                type: 'SET_POSITION_ID',
-                positionId,
             });
         });
     });

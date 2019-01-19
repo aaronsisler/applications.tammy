@@ -26,7 +26,7 @@ export class PositionWatchEditWidget extends React.Component {
         const { positionId, positionsWatched } = this.props;
         const positionData = positionsWatched
             .find((positionWatched) => positionWatched.positionId === positionId);
-        return positionData.notificationLevel;
+        return positionData ? positionData.notificationLevel : undefined;
     }
 
     render() {
@@ -35,19 +35,21 @@ export class PositionWatchEditWidget extends React.Component {
             <div className="position_watch_edit_widget">
                 <div className="position_watch_edit_widget__select_wrapper">
                     <div className="position_watch_edit_widget__title">
-                        Notification&nbsp;Level:
+                        Notification&nbsp;Level:&nbsp;
                     </div>
-                    <div className="position_watch_edit_widget__select">
-                        <select
-                            className="select"
-                            value={currentPositionwatchLevel}
-                            onChange={this.handleSetPositionWatchLevel}
-                        >
-                            <option value="ALL">ALL</option>
-                            <option value="SOME">SOME</option>
-                            <option value="REQUIRED">REQUIRED</option>
-                        </select>
-                    </div>
+                    {currentPositionwatchLevel &&
+                        <div className="position_watch_edit_widget__select">
+                            <select
+                                className="select"
+                                value={currentPositionwatchLevel}
+                                onChange={this.handleSetPositionWatchLevel}
+                            >
+                                <option value="ALL">ALL</option>
+                                <option value="SOME">SOME</option>
+                                <option value="REQUIRED">REQUIRED</option>
+                            </select>
+                        </div>
+                    }
                 </div>
                 <div className="position_watch_edit_widget__removal">
                     <button

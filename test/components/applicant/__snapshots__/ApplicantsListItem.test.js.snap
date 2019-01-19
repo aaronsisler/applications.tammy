@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantsListItem should render ApplicantsListItem correctly 1`] = `
+<div
+  className="applicants_list_item"
+  onClick={[MockFunction]}
+>
+  <div
+    className="applicants_list_item__content"
+  >
+    <div
+      className="applicants_list_item__display_name"
+    >
+      Johnny Appleseed
+    </div>
+    <div
+      className="applicants_list_item__legal_name"
+    >
+      Appleseed
+      , 
+      Johnny
+    </div>
+  </div>
+</div>
+`;

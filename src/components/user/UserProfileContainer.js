@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import UserNameWidget from './UserNameWidget';
-import UserAddressWidget from './UserAddressWidget';
-import UserContactInfoWidget from './UserContactInfoWidget';
+import UserNameWidget from 'User/UserNameWidget';
+import UserAddressWidget from 'User/UserAddressWidget';
+import UserContactInfoWidget from 'User/UserContactInfoWidget';
 import { startEditUser } from 'Actions/user';
 import LoadingPage from 'Core/LoadingPage';
 

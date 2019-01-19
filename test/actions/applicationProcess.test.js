@@ -4,9 +4,10 @@ import {
     startDecrementCurrentStep,
     startIncrementCurrentStep,
     startResetApplicationProcess,
-    startSetPositionId,
 } from 'Actions/applicationProcess';
 import * as applicationProcessActionHelpers from 'Actions/helpers/applicationProcess';
+import * as workflowActionHelpers from 'Actions/helpers/workflow';
+import * as applicationActionHelpers from 'Actions/helpers/application';
 import positions from '../fixtures/positions';
 
 const createMockStore = configureMockStore([thunk]);
@@ -42,25 +43,34 @@ describe('Application Process Actions', () => {
     });
 
     describe('startResetApplicationProcess() method', () => {
+        it(`should call dispatch 3 times`, async () => {
+            await store.dispatch(startResetApplicationProcess());
+
+            expect(store.getActions().length).toBe(3);
+        });
+
         it(`should call dispatch with resetApplicationProcess`, async () => {
             const resetApplicationProcessMock = jest.spyOn(applicationProcessActionHelpers, 'resetApplicationProcess');
 
             await store.dispatch(startResetApplicationProcess());
 
-            expect(store.getActions().length).toBe(1);
             expect(resetApplicationProcessMock).toHaveBeenCalled();
         });
-    });
 
-    describe('startSetPositionId() method', () => {
-        it(`should call dispatch with setPositionId`, async () => {
-            const { positionId } = position;
-            const setPositionIdMock = jest.spyOn(applicationProcessActionHelpers, 'setPositionId');
+        it(`should call dispatch with clearApplication`, async () => {
+            const clearApplicationMock = jest.spyOn(applicationActionHelpers, 'clearApplication');
 
-            await store.dispatch(startSetPositionId(positionId));
+            await store.dispatch(startResetApplicationProcess());
 
-            expect(store.getActions().length).toBe(1);
-            expect(setPositionIdMock).toHaveBeenLastCalledWith(positionId);
+            expect(clearApplicationMock).toHaveBeenCalled();
+        });
+
+        it(`should call dispatch with clearWorkflowPosition`, async () => {
+            const clearWorkflowPositionMock = jest.spyOn(workflowActionHelpers, 'clearWorkflowPosition');
+
+            await store.dispatch(startResetApplicationProcess());
+
+            expect(clearWorkflowPositionMock).toHaveBeenCalled();
         });
     });
 });

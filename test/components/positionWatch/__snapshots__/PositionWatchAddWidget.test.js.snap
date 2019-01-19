@@ -10,7 +10,7 @@ exports[`PositionWatchAddWidget should render PositionWatchAddWidget correctly 1
     <div
       className="position_watch_add_widget__title"
     >
-      Notification Level:
+      Notification Level: 
     </div>
     <div
       className="position_watch_add_widget__select"

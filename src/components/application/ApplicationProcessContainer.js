@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../tools/history';
-import { startClearApplication } from 'Actions/application';
 import { startResetApplicationProcess } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
@@ -25,7 +24,6 @@ export class ApplicationProcessContainer extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.startClearApplication();
         this.props.startResetApplicationProcess();
     }
 
@@ -48,12 +46,11 @@ export class ApplicationProcessContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
     currentStep: state.applicationProcess.currentStep,
-    positionId: state.applicationProcess.positionId,
+    positionId: state.workflow.position.positionId,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startClearApplication: () => dispatch(startClearApplication()),
     startResetApplicationProcess: () => dispatch(startResetApplicationProcess()),
 })
 
@@ -62,6 +59,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessCo
 ApplicationProcessContainer.propTypes = {
     currentStep: PropTypes.number,
     positionId: PropTypes.string,
-    startClearApplication: PropTypes.func.isRequired,
     startResetApplicationProcess: PropTypes.func.isRequired,
 };

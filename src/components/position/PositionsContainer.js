@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startClearPosition } from 'Actions/position';
 import selectPositions from 'Selectors/positions';
-import PositionApply from './PositionApply';
-import PositionDetails from './PositionDetails';
-import PositionsList from './PositionsList';
-import PositionsListFilter from './PositionsListFilter';
+import PositionDetails from 'Position/PositionDetails';
+import PositionsList from 'Shared/position/PositionsList';
+import PositionsListFilter from 'Position/PositionsListFilter';
 
 export class PositionsContainer extends React.Component {
     constructor(props) {
@@ -18,23 +17,15 @@ export class PositionsContainer extends React.Component {
     }
 
     render() {
-        const { filters, positions } = this.props;
-        const filteredPositions = selectPositions(positions, filters);
-
         return (
-            <div className="positions_container">
-                {filteredPositions &&
-                    <div className="positions_widget">
-                        <div className="positions_list_wrapper">
+            <div className="inbox_container">
+                {this.props.positions &&
+                    <div className="inbox_widget">
+                        <div className="inbox_list">
                             <PositionsListFilter />
-                            <PositionsList positions={filteredPositions} />
+                            <PositionsList positions={this.props.positions} />
                         </div>
-                        <div className="position_details_wrapper">
-                            <PositionDetails />
-                            {this.props.position &&
-                                <PositionApply />
-                            }
-                        </div>
+                        <PositionDetails />
                     </div>
                 }
             </div>
@@ -44,9 +35,7 @@ export class PositionsContainer extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    filters: state.filters.positions,
-    position: state.position,
-    positions: state.positions,
+    positions: selectPositions(state.positions, state.filters.positions),
 });
 
 /* istanbul ignore next */
@@ -57,8 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
-    filters: PropTypes.object,
-    position: PropTypes.object,
     positions: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
 };

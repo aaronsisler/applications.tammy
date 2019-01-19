@@ -6,8 +6,16 @@
 @import './base/settings';
 //Base
 @import './base/base';
+@import './base/inbox';
 @import './base/progress_bar';
 @import './base/visibility';
+@import './base/react_tabs';
+//Applicant
+@import './components/applicant/ApplicantDetails';
+@import './components/applicant/ApplicantsContainer';
+@import './components/applicant/ApplicantsList';
+@import './components/applicant/ApplicantsListItem';
+@import './components/applicant/ApplicantProcessContainer';
 //Application
 @import './components/application/ApplicationUserDocumentsContainer';
 @import './components/application/ApplicationProcessContainer';
@@ -18,7 +26,6 @@
 @import './components/application/ApplicationSubmissionContainer';
 @import './components/application/ApplicationUserContainer';
 //Core
-@import './components/core/Footer';
 @import './components/core/LoggedOutPage';
 @import './components/core/LoginPage';
 @import './components/core/Navbar';
@@ -31,14 +38,16 @@
 @import './components/position/PositionApply';
 @import './components/position/PositionDetails';
 @import './components/position/PositionDetailsContent';
-@import './components/position/PositionsContainer';
-@import './components/position/PositionsList';
-@import './components/position/PositionsListItem';
 //PositionWatch
-@import './components/positionWatch/PositionsWatchContainer';
 @import './components/positionWatch/PositionWatchAddWidget';
+@import './components/positionWatch/PositionWatchDetails';
 @import './components/positionWatch/PositionWatchEditWidget';
 //Shared
+//Notes
+@import './components/shared/note/NotesList';
+//Position
+@import './components/shared/position/PositionsList';
+@import './components/shared/position/PositionsListItem';
 //User Documents
 @import './components/shared/userDocuments/UserDocumentsContainer';
 @import './components/shared/userDocuments/UserDocumentsList';
@@ -46,6 +55,8 @@
 @import './components/shared/userDocuments/UserDocumentsSelectionList';
 @import './components/shared/userDocuments/UserDocumentsSelectionListItem';
 @import './components/shared/userDocuments/UserDocumentsUploadWidget';
+//Universal
+@import './components/shared/universal/LinkWrapper';
 //User
 @import './components/user/UserAddressWidget';
 @import './components/user/UserContactInfoWidget';

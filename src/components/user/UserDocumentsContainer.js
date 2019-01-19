@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import UserDocumentsUploadWidget from '../shared/userDocuments/UserDocumentsUploadWidget';
-import UserDocumentsList from '../shared/userDocuments/UserDocumentsList';
+import UserDocumentsUploadWidget from 'Shared/userDocuments/UserDocumentsUploadWidget';
+import UserDocumentsList from 'Shared/userDocuments/UserDocumentsList';
 
 export class UserDocumentsContainer extends React.Component {
     constructor(props) {

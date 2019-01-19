@@ -5,21 +5,25 @@ exports[`PositionList should render PositionDetailsContent correctly 1`] = `
   className="position_details_content"
 >
   <div
-    className="position_details_content__description"
+    className="position_details_content_wrapper"
   >
-    <span>
+    <div
+      className="position_details_content_wrapper__header"
+    >
       Description:
-    </span>
+    </div>
     <div>
       first description
     </div>
   </div>
   <div
-    className="position_details_content__responsibilities"
+    className="position_details_content_wrapper"
   >
-    <span>
+    <div
+      className="position_details_content_wrapper__header"
+    >
       Responsibilities:
-    </span>
+    </div>
     <ul
       className="position_details_content__list"
     >
@@ -36,11 +40,13 @@ exports[`PositionList should render PositionDetailsContent correctly 1`] = `
     </ul>
   </div>
   <div
-    className="position_details_content__requirements"
+    className="position_details_content_wrapper"
   >
-    <span>
+    <div
+      className="position_details_content_wrapper__header"
+    >
       Requirements:
-    </span>
+    </div>
     <ul
       className="position_details_content__list"
     >

@@ -2,33 +2,16 @@
 //max-width 640px, small screens
 @media only screen {
     .position_details_content {
-        font-size: $medium;
-        padding: $small $midlarge;
-    }
-    .position_details_content__description {
         color: $fontGrey;
         display: flex;
         flex-flow: column;
-        margin: $small 0 $large;
-        span {
-            color: $darkGrey;
-            font-size: $medium;
-            margin-bottom: $small;
-        }
+        font-size: $medium;
+        line-height: $midlarge;
+        width: 80%;
     }
-    .position_details_content__responsibilities {
-        color: $fontGrey;
-        margin: $small 0 $medium;
-        span {
-            color: $darkGrey;
-            font-size: $medium;
-            margin-bottom: $small;
-        }
-    }
-    .position_details_content__requirements {
-        color: $fontGrey;
-        margin: $small 0;
-        span {
+    .position_details_content_wrapper {
+        margin-bottom: $small;
+        .position_details_content_wrapper__header {
             color: $darkGrey;
             font-size: $medium;
             margin-bottom: $small;
@@ -36,9 +19,7 @@
     }
     .position_details_content__list {
         padding: 0 $midlarge;
-        li {
-            margin-bottom: $xsmall;
-        }
+        margin: 0;
     }
 }
 

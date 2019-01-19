@@ -10,11 +10,6 @@ const positionsFilterReducer = (state = positionsFilterReducerDefaultState, acti
                 ...state,
                 text: action.text
             };
-        case 'CLEAR_POSITIONS_TEXT_FILTER':
-            return {
-                ...state,
-                text: ''
-            };
         default:
             return state;
     }

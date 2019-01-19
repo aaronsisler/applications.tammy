@@ -17,10 +17,9 @@ describe('User Actions', () => {
 
     beforeEach(() => {
         store = createMockStore(defaultAuthState);
-        update = jest.fn();
+        update = jest.fn().mockResolvedValue();
         const val = () => ({ ...user });
         once = jest.fn().mockResolvedValue({ key: userId, val });
-        update.mockResolvedValue();
         jest.spyOn(database, 'ref').mockReturnValue({ once, update });
     })
 

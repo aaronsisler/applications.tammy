@@ -7,7 +7,6 @@ import { user } from '../fixtures/user';
 import userDocuments from '../fixtures/userDocuments';
 import {
     startAddApplicationUserDocument,
-    startClearApplication,
     startRemoveApplicationUserDocument,
     startSetApplicationUser,
     startSubmitApplication
@@ -30,18 +29,6 @@ describe('Application Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(addApplicationUserDocumentMock).toHaveBeenLastCalledWith(userDocument);
-        });
-    });
-
-    describe('startClearApplication() method', () => {
-        it(`should call dispatch with clearApplication`, async () => {
-            const clearApplicationMock = jest.spyOn(applicationActionHelpers, 'clearApplication');
-            const store = createMockStore();
-
-            await store.dispatch(startClearApplication());
-
-            expect(store.getActions().length).toBe(1);
-            expect(clearApplicationMock).toHaveBeenCalled();
         });
     });
 
@@ -74,21 +61,9 @@ describe('Application Actions', () => {
         const push = jest.fn().mockResolvedValue({});
 
         beforeEach(() => {
-            store = createMockStore({ application: { user, userDocuments }, applicationProcess: { positionId } });
+            store = createMockStore({ application: { user, userDocuments }, workflow: { position } });
             jest.spyOn(database, 'ref').mockReturnValue({ push });
         });
-
-        it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startSubmitApplication());
-
-            expect(database.ref).toHaveBeenLastCalledWith(`applications/${positionId}`);
-        });
-
-        it('should call push with user and user documents', async () => {
-            await store.dispatch(startSubmitApplication());
-
-            expect(push).toHaveBeenLastCalledWith({ user, userDocuments });
-        })
 
         it(`should call dispatch with submitApplication`, async () => {
             const submitApplicationMock = jest.spyOn(applicationActionHelpers, 'submitApplication');
@@ -97,6 +72,22 @@ describe('Application Actions', () => {
 
             expect(store.getActions().length).toBe(1);
             expect(submitApplicationMock).toHaveBeenCalled();
+        });
+
+        it(`should call database ref with specific path`, async () => {
+            await store.dispatch(startSubmitApplication());
+
+            expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}`);
+        });
+
+        it('should call push with user and user documents', async () => {
+            await store.dispatch(startSubmitApplication());
+
+            expect(push).toHaveBeenLastCalledWith({
+                applicantStatus: 'APPLIED',
+                user,
+                userDocuments,
+            });
         });
     });
 });

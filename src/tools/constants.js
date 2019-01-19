@@ -16,3 +16,13 @@ export const ANALYTICS_LABELS = {
 }
 
 export const ERROR_INPUT_FIELD_CLASSNAME = 'text_input_error';
+
+export const APPLICANT_STATUSES = [
+    "APPLIED",
+    "HR SCREEN",
+    "ONSITE",
+    "OFFER",
+    "NO OFFER",
+    "ACCEPTED",
+    "DECLINED"
+];

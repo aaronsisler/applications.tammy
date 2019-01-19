@@ -1,0 +1,28 @@
+.react-tabs {
+    &__tab-list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    &__tab {
+        color: $fontGrey;
+        cursor: pointer;
+        display: flex;
+        font-family: $secondaryFont;
+        font-size: $medium;
+        justify-content: center;
+        padding: $small $medium $xsmall;
+        &--selected {
+            border-bottom: 3px solid $secColor;
+            color: $midGrey;
+            font-weight: bold;
+        }
+    }
+    &__tab-panel {
+        display: none;
+        &--selected {
+            display: flex;
+            padding-top: $small;
+        }
+    }
+}

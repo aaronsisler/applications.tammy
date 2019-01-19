@@ -2,8 +2,9 @@ import {
     decrementCurrentStep,
     incrementCurrentStep,
     resetApplicationProcess,
-    setPositionId,
 } from 'Actions/helpers/applicationProcess';
+import { clearWorkflowPosition } from 'Actions/helpers/workflow';
+import { clearApplication } from 'Actions/helpers/application';
 
 export const startDecrementCurrentStep = () => (dispatch) =>
     dispatch(decrementCurrentStep());
@@ -11,10 +12,8 @@ export const startDecrementCurrentStep = () => (dispatch) =>
 export const startIncrementCurrentStep = () => (dispatch) =>
     dispatch(incrementCurrentStep());
 
-export const startResetApplicationProcess = () => (dispatch) =>
+export const startResetApplicationProcess = () => (dispatch) => {
     dispatch(resetApplicationProcess());
-
-export const startSetPositionId = () => (dispatch, getState) => {
-    const { positionId } = getState().position;
-    return dispatch(setPositionId(positionId));
+    dispatch(clearApplication());
+    dispatch(clearWorkflowPosition());
 }

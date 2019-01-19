@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
+<div
+  className="inbox_container"
+>
+  <div
+    className="inbox_widget"
+  >
+    <div
+      className="inbox_list"
+    >
+      <ApplicantsList
+        applicants={
+          Array [
+            Object {
+              "applicantId": "firstApplicantId",
+              "applicantNotes": Array [
+                Object {
+                  "statusNote": "First note",
+                },
+                Object {
+                  "statusNote": "Second note",
+                },
+              ],
+              "positionId": "firstPositionId",
+              "user": Object {
+                "addressLine1": "123 Evergreen Terrace",
+                "addressLine2": "Apt. 456",
+                "city": "Durham",
+                "displayName": "Johnny Appleseed",
+                "email": "johnny.appleseed@gmail.com",
+                "firstName": "Johnny",
+                "lastName": "Appleseed",
+                "middleName": "Middleton",
+                "phoneAreaCode": "919",
+                "phoneExt": "12345",
+                "phoneLineNumber": "4567",
+                "phonePrefix": "123",
+                "postalCode": "27540",
+                "state": "NC",
+              },
+            },
+            Object {
+              "applicantId": "secondApplicantId",
+              "applicantNotes": Array [
+                Object {
+                  "statusNote": "First note",
+                },
+                Object {
+                  "statusNote": "Second note",
+                },
+              ],
+              "positionId": "firstPositionId",
+              "user": Object {
+                "addressLine1": "123 Evergreen Terrace",
+                "addressLine2": "Apt. 456",
+                "city": "Durham",
+                "displayName": "Johnny Appleseed",
+                "email": "johnny.appleseed@gmail.com",
+                "firstName": "Johnny",
+                "lastName": "Appleseed",
+                "middleName": "Middleton",
+                "phoneAreaCode": "919",
+                "phoneExt": "12345",
+                "phoneLineNumber": "4567",
+                "phonePrefix": "123",
+                "postalCode": "27540",
+                "state": "NC",
+              },
+            },
+          ]
+        }
+      />
+    </div>
+    <Connect(ApplicantDetails) />
+  </div>
+</div>
+`;

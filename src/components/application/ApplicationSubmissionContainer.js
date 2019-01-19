@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//<div className="application_submission_container_wrapper">
+
 export default class ApplicationSubmissionContainer extends React.Component {
     constructor(props) {
         super(props);

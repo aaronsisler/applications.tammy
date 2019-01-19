@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { AppRouter } from '../../src/routers/AppRouter';
 
+import ApplicantsPage from 'Applicant/ApplicantsPage';
 import ApplicationPage from 'Application/ApplicationPage';
 import DashboardPage from 'Core/DashboardPage';
 import LoggedOutPage from 'Core/LoggedOutPage';
@@ -55,13 +56,14 @@ describe('AppRouter', () => {
         expect(wrapper.find('Connect(Navbar)').prop('isAuthenticated')).toBe(true);
     });
 
-    it('should render a Footer', () => {
-        expect(wrapper.find('Footer').length).toBe(1);
-    });
-
     describe('Route Navigation', () => {
         beforeEach(() => {
             routes = wrapper.find('Route');
+        });
+
+        it('should render ApplicantsPage when at the /applicants route', () => {
+            const matchFound = queryRouteComponents('/applicants', ApplicantsPage);
+            expect(matchFound).toBe(true);
         });
 
         it('should render ApplicationPage when at the /apply route', () => {

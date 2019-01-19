@@ -6,7 +6,6 @@ import positions from '../../fixtures/positions';
 describe('ApplicationProcessContainer', () => {
     let wrapper;
     const [position] = positions;
-    const startClearApplication = jest.fn();
     const startResetApplicationProcess = jest.fn();
 
     const buildWrapper = (positionInput, currentStep = 0) => {
@@ -14,7 +13,6 @@ describe('ApplicationProcessContainer', () => {
             <ApplicationProcessContainer
                 currentStep={currentStep}
                 position={positionInput}
-                startClearApplication={startClearApplication}
                 startResetApplicationProcess={startResetApplicationProcess}
             />
         );
@@ -42,14 +40,6 @@ describe('ApplicationProcessContainer', () => {
         buildWrapper(position, 3);
 
         expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should call startClearApplication on unmount', () => {
-        buildWrapper(position);
-
-        wrapper.unmount();
-
-        expect(startClearApplication).toHaveBeenCalled();
     });
 
     it('should call startResetApplicationProcess on unmount', () => {

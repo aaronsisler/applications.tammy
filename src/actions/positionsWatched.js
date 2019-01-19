@@ -14,7 +14,7 @@ export const startAddPositionWatch = (positionId, notificationLevel) => (dispatc
             const positionFind = positions.find((position) => position.positionId === positionId)
             const positionWatched = { ...positionFind, notificationLevel };
 
-            dispatch(addPositionWatch(positionWatched));
+            return dispatch(addPositionWatch(positionWatched));
         });
 }
 

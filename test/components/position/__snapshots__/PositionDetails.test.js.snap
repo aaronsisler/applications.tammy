@@ -2,45 +2,45 @@
 
 exports[`PositionDetails should render PositionDetails correctly when position is NOT available 1`] = `
 <div
-  className="position_details"
+  className="inbox_details_empty"
 >
-  <div
-    className="empty"
-  >
-    Please select an item to view
-  </div>
+  Please select an item to view
 </div>
 `;
 
 exports[`PositionDetails should render PositionDetails correctly when position is available 1`] = `
 <div
-  className="position_details"
+  className="inbox_details"
 >
   <div
-    className="position_details_widget"
+    className="inbox_details_header"
   >
-    <div
-      className="position_details_header"
-    >
-      <div>
-        <div
-          className="position_details__title"
-        >
-          first title
-        </div>
-        <div
-          className="position_details__job_id"
-        >
-          Job Id: 
-          first job id
-        </div>
+    <div>
+      <div
+        className="inbox_details_header__title"
+      >
+        first title
       </div>
       <div
-        className="position_details__location"
+        className="inbox_details_header__job_id"
       >
+        Job Id: 
+        first job id
+      </div>
+      <div
+        className="inbox_details_header__location"
+      >
+        Location: 
         first location
       </div>
     </div>
+    <div>
+      <Connect(PositionApply) />
+    </div>
+  </div>
+  <div
+    className="inbox_details_content"
+  >
     <PositionDetailsContent
       position={
         Object {

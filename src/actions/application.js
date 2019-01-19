@@ -1,7 +1,6 @@
 import database from 'Firebase/firebase';
 import {
     addApplicationUserDocument,
-    clearApplication,
     removeApplicationUserDocument,
     setApplicationUser,
     submitApplication,
@@ -10,27 +9,23 @@ import {
 export const startAddApplicationUserDocument = (userDocumentId) => (dispatch, getState) => {
     const { userDocuments } = getState();
     const userDocumentMatch = userDocuments.find((userDocument) => userDocument.userDocumentId == userDocumentId)
-    dispatch(addApplicationUserDocument(userDocumentMatch))
+    return dispatch(addApplicationUserDocument(userDocumentMatch))
 }
 
-export const startClearApplication = () => (dispatch) => {
-    dispatch(clearApplication())
-}
-
-export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) => {
+export const startRemoveApplicationUserDocument = (userDocumentId) => (dispatch) =>
     dispatch(removeApplicationUserDocument(userDocumentId))
-}
 
 export const startSetApplicationUser = () => (dispatch, getState) => {
     const { user } = getState();
-    dispatch(setApplicationUser(user));
+    return dispatch(setApplicationUser(user));
 }
 
 export const startSubmitApplication = () => (dispatch, getState) => {
     const { user, userDocuments } = getState().application;
-    const { positionId } = getState().applicationProcess;
-    database.ref(`applications/${positionId}`).push({
+    const { positionId } = getState().workflow.position;
+    return database.ref(`applicants/${positionId}`).push({
+        applicantStatus: 'APPLIED',
         user,
-        userDocuments
+        userDocuments,
     }).then(() => dispatch(submitApplication()));
 }

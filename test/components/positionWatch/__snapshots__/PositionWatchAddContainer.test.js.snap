@@ -2,13 +2,13 @@
 
 exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when NO positions are watched 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -58,24 +58,20 @@ exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer cor
         }
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchAddDetails) />
-    </div>
+    <Connect(PositionWatchAddDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when all positions are watched 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -88,24 +84,20 @@ exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer cor
         positions={Array []}
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchAddDetails) />
-    </div>
+    <Connect(PositionWatchAddDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when only one position is being watched 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -138,24 +130,20 @@ exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer cor
         }
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchAddDetails) />
-    </div>
+    <Connect(PositionWatchAddDetails) />
   </div>
 </div>
 `;
 
 exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer correctly when positions watched is not in positions list 1`] = `
 <div
-  className="position_watch_container"
+  className="inbox_container"
 >
   <div
-    className="position_watch_widget"
+    className="inbox_widget"
   >
     <div
-      className="position_watch_list__wrapper"
+      className="inbox_list"
     >
       <Link
         className="nav_link"
@@ -168,11 +156,7 @@ exports[`PositionsWatchAddContainer should render PositionsWatchAddContainer cor
         positions={Array []}
       />
     </div>
-    <div
-      className="position_watch_details__wrapper"
-    >
-      <Connect(PositionWatchAddDetails) />
-    </div>
+    <Connect(PositionWatchAddDetails) />
   </div>
 </div>
 `;

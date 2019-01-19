@@ -1,15 +1,18 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    footer {
-        background-color: $mainColor;
-        color: white;
-        display: flex;
-        font-family: $secondaryFont;
-        font-size: $medium;
-        justify-content: space-evenly;
-        padding: $medium;
-        text-align: center;
+    .applicants_list {
+        background: white;
+        border-right: none;
+        flex-basis: 30%;
+        max-height: 100%;
+        overflow-y: auto;
+        &.empty {
+            font-family: $secondaryFont;
+            font-size: $midlarge;
+            padding: $large $small;
+            text-align: center;
+        }
     }
 }
 
