@@ -1,4 +1,5 @@
 import database from 'Firebase/firebase';
+import { getPriority } from 'Tools/datetime';
 import {
     addApplicantNote,
     clearApplicant,
@@ -9,8 +10,7 @@ import {
 
 export const startAddApplicantNote = (statusNote) => (dispatch, getState) => {
     const { applicantId, positionId } = getState().applicant;
-    const date = new Date();
-    const priority = -(date.getTime());
+    const priority = getPriority();
 
     return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`)
         .push().setWithPriority({ statusNote, priority }, priority)
