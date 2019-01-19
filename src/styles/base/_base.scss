@@ -23,38 +23,39 @@
     select,
     textarea {
         font-family: $mainFont;
-        font-size: $medium;
     }
     button {
-        cursor: pointer;
-        margin-top: $xsmall;
-    }
-    .button {
         background-color: $mainColor;
         border: none;
+        cursor: pointer;
         color: white;
+        font-size: $medium;
+        margin-top: $xsmall;
         padding: $small $medium;
-        &:hover {
-            background-color: $secColor;
-            transition: background .3s ease-in-out;
-        }
         &:disabled {
             background-color: $mainColor;
             cursor: not-allowed;
             opacity: 0.5;
         }
+        &:hover {
+            background-color: $secColor;
+            transition: background .3s ease-in-out;
+        }
+    }
+    input {
+        border: 1px solid $midLightGrey;
+        font-size: $medium;
+        margin: $xsmall 0;
+        padding: $small;
+        width: 100%;
     }
     select {
         border: 1px solid $midGrey;
         font-size: $small;
         padding: $xsmall;
     }
-    .text_input {
-        border: 1px solid $midLightGrey;
+    textarea {
         font-size: $medium;
-        margin: $xsmall 0;
-        padding: $small;
-        width: 100%;
     }
     .text_input_error {
         border: 2px solid red;
