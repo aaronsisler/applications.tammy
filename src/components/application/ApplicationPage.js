@@ -1,16 +1,10 @@
 import React from 'react';
-import ApplicationProcessContainer from './ApplicationProcessContainer';
+import ApplicationProcessContainer from 'Application/ApplicationProcessContainer';
 
-export default class ApplicationPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const ApplicationPage = (props) => (
+    <div className="application_page">
+        <ApplicationProcessContainer {...props} />
+    </div>
+)
 
-    render() {
-        return (
-            <div id="application_page">
-                <ApplicationProcessContainer />
-            </div>
-        );
-    }
-}
+export default ApplicationPage;

@@ -3,16 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { startLogin } from 'Actions/auth';
-import { startSetWorkflowPosition } from 'Actions/workflow';
 
 export class PositionApply extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    handleLogin = async () => {
-        await this.props.startSetWorkflowPosition();
-        this.props.startLogin('apply');
+    handleLogin = () => {
+        this.props.startLogin(`/apply/${this.props.positionId}`);
     }
 
     render() {
@@ -22,8 +20,7 @@ export class PositionApply extends React.Component {
                     <div className="position_apply_content__apply">
                         <Link
                             className="nav_link"
-                            onClick={this.props.startSetWorkflowPosition}
-                            to="apply"
+                            to={`/apply/${this.props.positionId}`}
                         >
                             Apply Now
                         </Link>
@@ -52,14 +49,12 @@ const mapStateToProps = (state) => ({
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
     startLogin: (redirectUrl) => dispatch(startLogin(redirectUrl)),
-    startSetWorkflowPosition: () => dispatch(startSetWorkflowPosition()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PositionApply);
 
 PositionApply.propTypes = {
     isAuthenticated: PropTypes.bool,
+    positionId: PropTypes.string.isRequired,
     startLogin: PropTypes.func.isRequired,
-    startSetWorkflowPosition: PropTypes.func.isRequired,
 };
-

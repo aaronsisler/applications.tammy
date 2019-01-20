@@ -23,9 +23,10 @@ export const AppRouter = (props) => (
         <div>
             <Navbar isAuthenticated={props.isAuthenticated} />
             <Switch>
+                <Route path='/:id' component={PositionsPage} exact={true} />
                 <Route path='/' component={PositionsPage} exact={true} />
                 <Route path="/applicants" component={ApplicantsPage} exact={true} />
-                <Route path="/apply" component={ApplicationPage} exact={true} />
+                <Route path="/apply/:id" component={ApplicationPage} exact={true} />
                 <Route path='/dashboard' component={DashboardPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />
                 <Route path='/login' component={LoginPage} exact={true} />
