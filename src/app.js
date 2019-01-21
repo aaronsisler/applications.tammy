@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
         await store.dispatch(login(user.uid));
         store.dispatch(startSetUser());
         store.dispatch(startSetUserDocuments(user.uid));
-        // await store.dispatch(startSetPositionsWatched());
+        await store.dispatch(startSetPositionsWatched());
         // await store.dispatch(startSetPosition("1"));
         // await store.dispatch(startSetWorkflowPosition());
         // await store.dispatch(startSetApplicants());

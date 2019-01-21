@@ -32,7 +32,7 @@ export class ApplicationProcessContainer extends React.Component {
 
                 {this.props.currentStep == 0 && <ApplicationUserContainer />}
                 {this.props.currentStep == 1 && <ApplicationUserDocumentsContainer />}
-                {this.props.currentStep == 2 && <ApplicationReviewContainer />}
+                {this.props.currentStep == 2 && <ApplicationReviewContainer positionId={this.props.positionId} />}
                 {this.props.currentStep == 3 && <ApplicationSubmissionContainer />}
             </div>
         );

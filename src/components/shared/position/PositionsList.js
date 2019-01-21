@@ -22,6 +22,7 @@ export default class PositionsList extends React.Component {
                     this.props.positions.map((position) =>
                         <PositionsListItem
                             key={position.positionId}
+                            linkRoute={this.props.linkRoute}
                             {...position}
                         />)
                 }
@@ -32,4 +33,5 @@ export default class PositionsList extends React.Component {
 
 PositionsList.propTypes = {
     positions: PropTypes.array,
+    linkRoute: PropTypes.string,
 };
