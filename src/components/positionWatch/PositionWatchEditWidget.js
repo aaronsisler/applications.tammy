@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
+import history from 'Tools/history';
 import {
     startRemovePositionWatch,
     startSetPositionWatchLevel
@@ -19,7 +19,7 @@ export class PositionWatchEditWidget extends React.Component {
 
     handleRemovePositionWatch = () => {
         this.props.startRemovePositionWatch(this.props.positionId);
-        this.props.startClearPosition();
+        return history.push('dashboard');
     }
 
     retrievePositionWatchLevel = () => {
@@ -66,13 +66,11 @@ export class PositionWatchEditWidget extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    positionId: state.position.positionId,
     positionsWatched: state.positionsWatched,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
     startRemovePositionWatch: (positionId) => dispatch(startRemovePositionWatch(positionId)),
     startSetPositionWatchLevel: (positionId, notificationLevel) => dispatch(startSetPositionWatchLevel(positionId, notificationLevel)),
 });
@@ -82,7 +80,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchEditWid
 PositionWatchEditWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     positionsWatched: PropTypes.array,
-    startClearPosition: PropTypes.func.isRequired,
     startRemovePositionWatch: PropTypes.func.isRequired,
     startSetPositionWatchLevel: PropTypes.func.isRequired,
 };

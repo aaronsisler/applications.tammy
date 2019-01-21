@@ -15,15 +15,27 @@ export class PositionWatchDetails extends React.Component {
         await this.props.startSetWorkflowPosition();
     }
 
+    renderNoWatchedPosition = () => (
+        <div className="inbox_details_empty">
+            Position is not currently being watched. Please make sure to add a watch.
+        </div>
+    )
+
+    renderNoPosition = () => (
+        <div className="inbox_details_empty">
+            Please select an item to view
+        </div>
+    )
+
     render() {
         const { position } = this.props;
-        if (!position) {
-            return (
-                <div className="inbox_details_empty">
-                    Please select an item to view
-                </div>
-            )
+        if (this.props.positionId && !this.props.position) {
+            return this.renderNoWatchedPosition();
         }
+        if (!this.props.position) {
+            return this.renderNoPosition();
+        }
+
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
@@ -45,7 +57,7 @@ export class PositionWatchDetails extends React.Component {
                     />
                 </div>
                 <div className="inbox_details_content position_watch_details">
-                    <PositionWatchEditWidget />
+                    <PositionWatchEditWidget positionId={this.props.positionId} />
                     <PositionDetailsContent position={position} />
                 </div>
             </div>
@@ -54,9 +66,17 @@ export class PositionWatchDetails extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
-    position: state.position,
-});
+const mapStateToProps = (state, props) => {
+    const { id: positionId } = props.match.params;
+    const position = positionId
+        ? state.positionsWatched.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
+
+    return ({
+        position,
+        positionId,
+    });
+};
 
 /* istanbul ignore next */
 const mapDispatchToProps = dispatch => ({
@@ -67,5 +87,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchDetails
 
 PositionWatchDetails.propTypes = {
     position: PropTypes.object,
+    positionId: PropTypes.string,
     startSetWorkflowPosition: PropTypes.func.isRequired,
 };
