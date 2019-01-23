@@ -25,8 +25,8 @@ export const AppRouter = (props) => (
             <Switch>
                 <Route path='/dashboard/:id' component={DashboardPage} exact={true} />
                 <Route path='/dashboard' component={DashboardPage} exact={true} />
-                <Route path="/position/:positionId/applicants/:applicantId" component={ApplicantsPage} exact={true} />
-                <Route path="/position/:positionId/applicants" component={ApplicantsPage} exact={true} />
+                <Route path="/applicants/:positionId/:applicantId" component={ApplicantsPage} exact={true} />
+                <Route path="/applicants/:positionId" component={ApplicantsPage} exact={true} />
                 <Route path="/apply/:id" component={ApplicationPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />
                 <Route path='/login' component={LoginPage} exact={true} />

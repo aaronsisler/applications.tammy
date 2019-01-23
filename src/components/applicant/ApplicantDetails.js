@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import history from 'Tools/history';
 import PropTypes from 'prop-types';
+import { startClearApplicant } from 'Actions/applicant';
 import ApplicantDetailsContent from 'Applicant/ApplicantDetailsContent';
 
 export class ApplicantDetails extends React.Component {
@@ -8,8 +10,22 @@ export class ApplicantDetails extends React.Component {
         super(props);
     }
 
+    componentWillUnmount() {
+        this.props.startClearApplicant();
+    }
+
+    handleNavigateBack = () => history.push(`/applicants/${this.props.positionId}`);
+
     render() {
-        const { applicant } = this.props;
+        const { applicant, position } = this.props;
+        if (!position) {
+            return (
+                <div className="inbox_details_empty">
+                    Please provide a valid position
+                </div>
+            )
+        }
+
         if (!applicant) {
             return (
                 <div className="inbox_details_empty">
@@ -20,7 +36,13 @@ export class ApplicantDetails extends React.Component {
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <div>
+                    <button
+                        className="inbox_details_header__mobile_button"
+                        onClick={this.handleNavigateBack}
+                    >
+                        Back to List
+                    </button>
+                    <div className="inbox_details_header__content">
                         <div className="inbox_details_header__display_name">
                             {applicant.user.displayName}
                         </div>
@@ -46,13 +68,36 @@ export class ApplicantDetails extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
-    applicant: state.applicant
+const mapStateToProps = (state, props) => {
+    const { applicantId, positionId } = props.match.params;
+    const position = positionId
+    ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+    : undefined;
+
+    const applicant = applicantId
+        ? state.applicants.find((stateApplicant) => stateApplicant.applicantId == applicantId)
+        : undefined;
+
+    return ({
+        applicant,
+        applicantId,
+        position,
+        positionId,
+    });
+};
+
+/* istanbul ignore next */
+const mapDispatchToProps = (dispatch) => ({
+    startClearApplicant: () => dispatch(startClearApplicant()),
 });
 
-export default connect(mapStateToProps)(ApplicantDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicantDetails);
 
 ApplicantDetails.propTypes = {
     applicant: PropTypes.object,
+    applicantId: PropTypes.string,
+    position: PropTypes.object,
+    positionId: PropTypes.string,
+    startClearApplicant: PropTypes.func.isRequired,
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import history from 'Tools/history';
 import LinkWrapper from 'Shared/universal/LinkWrapper';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
@@ -10,6 +11,8 @@ export class PositionWatchDetails extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    handleNavigateBack = () => history.push('/dashboard');
 
     renderNoWatchedPosition = () => (
         <div className="inbox_details_empty">
@@ -35,7 +38,13 @@ export class PositionWatchDetails extends React.Component {
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <div>
+                    <button
+                        className="inbox_details_header__mobile_button"
+                        onClick={this.handleNavigateBack}
+                    >
+                        Back to List
+                    </button>
+                    <div className="inbox_details_header__content">
                         <div className="inbox_details_header__title">
                             {position.title}
                         </div>

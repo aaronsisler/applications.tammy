@@ -19,7 +19,7 @@ export class PositionWatchEditWidget extends React.Component {
 
     handleRemovePositionWatch = () => {
         this.props.startRemovePositionWatch(this.props.positionId);
-        return history.push('dashboard');
+        return history.push('/dashboard');
     }
 
     retrievePositionWatchLevel = () => {

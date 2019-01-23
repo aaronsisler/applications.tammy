@@ -10,7 +10,7 @@ export class PositionDetails extends React.Component {
         super(props);
     }
 
-    handleNavigateBack = () => history.push('/');
+    handleNavigateBack = () => history.push('/positions');
 
     render() {
         const { position } = this.props;
