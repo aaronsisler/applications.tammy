@@ -9,8 +9,7 @@ export class PositionsListItem extends React.Component {
 
     handleSetPositionId = () => {
         const { linkRoute, positionId } = this.props;
-        const fullRoute = linkRoute ? `/${linkRoute}/${positionId}` : `/${positionId}`
-        history.push(fullRoute);
+        history.push(`/${linkRoute}/${positionId}`);
     }
 
     render() {
@@ -36,7 +35,7 @@ export default PositionsListItem;
 
 PositionsListItem.propTypes = {
     jobId: PropTypes.string.isRequired,
-    linkRoute: PropTypes.string,
+    linkRoute: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     positionId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

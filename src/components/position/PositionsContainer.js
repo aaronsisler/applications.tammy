@@ -18,7 +18,7 @@ export class PositionsContainer extends React.Component {
                     <div className="inbox_widget">
                         <div className="inbox_list">
                             <PositionsListFilter />
-                            <PositionsList positions={this.props.positions} />
+                            <PositionsList positions={this.props.positions} linkRoute="positions" />
                         </div>
                         <PositionDetails {...this.props} />
                     </div>
