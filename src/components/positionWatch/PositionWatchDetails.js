@@ -11,10 +11,6 @@ export class PositionWatchDetails extends React.Component {
         super(props);
     }
 
-    handleSetWorkFlowPosition = async () => {
-        await this.props.startSetWorkflowPosition();
-    }
-
     renderNoWatchedPosition = () => (
         <div className="inbox_details_empty">
             Position is not currently being watched. Please make sure to add a watch.
@@ -28,7 +24,7 @@ export class PositionWatchDetails extends React.Component {
     )
 
     render() {
-        const { position } = this.props;
+        const { position, positionId } = this.props;
         if (this.props.positionId && !this.props.position) {
             return this.renderNoWatchedPosition();
         }
@@ -52,8 +48,7 @@ export class PositionWatchDetails extends React.Component {
                     </div>
                     <LinkWrapper
                         linkText="View Applicants"
-                        onClick={this.handleSetWorkFlowPosition}
-                        to="/applicants"
+                        to={`/position/${positionId}/applicants`}
                     />
                 </div>
                 <div className="inbox_details_content position_watch_details">

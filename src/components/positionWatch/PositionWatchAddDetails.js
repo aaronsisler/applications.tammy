@@ -35,7 +35,7 @@ export class PositionWatchAddDetails extends React.Component {
                     </div>
                 </div>
                 <div className="inbox_details_content position_watch_details">
-                    <PositionWatchAddWidget />
+                    <PositionWatchAddWidget positionId={this.props.positionId} />
                     <PositionDetailsContent position={position} />
                 </div>
             </div>
@@ -43,14 +43,22 @@ export class PositionWatchAddDetails extends React.Component {
     }
 }
 
-/* istanbul ignore next */
-const mapStateToProps = (state) => ({
-    position: state.position,
-});
+const mapStateToProps = (state, props) => {
+    const { id: positionId } = props.match.params;
+    const position = positionId
+        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
+
+    return ({
+        position,
+        positionId,
+    });
+};
 
 export default connect(mapStateToProps)(PositionWatchAddDetails);
 
 PositionWatchAddDetails.propTypes = {
     position: PropTypes.object,
+    positionId: PropTypes.string,
 };
 

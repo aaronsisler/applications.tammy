@@ -31,9 +31,9 @@ export class PositionsWatchAddContainer extends React.Component {
                     <div className="inbox_widget">
                         <div className="inbox_list">
                             <Link className="nav_link" to="/dashboard">Back to Dashboard</Link>
-                            <PositionsList positions={positionsConcat} />
+                            <PositionsList positions={positionsConcat} linkRoute={'position_watch_add'} />
                         </div>
-                        <PositionWatchAddDetails />
+                        <PositionWatchAddDetails {...this.props} />
                     </div>
                 }
             </div>
