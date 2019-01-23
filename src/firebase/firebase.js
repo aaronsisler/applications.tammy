@@ -1,4 +1,6 @@
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 import 'firebase/storage';
 
 const config = {
@@ -22,14 +24,3 @@ export {
     googleAuthProvider,
     storage,
 };
-
-
-/*
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-*/
