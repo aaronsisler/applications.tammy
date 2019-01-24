@@ -20,7 +20,7 @@ export class PositionsWatchContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positionsWatched &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.props.positionId ? "inbox_mobile" : undefined}`}>
                             <Link className="nav_link" to="/position_watch_add">Add Position Watch</Link>
                             <PositionsList positions={this.props.positionsWatched} linkRoute={'dashboard'} />
                         </div>
@@ -33,7 +33,8 @@ export class PositionsWatchContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+    positionId: props.match.params.positionId,
     positionsWatched: state.positionsWatched,
 });
 
@@ -45,6 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchContainer);
 
 PositionsWatchContainer.propTypes = {
+    positionId: PropTypes.string,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
 };

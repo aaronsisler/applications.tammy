@@ -15,13 +15,13 @@ export class PositionWatchDetails extends React.Component {
     handleNavigateBack = () => history.push('/dashboard');
 
     renderNoWatchedPosition = () => (
-        <div className="inbox_details_empty">
+        <div className="inbox_details_empty inbox_mobile">
             Position is not currently being watched. Please make sure to add a watch.
         </div>
     )
 
     renderNoPosition = () => (
-        <div className="inbox_details_empty">
+        <div className="inbox_details_empty inbox_mobile">
             Please select an item to view
         </div>
     )
@@ -71,7 +71,7 @@ export class PositionWatchDetails extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state, props) => {
-    const { id: positionId } = props.match.params;
+    const { positionId } = props.match.params;
     const position = positionId
         ? state.positionsWatched.find((statePosition) => statePosition.positionId == positionId)
         : undefined;

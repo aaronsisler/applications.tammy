@@ -16,7 +16,7 @@ export class PositionsContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positions &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.props.positionId ? "inbox_mobile" : undefined}`}>
                             <PositionsListFilter />
                             <PositionsList positions={this.props.positions} linkRoute="positions" />
                         </div>
@@ -29,12 +29,14 @@ export class PositionsContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+    positionId: props.match.params.positionId,
     positions: selectPositions(state.positions, state.filters.positions),
 });
 
 export default connect(mapStateToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
+    positionId: PropTypes.string,
     positions: PropTypes.array,
 };

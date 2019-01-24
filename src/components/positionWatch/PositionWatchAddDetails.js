@@ -44,7 +44,7 @@ export class PositionWatchAddDetails extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-    const { id: positionId } = props.match.params;
+    const { positionId } = props.match.params;
     const position = positionId
         ? state.positions.find((statePosition) => statePosition.positionId == positionId)
         : undefined;

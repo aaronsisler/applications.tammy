@@ -26,12 +26,14 @@ export class ApplicantsContainer extends React.Component {
         this.props.startClearApplicants();
     }
 
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : undefined
+
     render() {
         return (
             <div className="inbox_container">
                 {this.props.applicants &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.handleMobileClassname}`}>
                             <ApplicantsListFilter />
                             <ApplicantsList
                                 applicants={this.props.applicants}

@@ -8,12 +8,12 @@
     }
     .user_email_input {
         display: flex;
-        font-family: $secondaryFont;
+        font-family: $secFont;
     }
     .user_phone_number_inputs {
         display: flex;
         flex-flow: row wrap;
-        font-family: $secondaryFont;
+        font-family: $secFont;
         input {
             max-width: 7rem;
             text-align: center;
@@ -23,7 +23,7 @@
         margin-right: $xsmall;
     }
     .user_contact_info_content_title {
-        font-family: $secondaryFont;
+        font-family: $secFont;
         font-size: $medium;
     }
     .user_contact_info_widget_button {

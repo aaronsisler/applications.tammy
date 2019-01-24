@@ -16,7 +16,7 @@ export class PositionDetails extends React.Component {
         const { position } = this.props;
         if (!position) {
             return (
-                <div className="inbox_details_empty">
+                <div className="inbox_details_empty inbox_mobile">
                     Please select an item to view
                 </div>
             )
@@ -56,7 +56,7 @@ export class PositionDetails extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state, props) => {
-    const { id: positionId } = props.match.params;
+    const { positionId } = props.match.params;
     const position = positionId
         ? state.positions.find((statePosition) => statePosition.positionId == positionId)
         : undefined;
