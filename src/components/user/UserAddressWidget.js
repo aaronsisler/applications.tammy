@@ -16,6 +16,21 @@ export default class UserAddressWidget extends React.Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { user: oldUser } = prevProps;
+        const { user: newUser } = this.props;
+
+        if (oldUser.userId !== newUser.userId) {
+            return this.setState(() => ({
+                addressLine1: newUser.addressLine1 ? newUser.addressLine1 : '',
+                addressLine2: newUser.addressLine2 ? newUser.addressLine2 : '',
+                city: newUser.city ? newUser.city : '',
+                state: newUser.state ? newUser.state : '',
+                postalCode: newUser.postalCode ? newUser.postalCode : '',
+            }));
+        }
+    }
+
     handleInputChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;

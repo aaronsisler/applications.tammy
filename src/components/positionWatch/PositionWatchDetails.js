@@ -57,7 +57,7 @@ export class PositionWatchDetails extends React.Component {
                     </div>
                     <LinkWrapper
                         linkText="View Applicants"
-                        to={`/position/${positionId}/applicants`}
+                        to={`/applicants/${positionId}`}
                     />
                 </div>
                 <div className="inbox_details_content position_watch_details">

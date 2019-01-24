@@ -77,7 +77,7 @@ export class Navbar extends React.Component {
                 }
                 {!this.props.isAuthenticated &&
                     <div id={navSideMenu}>
-                        <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
+                        <Link to="/positions" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
                         <Link className="nav_side_menu_link" to="/login" onClick={this.handleCloseSideMenu}>Login</Link>
                     </div>
                 }

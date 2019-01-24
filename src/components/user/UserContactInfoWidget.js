@@ -18,6 +18,22 @@ export default class UserNameWidget extends React.Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { user: oldUser } = prevProps;
+        const { user: newUser } = this.props;
+
+        if (oldUser.userId !== newUser.userId) {
+            return this.setState(() => ({
+                isValidEmail: newUser.email ? true : false,
+                email: newUser.email ? newUser.email : '',
+                phoneAreaCode: newUser.phoneAreaCode ? newUser.phoneAreaCode : '',
+                phonePrefix: newUser.phonePrefix ? newUser.phonePrefix : '',
+                phoneLineNumber: newUser.phoneLineNumber ? newUser.phoneLineNumber : '',
+                phoneExt: newUser.phoneExt ? newUser.phoneExt : '',
+            }));
+        }
+    }
+
     handleEmailInput = (e) => {
         const inputValue = e.target.value;
 

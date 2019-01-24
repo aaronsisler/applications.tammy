@@ -15,6 +15,20 @@ export default class UserNameWidget extends React.Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { user: oldUser } = prevProps;
+        const { user: newUser } = this.props;
+
+        if (oldUser.userId !== newUser.userId) {
+            return this.setState(() => ({
+                firstName: newUser.firstName ? newUser.firstName : '',
+                middleName: newUser.middleName ? newUser.middleName : '',
+                lastName: newUser.lastName ? newUser.lastName : '',
+                displayName: newUser.displayName ? newUser.displayName : ``,
+            }));
+        }
+    }
+
     handleInputChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
@@ -117,6 +131,6 @@ export default class UserNameWidget extends React.Component {
 
 UserNameWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func,
+    user: PropTypes.object.isRequired,
 };

@@ -12,12 +12,28 @@ export class ApplicantProcessContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            applicantStatus: props.applicant.applicantStatus,
             applicantNotes: props.applicant.applicantNotes,
+            applicantStatus: props.applicant.applicantStatus,
             isNotePopulated: false,
             isStatusChanged: false,
             prevApplicantStatus: props.applicant.applicantStatus,
             statusNote: '',
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const { applicant: oldApplicant } = prevProps;
+        const { applicant: newApplicant } = this.props;
+
+        if (oldApplicant.applicantId !== newApplicant.applicantId) {
+            return this.setState(() => ({
+                applicantNotes: newApplicant.applicantNotes,
+                applicantStatus: newApplicant.applicantStatus,
+                isNotePopulated: false,
+                isStatusChanged: false,
+                prevApplicantStatus: newApplicant.applicantStatus,
+                statusNote: '',
+            }));
         }
     }
 
@@ -39,9 +55,11 @@ export class ApplicantProcessContainer extends React.Component {
 
     handleSubmitStatusChange = () => {
         const { applicantStatus, isNotePopulated, isStatusChanged, statusNote } = this.state;
+
         if (isNotePopulated && isStatusChanged) {
             this.props.startAddApplicantNote(statusNote);
             this.props.startSetApplicantStatus(applicantStatus);
+
             return this.setState((prevState) => ({
                 applicantNotes: [{ statusNote }, ...prevState.applicantNotes],
                 isNotePopulated: false,
