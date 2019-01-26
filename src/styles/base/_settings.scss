@@ -39,6 +39,7 @@ $largeScreen: 64.063rem;
 $xlargeScreen: 90.063rem;
 $xxlargeScreen: 120.063rem;
 //Navbar width
+$navHeaderMobileHeight: 10vh;
+$navHeaderDesktopHeight: 6vh; //If this is changed, inbox_container min-height needs to be updated
 $navMenuWidth: 240px;
-//Inbox Container height
-$inboxContainerHeight: 70rem;
+//Inbox settings

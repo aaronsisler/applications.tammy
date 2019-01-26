@@ -16,7 +16,7 @@ export class PositionDetails extends React.Component {
         const { position } = this.props;
         if (!position) {
             return (
-                <div className="inbox_details_empty inbox_mobile">
+                <div className="inbox_details__empty inbox_mobile">
                     Please select an item to view
                 </div>
             )

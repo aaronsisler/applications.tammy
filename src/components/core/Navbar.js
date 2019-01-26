@@ -44,8 +44,8 @@ export class Navbar extends React.Component {
 
     render() {
         return (
-            <div id="navbar">
-                <div className="nav_toggles">
+            <div className="navbar">
+                <div className="nav__header">
                     {this.props.isAuthenticated && <NotificationsContainer />}
                     {
                         !this.state.isNavOpen &&
