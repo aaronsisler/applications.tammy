@@ -4,15 +4,15 @@
     .position_watch_edit_widget {
         align-content: center;
         display: grid;
-        grid-template-columns: auto auto;
-        justify-content: left;
+        justify-content: center;
     }
     .position_watch_edit_widget__select_wrapper {
-        align-items: center;
-        display: flex;
+        display: grid;
         font-size: $medium;
+        justify-content: center;
         select {
             font-size: $medium;
+            margin: $small 0 $xsmall;
         }
     }
 }
@@ -23,7 +23,24 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: 64.063em) {}
+@media only screen and (min-width: 64.063em) {
+    .position_watch_edit_widget {
+        align-content: center;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: left;
+    }
+    .position_watch_edit_widget__select_wrapper {
+        align-items: center;
+        display: flex;
+        font-size: $medium;
+        margin-right: $small;
+        select {
+            font-size: $medium;
+            margin: 0;
+        }
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

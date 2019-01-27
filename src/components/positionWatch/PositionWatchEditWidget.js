@@ -12,14 +12,14 @@ export class PositionWatchEditWidget extends React.Component {
         super(props);
     }
 
-    handleSetPositionWatchLevel = (e) => {
-        const notificationLevel = e.target.value;
-        this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel)
-    }
-
     handleRemovePositionWatch = () => {
         this.props.startRemovePositionWatch(this.props.positionId);
         return history.push('/dashboard');
+    }
+
+    handleSetPositionWatchLevel = (e) => {
+        const notificationLevel = e.target.value;
+        this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel)
     }
 
     retrievePositionWatchLevel = () => {
@@ -38,27 +38,23 @@ export class PositionWatchEditWidget extends React.Component {
                         Notification&nbsp;Level:&nbsp;
                     </div>
                     {currentPositionwatchLevel &&
-                        <div className="position_watch_edit_widget__select">
-                            <select
-                                className="select"
-                                value={currentPositionwatchLevel}
-                                onChange={this.handleSetPositionWatchLevel}
-                            >
-                                <option value="ALL">ALL</option>
-                                <option value="SOME">SOME</option>
-                                <option value="REQUIRED">REQUIRED</option>
-                            </select>
-                        </div>
+                        <select
+                            className="position_watch_edit_widget__select"
+                            value={currentPositionwatchLevel}
+                            onChange={this.handleSetPositionWatchLevel}
+                        >
+                            <option value="ALL">ALL</option>
+                            <option value="SOME">SOME</option>
+                            <option value="REQUIRED">REQUIRED</option>
+                        </select>
                     }
                 </div>
-                <div className="position_watch_edit_widget__removal">
-                    <button
-                        className="button"
-                        onClick={this.handleRemovePositionWatch}
-                    >
-                        Remove Watch
-                    </button>
-                </div>
+                <button
+                    className="position_watch_edit_widget__button"
+                    onClick={this.handleRemovePositionWatch}
+                >
+                    Remove Watch
+                </button>
             </div>
         );
     }
