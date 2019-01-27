@@ -17,7 +17,7 @@ export class PositionApply extends React.Component {
         return (
             <div className="position_apply">
                 {this.props.isAuthenticated &&
-                    <div className="position_apply_content__apply">
+                    <div className="position_apply__apply">
                         <Link
                             className="nav_link"
                             to={`/apply/${this.props.positionId}`}
@@ -27,7 +27,7 @@ export class PositionApply extends React.Component {
                     </div>
                 }
                 {!this.props.isAuthenticated &&
-                    <div className="position_apply_content__login">
+                    <div className="position_apply__login">
                         <button
                             className="button"
                             onClick={this.handleLogin}

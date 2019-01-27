@@ -15,13 +15,13 @@ export class PositionWatchDetails extends React.Component {
     handleNavigateBack = () => history.push('/dashboard');
 
     renderNoWatchedPosition = () => (
-        <div className="inbox_details_empty inbox_mobile">
+        <div className="inbox_details__empty inbox_mobile">
             Position is not currently being watched. Please make sure to add a watch.
         </div>
     )
 
     renderNoPosition = () => (
-        <div className="inbox_details_empty inbox_mobile">
+        <div className="inbox_details__empty inbox_mobile">
             Please select an item to view
         </div>
     )
