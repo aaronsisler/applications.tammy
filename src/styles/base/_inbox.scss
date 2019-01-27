@@ -97,8 +97,8 @@
     }
     .inbox_container {
         display: grid;
-        min-height: 94vh;
-        padding: $small 5%;
+        height: 94vh;
+        padding: $small 5%; //If top/bottom padding is adjusted, fix inbox_details height
     }
     .inbox_widget {
         display: grid;
@@ -109,6 +109,7 @@
         display: grid;
         grid-gap: $small;
         grid-template-rows: 0.5fr 3fr;
+        height: calc(94vh - 2.4rem);
         padding: 0;
         &__empty {
             align-content: center;
@@ -142,6 +143,7 @@
     }
     .inbox_details_content {
         align-items: flex-start;
+        overflow-y: auto;
         padding: $large;
     }
 }
