@@ -5,7 +5,7 @@
     "author": "Aaron Sisler",
     "license": "private",
     "engines": {
-        "yarn": "1.7.0",
+        "yarn": "1.13.0",
         "node": ">=8.9.4"
     },
     "scripts": {
