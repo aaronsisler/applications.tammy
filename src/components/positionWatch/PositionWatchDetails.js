@@ -60,7 +60,7 @@ export class PositionWatchDetails extends React.Component {
                         to={`/applicants/${positionId}`}
                     />
                 </div>
-                <div className="inbox_details_content position_watch_details">
+                <div className="inbox_details_content">
                     <PositionWatchEditWidget positionId={this.props.positionId} />
                     <PositionDetailsContent position={position} />
                 </div>

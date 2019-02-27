@@ -3,7 +3,8 @@
 @media only screen {
     .inbox_container {
         display: grid;
-        min-height: 90vh;
+        margin: $small;
+        min-height: 87vh;
     }
     .inbox_widget {
         display: grid;
@@ -28,7 +29,6 @@
         grid-gap: $small;
         grid-template-rows: 0.5fr auto;
         height: 100%;
-        padding: $small;
     }
     .inbox_details_header {
         align-content: center;
@@ -68,12 +68,10 @@
         }
     }
     .inbox_details_content {
-        align-items: center;
         background-color: white;
         box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-        display: flex;
-        flex-flow: column;
-        overflow-y: auto;
+        display: grid;
+        grid-gap: $medium;
         padding: $medium;
         &__link {
             font-size: $medium;
@@ -98,6 +96,7 @@
     .inbox_container {
         display: grid;
         height: 94vh;
+        margin: 0;
         padding: $small 5%; //If top/bottom padding is adjusted, fix inbox_details height
     }
     .inbox_widget {
@@ -142,7 +141,7 @@
         }
     }
     .inbox_details_content {
-        align-items: flex-start;
+        grid-template-rows: 0fr auto;
         overflow-y: auto;
         padding: $large;
     }
