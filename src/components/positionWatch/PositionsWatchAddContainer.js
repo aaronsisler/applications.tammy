@@ -15,6 +15,8 @@ export class PositionsWatchAddContainer extends React.Component {
         this.props.startClearPosition();
     }
 
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
+
     render() {
         const { positions, positionsWatched } = this.props;
         const positionsConcat = [];
@@ -29,7 +31,7 @@ export class PositionsWatchAddContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positionsWatched &&
                     <div className="inbox_widget">
-                        <div className={`inbox_list ${this.props.positionId ? "inbox_mobile" : ""}`}>
+                        <div className={`inbox_list ${this.handleMobileClassname}`}>
                             <Link className="nav_link" to="/dashboard">Back to Dashboard</Link>
                             <PositionsList positions={positionsConcat} linkRoute={'position_watch_add'} />
                         </div>

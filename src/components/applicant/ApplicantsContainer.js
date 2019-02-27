@@ -26,7 +26,7 @@ export class ApplicantsContainer extends React.Component {
         this.props.startClearApplicants();
     }
 
-    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : undefined
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
 
     render() {
         return (
