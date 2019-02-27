@@ -14,7 +14,7 @@ export default class ApplicantDetailsContent extends React.Component {
         const { applicant } = this.props;
         return (
             <div className="applicant_details_content">
-                <Tabs>
+                <Tabs selectedIndex={2} onSelect={()=>{}}>
                     <TabList>
                         <Tab>Workflow</Tab>
                         <Tab>Documents</Tab>

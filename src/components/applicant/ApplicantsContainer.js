@@ -26,14 +26,14 @@ export class ApplicantsContainer extends React.Component {
         this.props.startClearApplicants();
     }
 
-    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
+    handleMobileClassname = () => this.props.applicantId ? "inbox_mobile" : ""
 
     render() {
         return (
             <div className="inbox_container">
                 {this.props.applicants &&
                     <div className="inbox_widget">
-                        <div className={`inbox_list ${this.handleMobileClassname}`}>
+                        <div className={`inbox_list ${this.handleMobileClassname()}`}>
                             <ApplicantsListFilter />
                             <ApplicantsList
                                 applicants={this.props.applicants}
@@ -56,6 +56,7 @@ const mapStateToProps = (state, props) => {
         : undefined;
 
     return ({
+        applicantId: props.match.params.applicantId,
         applicants: selectApplicants(state.applicants, state.filters.applicants),
         position,
         positionId,
@@ -71,6 +72,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicantsContainer);
 
 ApplicantsContainer.propTypes = {
+    applicantId: PropTypes.string,
     applicants: PropTypes.array,
     position: PropTypes.object,
     positionId: PropTypes.string,

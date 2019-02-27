@@ -90,91 +90,75 @@ export default class UserNameWidget extends React.Component {
 
     render() {
         return (
-            <div id="user_contact_info_widget">
-                <div className="user_email_content" >
-                    <div className="user_contact_info_content_title">
+            <div className="user_contact_info_widget">
+                <div className="user_contact_info_widget__email" >
+                    <div className="user_contact_info_widget__email_title" >
                         Email
                     </div>
-                    <div className="user_email_input">
+                    <input
+                        id="email"
+                        name="email"
+                        onBlur={this.handleEmailValidation}
+                        onChange={this.handleEmailInput}
+                        placeholder="Email"
+                        readOnly={this.props.isReadOnly}
+                        type="text"
+                        value={this.state.email}
+                    />
+                </div>
+                <div className="user_contact_info_widget__phone">
+                    <div className="user_contact_info_widget__phone_title">
+                        Phone Number
+                    </div>
+                    <div className="user_contact_info_widget__phone_inputs">
                         <input
+                            id="phoneAreaCode"
+                            name="phoneAreaCode"
+                            onChange={this.handlePhoneNumberValidation}
+                            placeholder="(919)"
                             readOnly={this.props.isReadOnly}
                             type="text"
-                            id="email"
-                            name="email"
-                            placeholder="Email"
-                            className="text_input"
-                            value={this.state.email}
-                            onChange={this.handleEmailInput}
-                            onBlur={this.handleEmailValidation}
+                            value={this.state.phoneAreaCode}
+                        />
+                        <input
+                            id="phonePrefix"
+                            name="phonePrefix"
+                            onChange={this.handlePhoneNumberValidation}
+                            placeholder="123"
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.phonePrefix}
+                        />
+                        <input
+                            id="phoneLineNumber"
+                            name="phoneLineNumber"
+                            onChange={this.handlePhoneNumberValidation}
+                            readOnly={this.props.isReadOnly}
+                            placeholder="4567"
+                            type="text"
+                            value={this.state.phoneLineNumber}
+                        />
+                        <input
+                            id="phoneExt"
+                            name="phoneExt"
+                            onChange={this.handlePhoneNumberValidation}
+                            placeholder="Ext."
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.phoneExt}
                         />
                     </div>
                 </div>
-                <div className="user_phone_number_content">
-                    <div className="user_contact_info_content_title">
-                        Phone Number
-                    </div>
-                    <div className="user_phone_number_inputs">
-                        <div className="user_phone_number_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="phoneAreaCode"
-                                name="phoneAreaCode"
-                                placeholder="(919)"
-                                className="text_input"
-                                value={this.state.phoneAreaCode}
-                                onChange={this.handlePhoneNumberValidation}
-                            />
-                        </div>
-                        <div className="user_phone_number_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="phonePrefix"
-                                name="phonePrefix"
-                                placeholder="123"
-                                className="text_input"
-                                value={this.state.phonePrefix}
-                                onChange={this.handlePhoneNumberValidation}
-                            />
-                        </div>
-                        <div className="user_phone_number_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="phoneLineNumber"
-                                name="phoneLineNumber"
-                                placeholder="4567"
-                                className="text_input"
-                                value={this.state.phoneLineNumber}
-                                onChange={this.handlePhoneNumberValidation}
-                            />
-                        </div>
-                        <div className="user_phone_number_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="phoneExt"
-                                name="phoneExt"
-                                placeholder="Ext."
-                                className="text_input"
-                                value={this.state.phoneExt}
-                                onChange={this.handlePhoneNumberValidation}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="user_contact_info_widget_button">
-                    {!this.props.isReadOnly &&
+                {!this.props.isReadOnly &&
+                    <div className="user_contact_info_widget__button">
                         <button
                             disabled={!this.state.isValidEmail}
                             onClick={this.handleSubmit}
-                            className="button"
                         >
                             Update Contact Info
-                    </button>
-                    }
-                </div>
+                        </button>
+                    </div>
+                }
             </div>
         )
     }

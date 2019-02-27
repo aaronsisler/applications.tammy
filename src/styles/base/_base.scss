@@ -44,7 +44,6 @@
     input {
         border: 1px solid $midLightGrey;
         font-size: $medium;
-        margin: $xsmall 0;
         padding: $small;
         width: 100%;
     }
@@ -79,14 +78,7 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {
-    button {
-        margin: $xsmall;
-    }
-    input {
-        margin: $xsmall;
-    }
-}
+@media only screen and (min-width: $largeScreen) {}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

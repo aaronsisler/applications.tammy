@@ -1,34 +1,31 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_contact_info_widget {
+    .user_contact_info_widget {
         background: white;
         border: 1px solid $midLightGrey;
+        display: grid;
         padding: $medium;
-    }
-    .user_email_input {
-        display: flex;
-        font-family: $secFont;
-    }
-    .user_phone_number_inputs {
-        display: flex;
-        flex-flow: row wrap;
-        font-family: $secFont;
-        input {
-            max-width: 7rem;
-            text-align: center;
+        &__email_title {
+            font-family: $secFont;
+            font-size: $medium;
         }
-    }
-    .user_phone_number_input {
-        margin-right: $xsmall;
-    }
-    .user_contact_info_content_title {
-        font-family: $secFont;
-        font-size: $medium;
-    }
-    .user_contact_info_widget_button {
-        display: flex;
-        justify-content: center;
+        &__phone {
+            &_inputs{
+                display: grid;
+                grid-gap: $small;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            &_title {
+                font-family: $secFont;
+                font-size: $medium;
+            }
+        }
+        &__button {
+            display: grid;
+            margin-top: $small;
+            width: 100%;
+        }
     }
 }
 
@@ -39,14 +36,12 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_contact_info_widget {
+    .user_contact_info_widget {
         max-width: 50rem;
-    }
-    .user_contact_info_content_title {
-        margin: $xsmall;
-    }
-    .user_contact_info_widget_button {
-        justify-content: flex-start;
+        &__button {
+            display: inline-block;
+            margin-top: $small;
+        }
     }
 }
 

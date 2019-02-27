@@ -17,18 +17,11 @@ export class ApplicantDetails extends React.Component {
     handleNavigateBack = () => history.push(`/applicants/${this.props.positionId}`);
 
     render() {
-        const { applicant, position } = this.props;
-        if (!position) {
-            return (
-                <div className="inbox_details_empty">
-                    Please provide a valid position
-                </div>
-            )
-        }
+        const { applicant } = this.props;
 
         if (!applicant) {
             return (
-                <div className="inbox_details_empty">
+                <div className="inbox_details__empty inbox_mobile">
                     Please select an applicant to view
                 </div>
             )
@@ -36,22 +29,19 @@ export class ApplicantDetails extends React.Component {
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <button
-                        className="inbox_details_header__mobile_button"
-                        onClick={this.handleNavigateBack}
-                    >
-                        Back to List
-                    </button>
+                    <div className="inbox_details_header__actions">
+                        <button
+                            className="inbox_details_header__mobile_button"
+                            onClick={this.handleNavigateBack}
+                        >
+                            Back to List
+                        </button>
+                    </div>
                     <div className="inbox_details_header__content">
                         <div className="inbox_details_header__display_name">
                             {applicant.user.displayName}
                         </div>
-                        <div className="inbox_details_header__legal_name">
-                            {applicant.user.lastName},&nbsp;{applicant.user.firstName}
-                        </div>
-                    </div>
-                    <div className="inbox_details_header__contact">
-                        <div className="inbox_details_header__display_phone_number">
+                        <div className="inbox_details_header__phone_number">
                             <strong>Phone:</strong>&nbsp;{applicant.user.displayPhoneNumber || "Not Provided"}
                         </div>
                         <div className="inbox_details_header__email">
@@ -71,8 +61,8 @@ export class ApplicantDetails extends React.Component {
 const mapStateToProps = (state, props) => {
     const { applicantId, positionId } = props.match.params;
     const position = positionId
-    ? state.positions.find((statePosition) => statePosition.positionId == positionId)
-    : undefined;
+        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
 
     const applicant = applicantId
         ? state.applicants.find((stateApplicant) => stateApplicant.applicantId == applicantId)

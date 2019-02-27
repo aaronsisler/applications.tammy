@@ -47,7 +47,13 @@
             justify-content: center;
             margin: $small 0;
         }
+        &__display_name {
+            font-size: $midlarge;
+            font-weight: 600;
+            margin-bottom: $xsmall;
+        }
         &__email {
+            font-size: $medium;
             word-break: break-all;
         }
         &__job_id {
@@ -59,6 +65,10 @@
             display: grid;
             font-size: $medium;
             text-align: center;
+        }
+        &__phone_number {
+            font-size: $medium;
+            margin-bottom: $xsmall;
         }
         &__title {
             font-size: $midlarge;
@@ -72,10 +82,6 @@
         display: grid;
         grid-gap: $medium;
         padding: $medium;
-        &__link {
-            font-size: $medium;
-            margin: 0 25% $small;
-        }
     }
     .inbox_mobile {
         display: none;

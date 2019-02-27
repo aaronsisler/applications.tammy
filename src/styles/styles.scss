@@ -11,11 +11,10 @@
 @import './base/visibility';
 @import './base/react_tabs';
 //Applicant
-@import './components/applicant/ApplicantDetails';
-@import './components/applicant/ApplicantsContainer';
+@import './components/applicant/ApplicantProcessContainer';
 @import './components/applicant/ApplicantsList';
 @import './components/applicant/ApplicantsListItem';
-@import './components/applicant/ApplicantProcessContainer';
+@import './components/applicant/ApplicantUserInfo';
 //Application
 @import './components/application/ApplicationUserDocumentsContainer';
 @import './components/application/ApplicationProcessContainer';

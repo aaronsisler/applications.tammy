@@ -22,7 +22,7 @@ export class PositionsWatchContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positionsWatched &&
                     <div className="inbox_widget">
-                        <div className={`inbox_list ${this.handleMobileClassname}`}>
+                        <div className={`inbox_list ${this.handleMobileClassname()}`}>
                             <Link className="nav_link" to="/position_watch_add">Add Position Watch</Link>
                             <PositionsList positions={this.props.positionsWatched} linkRoute={'dashboard'} />
                         </div>
