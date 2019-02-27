@@ -26,6 +26,7 @@
     .inbox_details {
         display: grid;
         grid-gap: $small;
+        grid-template-rows: 0.5fr auto;
         height: 100%;
         padding: $small;
     }
@@ -59,7 +60,6 @@
         }
         &__mobile_button {
             margin: 0 auto $small;
-            width: 50%;
         }
         &__title {
             font-size: $midlarge;
