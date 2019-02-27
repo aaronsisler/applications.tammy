@@ -30,7 +30,6 @@
         cursor: pointer;
         color: white;
         font-size: $medium;
-        margin-top: $xsmall;
         padding: $small $medium;
         &:disabled {
             background-color: $mainColor;
@@ -64,7 +63,6 @@
         background: $mainColor;
         color: white;
         font-size: $medium;
-        margin: $small;
         padding: $small;
         text-align: center;
         text-decoration: none;

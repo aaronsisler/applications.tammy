@@ -38,12 +38,18 @@ export class PositionWatchDetails extends React.Component {
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <button
-                        className="inbox_details_header__mobile_button"
-                        onClick={this.handleNavigateBack}
-                    >
-                        Back to List
-                    </button>
+                    <div className="inbox_details_header__actions">
+                        <button
+                            className="inbox_details_header__mobile_button"
+                            onClick={this.handleNavigateBack}
+                        >
+                            Back to List
+                        </button>
+                        <LinkWrapper
+                            linkText='View Applicants'
+                            to={`/applicants/${positionId}`}
+                        />
+                    </div>
                     <div className="inbox_details_header__content">
                         <div className="inbox_details_header__title">
                             {position.title}
@@ -55,10 +61,6 @@ export class PositionWatchDetails extends React.Component {
                             Location: {position.location}
                         </div>
                     </div>
-                    <LinkWrapper
-                        linkText="View Applicants"
-                        to={`/applicants/${positionId}`}
-                    />
                 </div>
                 <div className="inbox_details_content">
                     <PositionWatchEditWidget positionId={this.props.positionId} />

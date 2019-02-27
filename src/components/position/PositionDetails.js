@@ -25,12 +25,15 @@ export class PositionDetails extends React.Component {
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <button
-                        className="inbox_details_header__mobile_button"
-                        onClick={this.handleNavigateBack}
-                    >
-                        Back to List
-                    </button>
+                    <div className="inbox_details_header__actions">
+                        <button
+                            className="inbox_details_header__mobile_button"
+                            onClick={this.handleNavigateBack}
+                        >
+                            Back to List
+                        </button>
+                        <PositionApply positionId={position.positionId} />
+                    </div>
                     <div className="inbox_details_header__content">
                         <div className="inbox_details_header__title">
                             {position.title}
@@ -41,9 +44,6 @@ export class PositionDetails extends React.Component {
                         <div className="inbox_details_header__location">
                             Location: {position.location}
                         </div>
-                    </div>
-                    <div className="inbox_details_header__apply">
-                        <PositionApply positionId={position.positionId} />
                     </div>
                 </div>
                 <div className="inbox_details_content">

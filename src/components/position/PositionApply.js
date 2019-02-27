@@ -27,14 +27,12 @@ export class PositionApply extends React.Component {
                     </div>
                 }
                 {!this.props.isAuthenticated &&
-                    <div className="position_apply__login">
-                        <button
-                            className="button"
-                            onClick={this.handleLogin}
-                        >
-                            Login with Google
-                        </button>
-                    </div>
+                    <button
+                        className="position_apply__button"
+                        onClick={this.handleLogin}
+                    >
+                        Login with Google
+                    </button>
                 }
             </div>
         );

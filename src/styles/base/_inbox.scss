@@ -27,7 +27,7 @@
     .inbox_details {
         display: grid;
         grid-gap: $small;
-        grid-template-rows: 0.5fr auto;
+        grid-template-rows: 0fr auto;
         height: 100%;
     }
     .inbox_details_header {
@@ -37,13 +37,15 @@
         color: $darkMainColor;
         display: grid;
         font-family: $secFont;
-        grid-template-rows: 1fr auto 1fr;
+        grid-template-rows: 1fr auto;
         padding: $small;
         text-align: center;
-        &__apply {
+        &__actions {
             display: grid;
+            grid-auto-flow: column;
+            grid-gap: $medium;
             justify-content: center;
-            margin-top: $small;
+            margin: $small 0;
         }
         &__email {
             word-break: break-all;
@@ -57,9 +59,6 @@
             display: grid;
             font-size: $medium;
             text-align: center;
-        }
-        &__mobile_button {
-            margin: 0 auto $small;
         }
         &__title {
             font-size: $midlarge;
@@ -126,13 +125,18 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
         color: $darkMainColor;
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-areas: "inbox_details_header__content inbox_details_header__actions";
+        grid-template-columns: auto;
         grid-template-rows: auto;
         padding: $small $large;
-        &__apply {
-            justify-content: right;
+        &__actions {
+            grid-area: inbox_details_header__actions;
+            justify-content: flex-end;
         }
-        &__content,
+        &__content {
+            grid-area: inbox_details_header__content;
+            text-align: left;
+        }
         &__location {
             text-align: left;
         }

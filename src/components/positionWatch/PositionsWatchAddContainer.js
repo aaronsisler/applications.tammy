@@ -29,7 +29,7 @@ export class PositionsWatchAddContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positionsWatched &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.props.positionId ? "inbox_mobile" : ""}`}>
                             <Link className="nav_link" to="/dashboard">Back to Dashboard</Link>
                             <PositionsList positions={positionsConcat} linkRoute={'position_watch_add'} />
                         </div>
@@ -42,7 +42,8 @@ export class PositionsWatchAddContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+    positionId: props.match.params.positionId,
     positions: state.positions,
     positionsWatched: state.positionsWatched,
 });
@@ -55,6 +56,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchAddContainer);
 
 PositionsWatchAddContainer.propTypes = {
+    positionId: PropTypes.string,
     positions: PropTypes.array,
     positionsWatched: PropTypes.array,
     startClearPosition: PropTypes.func.isRequired,
