@@ -21,31 +21,22 @@ export class UserProfileContainer extends React.Component {
             <div>
                 {!this.props.user && <LoadingPage />}
                 {this.props.user &&
-                    <div id="user_profile_container">
-                        <div className="user_widget">
-                            <UserNameWidget
-                                id='UserNameWidget'
-                                isReadOnly={this.props.isReadOnly}
-                                onSubmit={this.onSubmit}
-                                user={this.props.user}
-                            />
-                        </div>
-                        <div className="user_widget">
-                            <UserContactInfoWidget
-                                id='UserContactInfoWidget'
-                                isReadOnly={this.props.isReadOnly}
-                                onSubmit={this.onSubmit}
-                                user={this.props.user}
-                            />
-                        </div>
-                        <div className="user_widget">
-                            <UserAddressWidget
-                                id='UserAddressWidget'
-                                isReadOnly={this.props.isReadOnly}
-                                onSubmit={this.onSubmit}
-                                user={this.props.user}
-                            />
-                        </div>
+                    <div className="user_profile_container">
+                        <UserNameWidget
+                            isReadOnly={this.props.isReadOnly}
+                            onSubmit={this.onSubmit}
+                            user={this.props.user}
+                        />
+                        <UserContactInfoWidget
+                            isReadOnly={this.props.isReadOnly}
+                            onSubmit={this.onSubmit}
+                            user={this.props.user}
+                        />
+                        <UserAddressWidget
+                            isReadOnly={this.props.isReadOnly}
+                            onSubmit={this.onSubmit}
+                            user={this.props.user}
+                        />
                     </div>
                 }
             </div>

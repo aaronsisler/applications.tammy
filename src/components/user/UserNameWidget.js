@@ -47,78 +47,61 @@ export default class UserNameWidget extends React.Component {
 
     render() {
         return (
-            <div id="user_name_widget">
+            <div className="user_name_widget">
                 {this.state.error}
-                <div className="user_name_legal_content" >
-                    <div className="user_name_content_title">
+                <div className="user_name_widget__legal_name" >
+                    <div className="user_name_widget__legal_name_title">
                         Full Name
                     </div>
-                    <div className="user_name_legal_inputs">
-                        <div className="user_name_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                placeholder="First Name"
-                                className="text_input"
-                                value={this.state.firstName}
-                                onChange={this.handleInputChange}
-                                onBlur={this.inputTools.handleRequiredValidation}
-                            />
-                        </div>
-                        <div className="user_name_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="middleName"
-                                name="middleName"
-                                placeholder="Middle Name"
-                                className="text_input"
-                                value={this.state.middleName}
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
-                        <div className="user_name_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                placeholder="Last Name"
-                                className="text_input"
-                                value={this.state.lastName}
-                                onChange={this.handleInputChange}
-                                onBlur={this.inputTools.handleRequiredValidation}
-                            />
-                        </div>
+                    <div className="user_name_widget__legal_name_inputs">
+                        <input
+                            name="firstName"
+                            onChange={this.handleInputChange}
+                            onBlur={this.inputTools.handleRequiredValidation}
+                            placeholder="First Name"
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.firstName}
+                        />
+                        <input
+                            name="middleName"
+                            onChange={this.handleInputChange}
+                            placeholder="Middle Name"
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.middleName}
+                        />
+                        <input
+                            onChange={this.handleInputChange}
+                            onBlur={this.inputTools.handleRequiredValidation}
+                            name="lastName"
+                            placeholder="Last Name"
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.lastName}
+                        />
                     </div>
                 </div>
-                <div className="user_name_display_content">
-                    <div className="user_name_content_title">
+                <div className="user_name_widget__display_name">
+                    <div className="user_name_widget__display_name_title">
                         Display Name
                     </div>
-                    <div className="user_name_display_input">
-                        <div className="user_name_input">
-                            <input
-                                readOnly={this.props.isReadOnly}
-                                type="text"
-                                id="displayName"
-                                name="displayName"
-                                placeholder="Display Name"
-                                className="text_input"
-                                value={this.state.displayName}
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
+                    <div className="user_name_widget__display_name_inputs">
+                        <input
+                            name="displayName"
+                            onChange={this.handleInputChange}
+                            placeholder="Display Name"
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            value={this.state.displayName}
+                        />
                     </div>
                 </div>
-                <div className="user_name_widget_button">
+                <div className="user_name_widget__button">
                     {!this.props.isReadOnly &&
                         <button
                             disabled={!this.state.firstName || !this.state.lastName}
                             onClick={this.handleSubmit}
-                            className="button"
                         >
                             Update User Info
                     </button>
