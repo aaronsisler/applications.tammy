@@ -1,32 +1,32 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_address_widget {
+    .user_address_widget {
         background: white;
         border: 1px solid $midLightGrey;
+        display: grid;
+        grid-gap: $small;
         padding: $medium;
-    }
-    .user_address_content_title {
-        font-family: $secFont;
-        font-size: $medium;
-    }
-    .user_address_inputs {
-        font-family: $secFont;
-    }
-    .user_address_street_addresses {
-        display: flex;
-        flex-flow: column;
-    }
-    .user_address_city_state_zip {
-        display: flex;
-        flex-flow: column;
-    }
-    .user_address_input {
-        display: flex;
-    }
-    .user_address_widget_button {
-        display: flex;
-        justify-content: center;
+        &__title {
+            font-family: $secFont;
+            font-size: $medium;
+            margin-bottom: $xsmall;
+        }
+        &__inputs {
+            display: grid;
+            font-family: $secFont;
+            grid-gap: $small;
+            &_location {
+                display: grid;
+                grid-gap: $small;
+                grid-template-columns: 2fr 0.5fr 1fr;
+            }
+        }
+        &__button {
+            display: grid;
+            // margin-top: $small;
+            width: 100%;
+        }
     }
 }
 
@@ -38,17 +38,11 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_address_widget {
-        max-width: 60rem;
-    }
-    .user_address_content_title {
-        margin: $xsmall;
-    }
-    .user_address_city_state_zip {
-        flex-flow: row;
-    }
-    .user_address_widget_button {
-        justify-content: flex-start;
+    .user_address_widget {
+        max-width: 50rem;
+        &__button {
+            display: inline-block;
+        }
     }
 }
 

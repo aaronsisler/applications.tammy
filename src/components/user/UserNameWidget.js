@@ -97,16 +97,16 @@ export default class UserNameWidget extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="user_name_widget__button">
-                    {!this.props.isReadOnly &&
+                {!this.props.isReadOnly &&
+                    <div className="user_name_widget__button">
                         <button
                             disabled={!this.state.firstName || !this.state.lastName}
                             onClick={this.handleSubmit}
                         >
                             Update User Info
-                    </button>
-                    }
-                </div>
+                        </button>
+                    </div>
+                }
             </div>
         )
     }
