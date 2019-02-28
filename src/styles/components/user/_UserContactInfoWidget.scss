@@ -5,13 +5,15 @@
         background: white;
         border: 1px solid $midLightGrey;
         display: grid;
+        grid-gap: $small;
         padding: $medium;
         &__email_title {
             font-family: $secFont;
             font-size: $medium;
+            margin-bottom: $xsmall;
         }
         &__phone {
-            &_inputs{
+            &_inputs {
                 display: grid;
                 grid-gap: $small;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -19,6 +21,7 @@
             &_title {
                 font-family: $secFont;
                 font-size: $medium;
+                margin-bottom: $xsmall;
             }
         }
         &__button {
