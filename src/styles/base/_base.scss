@@ -54,6 +54,8 @@
     }
     textarea {
         font-size: $medium;
+        max-width: 70rem;
+        width: 100%;
     }
     .text_input_error {
         border: 2px solid red;

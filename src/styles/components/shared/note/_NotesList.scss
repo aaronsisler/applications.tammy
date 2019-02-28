@@ -1,11 +1,11 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #notes_list {
+    .notes_list {
         background: white;
-        display: flex;
-        flex-flow: column;
-        &.empty {
+        display: grid;
+        grid-gap: $small;
+        &__empty {
             display: flex;
             justify-content: center;
             font-family: $secFont;

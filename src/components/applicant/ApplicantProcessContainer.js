@@ -55,10 +55,11 @@ export class ApplicantProcessContainer extends React.Component {
 
     handleSubmitStatusChange = () => {
         const { applicantStatus, isNotePopulated, isStatusChanged, statusNote } = this.state;
+        const { applicantId, positionId } = this.props.applicant;
 
         if (isNotePopulated && isStatusChanged) {
-            this.props.startAddApplicantNote(statusNote);
-            this.props.startSetApplicantStatus(applicantStatus);
+            this.props.startAddApplicantNote({ applicantId, positionId, statusNote });
+            this.props.startSetApplicantStatus({ applicantId, applicantStatus, positionId });
 
             return this.setState((prevState) => ({
                 applicantNotes: [{ statusNote }, ...prevState.applicantNotes],
@@ -78,16 +79,13 @@ export class ApplicantProcessContainer extends React.Component {
                 </div>
                 <textarea
                     placeholder="Write a note to change applicant status"
-                    className="applicant_process_container__note"
                     value={this.state.statusNote}
                     onChange={this.handleStatusNoteChange}
-                    cols="75"
                     rows="5"
                 >
                 </textarea>
                 <div className="applicant_process_container__status_change">
                     <select
-                        className="applicant_process_container__select"
                         disabled={!this.state.isNotePopulated}
                         onChange={this.handleSetApplicantStatus}
                         value={this.state.applicantStatus}
@@ -101,7 +99,6 @@ export class ApplicantProcessContainer extends React.Component {
                             </option>)}
                     </select>
                     <button
-                        className="button"
                         disabled={!this.state.isNotePopulated || !this.state.isStatusChanged}
                         onClick={this.handleSubmitStatusChange}
                     >
@@ -122,8 +119,8 @@ const mapStateToProps = () => ({
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startAddApplicantNote: (statusNote) => dispatch(startAddApplicantNote(statusNote)),
-    startSetApplicantStatus: (applicantStatus) => dispatch(startSetApplicantStatus(applicantStatus)),
+    startAddApplicantNote: (dataObject) => dispatch(startAddApplicantNote(dataObject)),
+    startSetApplicantStatus: (dataObject) => dispatch(startSetApplicantStatus(dataObject)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicantProcessContainer);

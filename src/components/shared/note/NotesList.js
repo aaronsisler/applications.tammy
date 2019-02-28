@@ -10,14 +10,14 @@ export default class NotesList extends React.Component {
     render() {
         if (this.props.notes.length === 0) {
             return (
-                <div id="notes_list" className="empty">
+                <div className="notes_list__empty">
                     No available notes
                 </div>
             );
         }
 
         return (
-            <div id="notes_list">
+            <div className="notes_list">
                 {
                     this.props.notes.map((note, index) =>
                         <NotesListItem

@@ -5,11 +5,10 @@ import {
     clearApplicant,
     setApplicant,
     setApplicantStatus,
-    setApplicantNotes,
+    // setApplicantNotes,
 } from 'Actions/helpers/applicant';
 
-export const startAddApplicantNote = (statusNote) => (dispatch, getState) => {
-    const { applicantId, positionId } = getState().applicant;
+export const startAddApplicantNote = ({ applicantId, positionId, statusNote }) => (dispatch) => {
     const priority = getPriority();
 
     return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`)
@@ -28,22 +27,17 @@ export const startSetApplicant = (applicantId) => (dispatch, getState) => {
     return dispatch(setApplicant(applicantMatch));
 }
 
-export const startSetApplicantStatus = (applicantStatus) => (dispatch, getState) => {
-    const { applicantId, positionId } = getState().applicant;
-
-    return database.ref(`applicants/${positionId}/${applicantId}`).update({ applicantStatus })
+export const startSetApplicantStatus = ({ applicantId, applicantStatus, positionId }) => (dispatch) =>
+    database.ref(`applicants/${positionId}/${applicantId}`).update({ applicantStatus })
         .then(() => dispatch(setApplicantStatus(applicantStatus)));
-}
 
-export const startSetApplicantNotes = () => (dispatch, getState) => {
-    const { applicantId, positionId } = getState().applicant;
-    return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`, {
-        query: {
-            orderByPriority: true,
-        }
-    }).then((snapshot) => {
-        const applicantNotes = [];
-        snapshot.forEach((childSnapshot) => applicantNotes.push(childSnapshot.statusNote));
-        return dispatch(setApplicantNotes(applicantNotes))
-    });
-}
+// export const startSetApplicantNotes = ({ applicantId, positionId }) => (dispatch) =>
+//     database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`, {
+//         query: {
+//             orderByPriority: true,
+//         }
+//     }).then((snapshot) => {
+//         const applicantNotes = [];
+//         snapshot.forEach((childSnapshot) => applicantNotes.push(childSnapshot.statusNote));
+//         return dispatch(setApplicantNotes(applicantNotes))
+//     });
