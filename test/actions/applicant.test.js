@@ -3,8 +3,6 @@ import configureMockStore from 'redux-mock-store';
 import database from 'Firebase/firebase';
 import {
     startAddApplicantNote,
-    startClearApplicant,
-    startSetApplicant,
     startSetApplicantStatus
 } from 'Actions/applicant';
 import * as applicantActionHelpers from 'Actions/helpers/applicant';
@@ -55,28 +53,6 @@ describe('Applicant Actions', () => {
             await store.dispatch(startAddApplicantNote(statusNote));
 
             expect(push).toHaveBeenLastCalledWith({ statusNote });
-        });
-    });
-
-    describe('startClearApplicant() method', () => {
-        it(`should call dispatch with clearApplicant`, async () => {
-            const clearApplicantMock = jest.spyOn(applicantActionHelpers, 'clearApplicant');
-
-            await store.dispatch(startClearApplicant());
-
-            expect(store.getActions().length).toBe(1);
-            expect(clearApplicantMock).toHaveBeenCalled();
-        });
-    });
-
-    describe('startSetApplicant() method', () => {
-        it(`should call dispatch with setApplicant`, async () => {
-            const setApplicantMock = jest.spyOn(applicantActionHelpers, 'setApplicant');
-
-            await store.dispatch(startSetApplicant(applicant.applicantId));
-
-            expect(store.getActions().length).toBe(1);
-            expect(setApplicantMock).toHaveBeenLastCalledWith(applicant);
         });
     });
 

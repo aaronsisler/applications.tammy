@@ -16,8 +16,8 @@ export class ApplicantProcessContainer extends React.Component {
             applicantStatus: props.applicant.applicantStatus,
             isNotePopulated: false,
             isStatusChanged: false,
+            noteMessage: '',
             prevApplicantStatus: props.applicant.applicantStatus,
-            statusNote: '',
         }
     }
 
@@ -31,8 +31,8 @@ export class ApplicantProcessContainer extends React.Component {
                 applicantStatus: newApplicant.applicantStatus,
                 isNotePopulated: false,
                 isStatusChanged: false,
+                noteMessage: '',
                 prevApplicantStatus: newApplicant.applicantStatus,
-                statusNote: '',
             }));
         }
     }
@@ -45,28 +45,28 @@ export class ApplicantProcessContainer extends React.Component {
         return this.setState(() => ({ applicantStatus, isStatusChanged: true }));
     }
 
-    handleStatusNoteChange = (e) => {
-        const statusNote = e.target.value;
-        if (statusNote) {
-            return this.setState(() => ({ isNotePopulated: true, statusNote }));
+    handleNoteMessageChange = (e) => {
+        const noteMessage = e.target.value;
+        if (noteMessage) {
+            return this.setState(() => ({ isNotePopulated: true, noteMessage }));
         }
-        return this.setState(() => ({ isNotePopulated: false, statusNote }));
+        return this.setState(() => ({ isNotePopulated: false, noteMessage }));
     }
 
     handleSubmitStatusChange = () => {
-        const { applicantStatus, isNotePopulated, isStatusChanged, statusNote } = this.state;
+        const { applicantStatus, isNotePopulated, isStatusChanged, noteMessage } = this.state;
         const { applicantId, positionId } = this.props.applicant;
 
         if (isNotePopulated && isStatusChanged) {
-            this.props.startAddApplicantNote({ applicantId, positionId, statusNote });
+            this.props.startAddApplicantNote({ applicantId, positionId, noteMessage });
             this.props.startSetApplicantStatus({ applicantId, applicantStatus, positionId });
 
             return this.setState((prevState) => ({
-                applicantNotes: [{ statusNote }, ...prevState.applicantNotes],
+                applicantNotes: [{ noteMessage }, ...prevState.applicantNotes],
                 isNotePopulated: false,
                 isStatusChanged: false,
+                noteMessage: '',
                 prevApplicantStatus: applicantStatus,
-                statusNote: '',
             }));
         }
     }
@@ -79,8 +79,8 @@ export class ApplicantProcessContainer extends React.Component {
                 </div>
                 <textarea
                     placeholder="Write a note to change applicant status"
-                    value={this.state.statusNote}
-                    onChange={this.handleStatusNoteChange}
+                    value={this.state.noteMessage}
+                    onChange={this.handleNoteMessageChange}
                     rows="5"
                 >
                 </textarea>
