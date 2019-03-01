@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import history from 'Tools/history';
 import { startResetApplicationProcess } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
@@ -15,7 +16,7 @@ export class ApplicationProcessContainer extends React.Component {
 
     componentDidUpdate() {
         if (!this.props.positionId) {
-            return history.push('/');
+            return history.push('/positions');
         }
     }
 
@@ -42,7 +43,7 @@ export class ApplicationProcessContainer extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state, props) => ({
     currentStep: state.applicationProcess.currentStep,
-    positionId: props.match.params.id,
+    positionId: props.match.params.positionId,
 });
 
 /* istanbul ignore next */
