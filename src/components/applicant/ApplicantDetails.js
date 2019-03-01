@@ -2,16 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import history from 'Tools/history';
 import PropTypes from 'prop-types';
-import { startClearApplicant } from 'Actions/applicant';
 import ApplicantDetailsContent from 'Applicant/ApplicantDetailsContent';
 
 export class ApplicantDetails extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentWillUnmount() {
-        this.props.startClearApplicant();
     }
 
     handleNavigateBack = () => history.push(`/applicants/${this.props.positionId}`);
@@ -76,18 +71,12 @@ const mapStateToProps = (state, props) => {
     });
 };
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => ({
-    startClearApplicant: () => dispatch(startClearApplicant()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicantDetails);
+export default connect(mapStateToProps)(ApplicantDetails);
 
 ApplicantDetails.propTypes = {
     applicant: PropTypes.object,
     applicantId: PropTypes.string,
     position: PropTypes.object,
     positionId: PropTypes.string,
-    startClearApplicant: PropTypes.func.isRequired,
 };
 

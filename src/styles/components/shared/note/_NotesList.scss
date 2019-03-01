@@ -5,13 +5,6 @@
         background: white;
         display: grid;
         grid-gap: $small;
-        &__empty {
-            display: flex;
-            justify-content: center;
-            font-family: $secFont;
-            font-size: $midlarge;
-            padding: $large 0;
-        }
     }
 }
 

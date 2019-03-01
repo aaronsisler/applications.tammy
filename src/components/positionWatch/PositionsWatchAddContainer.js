@@ -2,17 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
 import PositionsList from 'Shared/position/PositionsList';
 import PositionWatchAddDetails from 'PositionWatch/PositionWatchAddDetails';
 
 export class PositionsWatchAddContainer extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentWillUnmount() {
-        this.props.startClearPosition();
     }
 
     handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
@@ -50,17 +45,11 @@ const mapStateToProps = (state, props) => ({
     positionsWatched: state.positionsWatched,
 });
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchAddContainer);
+export default connect(mapStateToProps)(PositionsWatchAddContainer);
 
 PositionsWatchAddContainer.propTypes = {
     positionId: PropTypes.string,
     positions: PropTypes.array,
     positionsWatched: PropTypes.array,
-    startClearPosition: PropTypes.func.isRequired,
 };
 

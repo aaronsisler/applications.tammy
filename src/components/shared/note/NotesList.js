@@ -8,14 +8,6 @@ export default class NotesList extends React.Component {
     }
 
     render() {
-        if (this.props.notes.length === 0) {
-            return (
-                <div className="notes_list__empty">
-                    No available notes
-                </div>
-            );
-        }
-
         return (
             <div className="notes_list">
                 {
