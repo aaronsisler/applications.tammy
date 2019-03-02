@@ -8,6 +8,7 @@ exports[`ApplicationProgressWidget should render correctly 1`] = `
     current={0}
     direction="horizontal"
     iconPrefix="rc"
+    initial={0}
     labelPlacement="horizontal"
     prefixCls="rc-steps"
     progressDot={false}

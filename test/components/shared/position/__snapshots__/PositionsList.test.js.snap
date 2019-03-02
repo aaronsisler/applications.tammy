@@ -12,7 +12,7 @@ exports[`PositionsList should render PositionsList correctly when positions are 
 <div
   className="positions_list"
 >
-  <Connect(PositionsListItem)
+  <PositionsListItem
     content={
       Object {
         "description": "first description",
@@ -32,7 +32,7 @@ exports[`PositionsList should render PositionsList correctly when positions are 
     positionId="firstPositionId"
     title="first title"
   />
-  <Connect(PositionsListItem)
+  <PositionsListItem
     content={
       Object {
         "description": "second description",

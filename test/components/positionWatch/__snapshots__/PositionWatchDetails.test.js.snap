@@ -2,7 +2,7 @@
 
 exports[`PositionWatchDetails should render PositionWatchDetails correctly when position is NOT available 1`] = `
 <div
-  className="inbox_details_empty"
+  className="inbox_details__empty inbox_mobile"
 >
   Please select an item to view
 </div>
@@ -15,7 +15,23 @@ exports[`PositionWatchDetails when position is available should render PositionW
   <div
     className="inbox_details_header"
   >
-    <div>
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+      <LinkWrapper
+        linkText="View Applicants"
+        to="/applicants/undefined"
+      />
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
       <div
         className="inbox_details_header__title"
       >
@@ -34,14 +50,9 @@ exports[`PositionWatchDetails when position is available should render PositionW
         first location
       </div>
     </div>
-    <LinkWrapper
-      linkText="View Applicants"
-      onClick={[Function]}
-      to="/applicants"
-    />
   </div>
   <div
-    className="inbox_details_content position_watch_details"
+    className="inbox_details_content"
   >
     <Connect(PositionWatchEditWidget) />
     <PositionDetailsContent

@@ -2,7 +2,7 @@
 
 exports[`ApplicationPage should render ApplicationPage correctly 1`] = `
 <div
-  id="application_page"
+  className="application_page"
 >
   <Connect(ApplicationProcessContainer) />
 </div>

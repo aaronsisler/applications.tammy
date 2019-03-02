@@ -2,7 +2,7 @@
 
 exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly when position is NOT available 1`] = `
 <div
-  className="inbox_details_empty"
+  className="inbox_details__empty inbox_mobile"
 >
   Please select an item to view
 </div>
@@ -15,7 +15,19 @@ exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly
   <div
     className="inbox_details_header"
   >
-    <div>
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
       <div
         className="inbox_details_header__title"
       >
@@ -36,7 +48,7 @@ exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly
     </div>
   </div>
   <div
-    className="inbox_details_content position_watch_details"
+    className="inbox_details_content"
   >
     <Connect(PositionWatchAddWidget) />
     <PositionDetailsContent

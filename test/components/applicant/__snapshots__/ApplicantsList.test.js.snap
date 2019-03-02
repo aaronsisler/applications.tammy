@@ -4,14 +4,14 @@ exports[`ApplicantsList should render ApplicantsList correctly when applicants a
 <div
   className="applicants_list"
 >
-  <Connect(ApplicantsListItem)
+  <ApplicantsListItem
     applicantId="firstApplicantId"
     displayName="Johnny Appleseed"
     firstName="Johnny"
     key="firstApplicantId"
     lastName="Appleseed"
   />
-  <Connect(ApplicantsListItem)
+  <ApplicantsListItem
     applicantId="secondApplicantId"
     displayName="Johnny Appleseed"
     firstName="Johnny"

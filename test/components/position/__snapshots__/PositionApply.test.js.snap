@@ -5,13 +5,12 @@ exports[`PositionApply when user is Authenticated should render correctly 1`] = 
   className="position_apply"
 >
   <div
-    className="position_apply_content__apply"
+    className="position_apply__apply"
   >
     <Link
       className="nav_link"
-      onClick={[MockFunction]}
       replace={false}
-      to="apply"
+      to="/apply/undefined"
     >
       Apply Now
     </Link>
@@ -23,15 +22,11 @@ exports[`PositionApply when user is NOT Authenticated should render correctly 1`
 <div
   className="position_apply"
 >
-  <div
-    className="position_apply_content__login"
+  <button
+    className="position_apply__button"
+    onClick={[Function]}
   >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Login with Google
-    </button>
-  </div>
+    Login with Google
+  </button>
 </div>
 `;

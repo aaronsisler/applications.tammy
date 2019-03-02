@@ -8,7 +8,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Link
         className="nav_link"
@@ -18,10 +18,52 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         Add Position Watch
       </Link>
       <PositionsList
+        linkRoute="dashboard"
         positions={Array []}
       />
     </div>
-    <Connect(PositionWatchDetails) />
+    <Connect(PositionWatchDetails)
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      positionsWatched={Array []}
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;
@@ -34,7 +76,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Link
         className="nav_link"
@@ -44,6 +86,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         Add Position Watch
       </Link>
       <PositionsList
+        linkRoute="dashboard"
         positions={
           Array [
             Object {
@@ -86,7 +129,87 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         }
       />
     </div>
-    <Connect(PositionWatchDetails) />
+    <Connect(PositionWatchDetails)
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      positionsWatched={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "notificationLevel": "ALL",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "notificationLevel": "REQUIRED",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;
@@ -99,7 +222,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Link
         className="nav_link"
@@ -109,6 +232,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         Add Position Watch
       </Link>
       <PositionsList
+        linkRoute="dashboard"
         positions={
           Array [
             Object {
@@ -169,7 +293,105 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
         }
       />
     </div>
-    <Connect(PositionWatchDetails) />
+    <Connect(PositionWatchDetails)
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      positionsWatched={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "notificationLevel": "ALL",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "notificationLevel": "REQUIRED",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "notificationLevel": "REQUIRED",
+            "positionId": "mockNewPositionId",
+            "title": "first title",
+          },
+        ]
+      }
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;

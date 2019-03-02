@@ -8,10 +8,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -52,7 +53,53 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "",
+        }
+      }
+      position={Object {}}
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;
@@ -65,10 +112,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -109,7 +157,71 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "",
+        }
+      }
+      position={
+        Object {
+          "content": Object {
+            "description": "first description",
+            "requirements": Array [
+              "Skill 1",
+              "Skill 2",
+            ],
+            "responsibilities": Array [
+              "Responsibility 1",
+              "Responsibility 2",
+            ],
+          },
+          "jobId": "first job id",
+          "location": "first location",
+          "positionId": "firstPositionId",
+          "title": "first title",
+        }
+      }
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;
@@ -122,10 +234,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -145,11 +258,74 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
               "positionId": "firstPositionId",
               "title": "first title",
             },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "title": "second title",
+            },
           ]
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "first job id",
+        }
+      }
+      position={Object {}}
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+      startClearPosition={[MockFunction]}
+    />
   </div>
 </div>
 `;

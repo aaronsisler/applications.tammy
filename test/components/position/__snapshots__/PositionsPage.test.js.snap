@@ -2,7 +2,7 @@
 
 exports[`PositionsPage should render PositionsPage correctly 1`] = `
 <div
-  id="positions_page"
+  className="positions_page"
 >
   <Connect(PositionsContainer) />
 </div>
