@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesList should render NotesList correctly 1`] = `
+<div
+  className="notes_list"
+>
+  <NotesListItem
+    key="0"
+    noteMessage="First note"
+  />
+  <NotesListItem
+    key="1"
+    noteMessage="Second note"
+  />
+</div>
+`;

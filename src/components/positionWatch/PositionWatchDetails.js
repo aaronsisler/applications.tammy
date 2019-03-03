@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from 'Tools/history';
-import LinkWrapper from 'Shared/universal/LinkWrapper';
+import LinkWrapper from 'Universal/LinkWrapper';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
 import { startSetWorkflowPosition } from 'Actions/workflow';

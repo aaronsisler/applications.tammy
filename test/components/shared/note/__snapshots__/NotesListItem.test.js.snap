@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesListItem should render NotesListItem correctly 1`] = `
+<div
+  className="notes_list_item"
+>
+  <textarea
+    readOnly={true}
+    rows="5"
+    value="First note"
+  />
+</div>
+`;

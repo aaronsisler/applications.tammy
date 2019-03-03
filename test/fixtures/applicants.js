@@ -1,24 +1,21 @@
 import user from './user';
+import notes from './notes';
 import { position } from './positions';
 
-const { positionId } = position;
 
-const applicantNotes = [
-    { noteMessage: 'First note' },
-    { noteMessage: 'Second note' },
-]
+const { positionId } = position;
 
 const applicants = [
     {
         applicantId: 'firstApplicantId',
-        applicantNotes,
+        applicantNotes: notes,
         applicantStatus: 'APPLIED',
         positionId,
         user,
     },
     {
         applicantId: 'secondApplicantId',
-        applicantNotes,
+        applicantNotes: notes,
         applicantStatus: 'APPLIED',
         positionId,
         user: { ...user, firstName: 'New First Name', lastName: 'New Last Name' },

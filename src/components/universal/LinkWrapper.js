@@ -9,15 +9,13 @@ export default class LinkWrapper extends React.Component {
 
     render() {
         return (
-            <div className="link_wrapper">
-                <Link
-                    className="nav_link"
-                    onClick={this.props.onClick}
-                    to={this.props.to}
-                >
-                    {this.props.linkText}
-                </Link>
-            </div>
+            <Link
+                className="link_wrapper nav_link"
+                onClick={this.props.onClick}
+                to={this.props.to}
+            >
+                {this.props.linkText}
+            </Link>
         );
     }
 }
@@ -27,4 +25,3 @@ LinkWrapper.propTypes = {
     onClick: PropTypes.func,
     to: PropTypes.string.isRequired,
 };
-
