@@ -10,6 +10,11 @@ describe('selectApplicants()', () => {
         expect(result).toEqual(applicants);
     })
 
+    it('should use default empty applicants array', () => {
+        const result = selectApplicants(undefined, {});
+        expect(result).toEqual([]);
+    })
+
     it('should filter applicants by last name', () => {
         const result = selectApplicants(applicants, { text: lastName });
         expect(result).toEqual([applicants[0]]);
