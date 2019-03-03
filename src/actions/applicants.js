@@ -1,5 +1,5 @@
 import database from 'Firebase/firebase';
-import {setApplicants } from 'Actions/helpers/applicants';
+import { setApplicants } from 'Actions/helpers/applicants';
 import { setApplicantsTextFilter } from 'Actions/filters/applicantsText';
 
 export const startClearApplicants = () => (dispatch) => dispatch(setApplicants());

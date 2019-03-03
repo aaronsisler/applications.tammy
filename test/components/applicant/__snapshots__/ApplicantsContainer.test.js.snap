@@ -18,10 +18,10 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
               "applicantId": "firstApplicantId",
               "applicantNotes": Array [
                 Object {
-                  "statusNote": "First note",
+                  "noteMessage": "First note",
                 },
                 Object {
-                  "statusNote": "Second note",
+                  "noteMessage": "Second note",
                 },
               ],
               "positionId": "firstPositionId",
@@ -46,10 +46,10 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
               "applicantId": "secondApplicantId",
               "applicantNotes": Array [
                 Object {
-                  "statusNote": "First note",
+                  "noteMessage": "First note",
                 },
                 Object {
-                  "statusNote": "Second note",
+                  "noteMessage": "Second note",
                 },
               ],
               "positionId": "firstPositionId",
@@ -81,10 +81,10 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
             "applicantId": "firstApplicantId",
             "applicantNotes": Array [
               Object {
-                "statusNote": "First note",
+                "noteMessage": "First note",
               },
               Object {
-                "statusNote": "Second note",
+                "noteMessage": "Second note",
               },
             ],
             "positionId": "firstPositionId",
@@ -109,10 +109,10 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
             "applicantId": "secondApplicantId",
             "applicantNotes": Array [
               Object {
-                "statusNote": "First note",
+                "noteMessage": "First note",
               },
               Object {
-                "statusNote": "Second note",
+                "noteMessage": "Second note",
               },
             ],
             "positionId": "firstPositionId",

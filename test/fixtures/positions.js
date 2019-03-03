@@ -30,4 +30,6 @@ export const defaultPositionsState = {
 
 export const [position] = positions;
 
+export const { positionId } = position;
+
 export default positions;

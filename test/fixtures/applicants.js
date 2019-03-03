@@ -4,8 +4,8 @@ import { position } from './positions';
 const { positionId } = position;
 
 const applicantNotes = [
-    { statusNote: 'First note' },
-    { statusNote: 'Second note' }
+    { noteMessage: 'First note' },
+    { noteMessage: 'Second note' },
 ]
 
 const applicants = [
@@ -28,7 +28,6 @@ export const applicantWithNoNotes =
     applicantId: 'firstApplicantId',
     positionId,
     user,
-    applicantNotes: [],
 }
 
 
