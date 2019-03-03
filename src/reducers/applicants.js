@@ -17,7 +17,10 @@ const applicantsReducer = (state = applicantsReducerDefaultState, action) => {
                 applicant.applicantId === action.applicantId ?
                     {
                         ...applicant,
-                        applicantNotes: [action.noteMessage, ...applicant.applicantNotes]
+                        applicantNotes: [
+                            {
+                                noteMessage: action.noteMessage,
+                            }, ...applicant.applicantNotes]
                     } :
                     applicant);
         default:

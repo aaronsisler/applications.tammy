@@ -24,6 +24,7 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                   "noteMessage": "Second note",
                 },
               ],
+              "applicantStatus": "APPLIED",
               "positionId": "firstPositionId",
               "user": Object {
                 "addressLine1": "123 Evergreen Terrace",
@@ -52,6 +53,7 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                   "noteMessage": "Second note",
                 },
               ],
+              "applicantStatus": "APPLIED",
               "positionId": "firstPositionId",
               "user": Object {
                 "addressLine1": "123 Evergreen Terrace",
@@ -87,6 +89,7 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "noteMessage": "Second note",
               },
             ],
+            "applicantStatus": "APPLIED",
             "positionId": "firstPositionId",
             "user": Object {
               "addressLine1": "123 Evergreen Terrace",
@@ -115,6 +118,7 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "noteMessage": "Second note",
               },
             ],
+            "applicantStatus": "APPLIED",
             "positionId": "firstPositionId",
             "user": Object {
               "addressLine1": "123 Evergreen Terrace",

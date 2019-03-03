@@ -15,7 +15,6 @@ const createMockStore = configureMockStore([thunk]);
 
 describe('Applicant Actions', () => {
     let store;
-    // let getPriorityMock;
     let setWithPriority;
     let push;
     let update;
@@ -66,7 +65,7 @@ describe('Applicant Actions', () => {
         it('should call setWithPriority', () => {
             store.dispatch(startAddApplicantNote(dataObject));
 
-            expect(setWithPriority).toHaveBeenLastCalledWith({ noteMessage, priority: mockDateTime }, mockDateTime);
+            expect(setWithPriority).toHaveBeenLastCalledWith({ noteMessage }, mockDateTime);
         });
     });
 

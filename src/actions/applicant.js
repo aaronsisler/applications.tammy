@@ -8,7 +8,7 @@ import {
 export const startAddApplicantNote = ({ applicantId, noteMessage, positionId }) => (dispatch) => {
     const priority = getPriority();
     return database.ref(`applicants/${positionId}/${applicantId}/applicantNotes`)
-        .push().setWithPriority({ noteMessage, priority }, priority)
+        .push().setWithPriority({ noteMessage }, priority)
         .then(() => dispatch(addApplicantNote({ applicantId, noteMessage })));
 }
 

@@ -11,15 +11,17 @@ const applicantNotes = [
 const applicants = [
     {
         applicantId: 'firstApplicantId',
+        applicantNotes,
+        applicantStatus: 'APPLIED',
         positionId,
         user,
-        applicantNotes,
     },
     {
         applicantId: 'secondApplicantId',
+        applicantNotes,
+        applicantStatus: 'APPLIED',
         positionId,
         user: { ...user, firstName: 'New First Name', lastName: 'New Last Name' },
-        applicantNotes,
     },
 ]
 
@@ -34,5 +36,7 @@ export const applicantWithNoNotes =
 export const defaultApplicantsState = {
     applicants
 }
+
+export const [{ applicantId }] = applicants;
 
 export default applicants;
