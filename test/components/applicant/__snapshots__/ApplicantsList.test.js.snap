@@ -14,9 +14,9 @@ exports[`ApplicantsList should render ApplicantsList correctly when applicants a
   <ApplicantsListItem
     applicantId="secondApplicantId"
     displayName="Johnny Appleseed"
-    firstName="Johnny"
+    firstName="New First Name"
     key="secondApplicantId"
-    lastName="Appleseed"
+    lastName="New Last Name"
   />
 </div>
 `;

@@ -18,7 +18,7 @@ const applicants = [
     {
         applicantId: 'secondApplicantId',
         positionId,
-        user,
+        user: { ...user, firstName: 'New First Name', lastName: 'New Last Name' },
         applicantNotes,
     },
 ]
