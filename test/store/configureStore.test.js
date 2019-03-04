@@ -13,6 +13,9 @@ describe('ConfigureStore', () => {
             applicationProcess: { currentStep: 0, maxSteps: 4, steps },
             auth: {},
             filters: {
+                applicants: {
+                    text: '',
+                },
                 positions: {
                     text: '',
                 },

@@ -79,6 +79,20 @@ exports[`ApplicantDetails when applicant is defined when user contact info is NO
             "postalCode": "27540",
             "state": "NC",
           },
+          "userDocuments": Array [
+            Object {
+              "dateUploaded": "2018/01/01 01:23:45A",
+              "documentName": "Document Name 1",
+              "downloadUrl": "downloadUrl1",
+              "userDocumentId": "firstDocumentId",
+            },
+            Object {
+              "dateUploaded": "2018/02/02 01:23:45A",
+              "documentName": "Document Name 2",
+              "downloadUrl": "downloadUrl2",
+              "userDocumentId": "secondDocumentId",
+            },
+          ],
         }
       }
     />
@@ -165,6 +179,20 @@ exports[`ApplicantDetails when applicant is defined when user contact info is pr
             "postalCode": "27540",
             "state": "NC",
           },
+          "userDocuments": Array [
+            Object {
+              "dateUploaded": "2018/01/01 01:23:45A",
+              "documentName": "Document Name 1",
+              "downloadUrl": "downloadUrl1",
+              "userDocumentId": "firstDocumentId",
+            },
+            Object {
+              "dateUploaded": "2018/02/02 01:23:45A",
+              "documentName": "Document Name 2",
+              "downloadUrl": "downloadUrl2",
+              "userDocumentId": "secondDocumentId",
+            },
+          ],
         }
       }
     />

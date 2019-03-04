@@ -43,6 +43,20 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "postalCode": "27540",
                 "state": "NC",
               },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
             },
             Object {
               "applicantId": "secondApplicantId",
@@ -73,6 +87,20 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "postalCode": "27540",
                 "state": "NC",
               },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
             },
           ]
         }
@@ -110,6 +138,20 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
               "postalCode": "27540",
               "state": "NC",
             },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
           },
           Object {
             "applicantId": "secondApplicantId",
@@ -140,6 +182,20 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
               "postalCode": "27540",
               "state": "NC",
             },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
           },
         ]
       }
