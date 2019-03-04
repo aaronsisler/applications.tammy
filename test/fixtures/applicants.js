@@ -34,6 +34,8 @@ export const defaultApplicantsState = {
     applicants
 }
 
-export const [{ applicantId }] = applicants;
+export const [applicant] = applicants;
+
+export const { applicantId } = applicant;
 
 export default applicants;

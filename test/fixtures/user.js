@@ -3,6 +3,7 @@ export default {
     addressLine2: 'Apt. 456',
     city: 'Durham',
     displayName: 'Johnny Appleseed',
+    displayPhoneNumber: '919-123-4567 ext. 12345',
     email: 'johnny.appleseed@gmail.com',
     firstName: 'Johnny',
     lastName: 'Appleseed',

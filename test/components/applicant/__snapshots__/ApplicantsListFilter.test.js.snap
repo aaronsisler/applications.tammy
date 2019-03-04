@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantsListFilter should render ApplicantsListFilter correctly 1`] = `
+<div
+  className="applicants_list_filters"
+>
+  <input
+    className="applicants_list_filters__input"
+    onChange={[Function]}
+    placeholder="Search applicants"
+    type="text"
+    value=""
+  />
+</div>
+`;

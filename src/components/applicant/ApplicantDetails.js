@@ -55,9 +55,6 @@ export class ApplicantDetails extends React.Component {
 /* istanbul ignore next */
 const mapStateToProps = (state, props) => {
     const { applicantId, positionId } = props.match.params;
-    const position = positionId
-        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
-        : undefined;
 
     const applicant = applicantId
         ? state.applicants.find((stateApplicant) => stateApplicant.applicantId == applicantId)
@@ -66,7 +63,6 @@ const mapStateToProps = (state, props) => {
     return ({
         applicant,
         applicantId,
-        position,
         positionId,
     });
 };
@@ -76,7 +72,6 @@ export default connect(mapStateToProps)(ApplicantDetails);
 ApplicantDetails.propTypes = {
     applicant: PropTypes.object,
     applicantId: PropTypes.string,
-    position: PropTypes.object,
-    positionId: PropTypes.string,
+    positionId: PropTypes.string.isRequired,
 };
 
