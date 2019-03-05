@@ -4,7 +4,6 @@ import { PositionsContainer } from 'Position/PositionsContainer';
 import positions from '../../fixtures/positions';
 
 describe('PositionsContainer', () => {
-    const startClearPosition = jest.fn();
     let wrapper;
 
     const buildWrapper = (positionsInput = [], positionInput = {}, filters = { text: '' }) => {
@@ -13,7 +12,6 @@ describe('PositionsContainer', () => {
                 filters={filters}
                 position={positionInput}
                 positions={positionsInput}
-                startClearPosition={startClearPosition}
             />
         );
     };
@@ -36,13 +34,5 @@ describe('PositionsContainer', () => {
         buildWrapper(positions, undefined, { text: jobId });
 
         expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should call startClearPosition on unmount', () => {
-        buildWrapper(positions);
-
-        wrapper.unmount();
-
-        expect(startClearPosition).toHaveBeenCalled();
     });
 });

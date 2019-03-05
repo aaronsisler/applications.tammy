@@ -1,18 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { PositionApply } from 'Position/PositionApply';
+import { positionId } from '../../fixtures/positions';
 
 describe('PositionApply', () => {
     const startLogin = jest.fn();
-    const startSetWorkflowPosition = jest.fn();
     let wrapper;
 
     const buildWrapper = (isAuthenticated = true) => {
         wrapper = shallow(
             <PositionApply
                 isAuthenticated={isAuthenticated}
+                positionId={positionId}
                 startLogin={startLogin}
-                startSetWorkflowPosition={startSetWorkflowPosition}
             />
         );
     };
@@ -24,12 +24,6 @@ describe('PositionApply', () => {
 
         it('should render correctly', () => {
             expect(wrapper).toMatchSnapshot();
-        });
-
-        it('it should call startSetWorkflowPosition when the Apply link is clicked', () => {
-            wrapper.find('.nav_link').simulate('click');
-
-            expect(startSetWorkflowPosition).toHaveBeenCalled();
         });
     });
 
@@ -44,19 +38,11 @@ describe('PositionApply', () => {
 
         describe('when Login button is clicked', () => {
             beforeEach(() => {
-                wrapper.find('.button').simulate('click');
-            });
-
-            it('should call startSetWorkflowPosition', () => {
-                expect(startSetWorkflowPosition).toHaveBeenCalled();
+                wrapper.find('button').simulate('click');
             });
 
             it('should call startLogin with apply redirectUrl', () => {
-                expect(startLogin).toHaveBeenLastCalledWith('apply');
-            });
-
-            it('should call startSetWorkflowPosition before startLogin', () => {
-                expect(startSetWorkflowPosition).toHaveBeenCalledBefore(startLogin);
+                expect(startLogin).toHaveBeenLastCalledWith(`/apply/${positionId}`);
             });
         });
     });

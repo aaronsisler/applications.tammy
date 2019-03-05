@@ -98,7 +98,6 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
           },
         ]
       }
-      startClearPosition={[MockFunction]}
     />
   </div>
 </div>
@@ -220,7 +219,6 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
           },
         ]
       }
-      startClearPosition={[MockFunction]}
     />
   </div>
 </div>
@@ -324,7 +322,6 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
           },
         ]
       }
-      startClearPosition={[MockFunction]}
     />
   </div>
 </div>

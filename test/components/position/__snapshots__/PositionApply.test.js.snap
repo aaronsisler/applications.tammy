@@ -10,7 +10,7 @@ exports[`PositionApply when user is Authenticated should render correctly 1`] = 
     <Link
       className="nav_link"
       replace={false}
-      to="/apply/undefined"
+      to="/apply/firstPositionId"
     >
       Apply Now
     </Link>
