@@ -9,6 +9,12 @@ describe('UserNameWidget', () => {
     const onSubmit = jest.fn();
     let wrapper;
     let inputToolsMock;
+    const defaultEmptyState = {
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        displayName: '',
+    };
 
     const buildWrapper = (userInput, isReadOnly = true) => {
         wrapper = shallow(
@@ -19,11 +25,24 @@ describe('UserNameWidget', () => {
             />);
     }
 
+    it('should render correctly with default props', () => {
+        buildWrapper({});
+
+        expect(wrapper.state()).toEqual(defaultEmptyState);
+    });
+
     describe('when user props change', () => {
-        const firstName = 'New First Name';
-        const middleName = 'New Middle Name';
-        const lastName = 'New Last Name';
-        const displayName = 'New Display Name';
+        const newFirstName = 'New First Name';
+        const newMiddleName = 'New Middle Name';
+        const newLastName = 'New Last Name';
+        const newDisplayName = 'New Display Name';
+
+        const newUser = {
+            firstName: newFirstName,
+            middleName: newMiddleName,
+            lastName: newLastName,
+            displayName: newDisplayName,
+        }
 
         beforeEach(() => {
             buildWrapper(user);
@@ -34,10 +53,7 @@ describe('UserNameWidget', () => {
                 wrapper.setProps({
                     user: {
                         ...user,
-                        firstName,
-                        middleName,
-                        lastName,
-                        displayName,
+                        ...newUser
                     }
                 });
 
@@ -56,16 +72,12 @@ describe('UserNameWidget', () => {
                 wrapper.setProps(
                     {
                         user: {
-                            ...user,
-                            firstName,
-                            middleName,
-                            lastName,
-                            displayName,
+                            ...newUser,
                             userId: 'Not Original Id'
                         }
                     });
 
-                expect(wrapper.state()).toEqual({ firstName, middleName, lastName, displayName });
+                expect(wrapper.state()).toEqual(newUser);
             });
 
             it('should render correctly with default props', () => {
@@ -76,26 +88,9 @@ describe('UserNameWidget', () => {
                         }
                     });
 
-                expect(wrapper.state()).toEqual({
-                    firstName: '',
-                    middleName: '',
-                    lastName: '',
-                    displayName: '',
-                });
+                expect(wrapper.state()).toEqual(defaultEmptyState);
             });
         });
-    });
-
-    it('should render correctly with default props', () => {
-        const defaultUserName = {
-            firstName: '',
-            middleName: '',
-            lastName: '',
-            displayName: '',
-        }
-        buildWrapper({});
-
-        expect(wrapper.state()).toEqual(defaultUserName);
     });
 
     describe('when isReadOnly is FALSE', () => {
