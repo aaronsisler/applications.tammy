@@ -114,6 +114,6 @@ export default class UserNameWidget extends React.Component {
 
 UserNameWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    onSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
 };
