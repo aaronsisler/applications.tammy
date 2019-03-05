@@ -5,7 +5,6 @@ import history from 'Tools/history';
 import LinkWrapper from 'Universal/LinkWrapper';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionWatchEditWidget from 'PositionWatch/PositionWatchEditWidget';
-import { startSetWorkflowPosition } from 'Actions/workflow';
 
 export class PositionWatchDetails extends React.Component {
     constructor(props) {
@@ -31,7 +30,8 @@ export class PositionWatchDetails extends React.Component {
         if (this.props.positionId && !this.props.position) {
             return this.renderNoWatchedPosition();
         }
-        if (!this.props.position) {
+
+        if (!this.props.positionId) {
             return this.renderNoPosition();
         }
 
@@ -84,15 +84,9 @@ const mapStateToProps = (state, props) => {
     });
 };
 
-/* istanbul ignore next */
-const mapDispatchToProps = dispatch => ({
-    startSetWorkflowPosition: () => dispatch(startSetWorkflowPosition()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchDetails);
+export default connect(mapStateToProps)(PositionWatchDetails);
 
 PositionWatchDetails.propTypes = {
     position: PropTypes.object,
     positionId: PropTypes.string,
-    startSetWorkflowPosition: PropTypes.func.isRequired,
 };

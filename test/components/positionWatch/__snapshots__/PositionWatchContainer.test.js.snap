@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when NO positions are watched 1`] = `
+exports[`PositionsWatchContainer when positionId is NOT available should render PositionsWatchContainer correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -13,75 +13,7 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
       <Link
         className="nav_link"
         replace={false}
-        to="/position_watch_add"
-      >
-        Add Position Watch
-      </Link>
-      <PositionsList
-        linkRoute="dashboard"
-        positions={Array []}
-      />
-    </div>
-    <Connect(PositionWatchDetails)
-      positions={
-        Array [
-          Object {
-            "content": Object {
-              "description": "first description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "first job id",
-            "location": "first location",
-            "positionId": "firstPositionId",
-            "title": "first title",
-          },
-          Object {
-            "content": Object {
-              "description": "second description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "second job id",
-            "location": "second location",
-            "positionId": "secondPositionId",
-            "title": "second title",
-          },
-        ]
-      }
-      positionsWatched={Array []}
-      startClearPosition={[MockFunction]}
-    />
-  </div>
-</div>
-`;
-
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions are watched 1`] = `
-<div
-  className="inbox_container"
->
-  <div
-    className="inbox_widget"
-  >
-    <div
-      className="inbox_list "
-    >
-      <Link
-        className="nav_link"
-        replace={false}
-        to="/position_watch_add"
+        to="/a"
       >
         Add Position Watch
       </Link>
@@ -130,44 +62,6 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
       />
     </div>
     <Connect(PositionWatchDetails)
-      positions={
-        Array [
-          Object {
-            "content": Object {
-              "description": "first description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "first job id",
-            "location": "first location",
-            "positionId": "firstPositionId",
-            "title": "first title",
-          },
-          Object {
-            "content": Object {
-              "description": "second description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "second job id",
-            "location": "second location",
-            "positionId": "secondPositionId",
-            "title": "second title",
-          },
-        ]
-      }
       positionsWatched={
         Array [
           Object {
@@ -208,13 +102,12 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
           },
         ]
       }
-      startClearPosition={[MockFunction]}
     />
   </div>
 </div>
 `;
 
-exports[`PositionsWatchContainer should render PositionsWatchContainer correctly when positions watched is not in positions list 1`] = `
+exports[`PositionsWatchContainer when positionId is available should render PositionsWatchContainer correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -222,12 +115,12 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
     className="inbox_widget"
   >
     <div
-      className="inbox_list "
+      className="inbox_list inbox_mobile"
     >
       <Link
         className="nav_link"
         replace={false}
-        to="/position_watch_add"
+        to="/a"
       >
         Add Position Watch
       </Link>
@@ -271,67 +164,12 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
               "positionId": "secondPositionId",
               "title": "second title",
             },
-            Object {
-              "content": Object {
-                "description": "first description",
-                "requirements": Array [
-                  "Skill 1",
-                  "Skill 2",
-                ],
-                "responsibilities": Array [
-                  "Responsibility 1",
-                  "Responsibility 2",
-                ],
-              },
-              "jobId": "first job id",
-              "location": "first location",
-              "notificationLevel": "REQUIRED",
-              "positionId": "mockNewPositionId",
-              "title": "first title",
-            },
           ]
         }
       />
     </div>
     <Connect(PositionWatchDetails)
-      positions={
-        Array [
-          Object {
-            "content": Object {
-              "description": "first description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "first job id",
-            "location": "first location",
-            "positionId": "firstPositionId",
-            "title": "first title",
-          },
-          Object {
-            "content": Object {
-              "description": "second description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "second job id",
-            "location": "second location",
-            "positionId": "secondPositionId",
-            "title": "second title",
-          },
-        ]
-      }
+      positionId="firstPositionId"
       positionsWatched={
         Array [
           Object {
@@ -370,27 +208,8 @@ exports[`PositionsWatchContainer should render PositionsWatchContainer correctly
             "positionId": "secondPositionId",
             "title": "second title",
           },
-          Object {
-            "content": Object {
-              "description": "first description",
-              "requirements": Array [
-                "Skill 1",
-                "Skill 2",
-              ],
-              "responsibilities": Array [
-                "Responsibility 1",
-                "Responsibility 2",
-              ],
-            },
-            "jobId": "first job id",
-            "location": "first location",
-            "notificationLevel": "REQUIRED",
-            "positionId": "mockNewPositionId",
-            "title": "first title",
-          },
         ]
       }
-      startClearPosition={[MockFunction]}
     />
   </div>
 </div>

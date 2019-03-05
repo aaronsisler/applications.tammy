@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionWatchDetails should render PositionWatchDetails correctly when position is NOT available 1`] = `
+exports[`PositionWatchDetails when positionId is NOT available should render PositionWatchDetails correctly 1`] = `
 <div
   className="inbox_details__empty inbox_mobile"
 >
@@ -8,7 +8,15 @@ exports[`PositionWatchDetails should render PositionWatchDetails correctly when 
 </div>
 `;
 
-exports[`PositionWatchDetails when position is available should render PositionWatchDetails correctly 1`] = `
+exports[`PositionWatchDetails when positionId is available when position is NOT available should render PositionWatchDetails correctly 1`] = `
+<div
+  className="inbox_details__empty inbox_mobile"
+>
+  Position is not currently being watched. Please make sure to add a watch.
+</div>
+`;
+
+exports[`PositionWatchDetails when positionId is available when position is available should render PositionWatchDetails correctly 1`] = `
 <div
   className="inbox_details"
 >
@@ -26,7 +34,7 @@ exports[`PositionWatchDetails when position is available should render PositionW
       </button>
       <LinkWrapper
         linkText="View Applicants"
-        to="/applicants/undefined"
+        to="/applicants/firstPositionId"
       />
     </div>
     <div
@@ -54,7 +62,9 @@ exports[`PositionWatchDetails when position is available should render PositionW
   <div
     className="inbox_details_content"
   >
-    <Connect(PositionWatchEditWidget) />
+    <Connect(PositionWatchEditWidget)
+      positionId="firstPositionId"
+    />
     <PositionDetailsContent
       position={
         Object {

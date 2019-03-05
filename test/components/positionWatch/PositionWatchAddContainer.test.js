@@ -1,56 +1,55 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { PositionsWatchAddContainer } from 'PositionWatch/PositionsWatchAddContainer';
-import { positionsWatchedStore } from '../../fixtures/positionsWatched';
-import positions from '../../fixtures/positions';
+import positionsWatched from '../../fixtures/positionsWatched';
+import positions, { positionId } from '../../fixtures/positions';
 
 describe('PositionsWatchAddContainer', () => {
-    const startClearPosition = jest.fn();
     let wrapper;
-    const [position] = positions;
 
-    const buildWrapper = (positionsWatchedInput = []) => {
+    const buildWrapper = (positionsWatchedInput = [], positionIdInput) => {
         wrapper = shallow(
             <PositionsWatchAddContainer
+                positionId={positionIdInput}
                 positions={positions}
                 positionsWatched={positionsWatchedInput}
-                startClearPosition={startClearPosition}
             />
         );
     };
 
-    it('should render PositionsWatchAddContainer correctly when all positions are watched', () => {
-        buildWrapper(positionsWatchedStore);
+    describe('when positionId is available', () => {
+        describe('when all positions are watched', () => {
+            it('should render PositionsWatchAddContainer correctly', () => {
+                buildWrapper(positionsWatched, positionId);
 
-        expect(wrapper).toMatchSnapshot();
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+
+        describe('when some positions are watched', () => {
+            it('should render PositionsWatchAddContainer correctly', () => {
+                const [positionWatched] = positionsWatched;
+
+                buildWrapper([positionWatched], positionId);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+
+        describe('when NO positions are watched', () => {
+            it('should render PositionsWatchAddContainer correctly', () => {
+                buildWrapper(undefined, positionId);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
     });
 
-    it('should render PositionsWatchAddContainer correctly when NO positions are watched', () => {
-        buildWrapper();
+    describe('when positionId is NOT available', () => {
+        it('should render PositionsWatchAddContainer correctly', () => {
+            buildWrapper(positionsWatched, undefined);
 
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render PositionsWatchAddContainer correctly when only one position is being watched', () => {
-        const [positionWatched] = positionsWatchedStore;
-
-        buildWrapper([positionWatched]);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render PositionsWatchAddContainer correctly when positions watched is not in positions list', () => {
-        const newPositionWatched = { ...position, positionId: 'mockNewPositionId', notificationLevel: 'REQUIRED' };
-        buildWrapper([...positionsWatchedStore, newPositionWatched]);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should call startClearPosition on unmount', () => {
-        buildWrapper();
-
-        wrapper.unmount();
-
-        expect(startClearPosition).toHaveBeenCalled();
+            expect(wrapper).toMatchSnapshot();
+        });
     });
 });
