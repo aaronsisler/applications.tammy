@@ -61,18 +61,28 @@ describe('AppRouter', () => {
             routes = wrapper.find('Route');
         });
 
-        it('should render ApplicantsPage when at the /applicants route', () => {
-            const matchFound = queryRouteComponents('/applicants', ApplicantsPage);
+        it('should render ApplicantsPage when at the /applicants/positionId route', () => {
+            const matchFound = queryRouteComponents('/applicants/:positionId', ApplicantsPage);
             expect(matchFound).toBe(true);
         });
 
-        it('should render ApplicationPage when at the /apply route', () => {
-            const matchFound = queryRouteComponents('/apply', ApplicationPage);
+        it('should render ApplicantsPage when at the /applicants/positionId/applicantId route', () => {
+            const matchFound = queryRouteComponents('/applicants/:positionId/:applicantId', ApplicantsPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render ApplicationPage when at the /apply/positionId route', () => {
+            const matchFound = queryRouteComponents('/apply/:positionId', ApplicationPage);
             expect(matchFound).toBe(true);
         });
 
         it('should render DashboardPage when at the /dashboard route', () => {
             const matchFound = queryRouteComponents('/dashboard', DashboardPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render DashboardPage when at the /dashboard/positionId route', () => {
+            const matchFound = queryRouteComponents('/dashboard/:positionId', DashboardPage);
             expect(matchFound).toBe(true);
         });
 
@@ -91,13 +101,23 @@ describe('AppRouter', () => {
             expect(matchFound).toBe(true);
         });
 
-        it('should render PositionsPage when at the root route', () => {
-            const matchFound = queryRouteComponents('/', PositionsPage);
+        it('should render PositionsPage when at the /positions route', () => {
+            const matchFound = queryRouteComponents('/positions', PositionsPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render PositionsPage when at the /positions/positionId route', () => {
+            const matchFound = queryRouteComponents('/positions/:positionId', PositionsPage);
             expect(matchFound).toBe(true);
         });
 
         it('should render PositionsWatchAddPage when at the /position_watch_add route', () => {
             const matchFound = queryRouteComponents('/position_watch_add', PositionsWatchAddPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render PositionsWatchAddPage when at the /position_watch_add/positionId route', () => {
+            const matchFound = queryRouteComponents('/position_watch_add/:positionId', PositionsWatchAddPage);
             expect(matchFound).toBe(true);
         });
 
