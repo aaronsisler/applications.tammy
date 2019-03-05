@@ -18,7 +18,6 @@ const database = jest.spyOn(firebase, 'database').mockImplementation(() => ({ re
 const getDownloadURL = jest.fn().mockReturnValue('mockDownloadUrl');
 const child = jest.fn().mockImplementation(() => ({ getDownloadURL }));
 const ref = jest.fn().mockImplementation(() => ({ child }))
-
 const storage = jest.fn().mockImplementation(() => ({ ref }));
 
 export {

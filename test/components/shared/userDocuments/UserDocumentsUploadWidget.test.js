@@ -3,7 +3,9 @@ import { shallow } from 'enzyme';
 import { UserDocumentsUploadWidget } from 'Shared/userDocuments/UserDocumentsUploadWidget';
 import { uid } from '../../../fixtures/auth';
 import * as firebase from 'Firebase/firebase';
-import * as storageUtils from 'Firebase/storageUtils';
+import { retrieveDownloadUrl } from 'Firebase/storageUtils';
+jest.mock('Firebase/storageUtils')
+retrieveDownloadUrl.mockReturnValue('mockDownloadUrl');
 
 describe('UserDocumentsUploadWidget', () => {
     let wrapper;
@@ -47,7 +49,7 @@ describe('UserDocumentsUploadWidget', () => {
     describe('FirebaseFileUploader', () => {
         describe('storageRef', () => {
             it('should use the firebase storage ref', () => {
-                expect(wrapper.find('FirebaseFileUploader').prop('storageRef')).toEqual(firebase.storage.ref());
+                expect(wrapper.find('FirebaseFileUploader').prop('storageRef')).toEqual(firebase.storage.ref(uid));
             });
 
             it('should have a path of userId', async () => {
@@ -122,10 +124,9 @@ describe('UserDocumentsUploadWidget', () => {
             const downloadUrl = 'mockDownloadUrl';
 
             it('should call retrieveDownloadUrl', async () => {
-                const retrieveDownloadUrlMock = jest.spyOn(storageUtils, 'retrieveDownloadUrl');
                 await wrapper.find('FirebaseFileUploader').prop('onUploadSuccess')(documentName);
 
-                expect(retrieveDownloadUrlMock).toHaveBeenLastCalledWith(uid, documentName);
+                expect(retrieveDownloadUrl).toHaveBeenLastCalledWith(uid, documentName);
             });
 
             it('should call startAddUserDocument', async () => {
