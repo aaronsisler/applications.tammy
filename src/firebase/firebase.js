@@ -3,7 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 
-const config = {
+const config1 = {
     apiKey: 'AIzaSyB1Usq_JhrJRmTKaHVjNMe5xzRmqT_U49E',
     authDomain: 'tammy-in-hr.firebaseapp.com',
     databaseURL: 'https://tammy-in-hr.firebaseio.com',
@@ -11,6 +11,8 @@ const config = {
     projectId: 'tammy-in-hr',
     storageBucket: 'tammy-in-hr.appspot.com',
 };
+
+const config = {};
 
 firebase.initializeApp(config);
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import InputTools from 'User/tools/inputs';
 import { isEmailValid } from 'Tools/email';
 
-export default class UserNameWidget extends React.Component {
+export default class UserContactInfoWidget extends React.Component {
     inputTools = new InputTools();
 
     constructor(props) {
@@ -152,7 +152,7 @@ export default class UserNameWidget extends React.Component {
                 {!this.props.isReadOnly &&
                     <div className="user_contact_info_widget__button">
                         <button
-                            disabled={!this.state.isValidEmail}
+                            disabled={!this.state.isValidEmail || !this.props.onSubmit}
                             onClick={this.handleSubmit}
                         >
                             Update Contact Info
@@ -164,8 +164,8 @@ export default class UserNameWidget extends React.Component {
     }
 }
 
-UserNameWidget.propTypes = {
+UserContactInfoWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func,
+    user: PropTypes.object.isRequired,
 };

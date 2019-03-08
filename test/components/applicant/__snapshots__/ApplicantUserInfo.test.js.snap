@@ -26,7 +26,7 @@ exports[`ApplicantUserInfo should render ApplicantUserInfo correctly 1`] = `
       }
     }
   />
-  <UserNameWidget
+  <UserContactInfoWidget
     isReadOnly={true}
     user={
       Object {

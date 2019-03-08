@@ -130,7 +130,7 @@ export default class UserAddressWidget extends React.Component {
                 {!this.props.isReadOnly &&
                     <div className="user_address_widget__button">
                         <button
-                            disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
+                            disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode || !this.props.onSubmit}
                             onClick={this.handleSubmit}
                         >
                             Update Address
@@ -144,6 +144,6 @@ export default class UserAddressWidget extends React.Component {
 
 UserAddressWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func,
+    user: PropTypes.object.isRequired,
 };

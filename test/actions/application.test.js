@@ -2,7 +2,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import * as applicationActionHelpers from 'Actions/helpers/application';
 import database from 'Firebase/firebase';
-import positions from '../fixtures/positions';
+import { position, positionId } from '../fixtures/positions';
 import { user } from '../fixtures/user';
 import userDocuments from '../fixtures/userDocuments';
 import {
@@ -17,8 +17,6 @@ const createMockStore = configureMockStore([thunk]);
 describe('Application Actions', () => {
     const [userDocument] = userDocuments;
     const { userDocumentId } = userDocument;
-    const [position] = positions;
-    const { positionId } = position;
 
     describe('startAddApplicationUserDocument() method', () => {
         it(`should call dispatch with addApplicationUserDocument`, async () => {
@@ -68,20 +66,20 @@ describe('Application Actions', () => {
         it(`should call dispatch with submitApplication`, async () => {
             const submitApplicationMock = jest.spyOn(applicationActionHelpers, 'submitApplication');
 
-            await store.dispatch(startSubmitApplication());
+            await store.dispatch(startSubmitApplication(positionId));
 
             expect(store.getActions().length).toBe(1);
             expect(submitApplicationMock).toHaveBeenCalled();
         });
 
-        it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startSubmitApplication());
+        it(`should call database ref with specific path`, () => {
+            store.dispatch(startSubmitApplication(positionId));
 
             expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}`);
         });
 
-        it('should call push with user and user documents', async () => {
-            await store.dispatch(startSubmitApplication());
+        it('should call push with user and user documents', () => {
+            store.dispatch(startSubmitApplication(positionId));
 
             expect(push).toHaveBeenLastCalledWith({
                 applicantStatus: 'APPLIED',

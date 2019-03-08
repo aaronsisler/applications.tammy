@@ -28,19 +28,19 @@ describe('UserProfileContainer', () => {
 
         describe('startEditUser() prop', () => {
             it('should be called for UserNameWidget`s onSubmit prop', () => {
-                wrapper.find('#UserNameWidget').prop('onSubmit')(user);
+                wrapper.find('UserNameWidget').prop('onSubmit')(user);
 
                 expect(startEditUser).toHaveBeenLastCalledWith(user);
             });
 
             it('should be passed as UserContactInfoWidget`s onSubmit prop', () => {
-                wrapper.find('#UserContactInfoWidget').prop('onSubmit')(user);
+                wrapper.find('UserContactInfoWidget').prop('onSubmit')(user);
 
                 expect(startEditUser).toHaveBeenLastCalledWith(user);
             });
 
             it('should be passed as UserAddressWidget`s onSubmit prop', () => {
-                wrapper.find('#UserAddressWidget').prop('onSubmit')(user);
+                wrapper.find('UserAddressWidget').prop('onSubmit')(user);
 
                 expect(startEditUser).toHaveBeenLastCalledWith(user);
             });

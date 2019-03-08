@@ -100,7 +100,7 @@ export default class UserNameWidget extends React.Component {
                 {!this.props.isReadOnly &&
                     <div className="user_name_widget__button">
                         <button
-                            disabled={!this.state.firstName || !this.state.lastName}
+                            disabled={!this.state.firstName || !this.state.lastName || !this.props.onSubmit}
                             onClick={this.handleSubmit}
                         >
                             Update User Info
@@ -114,6 +114,6 @@ export default class UserNameWidget extends React.Component {
 
 UserNameWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    onSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func,
     user: PropTypes.object.isRequired,
 };

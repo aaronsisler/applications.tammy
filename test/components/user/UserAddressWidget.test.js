@@ -10,6 +10,13 @@ describe('UserAddressWidget', () => {
     const onSubmit = jest.fn();
     let wrapper;
     let inputToolsMock;
+    const defaultEmptyState = {
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        state: '',
+        postalCode: '',
+    };
 
     const buildWrapper = (userInput, isReadOnly = true, ) => {
         wrapper = shallow(
@@ -19,6 +26,71 @@ describe('UserAddressWidget', () => {
                 user={userInput}
             />);
     };
+
+    it('should render correctly with default props', () => {
+        buildWrapper({});
+
+        expect(wrapper.state()).toEqual(defaultEmptyState);
+    });
+
+    describe('when user props change', () => {
+        const newUser = {
+            addressLine1: 'New Address Line 1',
+            addressLine2: 'New Address Line 2',
+            city: 'New City',
+            state: 'New State',
+            postalCode: 'New PostalCode',
+        };
+
+        beforeEach(() => {
+            buildWrapper(user);
+        });
+
+        describe('when userId is the same', () => {
+            it('should NOT update the state', () => {
+                wrapper.setProps({
+                    user: {
+                        ...user,
+                        ...newUser
+                    }
+                });
+
+                expect(wrapper.state()).toEqual(
+                    {
+                        addressLine1: user.addressLine1,
+                        addressLine2: user.addressLine2,
+                        city: user.city,
+                        state: user.state,
+                        postalCode: user.postalCode
+                    });
+            });
+        });
+
+        describe('when userId is NOT the same', () => {
+            it('should update the state', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            ...newUser,
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual(newUser);
+            });
+
+            it('should render correctly with default props', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual(defaultEmptyState);
+            });
+        });
+    });
 
     describe('when isReadOnly is FALSE', () => {
         beforeEach(() => {
@@ -33,18 +105,21 @@ describe('UserAddressWidget', () => {
 
         describe('Address Line 1 Input', () => {
             const name = 'addressLine1';
+            const value = 'New Address Line 1';
+            const target = { name, value };
 
             it('should set address line 1 on input change', () => {
-                const value = '123 Evergreen Terrace';
-                const target = { name, value };
-
-                wrapper.find(`#${name}`).simulate('change', { target });
+                wrapper.find(`.user_address_widget__inputs > input`)
+                    .at(0)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                wrapper.find(`#${name}`).simulate('blur');
+                wrapper.find(`.user_address_widget__inputs > input`)
+                    .at(0)
+                    .simulate('blur');
 
                 expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
@@ -52,29 +127,33 @@ describe('UserAddressWidget', () => {
 
         it('should set address line 2 on input change', () => {
             const name = 'addressLine2';
-            const value = 'Apt 456';
+            const value = 'New Address Line 2';
+            const target = { name, value };
 
-            wrapper.find(`#${name}`).simulate('change', {
-                target: { name, value }
-            });
+            wrapper.find(`.user_address_widget__inputs > input`)
+                .at(1)
+                .simulate('change', { target });
 
             expect(wrapper.state(name)).toBe(value);
         });
 
         describe('City Input', () => {
             const name = 'city';
-            it('should set city on input change', () => {
-                const value = 'Durham';
+            const value = 'Durham';
+            const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { value }
-                });
+            it('should set city on input change', () => {
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(0)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                wrapper.find(`#${name}`).simulate('blur');
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(0)
+                    .simulate('blur');
 
                 expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
@@ -84,27 +163,31 @@ describe('UserAddressWidget', () => {
             const name = 'state';
 
             it('should set state on valid input change', () => {
-                const value = 'MD';
+                const value = 'TN';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(1)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set state on invalid input change', () => {
                 const value = '1';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(1)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                wrapper.find(`#${name}`).simulate('blur');
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(1)
+                    .simulate('blur');
 
                 expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
@@ -114,27 +197,31 @@ describe('UserAddressWidget', () => {
             const name = 'postalCode';
 
             it('should set postal code on valid input change', () => {
-                const value = '12345';
+                const value = '54321';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(1)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set postal code on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(2)
+                    .simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
 
             it('should call handleRequiredValidation on blur', () => {
-                wrapper.find(`#${name}`).simulate('blur');
+                wrapper.find(`.user_address_widget__inputs_location > input`)
+                    .at(2)
+                    .simulate('blur');
 
                 expect(inputToolsMock.handleRequiredValidation).toHaveBeenCalled();
             });
@@ -186,16 +273,9 @@ describe('UserAddressWidget', () => {
         });
 
         it('should render UserAddressWidget with default props', () => {
-            const defaultUserAddress = {
-                addressLine1: '',
-                addressLine2: '',
-                city: '',
-                state: '',
-                postalCode: '',
-            }
-            buildWrapper(defaultUserAddress);
+            buildWrapper(defaultEmptyState);
 
-            expect(wrapper.state()).toEqual(defaultUserAddress);
+            expect(wrapper.state()).toEqual(defaultEmptyState);
         });
     });
 });

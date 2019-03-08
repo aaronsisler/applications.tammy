@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import UserNameWidget from 'User/UserNameWidget';
-import UserAddressWidget from 'User/UserAddressWidget';
 import UserContactInfoWidget from 'User/UserContactInfoWidget';
+import UserAddressWidget from 'User/UserAddressWidget';
 import { startEditUser } from 'Actions/user';
 import LoadingPage from 'Core/LoadingPage';
 
@@ -12,9 +12,7 @@ export class UserProfileContainer extends React.Component {
         super(props);
     }
 
-    onSubmit = (user) => {
-        this.props.startEditUser(user);
-    }
+    onSubmit = (user) => this.props.startEditUser(user);
 
     render() {
         return (

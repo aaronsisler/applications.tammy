@@ -28,7 +28,7 @@ exports[`UserProfileContainer when user is defined should render UserProfileCont
         }
       }
     />
-    <UserNameWidget
+    <UserContactInfoWidget
       isReadOnly={false}
       onSubmit={[Function]}
       user={
