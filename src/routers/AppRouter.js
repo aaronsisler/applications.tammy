@@ -36,6 +36,7 @@ export const AppRouter = (props) => (
                 <Route path='/user_profile' component={UserProfilePage} exact={true} />
                 <Route path='/positions/:positionId' component={PositionsPage} exact={true} />
                 <Route path='/positions' component={PositionsPage} exact={true} />
+                <Route path='/not_found' component={NotFoundPage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

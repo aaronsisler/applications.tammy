@@ -9,6 +9,7 @@ import selectApplicants from 'Selectors/applicants';
 import ApplicantDetails from 'Applicant/ApplicantDetails';
 import ApplicantsList from 'Applicant/ApplicantsList';
 import ApplicantsListFilter from 'Applicant/ApplicantsListFilter';
+import history from 'Tools/history';
 
 export class ApplicantsContainer extends React.Component {
     constructor(props) {
@@ -17,9 +18,11 @@ export class ApplicantsContainer extends React.Component {
 
     componentDidMount() {
         const { positionId, position } = this.props;
-        if (position) {
-            this.props.startSetApplicants(positionId);
+        if (!position) {
+            history.push('/not_found');
         }
+
+        this.props.startSetApplicants(positionId);
     }
 
     componentWillUnmount() {

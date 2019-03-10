@@ -12,9 +12,8 @@ export class ApplicationReviewContainer extends React.Component {
         super(props);
     }
 
-    handleDecrementStep = () => {
-        this.props.startDecrementCurrentStep();
-    }
+    handleDecrementStep = () => this.props.startDecrementCurrentStep();
+
 
     handleIncrementStep = () => {
         this.props.startSubmitApplication(this.props.positionId);

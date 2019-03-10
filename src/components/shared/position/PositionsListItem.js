@@ -7,14 +7,14 @@ export class PositionsListItem extends React.Component {
         super(props);
     }
 
-    handleSetPositionId = () => {
+    handleNavigate = () => {
         const { linkRoute, positionId } = this.props;
         history.push(`/${linkRoute}/${positionId}`);
     }
 
     render() {
         return (
-            <div className="positions_list_item" onClick={this.handleSetPositionId}>
+            <div className="positions_list_item" onClick={this.handleNavigate}>
                 <div className="positions_list_item__content">
                     <div className="positions_list_item__title">
                         {this.props.title}

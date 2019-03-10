@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ApplicationReviewContainer } from 'Application/ApplicationReviewContainer';
+import { positionId } from '../../fixtures/positions';
 import userDocuments from '../../fixtures/userDocuments';
 
 describe('ApplicationReviewContainer', () => {
@@ -13,6 +14,7 @@ describe('ApplicationReviewContainer', () => {
         wrapper = shallow(
             <ApplicationReviewContainer
                 applicationUserDocuments={applicationUserDocuments}
+                positionId={positionId}
                 startDecrementCurrentStep={startDecrementCurrentStep}
                 startIncrementCurrentStep={startIncrementCurrentStep}
                 startSubmitApplication={startSubmitApplication}
@@ -29,26 +31,27 @@ describe('ApplicationReviewContainer', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should set the isReadOnly prop to true on UserProfileContainer', () => {
-        expect(wrapper.find('Connect(UserProfileContainer)').props().isReadOnly).toBe(true);
-    })
-
     describe('when ApplicationProgressButtonsWidget handleDecrementStep prop is called', () => {
-        it('should call startDecrementCurrentStep', () => {
+        beforeEach(() => {
             wrapper.find('Connect(ApplicationProgressButtonsWidget)').prop('handleDecrementStep')();
+        });
+
+        it('should call startDecrementCurrentStep', () => {
             expect(startDecrementCurrentStep).toHaveBeenCalled();
         });
     });
 
     describe('when ApplicationProgressButtonsWidget handleIncrementStep prop is called', () => {
-        it('should call startIncrementCurrentStep', () => {
+        beforeEach(() => {
             wrapper.find('Connect(ApplicationProgressButtonsWidget)').prop('handleIncrementStep')();
-            expect(startIncrementCurrentStep).toHaveBeenCalled();
         });
 
         it('should call startSubmitApplication', () => {
-            wrapper.find('Connect(ApplicationProgressButtonsWidget)').prop('handleIncrementStep')();
-            expect(startSubmitApplication).toHaveBeenCalled();
+            expect(startSubmitApplication).toHaveBeenLastCalledWith(positionId);
+        });
+
+        it('should call startIncrementCurrentStep', () => {
+            expect(startIncrementCurrentStep).toHaveBeenCalled();
         });
     });
 });

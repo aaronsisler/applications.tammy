@@ -28,6 +28,7 @@ exports[`PositionsList should render PositionsList correctly when positions are 
     }
     jobId="first job id"
     key="firstPositionId"
+    linkRoute="fakeRoute"
     location="first location"
     positionId="firstPositionId"
     title="first title"
@@ -48,6 +49,7 @@ exports[`PositionsList should render PositionsList correctly when positions are 
     }
     jobId="second job id"
     key="secondPositionId"
+    linkRoute="fakeRoute"
     location="second location"
     positionId="secondPositionId"
     title="second title"

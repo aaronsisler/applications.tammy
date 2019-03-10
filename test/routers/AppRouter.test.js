@@ -96,11 +96,6 @@ describe('AppRouter', () => {
             expect(matchFound).toBe(true);
         });
 
-        it('should render NotFoundPage when no matching route found', () => {
-            const matchFound = queryRouteComponents(undefined, NotFoundPage);
-            expect(matchFound).toBe(true);
-        });
-
         it('should render PositionsPage when at the /positions route', () => {
             const matchFound = queryRouteComponents('/positions', PositionsPage);
             expect(matchFound).toBe(true);
@@ -128,6 +123,16 @@ describe('AppRouter', () => {
 
         it('should render UserProfilePage when at the /user_profile route', () => {
             const matchFound = queryRouteComponents('/user_profile', UserProfilePage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render NotFoundPage when at the /not_found route', () => {
+            const matchFound = queryRouteComponents('/not_found', NotFoundPage);
+            expect(matchFound).toBe(true);
+        });
+
+        it('should render NotFoundPage when no matching route found', () => {
+            const matchFound = queryRouteComponents(undefined, NotFoundPage);
             expect(matchFound).toBe(true);
         });
     })
