@@ -11,7 +11,7 @@ export class PositionsContainer extends React.Component {
         super(props);
     }
 
-    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : "";
 
     render() {
         return (

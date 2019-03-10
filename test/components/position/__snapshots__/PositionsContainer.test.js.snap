@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionsContainer should render PositionsContainer correctly when a position is NOT selected 1`] = `
+exports[`PositionsContainer when positionId is NOT available should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -59,7 +59,6 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
           "text": "",
         }
       }
-      position={Object {}}
       positions={
         Array [
           Object {
@@ -103,7 +102,7 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
 </div>
 `;
 
-exports[`PositionsContainer should render PositionsContainer correctly when a position is selected 1`] = `
+exports[`PositionsContainer when positionId is available should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -111,7 +110,7 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
     className="inbox_widget"
   >
     <div
-      className="inbox_list "
+      className="inbox_list inbox_mobile"
     >
       <Connect(PositionsListFilter) />
       <PositionsList
@@ -162,25 +161,7 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
           "text": "",
         }
       }
-      position={
-        Object {
-          "content": Object {
-            "description": "first description",
-            "requirements": Array [
-              "Skill 1",
-              "Skill 2",
-            ],
-            "responsibilities": Array [
-              "Responsibility 1",
-              "Responsibility 2",
-            ],
-          },
-          "jobId": "first job id",
-          "location": "first location",
-          "positionId": "firstPositionId",
-          "title": "first title",
-        }
-      }
+      positionId="firstPositionId"
       positions={
         Array [
           Object {
@@ -224,7 +205,7 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
 </div>
 `;
 
-exports[`PositionsContainer should render PositionsContainer correctly when text filter is applied 1`] = `
+exports[`PositionsContainer when text filter is applied should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -283,7 +264,6 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
           "text": "first job id",
         }
       }
-      position={Object {}}
       positions={
         Array [
           Object {

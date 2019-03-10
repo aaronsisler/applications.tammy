@@ -7,7 +7,6 @@ import history from 'Tools/history';
 jest.mock('Tools/history');
 
 describe('PositionWatchDetails', () => {
-    const startSetWorkflowPosition = jest.fn();
     let wrapper;
 
     const buildWrapper = (positionIdInput, positionInput) => {
@@ -15,7 +14,6 @@ describe('PositionWatchDetails', () => {
             <PositionWatchDetails
                 position={positionInput}
                 positionId={positionIdInput}
-                startSetWorkflowPosition={startSetWorkflowPosition}
             />
         );
     };
@@ -28,12 +26,12 @@ describe('PositionWatchDetails', () => {
                 buildWrapper(positionId, position);
             });
 
-            it('should render PositionWatchDetails correctly', () => {
+            it('should render correctly', () => {
                 expect(wrapper).toMatchSnapshot();
             });
 
             describe('when button is clicked', () => {
-                it('should navigate to /dashboard', () => {
+                it('should navigate to the correct route', () => {
                     wrapper.find('button').simulate('click');
 
                     expect(push).toHaveBeenLastCalledWith('/dashboard');
@@ -46,14 +44,14 @@ describe('PositionWatchDetails', () => {
                 buildWrapper(positionId, undefined);
             });
 
-            it('should render PositionWatchDetails correctly', () => {
+            it('should render correctly', () => {
                 expect(wrapper).toMatchSnapshot();
             });
         });
     });
 
     describe('when positionId is NOT available', () => {
-        it('should render PositionWatchDetails correctly', () => {
+        it('should render correctly', () => {
             buildWrapper(undefined, undefined);
 
             expect(wrapper).toMatchSnapshot();

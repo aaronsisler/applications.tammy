@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionWatchDetails when positionId is NOT available should render PositionWatchDetails correctly 1`] = `
+exports[`PositionWatchDetails when positionId is NOT available should render correctly 1`] = `
 <div
   className="inbox_details__empty inbox_mobile"
 >
@@ -8,7 +8,7 @@ exports[`PositionWatchDetails when positionId is NOT available should render Pos
 </div>
 `;
 
-exports[`PositionWatchDetails when positionId is available when position is NOT available should render PositionWatchDetails correctly 1`] = `
+exports[`PositionWatchDetails when positionId is available when position is NOT available should render correctly 1`] = `
 <div
   className="inbox_details__empty inbox_mobile"
 >
@@ -16,7 +16,7 @@ exports[`PositionWatchDetails when positionId is available when position is NOT 
 </div>
 `;
 
-exports[`PositionWatchDetails when positionId is available when position is available should render PositionWatchDetails correctly 1`] = `
+exports[`PositionWatchDetails when positionId is available when position is available should render correctly 1`] = `
 <div
   className="inbox_details"
 >

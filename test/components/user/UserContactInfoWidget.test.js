@@ -12,7 +12,16 @@ describe('UserContactInfoWidget', () => {
     let instance;
     let inputToolsMock;
 
-    const buildWrapper = (userInput, isReadOnly = true) => {
+    const defaultEmptyState = {
+        email: '',
+        phoneAreaCode: '',
+        phonePrefix: '',
+        phoneLineNumber: '',
+        phoneExt: '',
+        isValidEmail: false
+    };
+
+    const buildWrapper = (userInput = {}, isReadOnly = true) => {
         wrapper = shallow(
             <UserContactInfoWidget
                 isReadOnly={isReadOnly}
@@ -23,6 +32,78 @@ describe('UserContactInfoWidget', () => {
 
     afterEach(() => {
         jest.restoreAllMocks();
+    });
+
+    it('should render correctly with default props', () => {
+        buildWrapper();
+
+        expect(wrapper.state()).toEqual(defaultEmptyState);
+    });
+
+    describe('when user props change', () => {
+        const newEmail = 'new_email@taco.com';
+        const newPhoneAreaCode = '123';
+        const newPhonePrefix = '456';
+        const newPhoneLineNumber = '7890';
+        const newPhoneExt = '54321';
+
+        const newUser = {
+            email: newEmail,
+            phoneAreaCode: newPhoneAreaCode,
+            phonePrefix: newPhonePrefix,
+            phoneLineNumber: newPhoneLineNumber,
+            phoneExt: newPhoneExt,
+        };
+
+        beforeEach(() => {
+            buildWrapper(user);
+        });
+
+        describe('when userId is the same', () => {
+            it('should NOT update the state', () => {
+                wrapper.setProps({
+                    user: {
+                        ...user,
+                        ...newUser
+                    }
+                });
+
+                expect(wrapper.state()).toEqual(
+                    {
+                        email: user.email,
+                        phoneAreaCode: user.phoneAreaCode,
+                        phonePrefix: user.phonePrefix,
+                        phoneLineNumber: user.phoneLineNumber,
+                        phoneExt: user.phoneExt,
+                        isValidEmail: true
+                    });
+            });
+        });
+
+        describe('when userId is NOT the same', () => {
+            it('should update the state', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            ...newUser,
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual({ ...newUser, isValidEmail: true });
+            });
+
+            it('should render correctly with default props', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual(defaultEmptyState);
+            });
+        });
     });
 
     describe('handleEmailValidation', () => {
@@ -77,6 +158,7 @@ describe('UserContactInfoWidget', () => {
             buildWrapper(user, false);
             instance = wrapper.instance();
         });
+
         it('should render UserContactInfoWidget correctly', () => {
             expect(wrapper).toMatchSnapshot();
         });
@@ -279,19 +361,6 @@ describe('UserContactInfoWidget', () => {
             buildWrapper(user);
 
             expect(wrapper).toMatchSnapshot();
-        });
-
-        it('should render UserContactInfoWidget with default props', () => {
-            const defaultUserContactInfo = {
-                email: '',
-                phoneAreaCode: '',
-                phonePrefix: '',
-                phoneLineNumber: '',
-                phoneExt: '',
-            }
-            buildWrapper(defaultUserContactInfo);
-
-            expect(wrapper.state()).toEqual({ ...defaultUserContactInfo, isValidEmail: false, });
         });
     });
 });
