@@ -54,6 +54,7 @@ export class PositionWatchAddDetails extends React.Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state, props) => {
     const { positionId } = props.match.params;
     const position = positionId

@@ -14,9 +14,9 @@ export class ApplicationProcessContainer extends React.Component {
         super(props);
     }
 
-    componentDidUpdate() {
-        if (!this.props.positionId) {
-            return history.push('/positions');
+    componentDidMount() {
+        if (!this.props.position) {
+            history.push('/not_found');
         }
     }
 
@@ -41,10 +41,18 @@ export class ApplicationProcessContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state, props) => ({
-    currentStep: state.applicationProcess.currentStep,
-    positionId: props.match.params.positionId,
-});
+const mapStateToProps = (state, props) => {
+    const { positionId } = props.match.params;
+    const position = positionId
+        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
+
+    return ({
+        currentStep: state.applicationProcess.currentStep,
+        position,
+        positionId,
+    });
+};
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
@@ -54,7 +62,8 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
-    currentStep: PropTypes.number,
-    positionId: PropTypes.string,
+    currentStep: PropTypes.number.isRequired,
+    position: PropTypes.object,
+    positionId: PropTypes.string.isRequired,
     startResetApplicationProcess: PropTypes.func.isRequired,
 };

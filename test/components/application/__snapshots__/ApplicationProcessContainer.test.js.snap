@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationProcessContainer should render correctly when on Review step 1`] = `
+exports[`ApplicationProcessContainer when position is found when on Review Step should render correctly 1`] = `
 <div
   className="application_process_container"
 >
@@ -9,11 +9,13 @@ exports[`ApplicationProcessContainer should render correctly when on Review step
   >
     <Connect(ApplicationProgressWidget) />
   </div>
-  <Connect(ApplicationReviewContainer) />
+  <Connect(ApplicationReviewContainer)
+    positionId="firstPositionId"
+  />
 </div>
 `;
 
-exports[`ApplicationProcessContainer should render correctly when on Submitted step 1`] = `
+exports[`ApplicationProcessContainer when position is found when on Submitted Step should render correctly 1`] = `
 <div
   className="application_process_container"
 >
@@ -26,7 +28,7 @@ exports[`ApplicationProcessContainer should render correctly when on Submitted s
 </div>
 `;
 
-exports[`ApplicationProcessContainer should render correctly when on User Documents step 1`] = `
+exports[`ApplicationProcessContainer when position is found when on User Documents Step should render correctly 1`] = `
 <div
   className="application_process_container"
 >
@@ -39,7 +41,7 @@ exports[`ApplicationProcessContainer should render correctly when on User Docume
 </div>
 `;
 
-exports[`ApplicationProcessContainer should render correctly when on User info step 1`] = `
+exports[`ApplicationProcessContainer when position is found when on User Info Step should render correctly 1`] = `
 <div
   className="application_process_container"
 >
