@@ -1,10 +1,7 @@
 import user from './user';
 import userDocuments from './userDocuments';
 import notes from './notes';
-import { position } from './positions';
-
-
-const { positionId } = position;
+import { positionId } from './positions';
 
 const applicants = [
     {

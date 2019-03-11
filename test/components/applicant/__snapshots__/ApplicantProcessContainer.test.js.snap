@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantProcessContainer when applicant does NOT have applicantNotes should render correctly 1`] = `
+<div
+  className="applicant_process_container"
+>
+  <div
+    className="applicant_process_container__instructions"
+  >
+    Please write a note and select a new status to submit
+  </div>
+  <textarea
+    onChange={[Function]}
+    placeholder="Write a note to change applicant status"
+    rows="5"
+    value=""
+  />
+  <div
+    className="applicant_process_container__status_change"
+  >
+    <select
+      disabled={true}
+      onChange={[Function]}
+    >
+      <option
+        key="0"
+        value="APPLIED"
+      >
+        APPLIED
+      </option>
+      <option
+        key="1"
+        value="HR SCREEN"
+      >
+        HR SCREEN
+      </option>
+      <option
+        key="2"
+        value="ONSITE"
+      >
+        ONSITE
+      </option>
+      <option
+        key="3"
+        value="OFFER"
+      >
+        OFFER
+      </option>
+      <option
+        key="4"
+        value="NO OFFER"
+      >
+        NO OFFER
+      </option>
+      <option
+        key="5"
+        value="ACCEPTED"
+      >
+        ACCEPTED
+      </option>
+      <option
+        key="6"
+        value="DECLINED"
+      >
+        DECLINED
+      </option>
+    </select>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit status change
+    </button>
+  </div>
+  <div
+    className="applicant_process_container__notes"
+  >
+    <NotesList />
+  </div>
+</div>
+`;
+
+exports[`ApplicantProcessContainer when applicant does have applicantNotes should render correctly 1`] = `
+<div
+  className="applicant_process_container"
+>
+  <div
+    className="applicant_process_container__instructions"
+  >
+    Please write a note and select a new status to submit
+  </div>
+  <textarea
+    onChange={[Function]}
+    placeholder="Write a note to change applicant status"
+    rows="5"
+    value=""
+  />
+  <div
+    className="applicant_process_container__status_change"
+  >
+    <select
+      disabled={true}
+      onChange={[Function]}
+      value="APPLIED"
+    >
+      <option
+        key="0"
+        value="APPLIED"
+      >
+        APPLIED
+      </option>
+      <option
+        key="1"
+        value="HR SCREEN"
+      >
+        HR SCREEN
+      </option>
+      <option
+        key="2"
+        value="ONSITE"
+      >
+        ONSITE
+      </option>
+      <option
+        key="3"
+        value="OFFER"
+      >
+        OFFER
+      </option>
+      <option
+        key="4"
+        value="NO OFFER"
+      >
+        NO OFFER
+      </option>
+      <option
+        key="5"
+        value="ACCEPTED"
+      >
+        ACCEPTED
+      </option>
+      <option
+        key="6"
+        value="DECLINED"
+      >
+        DECLINED
+      </option>
+    </select>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit status change
+    </button>
+  </div>
+  <div
+    className="applicant_process_container__notes"
+  >
+    <NotesList
+      notes={
+        Array [
+          Object {
+            "noteMessage": "First note",
+          },
+          Object {
+            "noteMessage": "Second note",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

@@ -119,34 +119,34 @@ describe('UserContactInfoWidget', () => {
 
         describe('when email is valid', () => {
             it('should remove the required field classname from the email input element', () => {
-                const targetMock = { name, value };
+                const target = { name, value };
 
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(inputToolsMock.handleSetErrorClassname)
                     .toHaveBeenLastCalledWith(name);
             });
 
             it('should set isEmailValid in state to true', () => {
-                const targetMock = { name, value };
+                const target = { name, value };
 
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(wrapper.state('isValidEmail')).toBe(true);
             });
         });
 
         describe('when email is NOT valid', () => {
-            const targetMock = { name, value: 'bad_email' };
+            const target = { name, value: 'bad_email' };
             it('should add the required field classname to the email input element', () => {
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(inputToolsMock.handleSetErrorClassname)
                     .toHaveBeenLastCalledWith(name, false);
             });
 
             it('should set isEmailValid in state to false', () => {
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(wrapper.state('isValidEmail')).toBe(false);
             });
@@ -189,30 +189,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone area code on valid input change', () => {
                 const value = '123';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone area code to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone area code on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -223,30 +220,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone prefix on valid input change', () => {
                 const value = '123';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone prefix to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone prefix on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -257,30 +251,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone line number on valid input change', () => {
                 const value = '1234';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone line number to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone line number on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -291,30 +282,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone ext on valid input change', () => {
                 const value = '01234';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone ext to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone ext on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });

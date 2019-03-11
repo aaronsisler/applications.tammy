@@ -47,10 +47,10 @@ export class ApplicantProcessContainer extends React.Component {
 
     handleNoteMessageChange = (e) => {
         const noteMessage = e.target.value;
-        if (noteMessage) {
-            return this.setState(() => ({ isNotePopulated: true, noteMessage }));
+        if (!this.state.isStatusChanged || !noteMessage) {
+            return this.setState(() => ({ isNotePopulated: false, noteMessage: '' }));
         }
-        return this.setState(() => ({ isNotePopulated: false, noteMessage }));
+        return this.setState(() => ({ isNotePopulated: true, noteMessage }));
     }
 
     handleSubmitStatusChange = () => {
@@ -58,7 +58,7 @@ export class ApplicantProcessContainer extends React.Component {
         const { applicantId, positionId } = this.props.applicant;
 
         if (isNotePopulated && isStatusChanged) {
-            this.props.startAddApplicantNote({ applicantId, positionId, noteMessage });
+            this.props.startAddApplicantNote({ applicantId, noteMessage, positionId });
             this.props.startSetApplicantStatus({ applicantId, applicantStatus, positionId });
 
             return this.setState((prevState) => ({
@@ -114,16 +114,12 @@ export class ApplicantProcessContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = () => ({
-});
-
-/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
     startAddApplicantNote: (dataObject) => dispatch(startAddApplicantNote(dataObject)),
     startSetApplicantStatus: (dataObject) => dispatch(startSetApplicantStatus(dataObject)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicantProcessContainer);
+export default connect(undefined, mapDispatchToProps)(ApplicantProcessContainer);
 
 ApplicantProcessContainer.propTypes = {
     applicant: PropTypes.object.isRequired,
