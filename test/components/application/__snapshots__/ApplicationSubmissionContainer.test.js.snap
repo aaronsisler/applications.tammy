@@ -15,7 +15,7 @@ exports[`ApplicationSubmissionContainer should render ApplicationSubmissionConta
     <Link
       className="nav_link"
       replace={false}
-      to="/"
+      to="/positions"
     >
       Back to Positions
     </Link>

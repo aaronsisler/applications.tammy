@@ -3,7 +3,7 @@
 exports[`ApplicantsListItem should render ApplicantsListItem correctly 1`] = `
 <div
   className="applicants_list_item"
-  onClick={[MockFunction]}
+  onClick={[Function]}
 >
   <div
     className="applicants_list_item__content"

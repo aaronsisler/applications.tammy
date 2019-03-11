@@ -1,18 +1,11 @@
-export const addApplicantNote = (applicantNote) => ({
+export const addApplicantNote = ({ applicantId, noteMessage }) => ({
     type: 'ADD_APPLICANT_NOTE',
-    applicantNote,
+    applicantId,
+    noteMessage,
 });
 
-export const clearApplicant = () => ({
-    type: 'CLEAR_APPLICANT',
-});
-
-export const setApplicant = (applicant) => ({
-    type: 'SET_APPLICANT',
-    applicant,
-});
-
-export const setApplicantStatus = (applicantStatus) => ({
+export const setApplicantStatus = ({ applicantId, applicantStatus }) => ({
     type: 'SET_APPLICANT_STATUS',
+    applicantId,
     applicantStatus,
 });

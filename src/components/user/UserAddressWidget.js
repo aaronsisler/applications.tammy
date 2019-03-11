@@ -16,6 +16,21 @@ export default class UserAddressWidget extends React.Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        const { user: oldUser } = prevProps;
+        const { user: newUser } = this.props;
+
+        if (oldUser.userId !== newUser.userId) {
+            return this.setState(() => ({
+                addressLine1: newUser.addressLine1 ? newUser.addressLine1 : '',
+                addressLine2: newUser.addressLine2 ? newUser.addressLine2 : '',
+                city: newUser.city ? newUser.city : '',
+                state: newUser.state ? newUser.state : '',
+                postalCode: newUser.postalCode ? newUser.postalCode : '',
+            }));
+        }
+    }
+
     handleInputChange = (e) => {
         const inputName = e.target.name;
         const inputValue = e.target.value;
@@ -58,88 +73,65 @@ export default class UserAddressWidget extends React.Component {
 
     render() {
         return (
-            <div id="user_address_widget">
+            <div className="user_address_widget">
                 <div className="user_address_content">
-                    <div className="user_address_content_title">
+                    <div className="user_address_widget__title">
                         Address
                     </div>
-                    <div className="user_address_inputs">
-                        <div className="user_address_street_addresses">
-                            <div className="user_address_input">
-                                <input
-                                    readOnly={this.props.isReadOnly}
-                                    type="text"
-                                    id="addressLine1"
-                                    name="addressLine1"
-                                    placeholder="Address Line 1"
-                                    className="text_input"
-                                    value={this.state.addressLine1}
-                                    onChange={this.handleInputChange}
-                                    onBlur={this.inputTools.handleRequiredValidation}
-                                />
-                            </div>
-                            <div className="user_address_input">
-                                <input
-                                    readOnly={this.props.isReadOnly}
-                                    type="text"
-                                    id="addressLine2"
-                                    name="addressLine2"
-                                    placeholder="Address Line 2"
-                                    className="text_input"
-                                    value={this.state.addressLine2}
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="user_address_city_state_zip">
-                            <div className="user_address_input">
-                                <input
-                                    readOnly={this.props.isReadOnly}
-                                    type="text"
-                                    id="city"
-                                    name="city"
-                                    placeholder="City"
-                                    className="text_input"
-                                    value={this.state.city}
-                                    onChange={this.handleInputChange}
-                                    onBlur={this.inputTools.handleRequiredValidation}
-                                />
-                            </div>
-                            <div className="user_address_input">
-                                <input
-                                    readOnly={this.props.isReadOnly}
-                                    type="text"
-                                    id="state"
-                                    name="state"
-                                    placeholder="State"
-                                    className="text_input"
-                                    value={this.state.state}
-                                    onChange={this.handleInputChange}
-                                    onBlur={this.inputTools.handleRequiredValidation}
-                                />
-                            </div>
-                            <div className="user_address_input">
-                                <input
-                                    readOnly={this.props.isReadOnly}
-                                    type="text"
-                                    id="postalCode"
-                                    name="postalCode"
-                                    placeholder="Postal Code"
-                                    className="text_input"
-                                    value={this.state.postalCode}
-                                    onChange={this.handleInputChange}
-                                    onBlur={this.inputTools.handleRequiredValidation}
-                                />
-                            </div>
+                    <div className="user_address_widget__inputs">
+                        <input
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            name="addressLine1"
+                            placeholder="Address Line 1"
+                            value={this.state.addressLine1}
+                            onChange={this.handleInputChange}
+                            onBlur={this.inputTools.handleRequiredValidation}
+                        />
+                        <input
+                            readOnly={this.props.isReadOnly}
+                            type="text"
+                            name="addressLine2"
+                            placeholder="Address Line 2"
+                            value={this.state.addressLine2}
+                            onChange={this.handleInputChange}
+                        />
+                        <div className="user_address_widget__inputs_location">
+                            <input
+                                readOnly={this.props.isReadOnly}
+                                type="text"
+                                name="city"
+                                placeholder="City"
+                                value={this.state.city}
+                                onChange={this.handleInputChange}
+                                onBlur={this.inputTools.handleRequiredValidation}
+                            />
+                            <input
+                                readOnly={this.props.isReadOnly}
+                                type="text"
+                                name="state"
+                                placeholder="State"
+                                value={this.state.state}
+                                onChange={this.handleInputChange}
+                                onBlur={this.inputTools.handleRequiredValidation}
+                            />
+                            <input
+                                readOnly={this.props.isReadOnly}
+                                type="text"
+                                name="postalCode"
+                                placeholder="Postal Code"
+                                value={this.state.postalCode}
+                                onChange={this.handleInputChange}
+                                onBlur={this.inputTools.handleRequiredValidation}
+                            />
                         </div>
                     </div>
                 </div>
                 {!this.props.isReadOnly &&
-                    <div className="user_address_widget_button">
+                    <div className="user_address_widget__button">
                         <button
-                            disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode}
+                            disabled={!this.state.addressLine1 || !this.state.city || !this.state.state || !this.state.postalCode || !this.props.onSubmit}
                             onClick={this.handleSubmit}
-                            className="button"
                         >
                             Update Address
                        </button>
@@ -152,6 +144,6 @@ export default class UserAddressWidget extends React.Component {
 
 UserAddressWidget.propTypes = {
     isReadOnly: PropTypes.bool,
-    user: PropTypes.object.isRequired,
     onSubmit: PropTypes.func,
+    user: PropTypes.object.isRequired,
 };

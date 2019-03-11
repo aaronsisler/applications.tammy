@@ -23,15 +23,20 @@ export const AppRouter = (props) => (
         <div>
             <Navbar isAuthenticated={props.isAuthenticated} />
             <Switch>
-                <Route path='/' component={PositionsPage} exact={true} />
-                <Route path="/applicants" component={ApplicantsPage} exact={true} />
-                <Route path="/apply" component={ApplicationPage} exact={true} />
+                <Route path='/dashboard/:positionId' component={DashboardPage} exact={true} />
                 <Route path='/dashboard' component={DashboardPage} exact={true} />
+                <Route path="/applicants/:positionId/:applicantId" component={ApplicantsPage} exact={true} />
+                <Route path="/applicants/:positionId" component={ApplicantsPage} exact={true} />
+                <Route path="/apply/:positionId" component={ApplicationPage} exact={true} />
                 <Route path='/logged_out' component={LoggedOutPage} exact={true} />
                 <Route path='/login' component={LoginPage} exact={true} />
+                <Route path='/position_watch_add/:positionId' component={PositionsWatchAddPage} exact={true} />
                 <Route path='/position_watch_add' component={PositionsWatchAddPage} exact={true} />
                 <Route path='/user_documents' component={UserDocumentsPage} exact={true} />
                 <Route path='/user_profile' component={UserProfilePage} exact={true} />
+                <Route path='/positions/:positionId' component={PositionsPage} exact={true} />
+                <Route path='/positions' component={PositionsPage} exact={true} />
+                <Route path='/not_found' component={NotFoundPage} exact={true} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

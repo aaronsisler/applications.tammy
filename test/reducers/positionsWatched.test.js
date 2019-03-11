@@ -5,14 +5,12 @@ import {
     setPositionsWatched,
     setPositionWatchLevel
 } from 'Actions/helpers/positionsWatched';
-import {
-    positionsWatchedStore
-} from '../fixtures/positionsWatched';
+import positionsWatched from '../fixtures/positionsWatched';
 
 const defaultState = [];
 
 describe('positions watched reducer', () => {
-    const [positionWatched] = positionsWatchedStore;
+    const [positionWatched] = positionsWatched;
     const { positionId } = positionWatched;
 
     it('should setup default state', () => {
@@ -42,11 +40,11 @@ describe('positions watched reducer', () => {
     });
 
     it('should set the positions watched', () => {
-        const action = setPositionsWatched(positionsWatchedStore);
+        const action = setPositionsWatched(positionsWatched);
 
         const state = positionsWatchedReducer(undefined, action);
 
-        expect(state).toEqual(positionsWatchedStore);
+        expect(state).toEqual(positionsWatched);
     });
 
     describe('when calling set position watch level', () => {
@@ -68,9 +66,9 @@ describe('positions watched reducer', () => {
         it('should set NOT position watch level if position id is NOT matched', () => {
             const action = setPositionWatchLevel('NON_EXISTANT_POSITION_ID', notificationLevel);
 
-            const state = positionsWatchedReducer(positionsWatchedStore, action);
+            const state = positionsWatchedReducer(positionsWatched, action);
 
-            expect(state).toEqual(positionsWatchedStore);
+            expect(state).toEqual(positionsWatched);
         });
     });
 });

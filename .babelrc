@@ -27,7 +27,8 @@
                     "Src": "./src",
                     "Styles": "./src/styles",
                     "Tools": "./src/tools",
-                    "User": "./src/components/user"
+                    "User": "./src/components/user",
+                    "Universal": "./src/components/universal"
                 }
             }
         ]

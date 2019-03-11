@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
 import PositionsList from 'Shared/position/PositionsList';
 import PositionWatchAddDetails from 'PositionWatch/PositionWatchAddDetails';
 
@@ -11,9 +10,7 @@ export class PositionsWatchAddContainer extends React.Component {
         super(props);
     }
 
-    componentWillUnmount() {
-        this.props.startClearPosition();
-    }
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : ""
 
     render() {
         const { positions, positionsWatched } = this.props;
@@ -29,11 +26,11 @@ export class PositionsWatchAddContainer extends React.Component {
             <div className="inbox_container">
                 {this.props.positionsWatched &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.handleMobileClassname()}`}>
                             <Link className="nav_link" to="/dashboard">Back to Dashboard</Link>
-                            <PositionsList positions={positionsConcat} />
+                            <PositionsList positions={positionsConcat} linkRoute={'position_watch_add'} />
                         </div>
-                        <PositionWatchAddDetails />
+                        <PositionWatchAddDetails {...this.props} />
                     </div>
                 }
             </div>
@@ -42,21 +39,17 @@ export class PositionsWatchAddContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+    positionId: props.match.params.positionId,
     positions: state.positions,
     positionsWatched: state.positionsWatched,
 });
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PositionsWatchAddContainer);
+export default connect(mapStateToProps)(PositionsWatchAddContainer);
 
 PositionsWatchAddContainer.propTypes = {
+    positionId: PropTypes.string,
     positions: PropTypes.array,
     positionsWatched: PropTypes.array,
-    startClearPosition: PropTypes.func.isRequired,
 };
 

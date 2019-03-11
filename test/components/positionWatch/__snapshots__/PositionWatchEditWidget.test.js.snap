@@ -12,42 +12,34 @@ exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly
     >
       Notification Level: 
     </div>
-    <div
+    <select
       className="position_watch_edit_widget__select"
+      onChange={[Function]}
+      value="ALL"
     >
-      <select
-        className="select"
-        onChange={[Function]}
+      <option
         value="ALL"
       >
-        <option
-          value="ALL"
-        >
-          ALL
-        </option>
-        <option
-          value="SOME"
-        >
-          SOME
-        </option>
-        <option
-          value="REQUIRED"
-        >
-          REQUIRED
-        </option>
-      </select>
-    </div>
+        ALL
+      </option>
+      <option
+        value="SOME"
+      >
+        SOME
+      </option>
+      <option
+        value="REQUIRED"
+      >
+        REQUIRED
+      </option>
+    </select>
   </div>
-  <div
-    className="position_watch_edit_widget__removal"
+  <button
+    className="position_watch_edit_widget__button"
+    onClick={[Function]}
   >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Remove Watch
-    </button>
-  </div>
+    Remove Watch
+  </button>
 </div>
 `;
 
@@ -64,15 +56,11 @@ exports[`PositionWatchEditWidget should render PositionWatchEditWidget correctly
       Notification Level: 
     </div>
   </div>
-  <div
-    className="position_watch_edit_widget__removal"
+  <button
+    className="position_watch_edit_widget__button"
+    onClick={[Function]}
   >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Remove Watch
-    </button>
-  </div>
+    Remove Watch
+  </button>
 </div>
 `;

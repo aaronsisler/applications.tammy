@@ -2,16 +2,16 @@
 //max-width 640px, small screens
 @media only screen {
     .applicant_process_container {
+        display: grid;
+        grid-gap: $small;
+        width: 100%;
         &__instructions {
             font-family: $mainFont;
             font-size: $medium;
-            padding: $small 0;
         }
         &__status_change {
-            padding-bottom: $medium;
-        }
-        &__select {
-            margin-right: $xsmall;
+            display: grid;
+            grid-gap: $small;
         }
     }
 }
@@ -22,7 +22,16 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: 64.063em) {}
+@media only screen and (min-width: 64.063em) {
+    .applicant_process_container {
+        &__status_change {
+            display: inline-block;
+            select {
+                margin-right: $xsmall;
+            }
+        }
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

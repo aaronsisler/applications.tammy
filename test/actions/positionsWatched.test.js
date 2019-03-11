@@ -10,10 +10,7 @@ import {
 import * as positionsWatchedActionHelpers from 'Actions/helpers/positionsWatched';
 import { defaultAuthState } from '../fixtures/auth';
 import positions from '../fixtures/positions';
-import {
-    positionsWatchedDatabase,
-    positionsWatchedStore
-} from '../fixtures/positionsWatched';
+import positionsWatched, { positionsWatchedDatabase } from '../fixtures/positionsWatched';
 
 const createMockStore = configureMockStore([thunk]);
 
@@ -48,7 +45,7 @@ describe('Positions Watched Actions', () => {
             await store.dispatch(startAddPositionWatch(positionId, notificationLevel));
 
             expect(store.getActions().length).toBe(1);
-            expect(addPositionWatchMock).toHaveBeenCalledWith({ ...positionsWatchedStore[0], notificationLevel });
+            expect(addPositionWatchMock).toHaveBeenCalledWith({ ...positionsWatched[0], notificationLevel });
         });
 
         it(`should call update with notification level`, async () => {
@@ -94,7 +91,7 @@ describe('Positions Watched Actions', () => {
             await store.dispatch(startSetPositionsWatched());
 
             expect(store.getActions().length).toBe(1);
-            expect(setPositionsWatchedMock).toHaveBeenCalledWith(positionsWatchedStore);
+            expect(setPositionsWatchedMock).toHaveBeenCalledWith(positionsWatched);
         });
 
         it(`should call once with value`, async () => {

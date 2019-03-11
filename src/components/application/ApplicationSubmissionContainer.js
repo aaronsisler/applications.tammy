@@ -11,9 +11,9 @@ export default class ApplicationSubmissionContainer extends React.Component {
             <div className="application_submission_container">
                 <div className="application_submission_container__content">
                     Thank you for your application! We will be in contact shortly.
-                    </div>
+                </div>
                 <div className="application_submission_container__link">
-                    <Link className="nav_link" to="/">Back to Positions</Link>
+                    <Link className="nav_link" to="/positions">Back to Positions</Link>
                 </div>
             </div>
         );

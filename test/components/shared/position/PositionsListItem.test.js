@@ -1,20 +1,27 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PositionsListItem, mapDispatchToProps } from 'Shared/position/PositionsListItem';
-import positions from '../../../fixtures/positions';
+import { PositionsListItem } from 'Shared/position/PositionsListItem';
+import { position } from '../../../fixtures/positions';
 
-import * as positionActions from 'Actions/position';
+import history from 'Tools/history';
+jest.mock('Tools/history');
 
 describe('PositionsListItem', () => {
-    const startSetPosition = jest.fn();
-    const [position] = positions;
     let wrapper;
+    const push = jest.fn();
+    const linkRoute = 'fakeRoute';
+
+    const { jobId, location, positionId, title } = position;
 
     beforeEach(() => {
+        history.push = push;
         wrapper = shallow(
             <PositionsListItem
-                {...position}
-                startSetPosition={startSetPosition}
+                jobId={jobId}
+                linkRoute={linkRoute}
+                location={location}
+                positionId={positionId}
+                title={title}
             />);
     });
 
@@ -22,21 +29,9 @@ describe('PositionsListItem', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call startSetPosition prop when clicked', () => {
+    it('should navigate to correct route on click', () => {
         wrapper.find('.positions_list_item').simulate('click');
 
-        expect(startSetPosition).toHaveBeenCalled();
-    });
-
-    describe('mapDispatchToProps', () => {
-        it('should call startSetPosition with positionId', () => {
-            const startSetPositionMock = jest.spyOn(positionActions, 'startSetPosition');
-            const dispatch = jest.fn();
-            const { positionId } = position;
-
-            mapDispatchToProps(dispatch, { positionId }).startSetPosition();
-
-            expect(startSetPositionMock).toHaveBeenLastCalledWith(positionId);
-        });
+        expect(push).toHaveBeenLastCalledWith(`/${linkRoute}/${positionId}`);
     });
 });

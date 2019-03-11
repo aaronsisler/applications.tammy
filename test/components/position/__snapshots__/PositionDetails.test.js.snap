@@ -1,21 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionDetails should render PositionDetails correctly when position is NOT available 1`] = `
+exports[`PositionDetails when positionId is NOT available should render correctly 1`] = `
 <div
-  className="inbox_details_empty"
+  className="inbox_details__empty inbox_mobile"
 >
   Please select an item to view
 </div>
 `;
 
-exports[`PositionDetails should render PositionDetails correctly when position is available 1`] = `
+exports[`PositionDetails when positionId is available when position is NOT available should render correctly 1`] = `
+<div
+  className="inbox_details__empty inbox_mobile"
+>
+  Please select an item to view
+</div>
+`;
+
+exports[`PositionDetails when positionId is available when position is available should render correctly 1`] = `
 <div
   className="inbox_details"
 >
   <div
     className="inbox_details_header"
   >
-    <div>
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+      <Connect(PositionApply)
+        positionId="firstPositionId"
+      />
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
       <div
         className="inbox_details_header__title"
       >
@@ -33,9 +56,6 @@ exports[`PositionDetails should render PositionDetails correctly when position i
         Location: 
         first location
       </div>
-    </div>
-    <div>
-      <Connect(PositionApply) />
     </div>
   </div>
   <div

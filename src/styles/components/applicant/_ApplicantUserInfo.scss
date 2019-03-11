@@ -1,10 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .position_watch_details {
+    .applicant_user_info {
         display: grid;
-        grid-gap: $medium;
-        grid-template-rows: 0.5fr 5fr;
+        grid-gap: $small;
+        min-width: 100%;
     }
 }
 

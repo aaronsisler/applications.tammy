@@ -1,6 +1,6 @@
 import positions from './positions';
 
-const positionsWatchedDatabase = [
+export const positionsWatchedDatabase = [
     {
         positionId: 'firstPositionId',
         notificationLevel: 'ALL',
@@ -23,7 +23,4 @@ export const defaultPositionsWatchedState = {
     positionsWatchedStore
 }
 
-export {
-    positionsWatchedDatabase,
-    positionsWatchedStore,
-};
+export default positionsWatchedStore;

@@ -4,10 +4,10 @@ import {
     setPositionsWatched,
     setPositionWatchLevel,
 } from 'Actions/helpers/positionsWatched';
-import { positionsWatchedStore } from '../../fixtures/positionswatched';
+import positionsWatched from '../../fixtures/positionswatched';
 
 describe('Positions Watched Action Helpers', () => {
-    const [positionWatched] = positionsWatchedStore;
+    const [positionWatched] = positionsWatched;
     const { positionId, notificationLevel } = positionWatched;
 
     describe('addPositionWatch() method', () => {
@@ -34,11 +34,11 @@ describe('Positions Watched Action Helpers', () => {
 
     describe('setPositionsWatched() method', () => {
         it(`should setup 'set positions watched' action object`, () => {
-            const action = setPositionsWatched(positionsWatchedStore);
+            const action = setPositionsWatched(positionsWatched);
 
             expect(action).toEqual({
                 type: 'SET_POSITIONS_WATCHED',
-                positionsWatched: positionsWatchedStore
+                positionsWatched
             });
         });
     });

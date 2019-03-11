@@ -6,20 +6,17 @@ import UserDocumentsList from 'Shared/userDocuments/UserDocumentsList';
 import UserProfileContainer from 'User/UserProfileContainer';
 import { startSubmitApplication } from 'Actions/application';
 import { startDecrementCurrentStep, startIncrementCurrentStep } from 'Actions/applicationProcess';
-import { startClearPosition } from 'Actions/position';
 
 export class ApplicationReviewContainer extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    handleDecrementStep = () => {
-        this.props.startDecrementCurrentStep();
-    }
+    handleDecrementStep = () => this.props.startDecrementCurrentStep();
+
 
     handleIncrementStep = () => {
-        this.props.startSubmitApplication();
-        this.props.startClearPosition();
+        this.props.startSubmitApplication(this.props.positionId);
         this.props.startIncrementCurrentStep();
     }
 
@@ -48,17 +45,16 @@ const mapStateToProps = (state) => ({
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
     startDecrementCurrentStep: () => dispatch(startDecrementCurrentStep()),
     startIncrementCurrentStep: () => dispatch(startIncrementCurrentStep()),
-    startSubmitApplication: () => dispatch(startSubmitApplication()),
+    startSubmitApplication: (positionId) => dispatch(startSubmitApplication(positionId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationReviewContainer);
 
 ApplicationReviewContainer.propTypes = {
     applicationUserDocuments: PropTypes.array.isRequired,
-    startClearPosition: PropTypes.func.isRequired,
+    positionId: PropTypes.string.isRequired,
     startDecrementCurrentStep: PropTypes.func.isRequired,
     startIncrementCurrentStep: PropTypes.func.isRequired,
     startSubmitApplication: PropTypes.func.isRequired,

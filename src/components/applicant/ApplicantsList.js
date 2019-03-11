@@ -26,6 +26,7 @@ export default class ApplicantsList extends React.Component {
                             displayName={applicant.user.displayName}
                             firstName={applicant.user.firstName}
                             lastName={applicant.user.lastName}
+                            positionId={this.props.positionId}
                         />)
                 }
             </div>
@@ -35,4 +36,5 @@ export default class ApplicantsList extends React.Component {
 
 ApplicantsList.propTypes = {
     applicants: PropTypes.array.isRequired,
+    positionId: PropTypes.string.isRequired,
 };

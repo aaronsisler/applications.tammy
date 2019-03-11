@@ -2,106 +2,80 @@
 
 exports[`UserContactInfoWidget when isReadOnly is FALSE should render UserContactInfoWidget correctly 1`] = `
 <div
-  id="user_contact_info_widget"
+  className="user_contact_info_widget"
 >
   <div
-    className="user_email_content"
+    className="user_contact_info_widget__email"
   >
     <div
-      className="user_contact_info_content_title"
+      className="user_contact_info_widget__email_title"
     >
       Email
     </div>
-    <div
-      className="user_email_input"
-    >
-      <input
-        className="text_input"
-        id="email"
-        name="email"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder="Email"
-        readOnly={false}
-        type="text"
-        value="johnny.appleseed@gmail.com"
-      />
-    </div>
+    <input
+      id="email"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Email"
+      readOnly={false}
+      type="text"
+      value="johnny.appleseed@gmail.com"
+    />
   </div>
   <div
-    className="user_phone_number_content"
+    className="user_contact_info_widget__phone"
   >
     <div
-      className="user_contact_info_content_title"
+      className="user_contact_info_widget__phone_title"
     >
       Phone Number
     </div>
     <div
-      className="user_phone_number_inputs"
+      className="user_contact_info_widget__phone_inputs"
     >
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneAreaCode"
-          name="phoneAreaCode"
-          onChange={[Function]}
-          placeholder="(919)"
-          readOnly={false}
-          type="text"
-          value="919"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phonePrefix"
-          name="phonePrefix"
-          onChange={[Function]}
-          placeholder="123"
-          readOnly={false}
-          type="text"
-          value="123"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneLineNumber"
-          name="phoneLineNumber"
-          onChange={[Function]}
-          placeholder="4567"
-          readOnly={false}
-          type="text"
-          value="4567"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneExt"
-          name="phoneExt"
-          onChange={[Function]}
-          placeholder="Ext."
-          readOnly={false}
-          type="text"
-          value="12345"
-        />
-      </div>
+      <input
+        id="phoneAreaCode"
+        name="phoneAreaCode"
+        onChange={[Function]}
+        placeholder="(919)"
+        readOnly={false}
+        type="text"
+        value="919"
+      />
+      <input
+        id="phonePrefix"
+        name="phonePrefix"
+        onChange={[Function]}
+        placeholder="123"
+        readOnly={false}
+        type="text"
+        value="123"
+      />
+      <input
+        id="phoneLineNumber"
+        name="phoneLineNumber"
+        onChange={[Function]}
+        placeholder="4567"
+        readOnly={false}
+        type="text"
+        value="4567"
+      />
+      <input
+        id="phoneExt"
+        name="phoneExt"
+        onChange={[Function]}
+        placeholder="Ext."
+        readOnly={false}
+        type="text"
+        value="12345"
+      />
     </div>
   </div>
   <div
-    className="user_contact_info_widget_button"
+    className="user_contact_info_widget__button"
   >
     <button
-      className="button"
       disabled={false}
       onClick={[Function]}
     >
@@ -113,103 +87,75 @@ exports[`UserContactInfoWidget when isReadOnly is FALSE should render UserContac
 
 exports[`UserContactInfoWidget when isReadOnly is TRUE should render UserContactInfoWidget correctly 1`] = `
 <div
-  id="user_contact_info_widget"
+  className="user_contact_info_widget"
 >
   <div
-    className="user_email_content"
+    className="user_contact_info_widget__email"
   >
     <div
-      className="user_contact_info_content_title"
+      className="user_contact_info_widget__email_title"
     >
       Email
     </div>
-    <div
-      className="user_email_input"
-    >
-      <input
-        className="text_input"
-        id="email"
-        name="email"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder="Email"
-        readOnly={true}
-        type="text"
-        value="johnny.appleseed@gmail.com"
-      />
-    </div>
+    <input
+      id="email"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Email"
+      readOnly={true}
+      type="text"
+      value="johnny.appleseed@gmail.com"
+    />
   </div>
   <div
-    className="user_phone_number_content"
+    className="user_contact_info_widget__phone"
   >
     <div
-      className="user_contact_info_content_title"
+      className="user_contact_info_widget__phone_title"
     >
       Phone Number
     </div>
     <div
-      className="user_phone_number_inputs"
+      className="user_contact_info_widget__phone_inputs"
     >
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneAreaCode"
-          name="phoneAreaCode"
-          onChange={[Function]}
-          placeholder="(919)"
-          readOnly={true}
-          type="text"
-          value="919"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phonePrefix"
-          name="phonePrefix"
-          onChange={[Function]}
-          placeholder="123"
-          readOnly={true}
-          type="text"
-          value="123"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneLineNumber"
-          name="phoneLineNumber"
-          onChange={[Function]}
-          placeholder="4567"
-          readOnly={true}
-          type="text"
-          value="4567"
-        />
-      </div>
-      <div
-        className="user_phone_number_input"
-      >
-        <input
-          className="text_input"
-          id="phoneExt"
-          name="phoneExt"
-          onChange={[Function]}
-          placeholder="Ext."
-          readOnly={true}
-          type="text"
-          value="12345"
-        />
-      </div>
+      <input
+        id="phoneAreaCode"
+        name="phoneAreaCode"
+        onChange={[Function]}
+        placeholder="(919)"
+        readOnly={true}
+        type="text"
+        value="919"
+      />
+      <input
+        id="phonePrefix"
+        name="phonePrefix"
+        onChange={[Function]}
+        placeholder="123"
+        readOnly={true}
+        type="text"
+        value="123"
+      />
+      <input
+        id="phoneLineNumber"
+        name="phoneLineNumber"
+        onChange={[Function]}
+        placeholder="4567"
+        readOnly={true}
+        type="text"
+        value="4567"
+      />
+      <input
+        id="phoneExt"
+        name="phoneExt"
+        onChange={[Function]}
+        placeholder="Ext."
+        readOnly={true}
+        type="text"
+        value="12345"
+      />
     </div>
   </div>
-  <div
-    className="user_contact_info_widget_button"
-  />
 </div>
 `;

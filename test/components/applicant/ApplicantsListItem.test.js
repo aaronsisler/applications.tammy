@@ -1,43 +1,38 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ApplicantsListItem, mapDispatchToProps } from 'Applicant/ApplicantsListItem';
-import applicants from '../../fixtures/applicants';
+import ApplicantsListItem from 'Applicant/ApplicantsListItem';
+import { applicantId, applicant } from '../../fixtures/applicants';
+import { positionId } from '../../fixtures/positions';
 
-import * as applicantActions from 'Actions/applicant';
+import history from 'Tools/history';
+jest.mock('Tools/history');
 
 describe('ApplicantsListItem', () => {
-    const startSetApplicant = jest.fn();
-    const [applicant] = applicants;
     let wrapper;
+    const push = jest.fn();
+    const { displayName, firstName, lastName } = applicant.user;
+
+    const buildWrapper = () => shallow(
+        <ApplicantsListItem
+            applicantId={applicant.applicantId}
+            displayName={displayName}
+            firstName={firstName}
+            lastName={lastName}
+            positionId={positionId}
+        />);
 
     beforeEach(() => {
-        wrapper = shallow(
-            <ApplicantsListItem
-                applicantId={applicant.applicantId}
-                startSetApplicant={startSetApplicant}
-                {...applicant.user}
-            />);
+        history.push = push;
+        wrapper = buildWrapper();
     });
 
     it('should render ApplicantsListItem correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call startSetApplicant prop when clicked', () => {
+    it('should navigate to correct route on click', () => {
         wrapper.find('.applicants_list_item').simulate('click');
 
-        expect(startSetApplicant).toHaveBeenCalled();
-    });
-
-    describe('mapDispatchToProps', () => {
-        it('should call startSetApplicant with applicantId', () => {
-            const startSetApplicantMock = jest.spyOn(applicantActions, 'startSetApplicant');
-            const dispatch = jest.fn();
-            const { applicantId } = applicant;
-
-            mapDispatchToProps(dispatch, { applicantId }).startSetApplicant();
-
-            expect(startSetApplicantMock).toHaveBeenLastCalledWith(applicantId);
-        });
+        expect(push).toHaveBeenLastCalledWith(`/applicants/${positionId}/${applicantId}`);
     });
 });

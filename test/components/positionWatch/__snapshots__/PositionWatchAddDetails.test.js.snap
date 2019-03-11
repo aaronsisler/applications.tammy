@@ -1,21 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly when position is NOT available 1`] = `
+exports[`PositionWatchAddDetails when positionId is NOT available should render correctly 1`] = `
 <div
-  className="inbox_details_empty"
+  className="inbox_details__empty inbox_mobile"
 >
   Please select an item to view
 </div>
 `;
 
-exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly when position is available 1`] = `
+exports[`PositionWatchAddDetails when positionId is available when position is NOT available should render correctly 1`] = `
+<div
+  className="inbox_details__empty inbox_mobile"
+>
+  Please select an item to view
+</div>
+`;
+
+exports[`PositionWatchAddDetails when positionId is available when position is available should render correctly 1`] = `
 <div
   className="inbox_details"
 >
   <div
     className="inbox_details_header"
   >
-    <div>
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
       <div
         className="inbox_details_header__title"
       >
@@ -36,9 +56,11 @@ exports[`PositionWatchAddDetails should render PositionWatchAddDetails correctly
     </div>
   </div>
   <div
-    className="inbox_details_content position_watch_details"
+    className="inbox_details_content"
   >
-    <Connect(PositionWatchAddWidget) />
+    <Connect(PositionWatchAddWidget)
+      positionId="firstPositionId"
+    />
     <PositionDetailsContent
       position={
         Object {

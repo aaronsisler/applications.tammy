@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { PositionWatchAddWidget } from 'PositionWatch/PositionWatchAddWidget';
-import { positionsWatchedStore } from '../../fixtures/positionsWatched';
+import positionsWatched from '../../fixtures/positionsWatched';
 
 describe('PositionWatchAddWidget', () => {
-    const [positionWatched] = positionsWatchedStore;
+    const [positionWatched] = positionsWatched;
     const { positionId } = positionWatched;
     const startAddPositionWatch = jest.fn();
-    const startClearPosition = jest.fn();
     let wrapper;
 
     const buildWrapper = () => {
@@ -15,7 +14,6 @@ describe('PositionWatchAddWidget', () => {
             <PositionWatchAddWidget
                 positionId={positionId}
                 startAddPositionWatch={startAddPositionWatch}
-                startClearPosition={startClearPosition}
             />
         );
     };
@@ -40,16 +38,6 @@ describe('PositionWatchAddWidget', () => {
             wrapper.find('select').simulate('change', event);
 
             expect(startAddPositionWatch).toHaveBeenLastCalledWith(positionId, newNotificationLevel);
-        });
-
-        it('should call startClearPosition', () => {
-            wrapper.find('select').simulate('change', event);
-
-            expect(startClearPosition).toHaveBeenCalled();
-        });
-
-        it('should call startAddPositionWatch before startClearPosition', () => {
-            expect(startAddPositionWatch).toHaveBeenCalledBefore(startClearPosition);
         });
     });
 });

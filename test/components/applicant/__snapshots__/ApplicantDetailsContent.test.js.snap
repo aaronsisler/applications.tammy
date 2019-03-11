@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantDetailsContent should render ApplicantDetailsContent correctly 1`] = `
+<div
+  className="applicant_details_content"
+>
+  <Tabs
+    defaultFocus={false}
+    defaultIndex={null}
+    forceRenderTabPanel={false}
+    selectedIndex={null}
+  >
+    <TabList
+      className="react-tabs__tab-list"
+    >
+      <Tab
+        className="react-tabs__tab"
+        disabledClassName="react-tabs__tab--disabled"
+        focus={false}
+        id={null}
+        panelId={null}
+        selected={false}
+        selectedClassName="react-tabs__tab--selected"
+      >
+        Workflow
+      </Tab>
+      <Tab
+        className="react-tabs__tab"
+        disabledClassName="react-tabs__tab--disabled"
+        focus={false}
+        id={null}
+        panelId={null}
+        selected={false}
+        selectedClassName="react-tabs__tab--selected"
+      >
+        Documents
+      </Tab>
+      <Tab
+        className="react-tabs__tab"
+        disabledClassName="react-tabs__tab--disabled"
+        focus={false}
+        id={null}
+        panelId={null}
+        selected={false}
+        selectedClassName="react-tabs__tab--selected"
+      >
+        Info
+      </Tab>
+    </TabList>
+    <TabPanel
+      className="react-tabs__tab-panel"
+      forceRender={false}
+      selectedClassName="react-tabs__tab-panel--selected"
+    >
+      <Connect(ApplicantProcessContainer)
+        applicant={
+          Object {
+            "applicantId": "firstApplicantId",
+            "applicantNotes": Array [
+              Object {
+                "noteMessage": "First note",
+              },
+              Object {
+                "noteMessage": "Second note",
+              },
+            ],
+            "applicantStatus": "APPLIED",
+            "positionId": "firstPositionId",
+            "user": Object {
+              "addressLine1": "123 Evergreen Terrace",
+              "addressLine2": "Apt. 456",
+              "city": "Durham",
+              "displayName": "Johnny Appleseed",
+              "displayPhoneNumber": "919-123-4567 ext. 12345",
+              "email": "johnny.appleseed@gmail.com",
+              "firstName": "Johnny",
+              "lastName": "Appleseed",
+              "middleName": "Middleton",
+              "phoneAreaCode": "919",
+              "phoneExt": "12345",
+              "phoneLineNumber": "4567",
+              "phonePrefix": "123",
+              "postalCode": "27540",
+              "state": "NC",
+            },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
+          }
+        }
+      />
+    </TabPanel>
+    <TabPanel
+      className="react-tabs__tab-panel"
+      forceRender={false}
+      selectedClassName="react-tabs__tab-panel--selected"
+    >
+      <ApplicantUserDocuments
+        userDocuments={
+          Array [
+            Object {
+              "dateUploaded": "2018/01/01 01:23:45A",
+              "documentName": "Document Name 1",
+              "downloadUrl": "downloadUrl1",
+              "userDocumentId": "firstDocumentId",
+            },
+            Object {
+              "dateUploaded": "2018/02/02 01:23:45A",
+              "documentName": "Document Name 2",
+              "downloadUrl": "downloadUrl2",
+              "userDocumentId": "secondDocumentId",
+            },
+          ]
+        }
+      />
+    </TabPanel>
+    <TabPanel
+      className="react-tabs__tab-panel"
+      forceRender={false}
+      selectedClassName="react-tabs__tab-panel--selected"
+    >
+      <ApplicantUserInfo
+        user={
+          Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "displayPhoneNumber": "919-123-4567 ext. 12345",
+            "email": "johnny.appleseed@gmail.com",
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "27540",
+            "state": "NC",
+          }
+        }
+      />
+    </TabPanel>
+  </Tabs>
+</div>
+`;

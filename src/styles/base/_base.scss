@@ -30,7 +30,6 @@
         cursor: pointer;
         color: white;
         font-size: $medium;
-        margin-top: $xsmall;
         padding: $small $medium;
         &:disabled {
             background-color: $mainColor;
@@ -45,7 +44,6 @@
     input {
         border: 1px solid $midLightGrey;
         font-size: $medium;
-        margin: $xsmall 0;
         padding: $small;
         width: 100%;
     }
@@ -56,6 +54,8 @@
     }
     textarea {
         font-size: $medium;
+        max-width: 70rem;
+        width: 100%;
     }
     .text_input_error {
         border: 2px solid red;
@@ -64,7 +64,6 @@
         background: $mainColor;
         color: white;
         font-size: $medium;
-        margin: $small;
         padding: $small;
         text-align: center;
         text-decoration: none;
@@ -81,14 +80,7 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {
-    .button {
-        margin: $xsmall;
-    }
-    .text_input {
-        margin: $xsmall;
-    }
-}
+@media only screen and (min-width: $largeScreen) {}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

@@ -12,12 +12,28 @@ export class ApplicantProcessContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            applicantStatus: props.applicant.applicantStatus,
             applicantNotes: props.applicant.applicantNotes,
+            applicantStatus: props.applicant.applicantStatus,
             isNotePopulated: false,
             isStatusChanged: false,
+            noteMessage: '',
             prevApplicantStatus: props.applicant.applicantStatus,
-            statusNote: '',
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const { applicant: oldApplicant } = prevProps;
+        const { applicant: newApplicant } = this.props;
+
+        if (oldApplicant.applicantId !== newApplicant.applicantId) {
+            return this.setState(() => ({
+                applicantNotes: newApplicant.applicantNotes,
+                applicantStatus: newApplicant.applicantStatus,
+                isNotePopulated: false,
+                isStatusChanged: false,
+                noteMessage: '',
+                prevApplicantStatus: newApplicant.applicantStatus,
+            }));
         }
     }
 
@@ -29,25 +45,28 @@ export class ApplicantProcessContainer extends React.Component {
         return this.setState(() => ({ applicantStatus, isStatusChanged: true }));
     }
 
-    handleStatusNoteChange = (e) => {
-        const statusNote = e.target.value;
-        if (statusNote) {
-            return this.setState(() => ({ isNotePopulated: true, statusNote }));
+    handleNoteMessageChange = (e) => {
+        const noteMessage = e.target.value;
+        if (!this.state.isStatusChanged || !noteMessage) {
+            return this.setState(() => ({ isNotePopulated: false, noteMessage: '' }));
         }
-        return this.setState(() => ({ isNotePopulated: false, statusNote }));
+        return this.setState(() => ({ isNotePopulated: true, noteMessage }));
     }
 
     handleSubmitStatusChange = () => {
-        const { applicantStatus, isNotePopulated, isStatusChanged, statusNote } = this.state;
+        const { applicantStatus, isNotePopulated, isStatusChanged, noteMessage } = this.state;
+        const { applicantId, positionId } = this.props.applicant;
+
         if (isNotePopulated && isStatusChanged) {
-            this.props.startAddApplicantNote(statusNote);
-            this.props.startSetApplicantStatus(applicantStatus);
+            this.props.startAddApplicantNote({ applicantId, noteMessage, positionId });
+            this.props.startSetApplicantStatus({ applicantId, applicantStatus, positionId });
+
             return this.setState((prevState) => ({
-                applicantNotes: [{ statusNote }, ...prevState.applicantNotes],
+                applicantNotes: [{ noteMessage }, ...prevState.applicantNotes],
                 isNotePopulated: false,
                 isStatusChanged: false,
+                noteMessage: '',
                 prevApplicantStatus: applicantStatus,
-                statusNote: '',
             }));
         }
     }
@@ -60,16 +79,13 @@ export class ApplicantProcessContainer extends React.Component {
                 </div>
                 <textarea
                     placeholder="Write a note to change applicant status"
-                    className="applicant_process_container__note"
-                    value={this.state.statusNote}
-                    onChange={this.handleStatusNoteChange}
-                    cols="75"
+                    value={this.state.noteMessage}
+                    onChange={this.handleNoteMessageChange}
                     rows="5"
                 >
                 </textarea>
                 <div className="applicant_process_container__status_change">
                     <select
-                        className="applicant_process_container__select"
                         disabled={!this.state.isNotePopulated}
                         onChange={this.handleSetApplicantStatus}
                         value={this.state.applicantStatus}
@@ -83,7 +99,6 @@ export class ApplicantProcessContainer extends React.Component {
                             </option>)}
                     </select>
                     <button
-                        className="button"
                         disabled={!this.state.isNotePopulated || !this.state.isStatusChanged}
                         onClick={this.handleSubmitStatusChange}
                     >
@@ -99,16 +114,12 @@ export class ApplicantProcessContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = () => ({
-});
-
-/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startAddApplicantNote: (statusNote) => dispatch(startAddApplicantNote(statusNote)),
-    startSetApplicantStatus: (applicantStatus) => dispatch(startSetApplicantStatus(applicantStatus)),
+    startAddApplicantNote: (dataObject) => dispatch(startAddApplicantNote(dataObject)),
+    startSetApplicantStatus: (dataObject) => dispatch(startSetApplicantStatus(dataObject)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicantProcessContainer);
+export default connect(undefined, mapDispatchToProps)(ApplicantProcessContainer);
 
 ApplicantProcessContainer.propTypes = {
     applicant: PropTypes.object.isRequired,

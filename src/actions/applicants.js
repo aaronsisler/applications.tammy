@@ -2,10 +2,10 @@ import database from 'Firebase/firebase';
 import { setApplicants } from 'Actions/helpers/applicants';
 import { setApplicantsTextFilter } from 'Actions/filters/applicantsText';
 
-export const startSetApplicants = () => (dispatch, getState) => {
-    const { positionId } = getState().workflow.position;
+export const startClearApplicants = () => (dispatch) => dispatch(setApplicants());
 
-    return database.ref(`applicants/${positionId}`).once('value').then((snapshot) => {
+export const startSetApplicants = (positionId) => (dispatch) =>
+    database.ref(`applicants/${positionId}`).once('value').then((snapshot) => {
         const applicants = [];
         snapshot.forEach((childSnapshot) => {
             const applicant = childSnapshot.val();
@@ -22,6 +22,5 @@ export const startSetApplicants = () => (dispatch, getState) => {
 
         return dispatch(setApplicants(applicants));
     });
-}
 
 export const startSetApplicantsTextFilter = (text) => (dispatch) => dispatch(setApplicantsTextFilter(text));

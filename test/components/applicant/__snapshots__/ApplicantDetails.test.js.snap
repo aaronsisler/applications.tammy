@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantDetails when applicant is defined when user contact info is NOT provided should render ApplicantUserInfo correctly 1`] = `
+<div
+  className="inbox_details"
+>
+  <div
+    className="inbox_details_header"
+  >
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
+      <div
+        className="inbox_details_header__display_name"
+      >
+        Johnny Appleseed
+      </div>
+      <div
+        className="inbox_details_header__phone_number"
+      >
+        <strong>
+          Phone:
+        </strong>
+         
+        Not Provided
+      </div>
+      <div
+        className="inbox_details_header__email"
+      >
+        <strong>
+          Email:
+        </strong>
+         
+        Not Provided
+      </div>
+    </div>
+  </div>
+  <div
+    className="inbox_details_content"
+  >
+    <ApplicantDetailsContent
+      applicant={
+        Object {
+          "applicantId": "firstApplicantId",
+          "applicantNotes": Array [
+            Object {
+              "noteMessage": "First note",
+            },
+            Object {
+              "noteMessage": "Second note",
+            },
+          ],
+          "applicantStatus": "APPLIED",
+          "positionId": "firstPositionId",
+          "user": Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "displayPhoneNumber": undefined,
+            "email": undefined,
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "27540",
+            "state": "NC",
+          },
+          "userDocuments": Array [
+            Object {
+              "dateUploaded": "2018/01/01 01:23:45A",
+              "documentName": "Document Name 1",
+              "downloadUrl": "downloadUrl1",
+              "userDocumentId": "firstDocumentId",
+            },
+            Object {
+              "dateUploaded": "2018/02/02 01:23:45A",
+              "documentName": "Document Name 2",
+              "downloadUrl": "downloadUrl2",
+              "userDocumentId": "secondDocumentId",
+            },
+          ],
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicantDetails when applicant is defined when user contact info is provided should render ApplicantUserInfo correctly 1`] = `
+<div
+  className="inbox_details"
+>
+  <div
+    className="inbox_details_header"
+  >
+    <div
+      className="inbox_details_header__actions"
+    >
+      <button
+        className="inbox_details_header__mobile_button"
+        onClick={[Function]}
+      >
+        Back to List
+      </button>
+    </div>
+    <div
+      className="inbox_details_header__content"
+    >
+      <div
+        className="inbox_details_header__display_name"
+      >
+        Johnny Appleseed
+      </div>
+      <div
+        className="inbox_details_header__phone_number"
+      >
+        <strong>
+          Phone:
+        </strong>
+         
+        919-123-4567 ext. 12345
+      </div>
+      <div
+        className="inbox_details_header__email"
+      >
+        <strong>
+          Email:
+        </strong>
+         
+        johnny.appleseed@gmail.com
+      </div>
+    </div>
+  </div>
+  <div
+    className="inbox_details_content"
+  >
+    <ApplicantDetailsContent
+      applicant={
+        Object {
+          "applicantId": "firstApplicantId",
+          "applicantNotes": Array [
+            Object {
+              "noteMessage": "First note",
+            },
+            Object {
+              "noteMessage": "Second note",
+            },
+          ],
+          "applicantStatus": "APPLIED",
+          "positionId": "firstPositionId",
+          "user": Object {
+            "addressLine1": "123 Evergreen Terrace",
+            "addressLine2": "Apt. 456",
+            "city": "Durham",
+            "displayName": "Johnny Appleseed",
+            "displayPhoneNumber": "919-123-4567 ext. 12345",
+            "email": "johnny.appleseed@gmail.com",
+            "firstName": "Johnny",
+            "lastName": "Appleseed",
+            "middleName": "Middleton",
+            "phoneAreaCode": "919",
+            "phoneExt": "12345",
+            "phoneLineNumber": "4567",
+            "phonePrefix": "123",
+            "postalCode": "27540",
+            "state": "NC",
+          },
+          "userDocuments": Array [
+            Object {
+              "dateUploaded": "2018/01/01 01:23:45A",
+              "documentName": "Document Name 1",
+              "downloadUrl": "downloadUrl1",
+              "userDocumentId": "firstDocumentId",
+            },
+            Object {
+              "dateUploaded": "2018/02/02 01:23:45A",
+              "documentName": "Document Name 2",
+              "downloadUrl": "downloadUrl2",
+              "userDocumentId": "secondDocumentId",
+            },
+          ],
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicantDetails when applicant is undefined should render ApplicantUserInfo correctly 1`] = `
+<div
+  className="inbox_details__empty inbox_mobile"
+>
+  Please select an applicant to view
+</div>
+`;

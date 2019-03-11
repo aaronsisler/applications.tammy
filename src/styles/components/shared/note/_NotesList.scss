@@ -1,17 +1,10 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #notes_list {
+    .notes_list {
         background: white;
-        display: flex;
-        flex-flow: column;
-        &.empty {
-            display: flex;
-            justify-content: center;
-            font-family: $secondaryFont;
-            font-size: $midlarge;
-            padding: $large 0;
-        }
+        display: grid;
+        grid-gap: $small;
     }
 }
 

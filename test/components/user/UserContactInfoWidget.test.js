@@ -12,7 +12,16 @@ describe('UserContactInfoWidget', () => {
     let instance;
     let inputToolsMock;
 
-    const buildWrapper = (userInput, isReadOnly = true) => {
+    const defaultEmptyState = {
+        email: '',
+        phoneAreaCode: '',
+        phonePrefix: '',
+        phoneLineNumber: '',
+        phoneExt: '',
+        isValidEmail: false
+    };
+
+    const buildWrapper = (userInput = {}, isReadOnly = true) => {
         wrapper = shallow(
             <UserContactInfoWidget
                 isReadOnly={isReadOnly}
@@ -23,6 +32,78 @@ describe('UserContactInfoWidget', () => {
 
     afterEach(() => {
         jest.restoreAllMocks();
+    });
+
+    it('should render correctly with default props', () => {
+        buildWrapper();
+
+        expect(wrapper.state()).toEqual(defaultEmptyState);
+    });
+
+    describe('when user props change', () => {
+        const newEmail = 'new_email@taco.com';
+        const newPhoneAreaCode = '123';
+        const newPhonePrefix = '456';
+        const newPhoneLineNumber = '7890';
+        const newPhoneExt = '54321';
+
+        const newUser = {
+            email: newEmail,
+            phoneAreaCode: newPhoneAreaCode,
+            phonePrefix: newPhonePrefix,
+            phoneLineNumber: newPhoneLineNumber,
+            phoneExt: newPhoneExt,
+        };
+
+        beforeEach(() => {
+            buildWrapper(user);
+        });
+
+        describe('when userId is the same', () => {
+            it('should NOT update the state', () => {
+                wrapper.setProps({
+                    user: {
+                        ...user,
+                        ...newUser
+                    }
+                });
+
+                expect(wrapper.state()).toEqual(
+                    {
+                        email: user.email,
+                        phoneAreaCode: user.phoneAreaCode,
+                        phonePrefix: user.phonePrefix,
+                        phoneLineNumber: user.phoneLineNumber,
+                        phoneExt: user.phoneExt,
+                        isValidEmail: true
+                    });
+            });
+        });
+
+        describe('when userId is NOT the same', () => {
+            it('should update the state', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            ...newUser,
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual({ ...newUser, isValidEmail: true });
+            });
+
+            it('should render correctly with default props', () => {
+                wrapper.setProps(
+                    {
+                        user: {
+                            userId: 'Not Original Id'
+                        }
+                    });
+
+                expect(wrapper.state()).toEqual(defaultEmptyState);
+            });
+        });
     });
 
     describe('handleEmailValidation', () => {
@@ -38,34 +119,34 @@ describe('UserContactInfoWidget', () => {
 
         describe('when email is valid', () => {
             it('should remove the required field classname from the email input element', () => {
-                const targetMock = { name, value };
+                const target = { name, value };
 
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(inputToolsMock.handleSetErrorClassname)
                     .toHaveBeenLastCalledWith(name);
             });
 
             it('should set isEmailValid in state to true', () => {
-                const targetMock = { name, value };
+                const target = { name, value };
 
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(wrapper.state('isValidEmail')).toBe(true);
             });
         });
 
         describe('when email is NOT valid', () => {
-            const targetMock = { name, value: 'bad_email' };
+            const target = { name, value: 'bad_email' };
             it('should add the required field classname to the email input element', () => {
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(inputToolsMock.handleSetErrorClassname)
                     .toHaveBeenLastCalledWith(name, false);
             });
 
             it('should set isEmailValid in state to false', () => {
-                instance.handleEmailValidation({ target: targetMock });
+                instance.handleEmailValidation({ target });
 
                 expect(wrapper.state('isValidEmail')).toBe(false);
             });
@@ -77,6 +158,7 @@ describe('UserContactInfoWidget', () => {
             buildWrapper(user, false);
             instance = wrapper.instance();
         });
+
         it('should render UserContactInfoWidget correctly', () => {
             expect(wrapper).toMatchSnapshot();
         });
@@ -107,30 +189,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone area code on valid input change', () => {
                 const value = '123';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone area code to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone area code on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -141,30 +220,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone prefix on valid input change', () => {
                 const value = '123';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone prefix to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone prefix on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -175,30 +251,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone line number on valid input change', () => {
                 const value = '1234';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone line number to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone line number on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -209,30 +282,27 @@ describe('UserContactInfoWidget', () => {
 
             it('should set phone ext on valid input change', () => {
                 const value = '01234';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should set phone ext to empty string when input is cleared', () => {
                 const value = '';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(value);
             });
 
             it('should NOT set phone ext on invalid input change', () => {
                 const value = 'a';
+                const target = { name, value };
 
-                wrapper.find(`#${name}`).simulate('change', {
-                    target: { name, value }
-                });
+                wrapper.find(`#${name}`).simulate('change', { target });
 
                 expect(wrapper.state(name)).toBe(user[name]);
             });
@@ -279,19 +349,6 @@ describe('UserContactInfoWidget', () => {
             buildWrapper(user);
 
             expect(wrapper).toMatchSnapshot();
-        });
-
-        it('should render UserContactInfoWidget with default props', () => {
-            const defaultUserContactInfo = {
-                email: '',
-                phoneAreaCode: '',
-                phonePrefix: '',
-                phoneLineNumber: '',
-                phoneExt: '',
-            }
-            buildWrapper(defaultUserContactInfo);
-
-            expect(wrapper.state()).toEqual({ ...defaultUserContactInfo, isValidEmail: false, });
         });
     });
 });

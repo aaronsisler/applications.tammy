@@ -22,7 +22,7 @@ exports[`LoggedOutPage should render LoggedOutPage correctly 1`] = `
     <Link
       className="nav_link"
       replace={false}
-      to="/"
+      to="/positions"
     >
       Back to Positions
     </Link>

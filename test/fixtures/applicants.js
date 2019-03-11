@@ -1,25 +1,24 @@
 import user from './user';
-import { position } from './positions';
-
-const { positionId } = position;
-
-const applicantNotes = [
-    { statusNote: 'First note' },
-    { statusNote: 'Second note' }
-]
+import userDocuments from './userDocuments';
+import notes from './notes';
+import { positionId } from './positions';
 
 const applicants = [
     {
         applicantId: 'firstApplicantId',
+        applicantNotes: notes,
+        applicantStatus: 'APPLIED',
         positionId,
         user,
-        applicantNotes,
+        userDocuments,
     },
     {
         applicantId: 'secondApplicantId',
+        applicantNotes: notes,
+        applicantStatus: 'APPLIED',
         positionId,
-        user,
-        applicantNotes,
+        user: { ...user, firstName: 'New First Name', lastName: 'New Last Name' },
+        userDocuments,
     },
 ]
 
@@ -28,12 +27,16 @@ export const applicantWithNoNotes =
     applicantId: 'firstApplicantId',
     positionId,
     user,
-    applicantNotes: [],
+    userDocuments,
 }
 
 
 export const defaultApplicantsState = {
     applicants
 }
+
+export const [applicant] = applicants;
+
+export const { applicantId } = applicant;
 
 export default applicants;

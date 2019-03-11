@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import history from '../../tools/history';
+import history from 'Tools/history';
 import { startResetApplicationProcess } from 'Actions/applicationProcess';
 import ApplicationProgressWidget from './ApplicationProgressWidget';
 import ApplicationUserContainer from './ApplicationUserContainer';
@@ -12,14 +12,11 @@ import ApplicationSubmissionContainer from './ApplicationSubmissionContainer';
 export class ApplicationProcessContainer extends React.Component {
     constructor(props) {
         super(props);
-        if (!this.props.positionId) {
-            return history.push('/');
-        }
     }
 
-    componentDidUpdate() {
-        if (!this.props.positionId) {
-            return history.push('/');
+    componentDidMount() {
+        if (!this.props.position) {
+            history.push('/not_found');
         }
     }
 
@@ -36,7 +33,7 @@ export class ApplicationProcessContainer extends React.Component {
 
                 {this.props.currentStep == 0 && <ApplicationUserContainer />}
                 {this.props.currentStep == 1 && <ApplicationUserDocumentsContainer />}
-                {this.props.currentStep == 2 && <ApplicationReviewContainer />}
+                {this.props.currentStep == 2 && <ApplicationReviewContainer positionId={this.props.positionId} />}
                 {this.props.currentStep == 3 && <ApplicationSubmissionContainer />}
             </div>
         );
@@ -44,10 +41,18 @@ export class ApplicationProcessContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
-    currentStep: state.applicationProcess.currentStep,
-    positionId: state.workflow.position.positionId,
-});
+const mapStateToProps = (state, props) => {
+    const { positionId } = props.match.params;
+    const position = positionId
+        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
+
+    return ({
+        currentStep: state.applicationProcess.currentStep,
+        position,
+        positionId,
+    });
+};
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
@@ -57,7 +62,8 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationProcessContainer);
 
 ApplicationProcessContainer.propTypes = {
-    currentStep: PropTypes.number,
-    positionId: PropTypes.string,
+    currentStep: PropTypes.number.isRequired,
+    position: PropTypes.object,
+    positionId: PropTypes.string.isRequired,
     startResetApplicationProcess: PropTypes.func.isRequired,
 };

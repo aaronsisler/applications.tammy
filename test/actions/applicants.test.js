@@ -1,17 +1,20 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import database from 'Firebase/firebase';
-import { startSetApplicants } from 'Actions/applicants';
+import {
+    startClearApplicants,
+    startSetApplicants,
+    startSetApplicantsTextFilter,
+} from 'Actions/applicants';
 import * as applicantsActionHelpers from 'Actions/helpers/applicants';
+import * as applicantsTextFilters from 'Actions/filters/applicantsText';
 import applicants, { applicantWithNoNotes } from '../fixtures/applicants';
-import positions from '../fixtures/positions';
+import { positionId } from '../fixtures/positions';
 
 const createMockStore = configureMockStore([thunk]);
-const [position] = positions;
 
 describe('Applicants Actions', () => {
-    const { positionId } = position;
-    const store = createMockStore({ workflow: { position } });
+    let store;
     let once;
     const applicantsMock = [];
     applicants.forEach((applicant) => {
@@ -20,6 +23,7 @@ describe('Applicants Actions', () => {
     });
 
     beforeEach(() => {
+        store = createMockStore();
         once = jest.fn().mockResolvedValue(applicantsMock);
         jest.spyOn(database, 'ref').mockReturnValue({ once });
     });
@@ -28,24 +32,26 @@ describe('Applicants Actions', () => {
         database.ref.mockRestore();
     });
 
-    describe('startSetApplicants() method', () => {
-        it(`should call dispatch with setApplicants`, async () => {
+    describe('startClearApplicants()', () => {
+        it('should call setApplicants', async () => {
             const setApplicantsMock = jest.spyOn(applicantsActionHelpers, 'setApplicants');
 
-            await store.dispatch(startSetApplicants());
+            await store.dispatch(startClearApplicants());
 
             expect(store.getActions().length).toBe(1);
             expect(setApplicantsMock).toHaveBeenCalled();
         });
+    });
 
-        it(`should call once with value`, async () => {
-            await store.dispatch(startSetApplicants());
+    describe('startSetApplicants()', () => {
+        it(`should call once with value`, () => {
+            store.dispatch(startSetApplicants(positionId));
 
             expect(once).toHaveBeenLastCalledWith('value');
         });
 
-        it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startSetApplicants());
+        it(`should call database ref with specific path`, () => {
+            store.dispatch(startSetApplicants(positionId));
 
             expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}`);
         });
@@ -59,8 +65,9 @@ describe('Applicants Actions', () => {
             it('should call setApplicants with an empty array', async () => {
                 const setApplicantsMock = jest.spyOn(applicantsActionHelpers, 'setApplicants');
 
-                await store.dispatch(startSetApplicants());
+                await store.dispatch(startSetApplicants(positionId));
 
+                expect(store.getActions().length).toBe(1);
                 expect(setApplicantsMock).toHaveBeenCalledWith([]);
             });
         });
@@ -70,8 +77,9 @@ describe('Applicants Actions', () => {
                 it('should call setApplicants with applicants and a populated applicantNotes', async () => {
                     const setApplicantsMock = jest.spyOn(applicantsActionHelpers, 'setApplicants');
 
-                    await store.dispatch(startSetApplicants());
+                    await store.dispatch(startSetApplicants(positionId));
 
+                    expect(store.getActions().length).toBe(1);
                     expect(setApplicantsMock).toHaveBeenCalledWith(applicants);
                 });
             });
@@ -89,12 +97,25 @@ describe('Applicants Actions', () => {
                 it('should call setApplicants with applicants and an empty array for applicantNotes', async () => {
                     const setApplicantsMock = jest.spyOn(applicantsActionHelpers, 'setApplicants');
 
-                    await store.dispatch(startSetApplicants());
+                    await store.dispatch(startSetApplicants(positionId));
 
+                    expect(store.getActions().length).toBe(1);
                     expect(setApplicantsMock).toHaveBeenCalledWith(
                         [{ ...applicantWithNoNotes, applicantNotes: [] }]);
                 });
             });
+        });
+    });
+
+    describe('startSetApplicantsTextFilter()', () => {
+        it('should call setApplicantsTextFilter with text', async () => {
+            const mockTextFilter = 'text filter';
+            const setApplicantsTextFilterMock = jest.spyOn(applicantsTextFilters, 'setApplicantsTextFilter');
+
+            await store.dispatch(startSetApplicantsTextFilter(mockTextFilter));
+
+            expect(store.getActions().length).toBe(1);
+            expect(setApplicantsTextFilterMock).toHaveBeenCalledWith(mockTextFilter);
         });
     });
 });

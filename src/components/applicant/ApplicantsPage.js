@@ -1,16 +1,10 @@
 import React from 'react';
 import ApplicantsContainer from 'Applicant/ApplicantsContainer';
 
-export default class ApplicantsPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const ApplicantsPage = (props) => (
+    <div className="applicants_page">
+        <ApplicantsContainer {...props} />
+    </div>
+)
 
-    render() {
-        return (
-            <div id="applicants_page">
-                <ApplicantsContainer />
-            </div>
-        );
-    }
-}
+export default ApplicantsPage;

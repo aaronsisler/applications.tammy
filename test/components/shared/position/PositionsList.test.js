@@ -10,6 +10,7 @@ describe('PositionsList', () => {
         wrapper = shallow(
             <PositionsList
                 positions={positionsInput}
+                linkRoute={'fakeRoute'}
             />);
     }
 

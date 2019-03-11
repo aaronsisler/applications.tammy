@@ -8,7 +8,7 @@ const LoggedOutPage = () => (
         </div>
         <div className="logged_out_link">
             <Link className="nav_link" to="/login">Back to Login</Link>
-            <Link className="nav_link" to="/">Back to Positions</Link>
+            <Link className="nav_link" to="/positions">Back to Positions</Link>
         </div>
     </div>
 );

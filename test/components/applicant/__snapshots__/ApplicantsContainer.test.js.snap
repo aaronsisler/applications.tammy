@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
+exports[`ApplicantsContainer when position is found when applicantId is NOT provided should render ApplicantsContainer correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -8,8 +8,9 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
+      <Connect(ApplicantsListFilter) />
       <ApplicantsList
         applicants={
           Array [
@@ -17,18 +18,20 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
               "applicantId": "firstApplicantId",
               "applicantNotes": Array [
                 Object {
-                  "statusNote": "First note",
+                  "noteMessage": "First note",
                 },
                 Object {
-                  "statusNote": "Second note",
+                  "noteMessage": "Second note",
                 },
               ],
+              "applicantStatus": "APPLIED",
               "positionId": "firstPositionId",
               "user": Object {
                 "addressLine1": "123 Evergreen Terrace",
                 "addressLine2": "Apt. 456",
                 "city": "Durham",
                 "displayName": "Johnny Appleseed",
+                "displayPhoneNumber": "919-123-4567 ext. 12345",
                 "email": "johnny.appleseed@gmail.com",
                 "firstName": "Johnny",
                 "lastName": "Appleseed",
@@ -40,23 +43,269 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "postalCode": "27540",
                 "state": "NC",
               },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
             },
             Object {
               "applicantId": "secondApplicantId",
               "applicantNotes": Array [
                 Object {
-                  "statusNote": "First note",
+                  "noteMessage": "First note",
                 },
                 Object {
-                  "statusNote": "Second note",
+                  "noteMessage": "Second note",
                 },
               ],
+              "applicantStatus": "APPLIED",
               "positionId": "firstPositionId",
               "user": Object {
                 "addressLine1": "123 Evergreen Terrace",
                 "addressLine2": "Apt. 456",
                 "city": "Durham",
                 "displayName": "Johnny Appleseed",
+                "displayPhoneNumber": "919-123-4567 ext. 12345",
+                "email": "johnny.appleseed@gmail.com",
+                "firstName": "New First Name",
+                "lastName": "New Last Name",
+                "middleName": "Middleton",
+                "phoneAreaCode": "919",
+                "phoneExt": "12345",
+                "phoneLineNumber": "4567",
+                "phonePrefix": "123",
+                "postalCode": "27540",
+                "state": "NC",
+              },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
+            },
+          ]
+        }
+        positionId="firstPositionId"
+      />
+    </div>
+    <Connect(ApplicantDetails)
+      applicants={
+        Array [
+          Object {
+            "applicantId": "firstApplicantId",
+            "applicantNotes": Array [
+              Object {
+                "noteMessage": "First note",
+              },
+              Object {
+                "noteMessage": "Second note",
+              },
+            ],
+            "applicantStatus": "APPLIED",
+            "positionId": "firstPositionId",
+            "user": Object {
+              "addressLine1": "123 Evergreen Terrace",
+              "addressLine2": "Apt. 456",
+              "city": "Durham",
+              "displayName": "Johnny Appleseed",
+              "displayPhoneNumber": "919-123-4567 ext. 12345",
+              "email": "johnny.appleseed@gmail.com",
+              "firstName": "Johnny",
+              "lastName": "Appleseed",
+              "middleName": "Middleton",
+              "phoneAreaCode": "919",
+              "phoneExt": "12345",
+              "phoneLineNumber": "4567",
+              "phonePrefix": "123",
+              "postalCode": "27540",
+              "state": "NC",
+            },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
+          },
+          Object {
+            "applicantId": "secondApplicantId",
+            "applicantNotes": Array [
+              Object {
+                "noteMessage": "First note",
+              },
+              Object {
+                "noteMessage": "Second note",
+              },
+            ],
+            "applicantStatus": "APPLIED",
+            "positionId": "firstPositionId",
+            "user": Object {
+              "addressLine1": "123 Evergreen Terrace",
+              "addressLine2": "Apt. 456",
+              "city": "Durham",
+              "displayName": "Johnny Appleseed",
+              "displayPhoneNumber": "919-123-4567 ext. 12345",
+              "email": "johnny.appleseed@gmail.com",
+              "firstName": "New First Name",
+              "lastName": "New Last Name",
+              "middleName": "Middleton",
+              "phoneAreaCode": "919",
+              "phoneExt": "12345",
+              "phoneLineNumber": "4567",
+              "phonePrefix": "123",
+              "postalCode": "27540",
+              "state": "NC",
+            },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
+          },
+        ]
+      }
+      position={
+        Object {
+          "content": Object {
+            "description": "first description",
+            "requirements": Array [
+              "Skill 1",
+              "Skill 2",
+            ],
+            "responsibilities": Array [
+              "Responsibility 1",
+              "Responsibility 2",
+            ],
+          },
+          "jobId": "first job id",
+          "location": "first location",
+          "positionId": "firstPositionId",
+          "title": "first title",
+        }
+      }
+      positionId="firstPositionId"
+      startClearApplicants={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      startSetApplicants={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "firstPositionId",
+            ],
+            Array [
+              "firstPositionId",
+            ],
+            Array [
+              "firstPositionId",
+            ],
+            Array [
+              "firstPositionId",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ApplicantsContainer when position is found when applicantId is provided should render ApplicantsContainer correctly 1`] = `
+<div
+  className="inbox_container"
+>
+  <div
+    className="inbox_widget"
+  >
+    <div
+      className="inbox_list inbox_mobile"
+    >
+      <Connect(ApplicantsListFilter) />
+      <ApplicantsList
+        applicants={
+          Array [
+            Object {
+              "applicantId": "firstApplicantId",
+              "applicantNotes": Array [
+                Object {
+                  "noteMessage": "First note",
+                },
+                Object {
+                  "noteMessage": "Second note",
+                },
+              ],
+              "applicantStatus": "APPLIED",
+              "positionId": "firstPositionId",
+              "user": Object {
+                "addressLine1": "123 Evergreen Terrace",
+                "addressLine2": "Apt. 456",
+                "city": "Durham",
+                "displayName": "Johnny Appleseed",
+                "displayPhoneNumber": "919-123-4567 ext. 12345",
                 "email": "johnny.appleseed@gmail.com",
                 "firstName": "Johnny",
                 "lastName": "Appleseed",
@@ -68,12 +317,227 @@ exports[`ApplicantsContainer should render ApplicantsContainer correctly 1`] = `
                 "postalCode": "27540",
                 "state": "NC",
               },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
+            },
+            Object {
+              "applicantId": "secondApplicantId",
+              "applicantNotes": Array [
+                Object {
+                  "noteMessage": "First note",
+                },
+                Object {
+                  "noteMessage": "Second note",
+                },
+              ],
+              "applicantStatus": "APPLIED",
+              "positionId": "firstPositionId",
+              "user": Object {
+                "addressLine1": "123 Evergreen Terrace",
+                "addressLine2": "Apt. 456",
+                "city": "Durham",
+                "displayName": "Johnny Appleseed",
+                "displayPhoneNumber": "919-123-4567 ext. 12345",
+                "email": "johnny.appleseed@gmail.com",
+                "firstName": "New First Name",
+                "lastName": "New Last Name",
+                "middleName": "Middleton",
+                "phoneAreaCode": "919",
+                "phoneExt": "12345",
+                "phoneLineNumber": "4567",
+                "phonePrefix": "123",
+                "postalCode": "27540",
+                "state": "NC",
+              },
+              "userDocuments": Array [
+                Object {
+                  "dateUploaded": "2018/01/01 01:23:45A",
+                  "documentName": "Document Name 1",
+                  "downloadUrl": "downloadUrl1",
+                  "userDocumentId": "firstDocumentId",
+                },
+                Object {
+                  "dateUploaded": "2018/02/02 01:23:45A",
+                  "documentName": "Document Name 2",
+                  "downloadUrl": "downloadUrl2",
+                  "userDocumentId": "secondDocumentId",
+                },
+              ],
             },
           ]
         }
+        positionId="firstPositionId"
       />
     </div>
-    <Connect(ApplicantDetails) />
+    <Connect(ApplicantDetails)
+      applicantId="firstApplicantId"
+      applicants={
+        Array [
+          Object {
+            "applicantId": "firstApplicantId",
+            "applicantNotes": Array [
+              Object {
+                "noteMessage": "First note",
+              },
+              Object {
+                "noteMessage": "Second note",
+              },
+            ],
+            "applicantStatus": "APPLIED",
+            "positionId": "firstPositionId",
+            "user": Object {
+              "addressLine1": "123 Evergreen Terrace",
+              "addressLine2": "Apt. 456",
+              "city": "Durham",
+              "displayName": "Johnny Appleseed",
+              "displayPhoneNumber": "919-123-4567 ext. 12345",
+              "email": "johnny.appleseed@gmail.com",
+              "firstName": "Johnny",
+              "lastName": "Appleseed",
+              "middleName": "Middleton",
+              "phoneAreaCode": "919",
+              "phoneExt": "12345",
+              "phoneLineNumber": "4567",
+              "phonePrefix": "123",
+              "postalCode": "27540",
+              "state": "NC",
+            },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
+          },
+          Object {
+            "applicantId": "secondApplicantId",
+            "applicantNotes": Array [
+              Object {
+                "noteMessage": "First note",
+              },
+              Object {
+                "noteMessage": "Second note",
+              },
+            ],
+            "applicantStatus": "APPLIED",
+            "positionId": "firstPositionId",
+            "user": Object {
+              "addressLine1": "123 Evergreen Terrace",
+              "addressLine2": "Apt. 456",
+              "city": "Durham",
+              "displayName": "Johnny Appleseed",
+              "displayPhoneNumber": "919-123-4567 ext. 12345",
+              "email": "johnny.appleseed@gmail.com",
+              "firstName": "New First Name",
+              "lastName": "New Last Name",
+              "middleName": "Middleton",
+              "phoneAreaCode": "919",
+              "phoneExt": "12345",
+              "phoneLineNumber": "4567",
+              "phonePrefix": "123",
+              "postalCode": "27540",
+              "state": "NC",
+            },
+            "userDocuments": Array [
+              Object {
+                "dateUploaded": "2018/01/01 01:23:45A",
+                "documentName": "Document Name 1",
+                "downloadUrl": "downloadUrl1",
+                "userDocumentId": "firstDocumentId",
+              },
+              Object {
+                "dateUploaded": "2018/02/02 01:23:45A",
+                "documentName": "Document Name 2",
+                "downloadUrl": "downloadUrl2",
+                "userDocumentId": "secondDocumentId",
+              },
+            ],
+          },
+        ]
+      }
+      position={
+        Object {
+          "content": Object {
+            "description": "first description",
+            "requirements": Array [
+              "Skill 1",
+              "Skill 2",
+            ],
+            "responsibilities": Array [
+              "Responsibility 1",
+              "Responsibility 2",
+            ],
+          },
+          "jobId": "first job id",
+          "location": "first location",
+          "positionId": "firstPositionId",
+          "title": "first title",
+        }
+      }
+      positionId="firstPositionId"
+      startClearApplicants={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      startSetApplicants={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "firstPositionId",
+            ],
+            Array [
+              "firstPositionId",
+            ],
+            Array [
+              "firstPositionId",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    />
   </div>
 </div>
 `;

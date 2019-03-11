@@ -3,103 +3,93 @@ import configureMockStore from 'redux-mock-store';
 import database from 'Firebase/firebase';
 import {
     startAddApplicantNote,
-    startClearApplicant,
-    startSetApplicant,
     startSetApplicantStatus
 } from 'Actions/applicant';
 import * as applicantActionHelpers from 'Actions/helpers/applicant';
+import * as datetimeTools from 'Tools/datetime';
 import applicants from '../fixtures/applicants';
-import { position } from '../fixtures/positions';
+import positions, { position } from '../fixtures/positions';
 import { APPLICANT_STATUSES } from 'Tools/constants';
 
 const createMockStore = configureMockStore([thunk]);
 
 describe('Applicant Actions', () => {
     let store;
+    let setWithPriority;
     let push;
     let update;
     const [applicant] = applicants;
     const { applicantId } = applicant;
     const { positionId } = position;
+    const mockDateTime = new Date().getTime();
 
     beforeEach(() => {
-        store = createMockStore({ applicant, applicants });
-        push = jest.fn().mockResolvedValue();
+        store = createMockStore({ applicants, positions });
+        jest.spyOn(datetimeTools, 'getPriority').mockReturnValue(mockDateTime);
+        setWithPriority = jest.fn().mockResolvedValue();
+        push = jest.fn().mockReturnValue(({ setWithPriority }));
         update = jest.fn().mockResolvedValue();
         jest.spyOn(database, 'ref').mockReturnValue({ push, update });
     });
 
     afterEach(() => {
         database.ref.mockRestore();
+        datetimeTools.getPriority.mockRestore();
     });
 
     describe('startAddApplicantNote() method', () => {
-        const statusNote = 'mockNewNote';
+        const noteMessage = 'mockNewNote';
+        const dataObject = { applicantId, noteMessage, positionId };
 
         it(`should call dispatch with submitApplication`, async () => {
             const addApplicantNoteMock = jest.spyOn(applicantActionHelpers, 'addApplicantNote');
 
-            await store.dispatch(startAddApplicantNote(statusNote));
+            await store.dispatch(startAddApplicantNote(dataObject));
 
             expect(store.getActions().length).toBe(1);
-            expect(addApplicantNoteMock).toHaveBeenLastCalledWith({ statusNote });
+            expect(addApplicantNoteMock).toHaveBeenLastCalledWith({ applicantId, noteMessage });
         });
 
-        it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startAddApplicantNote(statusNote));
+        it(`should call database ref with specific path`, () => {
+            store.dispatch(startAddApplicantNote(dataObject));
 
             expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}/${applicantId}/applicantNotes`);
         });
 
-        it('should call push with status note', async () => {
-            await store.dispatch(startAddApplicantNote(statusNote));
+        it('should call push', () => {
+            store.dispatch(startAddApplicantNote(dataObject));
 
-            expect(push).toHaveBeenLastCalledWith({ statusNote });
+            expect(push).toHaveBeenCalled();
         });
-    });
 
-    describe('startClearApplicant() method', () => {
-        it(`should call dispatch with clearApplicant`, async () => {
-            const clearApplicantMock = jest.spyOn(applicantActionHelpers, 'clearApplicant');
+        it('should call setWithPriority', () => {
+            store.dispatch(startAddApplicantNote(dataObject));
 
-            await store.dispatch(startClearApplicant());
-
-            expect(store.getActions().length).toBe(1);
-            expect(clearApplicantMock).toHaveBeenCalled();
-        });
-    });
-
-    describe('startSetApplicant() method', () => {
-        it(`should call dispatch with setApplicant`, async () => {
-            const setApplicantMock = jest.spyOn(applicantActionHelpers, 'setApplicant');
-
-            await store.dispatch(startSetApplicant(applicant.applicantId));
-
-            expect(store.getActions().length).toBe(1);
-            expect(setApplicantMock).toHaveBeenLastCalledWith(applicant);
+            expect(setWithPriority).toHaveBeenLastCalledWith({ noteMessage }, mockDateTime);
         });
     });
 
     describe('startSetApplicantStatus() method', () => {
         const [applicantStatus] = APPLICANT_STATUSES;
+        const dataObject = { applicantId, applicantStatus, positionId };
 
         it(`should call dispatch with setApplicantStatus`, async () => {
             const setApplicantStatusMock = jest.spyOn(applicantActionHelpers, 'setApplicantStatus');
 
-            await store.dispatch(startSetApplicantStatus(applicantStatus));
+            await store.dispatch(startSetApplicantStatus(dataObject));
 
             expect(store.getActions().length).toBe(1);
-            expect(setApplicantStatusMock).toHaveBeenLastCalledWith(applicantStatus);
+            expect(setApplicantStatusMock).toHaveBeenLastCalledWith({ applicantId, applicantStatus });
         });
 
-        it(`should call update with applicant status`, async () => {
-            await store.dispatch(startSetApplicantStatus(applicantStatus));
+        it(`should call update with applicant status`, () => {
+            store.dispatch(startSetApplicantStatus(dataObject));
 
             expect(update).toHaveBeenLastCalledWith({ applicantStatus });
         });
 
-        it(`should call database ref with specific path`, async () => {
-            await store.dispatch(startSetApplicantStatus(applicantStatus));
+        it(`should call database ref with specific path`, () => {
+            store.dispatch(startSetApplicantStatus(dataObject));
 
             expect(database.ref).toHaveBeenLastCalledWith(`applicants/${positionId}/${applicantId}`);
         });

@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ApplicationProcessContainer } from 'Application/ApplicationProcessContainer';
-import positions from '../../fixtures/positions';
+import { position, positionId } from '../../fixtures/positions';
+import history from 'Tools/history';
+jest.mock('Tools/history');
 
 describe('ApplicationProcessContainer', () => {
     let wrapper;
-    const [position] = positions;
+    const push = jest.fn();
     const startResetApplicationProcess = jest.fn();
 
     const buildWrapper = (positionInput, currentStep = 0) => {
@@ -13,40 +15,62 @@ describe('ApplicationProcessContainer', () => {
             <ApplicationProcessContainer
                 currentStep={currentStep}
                 position={positionInput}
+                positionId={positionId}
                 startResetApplicationProcess={startResetApplicationProcess}
             />
         );
     };
 
-    it('should render correctly when on User info step', () => {
-        buildWrapper(position);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render correctly when on User Documents step', () => {
-        buildWrapper(position, 1);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render correctly when on Review step', () => {
-        buildWrapper(position, 2);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render correctly when on Submitted step', () => {
-        buildWrapper(position, 3);
-
-        expect(wrapper).toMatchSnapshot();
-    });
-
     it('should call startResetApplicationProcess on unmount', () => {
-        buildWrapper(position);
+        buildWrapper(position, 0);
 
         wrapper.unmount();
 
         expect(startResetApplicationProcess).toHaveBeenCalled();
+    });
+
+    describe('when position is found', () => {
+        describe('when on User Info Step', () => {
+            it('should render correctly', () => {
+                buildWrapper(position, 0);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+
+        describe('when on User Documents Step', () => {
+            it('should render correctly', () => {
+                buildWrapper(position, 1);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+
+        describe('when on Review Step', () => {
+            it('should render correctly', () => {
+                buildWrapper(position, 2);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+
+        describe('when on Submitted Step', () => {
+            it('should render correctly', () => {
+                buildWrapper(position, 3);
+
+                expect(wrapper).toMatchSnapshot();
+            });
+        });
+    });
+
+    describe('when position is NOT found', () => {
+        beforeEach(() => {
+            history.push = push;
+            buildWrapper(undefined, undefined);
+        });
+
+        it('should call history.push with correct route', () => {
+            expect(push).toHaveBeenLastCalledWith(`/not_found`);
+        })
     });
 });

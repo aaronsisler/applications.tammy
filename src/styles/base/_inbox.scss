@@ -1,85 +1,166 @@
-.inbox_container {
-    display: grid;
-    min-height: 90vh;
-    padding: $small 5%;
-}
-
-.inbox_widget {
-    display: grid;
-    grid-gap: $small;
-    grid-template-columns: 20% 80%;
-}
-
-.inbox_details {
-    display: grid;
-    grid-gap: $small;
-    grid-template-rows: 0.5fr 3fr;
-    height: 90vh;
-}
-
-.inbox_details_empty {
-    align-content: center;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    display: grid;
-    font-size: $midlarge;
-    height: 100%;
-    justify-content: center;
-}
-
-.inbox_list {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    display: grid;
-    grid-template-rows: 0.5fr 10fr;
-    height: 100%;
-    input {
-        border: none;
-        border-bottom: 1px solid $midLightGrey;
-        margin: 0;
-    }
-    .nav_link {
-        margin: 0;
-    }
-}
-
-.inbox_details_header {
-    align-content: center;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    color: $darkMainColor;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: $small $medium;
-}
-
-.inbox_details_header {
-    font-family: $secondaryFont;
-    font-size: $medium;
-    &__title,
-    &__display_name {
-        font-weight: 600;
-        font-size: $midlarge;
-        margin-bottom: $small;
-    }
-    &__job_id,
-    &__legal_name,
-    &__display_phone_number {
-        margin-bottom: $xsmall;
-    }
-    &__email {
-        word-break: break-all;
-    }
-    &__contact {
-        align-content: center;
+//Small screens - MOBILE
+//max-width 640px, small screens
+@media only screen {
+    .inbox_container {
         display: grid;
-        justify-content: flex-end;
+        margin: $small;
+        min-height: 87vh;
+    }
+    .inbox_widget {
+        display: grid;
+    }
+    .inbox_list {
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+        display: grid;
+        grid-template-rows: 0.5fr 10fr;
+        height: 100%;
+        input {
+            border: none;
+            border-bottom: 1px solid $midLightGrey;
+            margin: 0;
+        }
+        .nav_link {
+            margin: 0;
+        }
+    }
+    .inbox_details {
+        display: grid;
+        grid-gap: $small;
+        grid-template-rows: 0fr auto;
+        height: 100%;
+    }
+    .inbox_details_header {
+        align-content: center;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+        color: $darkMainColor;
+        display: grid;
+        font-family: $secFont;
+        grid-template-rows: 1fr auto;
+        padding: $small;
+        text-align: center;
+        &__actions {
+            display: grid;
+            grid-auto-flow: column;
+            grid-gap: $medium;
+            justify-content: center;
+            margin: $small 0;
+        }
+        &__display_name {
+            font-size: $midlarge;
+            font-weight: 600;
+            margin-bottom: $xsmall;
+        }
+        &__email {
+            font-size: $medium;
+            word-break: break-all;
+        }
+        &__job_id {
+            font-size: $medium;
+            margin-bottom: $small;
+        }
+        &__location {
+            align-content: center;
+            display: grid;
+            font-size: $medium;
+            text-align: center;
+        }
+        &__phone_number {
+            font-size: $medium;
+            margin-bottom: $xsmall;
+        }
+        &__title {
+            font-size: $midlarge;
+            font-weight: 600;
+            margin-bottom: $small;
+        }
+    }
+    .inbox_details_content {
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+        display: grid;
+        grid-gap: $medium;
+        padding: $medium;
+    }
+    .inbox_mobile {
+        display: none;
     }
 }
 
-.inbox_details_content {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    padding: $large;
-    overflow-y: auto;
+//Medium screens - TABLET
+//min-width 641px, medium screens
+@media only screen and (min-width: 40.063em) {}
+
+//Large screens - DESKTOP
+//min-width 1025px, large screens
+@media only screen and (min-width: 64.063em) {
+    .inbox_mobile {
+        display: inherit;
+    }
+    .inbox_container {
+        display: grid;
+        height: 94vh;
+        margin: 0;
+        padding: $small 5%; //If top/bottom padding is adjusted, fix inbox_details height
+    }
+    .inbox_widget {
+        display: grid;
+        grid-gap: $small;
+        grid-template-columns: 20% 80%;
+    }
+    .inbox_details {
+        display: grid;
+        grid-gap: $small;
+        grid-template-rows: 0.5fr 3fr;
+        height: calc(94vh - 2.4rem);
+        padding: 0;
+        &__empty {
+            align-content: center;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+            display: grid;
+            font-size: $midlarge;
+            height: 100%;
+            justify-content: center;
+        }
+    }
+    .inbox_details_header {
+        align-content: center;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+        color: $darkMainColor;
+        display: grid;
+        grid-template-areas: "inbox_details_header__content inbox_details_header__actions";
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        padding: $small $large;
+        &__actions {
+            grid-area: inbox_details_header__actions;
+            justify-content: flex-end;
+        }
+        &__content {
+            grid-area: inbox_details_header__content;
+            text-align: left;
+        }
+        &__location {
+            text-align: left;
+        }
+        &__mobile_button {
+            display: none;
+        }
+    }
+    .inbox_details_content {
+        grid-template-rows: 0fr auto;
+        overflow-y: auto;
+        padding: $large;
+    }
 }
+
+//XLarge screens
+//min-width 1441px, xlarge screens
+@media only screen and (min-width: 90.063em) {}
+
+//XXLarge screens
+//min-width 1921px, xlarge screens
+@media only screen and (min-width: 120.063em) {}

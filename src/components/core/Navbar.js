@@ -44,8 +44,8 @@ export class Navbar extends React.Component {
 
     render() {
         return (
-            <div id="navbar">
-                <div className="nav_toggles">
+            <div className="navbar">
+                <div className="nav__header">
                     {this.props.isAuthenticated && <NotificationsContainer />}
                     {
                         !this.state.isNavOpen &&
@@ -71,13 +71,13 @@ export class Navbar extends React.Component {
                         <Link to="/dashboard" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Dashboard</Link>
                         <Link to="/user_profile" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Profile</Link>
                         <Link to="/user_documents" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>User Documents</Link>
-                        <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
+                        <Link to="/positions" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
                         <button className="button nav_side_menu_link" onClick={this.handleLogout}>Logout</button>
                     </div>
                 }
                 {!this.props.isAuthenticated &&
                     <div id={navSideMenu}>
-                        <Link to="/" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
+                        <Link to="/positions" className="nav_side_menu_link" onClick={this.handleCloseSideMenu}>Positions</Link>
                         <Link className="nav_side_menu_link" to="/login" onClick={this.handleCloseSideMenu}>Login</Link>
                     </div>
                 }

@@ -2,97 +2,72 @@
 
 exports[`UserNameWidget when isReadOnly is FALSE should render UserNameWidget correctly 1`] = `
 <div
-  id="user_name_widget"
+  className="user_name_widget"
 >
   <div
-    className="user_name_legal_content"
+    className="user_name_widget__legal_name"
   >
     <div
-      className="user_name_content_title"
+      className="user_name_widget__legal_name_title"
     >
       Full Name
     </div>
     <div
-      className="user_name_legal_inputs"
+      className="user_name_widget__legal_name_inputs"
     >
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="firstName"
-          name="firstName"
-          onBlur={[MockFunction]}
-          onChange={[Function]}
-          placeholder="First Name"
-          readOnly={false}
-          type="text"
-          value="Johnny"
-        />
-      </div>
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="middleName"
-          name="middleName"
-          onChange={[Function]}
-          placeholder="Middle Name"
-          readOnly={false}
-          type="text"
-          value="Middleton"
-        />
-      </div>
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="lastName"
-          name="lastName"
-          onBlur={[MockFunction]}
-          onChange={[Function]}
-          placeholder="Last Name"
-          readOnly={false}
-          type="text"
-          value="Appleseed"
-        />
-      </div>
+      <input
+        name="firstName"
+        onBlur={[MockFunction]}
+        onChange={[Function]}
+        placeholder="First Name"
+        readOnly={false}
+        type="text"
+        value="Johnny"
+      />
+      <input
+        name="middleName"
+        onChange={[Function]}
+        placeholder="Middle Name"
+        readOnly={false}
+        type="text"
+        value="Middleton"
+      />
+      <input
+        name="lastName"
+        onBlur={[MockFunction]}
+        onChange={[Function]}
+        placeholder="Last Name"
+        readOnly={false}
+        type="text"
+        value="Appleseed"
+      />
     </div>
   </div>
   <div
-    className="user_name_display_content"
+    className="user_name_widget__display_name"
   >
     <div
-      className="user_name_content_title"
+      className="user_name_widget__display_name_title"
     >
       Display Name
     </div>
     <div
-      className="user_name_display_input"
+      className="user_name_widget__display_name_inputs"
     >
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="displayName"
-          name="displayName"
-          onChange={[Function]}
-          placeholder="Display Name"
-          readOnly={false}
-          type="text"
-          value="Johnny Appleseed"
-        />
-      </div>
+      <input
+        name="displayName"
+        onChange={[Function]}
+        placeholder="Display Name"
+        readOnly={false}
+        type="text"
+        value="Johnny Appleseed"
+      />
     </div>
   </div>
   <div
-    className="user_name_widget_button"
+    className="user_name_widget__button"
   >
     <button
-      className="button"
       disabled={false}
       onClick={[Function]}
     >
@@ -104,94 +79,67 @@ exports[`UserNameWidget when isReadOnly is FALSE should render UserNameWidget co
 
 exports[`UserNameWidget when isReadOnly is TRUE should render UserNameWidget correctly 1`] = `
 <div
-  id="user_name_widget"
+  className="user_name_widget"
 >
   <div
-    className="user_name_legal_content"
+    className="user_name_widget__legal_name"
   >
     <div
-      className="user_name_content_title"
+      className="user_name_widget__legal_name_title"
     >
       Full Name
     </div>
     <div
-      className="user_name_legal_inputs"
+      className="user_name_widget__legal_name_inputs"
     >
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="firstName"
-          name="firstName"
-          onBlur={[MockFunction]}
-          onChange={[Function]}
-          placeholder="First Name"
-          readOnly={true}
-          type="text"
-          value="Johnny"
-        />
-      </div>
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="middleName"
-          name="middleName"
-          onChange={[Function]}
-          placeholder="Middle Name"
-          readOnly={true}
-          type="text"
-          value="Middleton"
-        />
-      </div>
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="lastName"
-          name="lastName"
-          onBlur={[MockFunction]}
-          onChange={[Function]}
-          placeholder="Last Name"
-          readOnly={true}
-          type="text"
-          value="Appleseed"
-        />
-      </div>
+      <input
+        name="firstName"
+        onBlur={[MockFunction]}
+        onChange={[Function]}
+        placeholder="First Name"
+        readOnly={true}
+        type="text"
+        value="Johnny"
+      />
+      <input
+        name="middleName"
+        onChange={[Function]}
+        placeholder="Middle Name"
+        readOnly={true}
+        type="text"
+        value="Middleton"
+      />
+      <input
+        name="lastName"
+        onBlur={[MockFunction]}
+        onChange={[Function]}
+        placeholder="Last Name"
+        readOnly={true}
+        type="text"
+        value="Appleseed"
+      />
     </div>
   </div>
   <div
-    className="user_name_display_content"
+    className="user_name_widget__display_name"
   >
     <div
-      className="user_name_content_title"
+      className="user_name_widget__display_name_title"
     >
       Display Name
     </div>
     <div
-      className="user_name_display_input"
+      className="user_name_widget__display_name_inputs"
     >
-      <div
-        className="user_name_input"
-      >
-        <input
-          className="text_input"
-          id="displayName"
-          name="displayName"
-          onChange={[Function]}
-          placeholder="Display Name"
-          readOnly={true}
-          type="text"
-          value="Johnny Appleseed"
-        />
-      </div>
+      <input
+        name="displayName"
+        onChange={[Function]}
+        placeholder="Display Name"
+        readOnly={true}
+        type="text"
+        value="Johnny Appleseed"
+      />
     </div>
   </div>
-  <div
-    className="user_name_widget_button"
-  />
 </div>
 `;

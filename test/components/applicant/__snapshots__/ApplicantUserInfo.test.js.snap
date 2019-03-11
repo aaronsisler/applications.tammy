@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicantUserInfo should render ApplicantUserInfo correctly 1`] = `
+<div
+  className="applicant_user_info"
+>
+  <UserNameWidget
+    isReadOnly={true}
+    user={
+      Object {
+        "addressLine1": "123 Evergreen Terrace",
+        "addressLine2": "Apt. 456",
+        "city": "Durham",
+        "displayName": "Johnny Appleseed",
+        "displayPhoneNumber": "919-123-4567 ext. 12345",
+        "email": "johnny.appleseed@gmail.com",
+        "firstName": "Johnny",
+        "lastName": "Appleseed",
+        "middleName": "Middleton",
+        "phoneAreaCode": "919",
+        "phoneExt": "12345",
+        "phoneLineNumber": "4567",
+        "phonePrefix": "123",
+        "postalCode": "27540",
+        "state": "NC",
+      }
+    }
+  />
+  <UserContactInfoWidget
+    isReadOnly={true}
+    user={
+      Object {
+        "addressLine1": "123 Evergreen Terrace",
+        "addressLine2": "Apt. 456",
+        "city": "Durham",
+        "displayName": "Johnny Appleseed",
+        "displayPhoneNumber": "919-123-4567 ext. 12345",
+        "email": "johnny.appleseed@gmail.com",
+        "firstName": "Johnny",
+        "lastName": "Appleseed",
+        "middleName": "Middleton",
+        "phoneAreaCode": "919",
+        "phoneExt": "12345",
+        "phoneLineNumber": "4567",
+        "phonePrefix": "123",
+        "postalCode": "27540",
+        "state": "NC",
+      }
+    }
+  />
+  <UserAddressWidget
+    isReadOnly={true}
+    user={
+      Object {
+        "addressLine1": "123 Evergreen Terrace",
+        "addressLine2": "Apt. 456",
+        "city": "Durham",
+        "displayName": "Johnny Appleseed",
+        "displayPhoneNumber": "919-123-4567 ext. 12345",
+        "email": "johnny.appleseed@gmail.com",
+        "firstName": "Johnny",
+        "lastName": "Appleseed",
+        "middleName": "Middleton",
+        "phoneAreaCode": "919",
+        "phoneExt": "12345",
+        "phoneLineNumber": "4567",
+        "phonePrefix": "123",
+        "postalCode": "27540",
+        "state": "NC",
+      }
+    }
+  />
+</div>
+`;

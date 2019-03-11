@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import history from 'Tools/history';
 import PositionDetailsContent from 'Position/PositionDetailsContent';
 import PositionApply from 'Position/PositionApply';
 
@@ -9,20 +10,31 @@ export class PositionDetails extends React.Component {
         super(props);
     }
 
+    handleNavigateBack = () => history.push('/positions');
+
     render() {
         const { position } = this.props;
         if (!position) {
             return (
-                <div className="inbox_details_empty">
+                <div className="inbox_details__empty inbox_mobile">
                     Please select an item to view
-                    </div>
+                </div>
             )
         }
 
         return (
             <div className="inbox_details" >
                 <div className="inbox_details_header">
-                    <div>
+                    <div className="inbox_details_header__actions">
+                        <button
+                            className="inbox_details_header__mobile_button"
+                            onClick={this.handleNavigateBack}
+                        >
+                            Back to List
+                        </button>
+                        <PositionApply positionId={position.positionId} />
+                    </div>
+                    <div className="inbox_details_header__content">
                         <div className="inbox_details_header__title">
                             {position.title}
                         </div>
@@ -32,9 +44,6 @@ export class PositionDetails extends React.Component {
                         <div className="inbox_details_header__location">
                             Location: {position.location}
                         </div>
-                    </div>
-                    <div>
-                        <PositionApply />
                     </div>
                 </div>
                 <div className="inbox_details_content">
@@ -46,14 +55,19 @@ export class PositionDetails extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
-    position: state.position
-});
+const mapStateToProps = (state, props) => {
+    const { positionId } = props.match.params;
+    const position = positionId
+        ? state.positions.find((statePosition) => statePosition.positionId == positionId)
+        : undefined;
+
+    return ({
+        position,
+    });
+};
 
 export default connect(mapStateToProps)(PositionDetails);
-
 
 PositionDetails.propTypes = {
     position: PropTypes.object,
 };
-

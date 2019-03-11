@@ -1,24 +1,37 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    #user_name_widget {
+    .user_name_widget {
         background: white;
         border: 1px solid $midLightGrey;
+        display: grid;
+        grid-gap: $small;
         padding: $medium;
-    }
-    .user_name_legal_inputs {
-        font-family: $secondaryFont;
-    }
-    .user_name_input {
-        display: flex;
-    }
-    .user_name_content_title {
-        font-family: $secondaryFont;
-        font-size: $medium;
-    }
-    .user_name_widget_button {
-        display: flex;
-        justify-content: center;
+        &__display_name {
+            &_title {
+                font-family: $secFont;
+                font-size: $medium;
+                margin-bottom: $xsmall;
+            }
+            &_inputs {
+                display: grid;
+            }
+        }
+        &__legal_name {
+            &_title {
+                font-family: $secFont;
+                font-size: $medium;
+                margin-bottom: $xsmall;
+            }
+            &_inputs {
+                display: grid;
+                grid-gap: $small;
+            }
+        }
+        &__button {
+            display: grid;
+            width: 100%;
+        }
     }
 }
 
@@ -29,18 +42,11 @@
 //Large screens - DESKTOP
 //min-width 1025px, large screens
 @media only screen and (min-width: $largeScreen) {
-    #user_name_widget {
-        max-width: 70rem;
-    }
-    .user_name_legal_inputs {
-        display: flex;
-        flex-direction: row;
-    }
-    .user_name_content_title {
-        margin: $xsmall;
-    }
-    .user_name_widget_button {
-        justify-content: flex-start;
+    .user_name_widget {
+        max-width: 50rem;
+        &__button {
+            display: inline-block;
+        }
     }
 }
 

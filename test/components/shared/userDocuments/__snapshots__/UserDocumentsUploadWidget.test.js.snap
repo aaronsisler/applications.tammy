@@ -24,7 +24,7 @@ exports[`UserDocumentsUploadWidget should render UserDocumentsUploadWidget corre
           onUploadSuccess={[Function]}
           storageRef={
             Object {
-              "child": [MockFunction],
+              "child": [Function],
             }
           }
         />
@@ -65,7 +65,7 @@ exports[`UserDocumentsUploadWidget should render UserDocumentsUploadWidget corre
           onUploadSuccess={[Function]}
           storageRef={
             Object {
-              "child": [MockFunction],
+              "child": [Function],
             }
           }
         />
@@ -104,7 +104,7 @@ exports[`UserDocumentsUploadWidget should render UserDocumentsUploadWidget with 
           onUploadSuccess={[Function]}
           storageRef={
             Object {
-              "child": [MockFunction],
+              "child": [Function],
             }
           }
         />

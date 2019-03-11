@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PositionsContainer should render PositionsContainer correctly when a position is NOT selected 1`] = `
+exports[`PositionsContainer when positionId is NOT available should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -8,10 +8,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -52,12 +53,56 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "",
+        }
+      }
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+    />
   </div>
 </div>
 `;
 
-exports[`PositionsContainer should render PositionsContainer correctly when a position is selected 1`] = `
+exports[`PositionsContainer when positionId is available should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -65,10 +110,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list inbox_mobile"
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -109,12 +155,57 @@ exports[`PositionsContainer should render PositionsContainer correctly when a po
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "",
+        }
+      }
+      positionId="firstPositionId"
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+    />
   </div>
 </div>
 `;
 
-exports[`PositionsContainer should render PositionsContainer correctly when text filter is applied 1`] = `
+exports[`PositionsContainer when text filter is applied should render correctly 1`] = `
 <div
   className="inbox_container"
 >
@@ -122,10 +213,11 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
     className="inbox_widget"
   >
     <div
-      className="inbox_list"
+      className="inbox_list "
     >
       <Connect(PositionsListFilter) />
       <PositionsList
+        linkRoute="positions"
         positions={
           Array [
             Object {
@@ -145,11 +237,72 @@ exports[`PositionsContainer should render PositionsContainer correctly when text
               "positionId": "firstPositionId",
               "title": "first title",
             },
+            Object {
+              "content": Object {
+                "description": "second description",
+                "requirements": Array [
+                  "Skill 1",
+                  "Skill 2",
+                ],
+                "responsibilities": Array [
+                  "Responsibility 1",
+                  "Responsibility 2",
+                ],
+              },
+              "jobId": "second job id",
+              "location": "second location",
+              "positionId": "secondPositionId",
+              "title": "second title",
+            },
           ]
         }
       />
     </div>
-    <Connect(PositionDetails) />
+    <Connect(PositionDetails)
+      filters={
+        Object {
+          "text": "first job id",
+        }
+      }
+      positions={
+        Array [
+          Object {
+            "content": Object {
+              "description": "first description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "first job id",
+            "location": "first location",
+            "positionId": "firstPositionId",
+            "title": "first title",
+          },
+          Object {
+            "content": Object {
+              "description": "second description",
+              "requirements": Array [
+                "Skill 1",
+                "Skill 2",
+              ],
+              "responsibilities": Array [
+                "Responsibility 1",
+                "Responsibility 2",
+              ],
+            },
+            "jobId": "second job id",
+            "location": "second location",
+            "positionId": "secondPositionId",
+            "title": "second title",
+          },
+        ]
+      }
+    />
   </div>
 </div>
 `;

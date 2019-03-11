@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
 import selectPositions from 'Selectors/positions';
 import PositionDetails from 'Position/PositionDetails';
 import PositionsList from 'Shared/position/PositionsList';
@@ -12,20 +11,18 @@ export class PositionsContainer extends React.Component {
         super(props);
     }
 
-    componentWillUnmount() {
-        this.props.startClearPosition();
-    }
+    handleMobileClassname = () => this.props.positionId ? "inbox_mobile" : "";
 
     render() {
         return (
             <div className="inbox_container">
                 {this.props.positions &&
                     <div className="inbox_widget">
-                        <div className="inbox_list">
+                        <div className={`inbox_list ${this.handleMobileClassname()}`}>
                             <PositionsListFilter />
-                            <PositionsList positions={this.props.positions} />
+                            <PositionsList positions={this.props.positions} linkRoute="positions" />
                         </div>
-                        <PositionDetails />
+                        <PositionDetails {...this.props} />
                     </div>
                 }
             </div>
@@ -34,18 +31,14 @@ export class PositionsContainer extends React.Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
+    positionId: props.match.params.positionId,
     positions: selectPositions(state.positions, state.filters.positions),
 });
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PositionsContainer);
+export default connect(mapStateToProps)(PositionsContainer);
 
 PositionsContainer.propTypes = {
+    positionId: PropTypes.string,
     positions: PropTypes.array,
-    startClearPosition: PropTypes.func.isRequired,
 };

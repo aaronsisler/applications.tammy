@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { startClearPosition } from 'Actions/position';
+import history from 'Tools/history';
 import {
     startRemovePositionWatch,
     startSetPositionWatchLevel
@@ -12,14 +12,14 @@ export class PositionWatchEditWidget extends React.Component {
         super(props);
     }
 
+    handleRemovePositionWatch = () => {
+        this.props.startRemovePositionWatch(this.props.positionId);
+        return history.push('/dashboard');
+    }
+
     handleSetPositionWatchLevel = (e) => {
         const notificationLevel = e.target.value;
         this.props.startSetPositionWatchLevel(this.props.positionId, notificationLevel)
-    }
-
-    handleRemovePositionWatch = () => {
-        this.props.startRemovePositionWatch(this.props.positionId);
-        this.props.startClearPosition();
     }
 
     retrievePositionWatchLevel = () => {
@@ -38,27 +38,23 @@ export class PositionWatchEditWidget extends React.Component {
                         Notification&nbsp;Level:&nbsp;
                     </div>
                     {currentPositionwatchLevel &&
-                        <div className="position_watch_edit_widget__select">
-                            <select
-                                className="select"
-                                value={currentPositionwatchLevel}
-                                onChange={this.handleSetPositionWatchLevel}
-                            >
-                                <option value="ALL">ALL</option>
-                                <option value="SOME">SOME</option>
-                                <option value="REQUIRED">REQUIRED</option>
-                            </select>
-                        </div>
+                        <select
+                            className="position_watch_edit_widget__select"
+                            value={currentPositionwatchLevel}
+                            onChange={this.handleSetPositionWatchLevel}
+                        >
+                            <option value="ALL">ALL</option>
+                            <option value="SOME">SOME</option>
+                            <option value="REQUIRED">REQUIRED</option>
+                        </select>
                     }
                 </div>
-                <div className="position_watch_edit_widget__removal">
-                    <button
-                        className="button"
-                        onClick={this.handleRemovePositionWatch}
-                    >
-                        Remove Watch
-                    </button>
-                </div>
+                <button
+                    className="position_watch_edit_widget__button"
+                    onClick={this.handleRemovePositionWatch}
+                >
+                    Remove Watch
+                </button>
             </div>
         );
     }
@@ -66,13 +62,11 @@ export class PositionWatchEditWidget extends React.Component {
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-    positionId: state.position.positionId,
     positionsWatched: state.positionsWatched,
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-    startClearPosition: () => dispatch(startClearPosition()),
     startRemovePositionWatch: (positionId) => dispatch(startRemovePositionWatch(positionId)),
     startSetPositionWatchLevel: (positionId, notificationLevel) => dispatch(startSetPositionWatchLevel(positionId, notificationLevel)),
 });
@@ -82,7 +76,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(PositionWatchEditWid
 PositionWatchEditWidget.propTypes = {
     positionId: PropTypes.string.isRequired,
     positionsWatched: PropTypes.array,
-    startClearPosition: PropTypes.func.isRequired,
     startRemovePositionWatch: PropTypes.func.isRequired,
     startSetPositionWatchLevel: PropTypes.func.isRequired,
 };

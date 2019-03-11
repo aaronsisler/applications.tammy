@@ -11,25 +11,19 @@ export default class ApplicantUserInfo extends React.Component {
 
     render() {
         return (
-            <div id="applicant_user_info">
-                <div className="user_widget">
-                    <UserNameWidget
-                        isReadOnly={true}
-                        user={this.props.user}
-                    />
-                </div>
-                <div className="user_widget">
-                    <UserContactInfoWidget
-                        isReadOnly={true}
-                        user={this.props.user}
-                    />
-                </div>
-                <div className="user_widget">
-                    <UserAddressWidget
-                        isReadOnly={true}
-                        user={this.props.user}
-                    />
-                </div>
+            <div className="applicant_user_info">
+                <UserNameWidget
+                    isReadOnly={true}
+                    user={this.props.user}
+                />
+                <UserContactInfoWidget
+                    isReadOnly={true}
+                    user={this.props.user}
+                />
+                <UserAddressWidget
+                    isReadOnly={true}
+                    user={this.props.user}
+                />
             </div>
         );
     }

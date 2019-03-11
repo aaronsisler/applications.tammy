@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkWrapper should render LinkWrapper correctly 1`] = `
+<Link
+  className="link_wrapper nav_link"
+  onClick={[MockFunction]}
+  replace={false}
+  to="to location"
+>
+  mock link text
+</Link>
+`;

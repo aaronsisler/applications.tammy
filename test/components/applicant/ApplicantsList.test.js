@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ApplicantsList from 'Applicant/ApplicantsList';
 import applicants from '../../fixtures/applicants';
+import { positionId } from '../../fixtures/positions';
 
 describe('ApplicantsList', () => {
     let wrapper;
@@ -10,6 +11,7 @@ describe('ApplicantsList', () => {
         wrapper = shallow(
             <ApplicantsList
                 applicants={applicantsInput}
+                positionId={positionId}
             />);
     }
 

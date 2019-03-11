@@ -1,12 +1,14 @@
 //Small screens - MOBILE
 //max-width 640px, small screens
 @media only screen {
-    .nav_toggles {
+    .nav__header {
+        align-items: center;
         background-color: $mainColor;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        padding: $small;
+        padding-right: $small;
+        height: $navHeaderMobileHeight;
     }
     .navbar_favicon {
         color: white;
@@ -62,7 +64,11 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: $largeScreen) {}
+@media only screen and (min-width: $largeScreen) {
+    .nav__header {
+        height: $navHeaderDesktopHeight;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens

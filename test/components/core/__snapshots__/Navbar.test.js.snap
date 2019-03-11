@@ -2,10 +2,10 @@
 
 exports[`Navbar when user is NOT authenticated should render Navbar correctly 1`] = `
 <div
-  id="navbar"
+  className="navbar"
 >
   <div
-    className="nav_toggles"
+    className="nav__header"
   >
     <FontAwesomeIcon$1
       border={false}
@@ -45,7 +45,7 @@ exports[`Navbar when user is NOT authenticated should render Navbar correctly 1`
       className="nav_side_menu_link"
       onClick={[Function]}
       replace={false}
-      to="/"
+      to="/positions"
     >
       Positions
     </Link>
@@ -63,10 +63,10 @@ exports[`Navbar when user is NOT authenticated should render Navbar correctly 1`
 
 exports[`Navbar when user is authenticated should render Navbar correctly 1`] = `
 <div
-  id="navbar"
+  className="navbar"
 >
   <div
-    className="nav_toggles"
+    className="nav__header"
   >
     <Connect(NotificationsContainer) />
     <FontAwesomeIcon$1
@@ -131,7 +131,7 @@ exports[`Navbar when user is authenticated should render Navbar correctly 1`] = 
       className="nav_side_menu_link"
       onClick={[Function]}
       replace={false}
-      to="/"
+      to="/positions"
     >
       Positions
     </Link>

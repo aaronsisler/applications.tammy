@@ -7,7 +7,6 @@
         flex-flow: column;
         font-size: $medium;
         line-height: $midlarge;
-        width: 80%;
     }
     .position_details_content_wrapper {
         margin-bottom: $small;
@@ -29,7 +28,11 @@
 
 //Large screens - DESKTOP
 //min-width 1025px, large screens
-@media only screen and (min-width: 64.063em) {}
+@media only screen and (min-width: 64.063em) {
+    .position_details_content {
+        width: 80%;
+    }
+}
 
 //XLarge screens
 //min-width 1441px, xlarge screens
